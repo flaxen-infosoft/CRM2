@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+
+        <item
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/ic_calender"
+            android:title="DashBoard" />
+
+        <item
+            android:id="@+id/nav_customer_management"
+            android:icon="@drawable/ic_calender"
+            android:title="Customer management" />
+
+        <item
+            android:id="@+id/nav_leave"
+            android:icon="@drawable/ic_calender"
+            android:title="Apply For Leave" />
+
+    </group>
+
+    <item android:title="Logout">
+
+        <menu>
+            <group android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/ic_calender"
+                    android:title="Logout" />
+
+            </group>
+        </menu>
+    </item>
+
+</menu>

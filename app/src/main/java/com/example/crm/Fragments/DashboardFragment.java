@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.crm.AttendanceActivity;
+import com.example.crm.AttendanceManagement.AttendanceActivity;
 import com.example.crm.CRMManagement.CRMDashboardActivity;
 import com.example.crm.EmployeeManagement.EmployeeDashboardActivity;
 import com.example.crm.HRManagement.CandidateMainPage;

@@ -11,6 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CRM">
+        <activity android:name=".SalesManagement.LeaveActivity"/>
+        <activity android:name=".SalesManagement.LeaveApplicationActivity"/>
+        <activity android:name=".SalesManagement.SalesTaskActivity"/>
+        <activity android:name=".SalesManagement.SalesReportsActivity"/>
+        <activity android:name=".SalesManagement.SalesMainActivity"/>
+        <activity android:name=".AttendanceManagement.AttendenceGraphActivity"/>
+        <activity android:name=".AttendanceManagement.AttendanceActivity"/>
         <activity android:name=".SalesManagement.SalesCustomerDetailsActivity"></activity>
         <activity android:name=".SalesManagement.UpcomingSalesActivity" />
         <activity android:name=".SalesManagement.SalesLoginActivity" />
@@ -45,7 +52,6 @@
         <activity android:name=".CRMManagement.CustomerDetails" />
         <activity android:name=".CRMManagement.CustomersDetails" />
         <activity android:name=".EmployeeRegistration" />
-        <activity android:name=".AttendanceActivity" />
         <activity android:name=".CustomerRegisteration" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".LoginActivity">

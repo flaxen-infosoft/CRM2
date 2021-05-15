@@ -7,59 +7,59 @@
     tools:context=".HRManagement.CandidateMainPage"
     android:orientation="vertical">
 
-            <androidx.appcompat.widget.Toolbar
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@color/blue_border">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/blue_border">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_backarrow"/>
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_backarrow" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Candidate"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:textColor="@color/white"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="30dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:text="Candidate"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-                </RelativeLayout>
+        </RelativeLayout>
 
-            </androidx.appcompat.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_margin="10dp"
         android:background="@drawable/bg_stroke"
-        android:layout_margin="10dp">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:layout_centerHorizontal="true">
+            android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/register"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
-                app:cardCornerRadius="15dp"
                 android:layout_weight="1"
-                android:elevation="8dp">
+                android:elevation="8dp"
+                app:cardCornerRadius="15dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -69,23 +69,21 @@
                         android:id="@+id/img"
                         android:layout_width="45dp"
                         android:layout_height="45dp"
-                        android:src="@drawable/ic_registration"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginTop="15dp"/>
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/ic_registration" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Registration"
-                        android:layout_marginTop="5dp"
-                        android:textColor="@color/black"
+                        android:layout_below="@+id/img"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/img"/>
+                        android:layout_marginTop="5dp"
+                        android:text="Registration"
+                        android:textColor="@color/black" />
 
                 </RelativeLayout>
-
-
 
 
             </androidx.cardview.widget.CardView>
@@ -94,13 +92,13 @@
                 android:id="@+id/onlinetest"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:layout_weight="1"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                app:cardCornerRadius="15dp"
-                android:elevation="8dp">
+                android:layout_weight="1"
+                android:elevation="8dp"
+                app:cardCornerRadius="15dp">
 
 
                 <RelativeLayout
@@ -111,21 +109,21 @@
                         android:id="@+id/img2"
                         android:layout_width="45dp"
                         android:layout_height="45dp"
-                        android:src="@drawable/ic_file"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginTop="15dp"/>
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/ic_file" />
 
                     <TextView
-                        android:layout_below="@id/img2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Online Test"
-                        android:layout_marginTop="5dp"
-                        android:textColor="@color/black"
+                        android:layout_below="@id/img2"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginBottom="10dp" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Online Test"
+                        android:textColor="@color/black" />
 
                 </RelativeLayout>
 
@@ -138,22 +136,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_centerHorizontal="true">
+            android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/shortlisted"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
-                app:cardCornerRadius="15dp"
                 android:layout_weight="1"
-                android:elevation="8dp">
+                android:elevation="8dp"
+                app:cardCornerRadius="15dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -163,23 +161,21 @@
                         android:id="@+id/img3"
                         android:layout_width="45dp"
                         android:layout_height="45dp"
-                        android:src="@drawable/ic_shortlisted"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginTop="15dp"/>
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/ic_shortlisted" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Shortlisted"
-                        android:layout_marginTop="5dp"
-                        android:textColor="@color/black"
+                        android:layout_below="@+id/img3"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/img3"/>
+                        android:layout_marginTop="5dp"
+                        android:text="Shortlisted"
+                        android:textColor="@color/black" />
 
                 </RelativeLayout>
-
-
 
 
             </androidx.cardview.widget.CardView>
@@ -188,13 +184,13 @@
                 android:id="@+id/documentation"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:layout_weight="1"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                app:cardCornerRadius="15dp"
-                android:elevation="8dp">
+                android:layout_weight="1"
+                android:elevation="8dp"
+                app:cardCornerRadius="15dp">
 
 
                 <RelativeLayout
@@ -205,21 +201,21 @@
                         android:id="@+id/img4"
                         android:layout_width="45dp"
                         android:layout_height="45dp"
-                        android:src="@drawable/ic_document"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginTop="15dp"/>
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/ic_document" />
 
                     <TextView
-                        android:layout_below="@id/img4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Documentation"
-                        android:layout_marginTop="5dp"
-                        android:textColor="@color/black"
+                        android:layout_below="@id/img4"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginBottom="10dp" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Documentation"
+                        android:textColor="@color/black" />
 
                 </RelativeLayout>
 
@@ -233,24 +229,24 @@
             android:id="@+id/linear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="20dp"
-            android:layout_centerHorizontal="true">
+            android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/meeting"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
-                app:cardCornerRadius="15dp"
                 android:layout_weight="1"
-                android:elevation="8dp">
+                android:elevation="8dp"
+                app:cardCornerRadius="15dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -260,23 +256,21 @@
                         android:id="@+id/img5"
                         android:layout_width="45dp"
                         android:layout_height="45dp"
-                        android:src="@drawable/ic_registration"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginTop="15dp"/>
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/ic_registration" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Manage"
-                        android:layout_marginTop="5dp"
-                        android:textColor="@color/black"
+                        android:layout_below="@+id/img5"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/img5"/>
+                        android:layout_marginTop="5dp"
+                        android:text="Manage"
+                        android:textColor="@color/black" />
 
                 </RelativeLayout>
-
-
 
 
             </androidx.cardview.widget.CardView>
@@ -285,13 +279,13 @@
                 android:id="@+id/departments"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:layout_weight="1"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                app:cardCornerRadius="15dp"
-                android:elevation="8dp">
+                android:layout_weight="1"
+                android:elevation="8dp"
+                app:cardCornerRadius="15dp">
 
 
                 <RelativeLayout
@@ -302,21 +296,21 @@
                         android:id="@+id/img6"
                         android:layout_width="45dp"
                         android:layout_height="45dp"
-                        android:src="@drawable/ic_registration"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginTop="15dp"/>
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/ic_registration" />
 
                     <TextView
-                        android:layout_below="@id/img6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="All"
-                        android:layout_marginTop="5dp"
-                        android:textColor="@color/black"
+                        android:layout_below="@id/img6"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginBottom="10dp" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="All"
+                        android:textColor="@color/black" />
 
                 </RelativeLayout>
 

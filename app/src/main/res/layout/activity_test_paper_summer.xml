@@ -146,7 +146,7 @@
                         android:text="Applied for"/>
 
                     <TextView
-                       android:id="@+id/candidate_applied_for"
+                        android:id="@+id/candidate_applied_for"
                         android:layout_below="@id/candidate_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

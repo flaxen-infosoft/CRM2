@@ -82,7 +82,7 @@
                 android:layout_toLeftOf="@+id/phase"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-               android:layout_centerVertical="true"
+                android:layout_centerVertical="true"
                 />
 
             <RelativeLayout
@@ -96,14 +96,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2"
-                    android:textColor="@color/green"
+                    android:textColor="@color/grey"
                     android:layout_centerHorizontal="true"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Phase"
-                    android:textColor="@color/green"
+                    android:textColor="@color/grey"
                     android:layout_marginTop="20dp"
                     android:layout_centerHorizontal="true"/>
 
@@ -112,8 +112,8 @@
         </RelativeLayout>
 
         <ImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:src="@drawable/ic_pana"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true" />
@@ -205,7 +205,7 @@
                 android:layout_marginTop="10dp"/>
 
             <EditText
-                android:layout_width="290dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/candidate_personal_email"
                 android:layout_below="@+id/candidate_alt_phone"
@@ -227,7 +227,7 @@
                 android:layout_marginTop="10dp"/>
 
             <EditText
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/candidate_official_email"
                 android:layout_below="@+id/candidate_personal_email"
@@ -249,7 +249,7 @@
                 android:layout_marginTop="10dp"/>
 
             <EditText
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/candidate_source"
                 android:layout_below="@+id/candidate_official_email"

@@ -91,7 +91,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Documentation"
-                    android:textColor="@color/green"
+                    android:textColor="@color/grey"
                     android:textSize="17sp"
                     android:layout_marginTop="20dp"
                     android:layout_centerVertical="true"
@@ -476,7 +476,7 @@
                         android:textColor="@color/black" />
 
                     <Spinner
-                        android:layout_width="230dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/state"
                         android:layout_below="@+id/txtstate"
@@ -506,7 +506,7 @@
 
                     <Spinner
                         android:id="@+id/city"
-                        android:layout_width="230dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/txtcity"
                         android:layout_marginRight="5dp"
@@ -532,7 +532,7 @@
                 android:layout_marginTop="10dp"/>
 
             <EditText
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/candidate_personal_email"
                 android:layout_below="@+id/candidate_alt_phone"
@@ -554,7 +554,7 @@
                 android:layout_marginTop="10dp"/>
 
             <EditText
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/candidate_official_email"
                 android:layout_below="@+id/candidate_personal_email"

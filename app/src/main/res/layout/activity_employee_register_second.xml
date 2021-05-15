@@ -128,34 +128,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:text="Name of Employee"
-                android:textColor="@color/black" />
-
-            <EditText
-                android:id="@+id/empregname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="5dp"
-                android:background="@drawable/edittext_bg"
-                android:elevation="8dp"
-                android:inputType="text"
-                android:padding="13dp"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:text="Upload All Id Proofs"
                 android:textColor="@color/black" />
 
             <Button
                 android:id="@+id/candidate_phone"
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_below="@+id/candidate_name"
                 android:layout_marginLeft="5dp"
@@ -177,7 +156,7 @@
 
             <Button
                 android:id="@+id/salary_slip"
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_below="@+id/candidate_name"
                 android:layout_marginLeft="5dp"
@@ -199,7 +178,7 @@
 
             <Button
                 android:id="@+id/reveling_letter"
-                android:layout_width="150dp"
+                android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_below="@+id/candidate_name"
                 android:layout_marginLeft="5dp"
@@ -218,12 +197,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:text="Upload Graduation/Marksheet\nCertificate"
+                android:text="Upload Graduation/Marksheet Certificate"
                 android:textColor="@color/black" />
 
             <Button
                 android:id="@+id/marksheet_certificate"
-                android:layout_width="150dp"
+                android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_below="@+id/candidate_name"
                 android:layout_marginLeft="5dp"
@@ -242,12 +221,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:text="Upload any another\nCertificate"
+                android:text="Upload any another Certificate"
                 android:textColor="@color/black" />
+
 
             <Button
                 android:id="@+id/another_certificate"
-                android:layout_width="150dp"
+                android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_below="@+id/candidate_name"
                 android:layout_marginLeft="5dp"
@@ -255,11 +235,10 @@
                 android:layout_marginRight="5dp"
                 android:background="@drawable/bg_btn"
                 android:elevation="15dp"
-                android:textSize="13sp"
                 android:text="Choose File"
                 android:textColor="@color/black"
+                android:textSize="13sp"
                 app:backgroundTint="@color/lightgrey" />
-
 
             <Button
                 android:id="@+id/candidate_resume"
