@@ -9,22 +9,20 @@ import android.widget.Button;
 
 import com.example.crm.R;
 
-public class TestPaperActivity extends AppCompatActivity {
+public class LiteratureTestPaper extends AppCompatActivity {
 
-    Button btn_done;
+    Button btn_submit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_paper);
+        setContentView(R.layout.activity_literature_test_paper);
 
-        btn_done = findViewById(R.id.test_done_btn);
-
-        btn_done.setOnClickListener(new View.OnClickListener() {
+        btn_submit = findViewById(R.id.test_done_btn);
+        btn_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TestPaperActivity.this, LogicalreasoningTestPaper.class);
-                startActivity(intent);
+                startActivity(new Intent(LiteratureTestPaper.this, TestPaperRespondActivity.class));
             }
         });
 

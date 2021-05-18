@@ -32,7 +32,9 @@
                 android:layout_toRightOf="@id/search"
                 android:background="@drawable/bg_cardview"
                 android:padding="8dp"
-                android:entries="@array/Gender"/>
+                android:textAlignment="center"
+                android:entries="@array/sort_by"
+                android:gravity="center_horizontal" />
 
         </RelativeLayout>
 

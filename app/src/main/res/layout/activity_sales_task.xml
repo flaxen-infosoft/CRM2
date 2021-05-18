@@ -56,13 +56,58 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/bg_cardview">
 
-                <ImageView
-                    android:id="@+id/graph"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"/>
+                <RelativeLayout
+                    android:id="@+id/relative"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ProgressBar
+                        android:id="@+id/progress_bar"
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
+                        android:indeterminateOnly="false"
+                        tools:progress="90"
+                        android:progressDrawable="@drawable/circle"
+                        android:elevation="8dp"/>
+
+                    <RelativeLayout
+                        android:id="@+id/text_view_progress"
+                        android:layout_width="105dp"
+                        android:layout_height="105dp"
+                        android:textSize="24dp"
+                        android:background="@drawable/white_round_bg"
+                        android:layout_centerInParent="true"
+                        android:elevation="8dp">
+
+                        <TextView
+                            android:id="@+id/call_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Call \n Completed"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/blue_border"
+                            android:textStyle="bold"
+                            android:textSize="17sp"
+                            android:textAlignment="center"
+                            android:gravity="center_horizontal" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="50 / 120"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/lightgrey"
+                            android:layout_below="@+id/call_text"
+                            android:layout_centerHorizontal="true"/>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
 
                 <RelativeLayout
-                    android:layout_below="@+id/graph"
+                    android:layout_below="@+id/relative"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"

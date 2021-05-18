@@ -77,6 +77,7 @@ public class SalesMainActivity extends AppCompatActivity implements NavigationVi
                 break;
 
             case R.id.nav_leave :
+                startActivity(new Intent(SalesMainActivity.this, LeaveApplicationActivity.class));
                 break;
         }
 

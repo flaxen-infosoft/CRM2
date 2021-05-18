@@ -43,7 +43,10 @@
     </string-array>
 
     <string-array name="Status">
-        <item>Logged In</item>
+
+        <item>Status</item>
+        <item>Active</item>
+        <item> In Active</item>
     </string-array>
 
     <string-array name="Gender">
@@ -68,6 +71,15 @@
         <item>Half Day</item>
         <item>Early leaving</item>
         <item>late Coming</item>
+    </string-array>
+
+    <string-array name="sort_by">
+        <item>Sort By</item>
+        <item>HR</item>
+        <item>Development</item>
+        <item>sales</item>
+        <item>Designing</item>
+        <item>Digital Marketing</item>
     </string-array>
 
     <string name="navigation__drawer_open">Open navigation drawer</string>

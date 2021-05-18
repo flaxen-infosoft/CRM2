@@ -110,7 +110,7 @@ public class CandidateRegistration extends AppCompatActivity  {
         btn_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CandidateRegistration.this, CandidateRemark.class);
+                Intent intent = new Intent(CandidateRegistration.this, NewCandidateActivity.class);
                 startActivity(intent);
             }
         });
