@@ -36,10 +36,11 @@
 
     <string-array name="Department">
         <item>Select Department</item>
+        <item>HR Management</item>
         <item>Development</item>
         <item>Sales</item>
         <item>Digital Marketing</item>
-        <item>HR Management</item>
+        <item>Designer</item>
     </string-array>
 
     <string-array name="Status">
@@ -80,6 +81,18 @@
         <item>sales</item>
         <item>Designing</item>
         <item>Digital Marketing</item>
+    </string-array>
+
+    <string-array name="interview">
+        <item>Select</item>
+        <item>Selected</item>
+        <item>Rejected</item>
+    </string-array>
+
+    <string-array name="calling">
+        <item>Select</item>
+        <item>Interested</item>
+        <item>Not Interested</item>
     </string-array>
 
     <string name="navigation__drawer_open">Open navigation drawer</string>

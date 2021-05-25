@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.crm.PaySlipFormActivity;
 import com.example.crm.R;
@@ -17,7 +18,7 @@ import net.cachapa.expandablelayout.ExpandableLayout;
 
 public class CandidateRemark extends AppCompatActivity {
 
-    Button btnresume;
+    Button btnregister;
     Spinner spin_department, spin_status;
     RadioButton job, intern;
     ExpandableLayout expandablemycontent, expandableinterncontent;
@@ -27,7 +28,7 @@ public class CandidateRemark extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_candidate_remark);
 
-        btnresume = findViewById(R.id.candidate_remark_resume);
+        btnregister = findViewById(R.id.candidate_register);
         spin_department = findViewById(R.id.department);
         spin_status = findViewById(R.id.status);
 
@@ -42,11 +43,10 @@ public class CandidateRemark extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin_status.setAdapter(adapter1);
 
-        btnresume.setOnClickListener(new View.OnClickListener() {
+        btnregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CandidateRemark.this, PaySlipFormActivity.class);
-                startActivity(intent);
+                Toast.makeText(CandidateRemark.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
             }
         });
 

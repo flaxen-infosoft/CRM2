@@ -21,13 +21,13 @@
           android:layout_centerHorizontal="true"
           android:src="@drawable/logo" />
 
-      <EditText
+      <Spinner
           android:id="@+id/employee_id"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:hint="Name / Employee Id"
           android:layout_below="@id/logo"
           android:layout_marginTop="40dp"
+          android:entries="@array/Department"
           android:layout_marginLeft="20dp"
           android:layout_marginRight="20dp"
           android:background="@drawable/edback"
@@ -41,7 +41,9 @@
           android:layout_below="@id/employee_id"
           android:layout_marginTop="20dp"
           android:layout_marginLeft="20dp"
+          android:inputType="number"
           android:layout_marginRight="20dp"
+          android:textColorHint="@color/black"
           android:background="@drawable/edback"
           android:padding="13dp"/>
 
@@ -51,7 +53,9 @@
           android:layout_height="wrap_content"
           android:hint="Password"
           android:layout_below="@id/mobile"
+          android:textColorHint="@color/black"
           android:layout_marginTop="20dp"
+          android:inputType="textWebPassword"
           android:layout_marginLeft="20dp"
           android:layout_marginRight="20dp"
           android:background="@drawable/edback"

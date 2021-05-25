@@ -215,6 +215,7 @@
                 android:hint="City"
                 android:background="@drawable/edittext_bg"
                 android:padding="6dp"
+                android:entries="@array/Spinner_items_state"
                 android:elevation="6dp"/>
 
             <TextView
@@ -236,6 +237,7 @@
                 android:hint="Select city"
                 android:background="@drawable/edittext_bg"
                 android:padding="6dp"
+                android:entries="@array/Spinner_items_city"
                 android:elevation="6dp"/>
 
             <TextView

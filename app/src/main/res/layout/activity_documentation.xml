@@ -58,18 +58,10 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp">
 
-                <Button
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:text="Active"
-                    android:background="@drawable/bg_btn_blue_stroke"
-                    app:backgroundTint="@color/skyblue"
-                    android:textColor="@color/green"/>
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Name"
+                    android:text="Name of Candidate"
                     android:layout_marginTop="5dp"
                     android:textColor="@color/black"
                     android:textSize="17sp"/>
@@ -77,15 +69,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="DOJ"
-                    android:layout_marginTop="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Designation"
+                    android:text="Department"
                     android:layout_marginTop="5dp"
                     android:textColor="@color/black"
                     android:textSize="17sp"/>

@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.crm.CRMManagement.CRM_RegisterActivity;
 import com.example.crm.R;
@@ -54,77 +55,76 @@ public class CandidateRegistration extends AppCompatActivity  {
         citySpin = findViewById(R.id.city);
 
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://raw.githubusercontent.com/fayazara/Indian-Cities-API/master/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        Rinterface rinterface = retrofit.create(Rinterface.class);
-        Call<object> call = rinterface.getObject();
-        call.enqueue(new Callback<object>() {
-            @Override
-            public void onResponse(Call<object> call, Response<object> response) {
-                if (!response.isSuccessful()) {
-                    System.out.println("response.code() = " + response.code());
-                }
-
-                List<Cities> cities = response.body().getCities();
-                for (Cities cities1 : cities) {
-                    stateList.add(cities1.getState());
-                }
-                List<String> filteredStateList = removeDuplicates(stateList);
-                Collections.sort(filteredStateList);
-                filteredStateList.add(0, "Select State");
-                stateSpin.setAdapter(new ArrayAdapter<>(CandidateRegistration.this, android.R.layout.simple_spinner_dropdown_item, filteredStateList));
-                stateSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        String state = stateSpin.getSelectedItem().toString();
-                        cityList.clear();
-                        for (Cities cities1 : cities) {
-                            if (cities1.getState().equals(state)) {
-                                cityList.add(cities1.getCity());
-                            }
-                        }
-                        List<String> filteredCityList = removeDuplicates(cityList);
-                        Collections.sort(filteredCityList);
-                        filteredCityList.add(0, "Select City");
-                        citySpin.setAdapter(new ArrayAdapter<>(CandidateRegistration.this, android.R.layout.simple_spinner_dropdown_item, filteredCityList));
-
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> parent) {
-
-                    }
-                });
-            }
-
-            @Override
-            public void onFailure(Call<object> call, Throwable t) {
-                System.out.println("t.getMessage() = " + t.getMessage());
-            }
-        });
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl("https://raw.githubusercontent.com/fayazara/Indian-Cities-API/master/")
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+//
+//        Rinterface rinterface = retrofit.create(Rinterface.class);
+//        Call<object> call = rinterface.getObject();
+//        call.enqueue(new Callback<object>() {
+//            @Override
+//            public void onResponse(Call<object> call, Response<object> response) {
+//                if (!response.isSuccessful()) {
+//                    System.out.println("response.code() = " + response.code());
+//                }
+//
+//                List<Cities> cities = response.body().getCities();
+//                for (Cities cities1 : cities) {
+//                    stateList.add(cities1.getState());
+//                }
+//                List<String> filteredStateList = removeDuplicates(stateList);
+//                Collections.sort(filteredStateList);
+//                filteredStateList.add(0, "Select State");
+//                stateSpin.setAdapter(new ArrayAdapter<>(CandidateRegistration.this, android.R.layout.simple_spinner_dropdown_item, filteredStateList));
+//                stateSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                    @Override
+//                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                        String state = stateSpin.getSelectedItem().toString();
+//                        cityList.clear();
+//                        for (Cities cities1 : cities) {
+//                            if (cities1.getState().equals(state)) {
+//                                cityList.add(cities1.getCity());
+//                            }
+//                        }
+//                        List<String> filteredCityList = removeDuplicates(cityList);
+//                        Collections.sort(filteredCityList);
+//                        filteredCityList.add(0, "Select City");
+//                        citySpin.setAdapter(new ArrayAdapter<>(CandidateRegistration.this, android.R.layout.simple_spinner_dropdown_item, filteredCityList));
+//
+//                    }
+//
+//                    @Override
+//                    public void onNothingSelected(AdapterView<?> parent) {
+//
+//                    }
+//                });
+//            }
+//
+//            @Override
+//            public void onFailure(Call<object> call, Throwable t) {
+//                System.out.println("t.getMessage() = " + t.getMessage());
+//            }
+//        });
 
 
         btn_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CandidateRegistration.this, NewCandidateActivity.class);
-                startActivity(intent);
+                Toast.makeText(CandidateRegistration.this, "Candidate Registered Successfully", Toast.LENGTH_SHORT).show();
             }
         });
 
     }
 
-    private List<String> removeDuplicates(List<String> stateList) {
-        List<String> statesList = new ArrayList<>();
-        for (String state : stateList) {
-            if (!statesList.contains(state)) {
-                statesList.add(state);
-            }
-        }
-        return statesList;
-    }
+//    private List<String> removeDuplicates(List<String> stateList) {
+//        List<String> statesList = new ArrayList<>();
+//        for (String state : stateList) {
+//            if (!statesList.contains(state)) {
+//                statesList.add(state);
+//            }
+//        }
+//        return statesList;
+//    }
 
 }

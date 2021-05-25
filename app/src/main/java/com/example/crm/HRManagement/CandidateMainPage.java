@@ -11,23 +11,24 @@ import com.example.crm.R;
 
 public class CandidateMainPage extends AppCompatActivity {
 
-    CardView register, shortlisted , onlinetest, documentation, meeting;
+    CardView register, shortlisted , onlinetest, documentation, meeting, new_register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_candidate_main_page);
 
-        register = findViewById(R.id.register);
+        register = findViewById(R.id.candidate_register);
         shortlisted = findViewById(R.id.shortlisted);
         onlinetest = findViewById(R.id.onlinetest);
         documentation = findViewById(R.id.documentation);
         meeting = findViewById(R.id.meeting);
+        new_register = findViewById(R.id.new_register);
 
-//        meeting.setOnClickListener(v -> {
-//            Intent intent = new Intent(CandidateMainPage.this, EmployeeDashboardActivity.class);
-//            startActivity(intent);
-//        });
+        new_register.setOnClickListener(v -> {
+            Intent intent = new Intent(CandidateMainPage.this, NewCandidateActivity.class);
+            startActivity(intent);
+        });
 
         documentation.setOnClickListener(v -> {
             Intent intent = new Intent(CandidateMainPage.this, DocumentationActivity.class);
@@ -45,7 +46,7 @@ public class CandidateMainPage extends AppCompatActivity {
         });
 
         onlinetest.setOnClickListener(v -> {
-            Intent intent = new Intent(CandidateMainPage.this, TestPaperActivity.class);
+            Intent intent = new Intent(CandidateMainPage.this, TestRespoondActivity.class);
             startActivity(intent);
         });
     }

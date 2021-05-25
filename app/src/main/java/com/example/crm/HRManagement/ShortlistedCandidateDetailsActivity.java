@@ -19,11 +19,5 @@ public class ShortlistedCandidateDetailsActivity extends AppCompatActivity {
 
         cardView = findViewById(R.id.card1);
 
-
-        cardView.setOnClickListener(v -> {
-            Intent intent = new Intent(ShortlistedCandidateDetailsActivity.this, ShortlistedCandidateFullDetailsActivity.class);
-            startActivity(intent);
-        });
-
     }
 }

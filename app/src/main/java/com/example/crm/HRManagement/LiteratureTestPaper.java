@@ -22,7 +22,7 @@ public class LiteratureTestPaper extends AppCompatActivity {
         btn_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LiteratureTestPaper.this, TestPaperRespondActivity.class));
+                startActivity(new Intent(LiteratureTestPaper.this, TestRespoondActivity.class));
             }
         });
 
