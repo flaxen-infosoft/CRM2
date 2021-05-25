@@ -210,9 +210,9 @@
                 android:layout_marginRight="5dp"
                 android:background="@drawable/bg_btn"
                 android:elevation="15dp"
-                android:textSize="13sp"
                 android:text="Choose File"
                 android:textColor="@color/black"
+                android:textSize="13sp"
                 app:backgroundTint="@color/lightgrey" />
 
 
