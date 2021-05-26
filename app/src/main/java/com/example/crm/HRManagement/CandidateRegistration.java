@@ -1,9 +1,6 @@
 package com.example.crm.HRManagement;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +11,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.crm.CRMManagement.CRM_RegisterActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.crm.CustomToast;
 import com.example.crm.Model.Candidate;
 import com.example.crm.R;
@@ -34,11 +32,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class CandidateRegistration extends AppCompatActivity  {
+public class CandidateRegistration extends AppCompatActivity {
 
     EditText name, phone, alt_phone, personal_email, official_email, source, address;
     Spinner city, state;
-    Button btn_update;
+    Button btn_update, btn_upresume;
     List<String> stateList = new ArrayList<>();
     List<String> cityList = new ArrayList<>();
 
@@ -56,10 +54,12 @@ public class CandidateRegistration extends AppCompatActivity  {
         source = findViewById(R.id.candidate_source);
         address = findViewById(R.id.candidate_address);
         btn_update = findViewById(R.id.candidate_resume);
-
+        btn_upresume = findViewById(R.id.uploadresume);
         city = findViewById(R.id.candidate_city);
         state = findViewById(R.id.candidate_state);
+btn_upresume.setOnClickListener(view -> {
 
+});
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Spinner_items_city, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         city.setAdapter(adapter);
@@ -179,7 +179,7 @@ public class CandidateRegistration extends AppCompatActivity  {
             candidate.setSource(cansource);
             candidate.setPid(canpersonalemail);
             candidate.setOid(canofficialemail);
-CandidateRegister(candidate);
+            CandidateRegister(candidate);
         }
     }
     private void CandidateRegister(Candidate candidate) {
@@ -197,6 +197,8 @@ CandidateRegister(candidate);
             @Override
             public void onFailure(Call<Candidate> call, Throwable t) {
                 System.out.println(t.getMessage());
+                CustomToast.makeText(CandidateRegistration.this, "Candidate Not Registered", 0, Color.RED);
+
             }
         });
     }
