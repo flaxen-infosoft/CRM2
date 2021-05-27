@@ -1,6 +1,7 @@
 package com.example.crm.HRManagement;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +22,8 @@ import com.example.crm.Retro.Retrofi;
 import com.example.crm.citystate.Cities;
 import com.example.crm.citystate.Rinterface;
 import com.example.crm.citystate.object;
+import com.jaiselrahman.filepicker.activity.FilePickerActivity;
+import com.jaiselrahman.filepicker.config.Configurations;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -58,7 +61,7 @@ public class CandidateRegistration extends AppCompatActivity {
         city = findViewById(R.id.candidate_city);
         state = findViewById(R.id.candidate_state);
 btn_upresume.setOnClickListener(view -> {
-
+filePicker();
 });
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Spinner_items_city, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -128,6 +131,20 @@ btn_upresume.setOnClickListener(view -> {
             }
         });
 
+    }
+
+    private void filePicker() {
+        Intent intent = new Intent(CandidateRegistration.this, FilePickerActivity.class);
+        intent.putExtra(FilePickerActivity.CONFIGS,new Configurations.Builder()
+                        .setCheckPermission(true)
+                        .setShowFiles(true)
+                .setShowImages(false)
+                .setShowVideos(false)
+                .setMaxSelection(1)
+                .setSuffixes("pdf")
+                .setSkipZeroSizeFiles(true)
+                .build()
+                );
     }
 
     private void Check() {
