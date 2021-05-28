@@ -43,8 +43,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CandidateRegistration extends AppCompatActivity {
 
-    EditText name, phone, alt_phone, personal_email, official_email, source, address;
-    Spinner city, state;
+    EditText name, phone, alt_phone, personal_email, official_email, source, address,designation;
+    Spinner city, state,department;
     private String resumepdf;
     Button btn_update, btn_upresume;
     List<String> stateList = new ArrayList<>();
@@ -63,6 +63,8 @@ public class CandidateRegistration extends AppCompatActivity {
         official_email = findViewById(R.id.candidate_official_email);
         source = findViewById(R.id.candidate_source);
         address = findViewById(R.id.candidate_address);
+        designation=findViewById(R.id.candidate_designation);
+        department= findViewById(R.id.candidate_department);
         btn_update = findViewById(R.id.candidate_resume);
         btn_upresume = findViewById(R.id.uploadresume);
         city = findViewById(R.id.candidate_city);
@@ -73,6 +75,10 @@ filePicker();
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Spinner_items_city, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         city.setAdapter(adapter);
+
+        ArrayAdapter<CharSequence> deadapter = ArrayAdapter.createFromResource(this, R.array.Department, android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        department.setAdapter(deadapter);
 
         ArrayAdapter<CharSequence> stateadapter = ArrayAdapter.createFromResource(this, R.array.Spinner_items_state, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
