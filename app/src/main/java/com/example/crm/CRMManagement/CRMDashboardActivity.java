@@ -26,5 +26,9 @@ public class CRMDashboardActivity extends AppCompatActivity {
         task = findViewById(R.id.task_details);
 
         register.setOnClickListener(v -> startActivity(new Intent(CRMDashboardActivity.this, CRM_RegisterActivity.class)));
+
+        manage.setOnClickListener(v -> startActivity(new Intent(CRMDashboardActivity.this, CustomersDetails.class)));
+
+        upcoming.setOnClickListener(v -> startActivity(new Intent(CRMDashboardActivity.this, UpcomingSalesActivity.class)));
     }
 }

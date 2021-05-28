@@ -1,85 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HRManagement.SummeryTestFragment">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card2"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="430dp"
-        app:cardCornerRadius="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/bg_cardview"
-        android:elevation="8dp">
+        android:layout_height="match_parent">
 
-        <RelativeLayout
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/bg_cardview">
-
-            <com.github.mikephil.charting.charts.PieChart
-                android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:layout_margin="5dp"
-                android:id="@+id/piechart">
-
-            </com.github.mikephil.charting.charts.PieChart>
+            android:layout_height="430dp"
+            app:cardCornerRadius="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/bg_cardview"
+            android:elevation="8dp">
 
             <RelativeLayout
-                android:layout_below="@+id/piechart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="10dp"
-                android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_cardview">
 
-                <TextView
-                    android:id="@+id/candidate_name"
+                <com.github.mikephil.charting.charts.PieChart
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_margin="5dp"
+                    android:id="@+id/piechart">
+
+                </com.github.mikephil.charting.charts.PieChart>
+
+                <RelativeLayout
+                    android:layout_below="@+id/piechart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="19sp"
-                    android:textColor="@color/black"
-                    android:text="Name of Candidate"/>
+                    android:padding="10dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/candidate_applied_for"
-                    android:layout_below="@id/candidate_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="19sp"
-                    android:textColor="@color/black"
-                    android:text="Applied For"/>
+                    <TextView
+                        android:id="@+id/candidate_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="19sp"
+                        android:textColor="@color/black"
+                        android:text="Name of Candidate"/>
 
-                <TextView
-                    android:id="@+id/candidate_time_taken"
-                    android:layout_below="@id/candidate_applied_for"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="19sp"
-                    android:textColor="@color/black"
-                    android:text="Time Taken"/>
+                    <TextView
+                        android:id="@+id/candidate_applied_for"
+                        android:layout_below="@id/candidate_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="19sp"
+                        android:textColor="@color/black"
+                        android:text="Applied For"/>
+
+                    <TextView
+                        android:id="@+id/candidate_time_taken"
+                        android:layout_below="@id/candidate_applied_for"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="19sp"
+                        android:textColor="@color/black"
+                        android:text="Time Taken"/>
 
 
-                <TextView
-                    android:id="@+id/date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="19sp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="15dp"
-                    android:textColor="@color/black"
-                    android:text="Date"/>
+                    <TextView
+                        android:id="@+id/date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="19sp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="15dp"
+                        android:textColor="@color/black"
+                        android:text="Date"/>
+
+                </RelativeLayout>
 
             </RelativeLayout>
 
-        </RelativeLayout>
+        </androidx.cardview.widget.CardView>
 
-    </androidx.cardview.widget.CardView>
+    </LinearLayout>
 
-</LinearLayout>
+
+
+</ScrollView>

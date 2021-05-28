@@ -24,7 +24,7 @@
         <activity android:name=".AttendanceManagement.AttendenceGraphActivity" />
         <activity android:name=".AttendanceManagement.AttendanceActivity" />
         <activity android:name=".SalesManagement.SalesCustomerDetailsActivity" />
-        <activity android:name=".SalesManagement.UpcomingSalesActivity" />
+        <activity android:name=".CRMManagement.UpcomingSalesActivity" />
         <activity android:name=".SalesManagement.SalesLoginActivity" />
         <activity android:name=".CRMManagement.CRM_RegisterActivity" />
         <activity android:name=".CRMManagement.CRMDashboardActivity" />

@@ -30,10 +30,10 @@ public class CandidateMainPage extends AppCompatActivity {
             startActivity(intent);
         });
 
-        documentation.setOnClickListener(v -> {
-            Intent intent = new Intent(CandidateMainPage.this, DocumentationActivity.class);
-            startActivity(intent);
-        });
+//        documentation.setOnClickListener(v -> {
+//            Intent intent = new Intent(CandidateMainPage.this, DocumentationActivity.class);
+//            startActivity(intent);
+//        });
 
         shortlisted.setOnClickListener(v -> {
             Intent intent = new Intent(CandidateMainPage.this, ShortlistedCandidateDetailsActivity.class);
