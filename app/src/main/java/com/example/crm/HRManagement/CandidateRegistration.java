@@ -183,6 +183,7 @@ filePicker();
         String cansource = source.getText().toString();
         String canstate = state.getSelectedItem().toString();
         String cancity = city.getSelectedItem().toString();
+String candepatment= department.getSelectedItem().toString();
         if (canphone.length() != 10) {
             phone.setError("Please Enter Valid Phone Number ");
             phone.requestFocus();
@@ -223,6 +224,8 @@ filePicker();
             candidate.setPid(canpersonalemail);
             candidate.setOid(canofficialemail);
             candidate.setResume(resumepdf);
+            candidate.setDepartment(candepatment);
+            candidate.setDesignation(designation.getText().toString());
             CandidateRegister(candidate);
         }
     }
