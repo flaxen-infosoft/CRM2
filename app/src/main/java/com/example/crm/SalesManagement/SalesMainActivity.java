@@ -40,7 +40,7 @@ public class SalesMainActivity extends AppCompatActivity implements NavigationVi
         setSupportActionBar(toolbar);
 
         navigationView.bringToFront();
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation__drawer_open, R.string.navigation_drawer__close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 

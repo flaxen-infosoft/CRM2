@@ -95,11 +95,4 @@
         <item>Not Interested</item>
     </string-array>
 
-    <string name="navigation__drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer__close">Close navigation drawer</string>
-
-
-    <string name="navigation__drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer__close">Close navigation drawer</string>
-
 </resources>
