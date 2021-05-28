@@ -43,8 +43,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CandidateRegistration extends AppCompatActivity {
 
-    EditText name, phone, alt_phone, personal_email, official_email, source, address,designation;
-    Spinner city, state,department;
+    EditText name, phone, alt_phone, personal_email, official_email, source, address;
+    Spinner city, state,department,designation;
     private String resumepdf;
     Button btn_update, btn_upresume;
     List<String> stateList = new ArrayList<>();
@@ -225,7 +225,7 @@ String candepatment= department.getSelectedItem().toString();
             candidate.setOid(canofficialemail);
             candidate.setResume(resumepdf);
             candidate.setDepartment(candepatment);
-            candidate.setDesignation(designation.getText().toString());
+            candidate.setDesignation(designation.getSelectedItem().toString());
             CandidateRegister(candidate);
         }
     }
