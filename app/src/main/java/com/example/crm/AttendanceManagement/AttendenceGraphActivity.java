@@ -1,9 +1,9 @@
 package com.example.crm.AttendanceManagement;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.graphics.Color;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.crm.R;
 import com.github.mikephil.charting.charts.LineChart;

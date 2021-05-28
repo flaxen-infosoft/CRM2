@@ -54,6 +54,7 @@ CardView webmailcard;
         attendancecard.setOnClickListener(view -> {
             startActivity(new Intent(getContext(), AttendanceActivity.class));
         });
+
         webmailcard.setOnClickListener(view -> {
             startActivity(new Intent(getContext(), WebmailActivity.class));
         });

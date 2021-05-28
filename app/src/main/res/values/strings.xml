@@ -42,7 +42,15 @@
         <item>Digital Marketing</item>
         <item>Designer</item>
     </string-array>
-
+    <string-array name="Designation">
+        <item>Select Designation</item>
+        <item>Android APP Development</item>
+        <item>Website Development</item>
+        <item>Sales</item>
+        <item>Digital Marketing</item>
+        <item>UI UX Designer</item>
+        <item>Graphic Designer</item>
+    </string-array>
     <string-array name="Status">
 
         <item>Status</item>
@@ -95,10 +103,4 @@
         <item>Not Interested</item>
     </string-array>
 
-    <string name="navigation__drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer__close">Close navigation drawer</string>
-
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
