@@ -3,7 +3,9 @@ package com.example.crm.HRManagement;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.crm.CustomToast;
@@ -25,6 +28,9 @@ import com.example.crm.citystate.object;
 import com.jaiselrahman.filepicker.activity.FilePickerActivity;
 import com.jaiselrahman.filepicker.config.Configurations;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -39,6 +45,7 @@ public class CandidateRegistration extends AppCompatActivity {
 
     EditText name, phone, alt_phone, personal_email, official_email, source, address;
     Spinner city, state;
+    private String resumepdf;
     Button btn_update, btn_upresume;
     List<String> stateList = new ArrayList<>();
     List<String> cityList = new ArrayList<>();
@@ -134,17 +141,30 @@ filePicker();
     }
 
     private void filePicker() {
-        Intent intent = new Intent(CandidateRegistration.this, FilePickerActivity.class);
-        intent.putExtra(FilePickerActivity.CONFIGS,new Configurations.Builder()
-                        .setCheckPermission(true)
-                        .setShowFiles(true)
-                .setShowImages(false)
-                .setShowVideos(false)
-                .setMaxSelection(1)
-                .setSuffixes("pdf")
-                .setSkipZeroSizeFiles(true)
-                .build()
-                );
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("application/pdf");
+        intent= Intent.createChooser(intent,"Choose file");
+        startActivityForResult(intent,101);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 101 && resultCode == RESULT_OK && data != null){
+            Uri path= data.getData();
+            InputStream inputStream= null;
+            try {
+                inputStream = CandidateRegistration.this.getContentResolver().openInputStream(path);
+                byte[] pdfinByte= new byte[inputStream.available()];
+                inputStream.read(pdfinByte);
+                resumepdf = Base64.encodeToString(pdfinByte,Base64.DEFAULT);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
     }
 
     private void Check() {
@@ -196,6 +216,7 @@ filePicker();
             candidate.setSource(cansource);
             candidate.setPid(canpersonalemail);
             candidate.setOid(canofficialemail);
+            candidate.setResume(resumepdf);
             CandidateRegister(candidate);
         }
     }
