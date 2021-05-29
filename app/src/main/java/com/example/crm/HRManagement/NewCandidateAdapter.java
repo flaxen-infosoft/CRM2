@@ -2,22 +2,20 @@ package com.example.crm.HRManagement;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-;
 import com.example.crm.Model.Candidate;
 import com.example.crm.R;
 
-
 import java.util.List;
+
+;
 
 public class NewCandidateAdapter extends RecyclerView.Adapter<NewCandidateAdapter.ViewHolder> {
 
