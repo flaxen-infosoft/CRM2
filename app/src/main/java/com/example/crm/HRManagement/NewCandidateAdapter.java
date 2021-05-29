@@ -1,6 +1,8 @@
 package com.example.crm.HRManagement;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +43,14 @@ Candidate candidate=candidateList.get(position);
 holder.name.setText(candidate.getName());
 holder.designation.setText(candidate.getDesignation());
 holder.resumebt.setOnClickListener(view -> {
-
+  Intent intent=  new Intent(context,PdfViewerActivity.class);
+  intent.putExtra("pdfurl",candidate.getResume());
+   context.startActivity(intent);
+});
+holder.itemView.setOnClickListener(view -> {
+    Intent intent= new Intent(context,CandidateRemark.class);
+    intent.putExtra("id",candidate.getId());
+    context.startActivity(intent);
 });
     }
 
@@ -51,8 +60,7 @@ holder.resumebt.setOnClickListener(view -> {
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView name, designation,  date;
-        Button resumebt;
+        TextView name, designation,resumebt, date;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
