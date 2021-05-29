@@ -18,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.crm.CustomToast;
+import com.example.crm.EmployeeManagement.EmployeeRegistrationActvity;
 import com.example.crm.Model.Candidate;
 import com.example.crm.R;
 import com.example.crm.Retro.RetroInterface;
@@ -67,74 +68,62 @@ public class CandidateRegistration extends AppCompatActivity {
         department= findViewById(R.id.candidate_department);
         btn_update = findViewById(R.id.candidate_resume);
         btn_upresume = findViewById(R.id.uploadresume);
-        city = findViewById(R.id.city);
-        state = findViewById(R.id.state);
+        city = findViewById(R.id.cityspin);
+        state = findViewById(R.id.statespin);
 btn_upresume.setOnClickListener(view -> {
 filePicker();
 });
-//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Spinner_items_city, android.R.layout.simple_spinner_dropdown_item);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        city.setAdapter(adapter);
-//
-//        ArrayAdapter<CharSequence> deadapter = ArrayAdapter.createFromResource(this, R.array.Department, android.R.layout.simple_spinner_dropdown_item);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        department.setAdapter(deadapter);
-//
-//        ArrayAdapter<CharSequence> stateadapter = ArrayAdapter.createFromResource(this, R.array.Spinner_items_state, android.R.layout.simple_spinner_dropdown_item);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        state.setAdapter(stateadapter);
-//
-//        Retrofit retrofit = new Retrofit.Builder()
-//                .baseUrl("https://raw.githubusercontent.com/fayazara/Indian-Cities-API/master/")
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .build();
-//
-//        Rinterface rinterface = retrofit.create(Rinterface.class);
-//        Call<object> call = rinterface.getObject();
-//        call.enqueue(new Callback<object>() {
-//            @Override
-//            public void onResponse(Call<object> call, Response<object> response) {
-//                if (!response.isSuccessful()) {
-//                    System.out.println("response.code() = " + response.code());
-//                }
-//
-//                List<Cities> cities = response.body().getCities();
-//                for (Cities cities1 : cities) {
-//                    stateList.add(cities1.getState());
-//                }
-//                List<String> filteredStateList = removeDuplicates(stateList);
-//                Collections.sort(filteredStateList);
-//                filteredStateList.add(0, "Select State");
-//                state.setAdapter(new ArrayAdapter<>(CandidateRegistration.this, android.R.layout.simple_spinner_dropdown_item, filteredStateList));
-//                state.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//                    @Override
-//                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                        String state1 = state.getSelectedItem().toString();
-//                        cityList.clear();
-//                        for (Cities cities1 : cities) {
-//                            if (cities1.getState().equals(state1)) {
-//                                cityList.add(cities1.getCity());
-//                            }
-//                        }
-//                        List<String> filteredCityList = removeDuplicates(cityList);
-//                        Collections.sort(filteredCityList);
-//                        filteredCityList.add(0, "Select City");
-//                        city.setAdapter(new ArrayAdapter<>(CandidateRegistration.this, android.R.layout.simple_spinner_dropdown_item, filteredCityList));
-//
-//                    }
-//
-//                    @Override
-//                    public void onNothingSelected(AdapterView<?> parent) {
-//
-//                    }
-//                });
-//            }
-//
-//            @Override
-//            public void onFailure(Call<object> call, Throwable t) {
-//                System.out.println("t.getMessage() = " + t.getMessage());
-//            }
-//        });
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://raw.githubusercontent.com/fayazara/Indian-Cities-API/master/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        Rinterface rinterface = retrofit.create(Rinterface.class);
+        Call<object> call = rinterface.getObject();
+        call.enqueue(new Callback<object>() {
+            @Override
+            public void onResponse(Call<object> call, Response<object> response) {
+                if (!response.isSuccessful()) {
+                    System.out.println("response.code() = " + response.code());
+                }
+
+                List<Cities> cities = response.body().getCities();
+                for (Cities cities1 : cities) {
+                    stateList.add(cities1.getState());
+                }
+                List<String> filteredStateList = removeDuplicates(stateList);
+                Collections.sort(filteredStateList);
+                filteredStateList.add(0, "Select State");
+                state.setAdapter(new ArrayAdapter<>(CandidateRegistration.this, android.R.layout.simple_spinner_dropdown_item, filteredStateList));
+                state.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        String state1 = state.getSelectedItem().toString();
+                        cityList.clear();
+                        for (Cities cities1 : cities) {
+                            if (cities1.getState().equals(state1)) {
+                                cityList.add(cities1.getCity());
+                            }
+                        }
+                        List<String> filteredCityList = removeDuplicates(cityList);
+                        Collections.sort(filteredCityList);
+                        filteredCityList.add(0, "Select City");
+                        city.setAdapter(new ArrayAdapter<>(CandidateRegistration.this, android.R.layout.simple_spinner_dropdown_item, filteredCityList));
+
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(Call<object> call, Throwable t) {
+                System.out.println("t.getMessage() = " + t.getMessage());
+            }
+        });
 
 
         btn_update.setOnClickListener(new View.OnClickListener() {

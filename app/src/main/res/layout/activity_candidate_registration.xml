@@ -206,7 +206,7 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/state"
+                android:id="@+id/statespin"
                 android:layout_below="@id/candidate_address"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
@@ -214,7 +214,6 @@
                 android:hint="City"
                 android:background="@drawable/edittext_bg"
                 android:padding="6dp"
-                android:entries="@array/Spinner_items_state"
                 android:elevation="6dp"/>
 
             <TextView
@@ -228,7 +227,7 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/city"
+                android:id="@+id/cityspin"
                 android:layout_below="@id/candidate_city"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
@@ -236,7 +235,6 @@
                 android:hint="Select city"
                 android:background="@drawable/edittext_bg"
                 android:padding="6dp"
-                android:entries="@array/Spinner_items_city"
                 android:elevation="6dp"/>
             <TextView
                 android:layout_width="wrap_content"
