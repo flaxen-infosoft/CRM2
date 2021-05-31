@@ -11,10 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CRM">
-        <activity android:name=".HRManagement.PreferenticalActivity"></activity>
-        <activity android:name=".SplashActivity" />
-        <activity android:name=".HRManagement.NewCandidateActivity2" />
-        <activity android:name=".HRManagement.TestRespoondActivity" />
+        <activity android:name=".HRManagement.TestRespoondActivity"></activity>
         <activity android:name=".HRManagement.LiteratureTestPaper" />
         <activity android:name=".HRManagement.TechnicalTestPaper" />
         <activity android:name=".HRManagement.LogicalreasoningTestPaper" />

@@ -241,7 +241,7 @@
                 app:backgroundTint="@color/lightgrey" />
 
             <Button
-                android:id="@+id/candidate_resume"
+                android:id="@+id/submitbt"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/candidate_state"

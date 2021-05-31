@@ -18,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.crm.CustomToast;
+import com.example.crm.EmployeeManagement.EmployeeRegistrationActvity;
 import com.example.crm.Model.Candidate;
 import com.example.crm.R;
 import com.example.crm.Retro.RetroInterface;
@@ -56,34 +57,22 @@ public class CandidateRegistration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_candidate_registration);
 
-        name = findViewById(R.id.candidate_name);
-        phone = findViewById(R.id.candidate_phone);
-        alt_phone = findViewById(R.id.candidate_alt_phone);
-        personal_email = findViewById(R.id.candidate_personal_email);
-        official_email = findViewById(R.id.candidate_official_email);
-        source = findViewById(R.id.candidate_source);
-        address = findViewById(R.id.candidate_address);
+        name = findViewById(R.id.name_of_candidate);
+        phone = findViewById(R.id.candidate_phoneno_);
+        alt_phone = findViewById(R.id.candidate_alter_phone);
+        personal_email = findViewById(R.id.candidateemail);
+        official_email = findViewById(R.id.candidate_portfolio);
+        source = findViewById(R.id.candidate_sourceof);
+        address = findViewById(R.id.candidate_addressline);
         designation=findViewById(R.id.candidate_designation);
         department= findViewById(R.id.candidate_department);
         btn_update = findViewById(R.id.candidate_resume);
         btn_upresume = findViewById(R.id.uploadresume);
-        city = findViewById(R.id.candidate_city);
-        state = findViewById(R.id.candidate_state);
+        city = findViewById(R.id.cityspin);
+        state = findViewById(R.id.statespin);
 btn_upresume.setOnClickListener(view -> {
 filePicker();
 });
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Spinner_items_city, android.R.layout.simple_spinner_dropdown_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        city.setAdapter(adapter);
-
-        ArrayAdapter<CharSequence> deadapter = ArrayAdapter.createFromResource(this, R.array.Department, android.R.layout.simple_spinner_dropdown_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        department.setAdapter(deadapter);
-
-        ArrayAdapter<CharSequence> stateadapter = ArrayAdapter.createFromResource(this, R.array.Spinner_items_state, android.R.layout.simple_spinner_dropdown_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        state.setAdapter(stateadapter);
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://raw.githubusercontent.com/fayazara/Indian-Cities-API/master/")
                 .addConverterFactory(GsonConverterFactory.create())
