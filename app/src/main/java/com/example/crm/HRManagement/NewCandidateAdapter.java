@@ -2,9 +2,11 @@ package com.example.crm.HRManagement;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -45,6 +47,10 @@ holder.resumebt.setOnClickListener(view -> {
   intent.putExtra("pdfurl",candidate.getResume());
    context.startActivity(intent);
 });
+holder.call.setOnClickListener(view -> {
+    Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + candidate.getPhone()));
+    context.startActivity(intent);
+});
 holder.itemView.setOnClickListener(view -> {
     Intent intent= new Intent(context,CandidateRemark.class);
     intent.putExtra("id",candidate.getId());
@@ -59,6 +65,7 @@ holder.itemView.setOnClickListener(view -> {
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView name, designation,resumebt, date;
+        ImageView call;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -66,6 +73,7 @@ holder.itemView.setOnClickListener(view -> {
             designation = itemView.findViewById(R.id.tv_card_candidatedesignation);
             date = itemView.findViewById(R.id.tv_card_candidatedate);
             resumebt = itemView.findViewById(R.id.resumebt);
+            call= itemView.findViewById(R.id.callimage);
         }
     }
 }

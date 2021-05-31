@@ -81,6 +81,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_weight="1"
+                    android:id="@+id/callimage"
                     android:src="@drawable/ic_call1"/>
 
                 <TextView
