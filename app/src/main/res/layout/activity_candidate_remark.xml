@@ -137,7 +137,7 @@
                         android:textColor="@color/black"/>
 
                     <EditText
-                        android:id="@+id/collage"
+                        android:id="@+id/candidate_collage_name"
                         android:layout_below="@id/txtcollage"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -161,7 +161,7 @@
                         android:textColor="@color/black"/>
 
                     <EditText
-                        android:id="@+id/duration"
+                        android:id="@+id/Candidate_internship_duration"
                         android:layout_below="@id/txtduration"
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
@@ -196,6 +196,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Yes"
+                            android:id="@+id/stipendyes"
                             android:layout_weight="1"
                             android:layout_marginLeft="30dp"/>
 
@@ -203,6 +204,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="NO"
+                            android:id="@+id/stipendno"
                             android:layout_weight="1"/>
 
                     </RadioGroup>
@@ -218,7 +220,7 @@
                         android:textColor="@color/black" />
 
                     <EditText
-                        android:id="@+id/amount"
+                        android:id="@+id/Stipendamount"
                         android:layout_below="@id/txtamount"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -264,6 +266,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Fresher"
+                            android:id="@+id/fresher"
                             android:layout_weight="1"
                             android:layout_marginLeft="30dp"/>
 
@@ -271,6 +274,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Experience"
+                            android:id="@+id/experience"
                             android:layout_weight="1"/>
 
                     </RadioGroup>
@@ -456,7 +460,7 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/candidate_register"
-                android:layout_below="@+id/candidate_remark"
+                android:layout_below="@id/candidate_remark"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="50dp"

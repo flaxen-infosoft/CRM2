@@ -1,7 +1,5 @@
 package com.example.crm.HRManagement;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -10,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.crm.CustomToast;
 import com.example.crm.Model.Candidate;
@@ -28,12 +28,13 @@ import retrofit2.Response;
 
 public class CandidateRemark extends AppCompatActivity {
 
-    Button btnregister,dateofinterviewbt;
-    EditText collagename,Duratuion,stipendamount,remarks;
-    Spinner  spin_status;
-    RadioButton job, intern,laptopyes,laptopno,stipendyes,stipendno,fresher,experience;
+    Button btnregister, dateofinterviewbt;
+    EditText collagename, Duratuion, stipendamount, remarks, jobamount;
+    Spinner spin_status;
+    RadioButton job, intern, laptopyes, laptopno, stipendyes, stipendno, fresher, experience;
     ExpandableLayout expandablemycontent, expandableinterncontent;
-String id,startdate,appliedfor,havelaptop;
+    String id, startdate, appliedfor, havelaptop, stipend, eligiblity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,10 +44,18 @@ String id,startdate,appliedfor,havelaptop;
         spin_status = findViewById(R.id.status);
         dateofinterviewbt = findViewById(R.id.candidate_remark_dateofinterview);
         laptopyes = findViewById(R.id.yes);
+        collagename = findViewById(R.id.candidate_collage_name);
+        Duratuion = findViewById(R.id.Candidate_internship_duration);
+        stipendamount = findViewById(R.id.Stipendamount);
+        remarks = findViewById(R.id.candidate_remark);
         laptopno = findViewById(R.id.no);
         job = findViewById(R.id.job);
+        jobamount = findViewById(R.id.jobamount);
         intern = findViewById(R.id.intern);
-
+        stipendyes = findViewById(R.id.stipendyes);
+        stipendno = findViewById(R.id.stipendno);
+        fresher = findViewById(R.id.fresher);
+        experience = findViewById(R.id.expences);
         dateofinterviewbt.setOnClickListener(view -> {
             DatePickerDialog datePickerDialog = new DatePickerDialog(CandidateRemark.this, (datePicker, i, i1, i2) -> {
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MMMM/yyyy");
@@ -74,15 +83,40 @@ String id,startdate,appliedfor,havelaptop;
                 } else {
                     havelaptop = "no";
                 }
-                id =getIntent().getStringExtra("id");
+                if (stipendyes.isChecked()) {
+                    stipend = "yes";
+                } else {
+                    stipend="no";
+                }
+                if (fresher.isChecked()){
+                    eligiblity="fresher";
+                }else {
+                    eligiblity="experience";
+                }
+                String collage= collagename.getText().toString();
+                String duration= Duratuion.getText().toString();
+                String remark= remarks.getText().toString();
+                String stiamount= stipendamount.getText().toString();
+                String amountjob= jobamount.getText().toString();
+                id = getIntent().getStringExtra("id");
                 RetroInterface retroInterface = Retrofi.initretro().create(RetroInterface.class);
-                Candidate candidate= new Candidate();
+                Candidate candidate = new Candidate();
+                if (intern.isChecked()){
+                    candidate.setCollege_name(collage);
+                    candidate.setDuration(duration);
+                    candidate.setStipend(stipend);
+                    candidate.setAmount(stiamount);
+                }else{
+                    candidate.setEligibility(eligiblity);
+                    candidate.setAmount(amountjob);
+                }
                 candidate.setId(id);
                 candidate.setHave_laptop(havelaptop);
                 candidate.setApplied_for(appliedfor);
                 candidate.setDateof_interview(startdate);
+                candidate.setRemarks(remark);
                 System.out.println("candidate = " + candidate);
-                Call<Candidate> call=retroInterface.updateCandidate(candidate);
+                Call<Candidate> call = retroInterface.updateCandidate(candidate);
                 call.enqueue(new Callback<Candidate>() {
                     @Override
                     public void onResponse(Call<Candidate> call, Response<Candidate> response) {
