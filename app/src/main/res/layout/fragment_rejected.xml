@@ -1,85 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HRManagement.NewCandidateActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".HRManagement.RejectedFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@color/blue_border">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_backarrow"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="New Register"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:textColor="@color/white"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="30dp"/>
-
-            </RelativeLayout>
-
-        </androidx.appcompat.widget.Toolbar>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
-
-            <EditText
-                android:id="@+id/search"
-                android:layout_width="230dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
-                android:background="@drawable/edittext_black_stroke_bg"
-                android:drawableRight="@drawable/ic_baseline_search_24"
-                android:hint="Search"
-                android:paddingTop="5dp"
-                android:paddingLeft="7dp"
-                android:textSize="13sp"
-                android:paddingRight="7dp"
-                android:paddingBottom="5dp"/>
-
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/search"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/bg_cardview"
-                android:paddingTop="5dp"
-                android:paddingLeft="7dp"
-                android:textSize="13sp"
-                android:paddingRight="7dp"
-                android:paddingBottom="5dp"
-                android:textAlignment="center"
-                android:entries="@array/sort_by"
-                android:gravity="center_horizontal" />
-
-        </RelativeLayout>
-
         <androidx.cardview.widget.CardView
-            android:id="@+id/card"
+            android:id="@+id/card1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="210dp"
             app:cardCornerRadius="30dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
@@ -92,17 +27,26 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/bg_stroke">
 
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_dots"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"/>
+
+
                 <TextView
                     android:id="@+id/name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
+                    android:textSize="17sp"
                     android:textColor="@color/black"
                     android:text="Name of Candidate"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="22dp"
                     android:layout_marginLeft="20dp"/>
 
                 <RelativeLayout
+                    android:id="@+id/relative"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -130,149 +74,29 @@
                 <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="12sp"
                     android:entries="@array/assigned_by"
-                    android:text="Date"
-                    android:background="@drawable/card_button_bg_blue_stroke"
-                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:paddingBottom="5dp"
                     android:paddingTop="5dp"
-                    android:paddingLeft="7dp"
-                    android:textSize="10sp"
-                    android:paddingRight="7dp"
-                    android:paddingBottom="5dp"/>
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:id="@+id/call"
-                    android:layout_height="35dp"
-                    android:layout_weight="1"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="70dp"
-                    android:layout_marginRight="20dp"
-                    android:src="@drawable/ic_green_call"/>
-
-                <LinearLayout
-                    android:id="@+id/linear"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginTop="25dp"
-                    android:layout_below="@id/call">
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:text="View Resume"
-                        android:textAlignment="center"
-                        android:paddingRight="7dp"
-                        android:paddingLeft="7dp"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp"
-                        android:layout_weight="1"
-                        android:elevation="8dp"
-                        android:textColor="@color/black"
-                        android:background="@drawable/card_button_bg_blue_stroke"
-                        android:gravity="center_horizontal" />
-
-
-                    <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:text="Update Status"
-                        android:textAlignment="center"
-                        android:paddingRight="7dp"
-                        android:paddingLeft="7dp"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp"
-                        android:textColor="@color/black"
-                        android:layout_weight="1"
-                        android:elevation="8dp"
-                        android:background="@drawable/card_button_bg_blue_stroke"
-                        android:gravity="center_horizontal" />
-
-
-                </LinearLayout>
-
-
-            </RelativeLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="30dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/bg_cardview"
-            android:elevation="12dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/bg_stroke">
+                    android:inputType="text"
+                    android:layout_below="@id/relative"
+                    android:background="@drawable/white_button_bj"
+                    android:elevation="8dp"
+                    android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"
-                    android:text="Name of Candidate"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="20dp"/>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_below="@id/name"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginLeft="20dp">
-
-                    <TextView
-                        android:id="@+id/applied_for"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:text="Applied for"/>
-
-                    <TextView
-                        android:id="@+id/date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:layout_below="@id/applied_for"
-                        android:text="Date &amp; Time"/>
-
-                </RelativeLayout>
-
-                <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="22dp"
                     android:layout_marginRight="10dp"
-                    android:entries="@array/assigned_by"
-                    android:text="Date"
-                    android:background="@drawable/card_button_bg_blue_stroke"
-                    android:textColor="@color/black"
-                    android:paddingTop="5dp"
-                    android:paddingLeft="7dp"
-                    android:textSize="10sp"
-                    android:paddingRight="7dp"
-                    android:paddingBottom="5dp"/>
+                    android:text="Rejected"
+                    android:textColor="@color/red"
+                    android:padding="5dp"
+                    android:textSize="13sp" />
 
                 <ImageView
                     android:layout_width="35dp"
@@ -282,43 +106,45 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="70dp"
                     android:layout_marginRight="20dp"
+                    android:layout_centerVertical="true"
                     android:src="@drawable/ic_green_call"/>
 
                 <LinearLayout
                     android:id="@+id/linear"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="20dp"
                     android:layout_marginTop="25dp"
-                    android:layout_below="@id/call">
+                    android:layout_marginBottom="10dp"
+                    android:layout_alignParentBottom="true">
 
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:text="View Resume"
-                        android:textAlignment="center"
-                        android:paddingRight="7dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/white_button_bj"
+                        android:elevation="6dp"
+                        android:gravity="center_horizontal"
                         android:paddingLeft="7dp"
                         android:paddingTop="5dp"
+                        android:paddingRight="7dp"
                         android:paddingBottom="5dp"
-                        android:layout_weight="1"
-                        android:elevation="8dp"
-                        android:textColor="@color/black"
-                        android:background="@drawable/card_button_bg_blue_stroke"
-                        android:gravity="center_horizontal" />
-
+                        android:text="View Report"
+                        android:textSize="12sp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
 
                     <TextView
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
                         android:layout_marginLeft="10dp"
-                        android:text="Update Status"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="Resume"
                         android:textAlignment="center"
                         android:paddingRight="7dp"
                         android:paddingLeft="7dp"
@@ -327,12 +153,30 @@
                         android:textColor="@color/black"
                         android:layout_weight="1"
                         android:elevation="8dp"
-                        android:background="@drawable/card_button_bg_blue_stroke"
+                        android:textSize="12sp"
+                        android:background="@drawable/white_button_bj"
                         android:gravity="center_horizontal" />
 
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="Remarks"
+                        android:textAlignment="center"
+                        android:paddingRight="7dp"
+                        android:paddingLeft="7dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textColor="@color/black"
+                        android:layout_weight="1"
+                        android:elevation="6dp"
+                        android:textSize="12sp"
+                        android:background="@drawable/white_button_bj"
+                        android:gravity="center_horizontal" />
 
                 </LinearLayout>
-
 
             </RelativeLayout>
 
@@ -341,7 +185,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/card1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="210dp"
             app:cardCornerRadius="30dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
@@ -354,17 +198,25 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/bg_stroke">
 
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_dots"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"/>
+
                 <TextView
                     android:id="@+id/name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
+                    android:textSize="17sp"
                     android:textColor="@color/black"
                     android:text="Name of Candidate"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="22dp"
                     android:layout_marginLeft="20dp"/>
 
                 <RelativeLayout
+                    android:id="@+id/relative"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -392,18 +244,29 @@
                 <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="12sp"
                     android:entries="@array/assigned_by"
-                    android:text="Date"
-                    android:background="@drawable/card_button_bg_blue_stroke"
-                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:paddingBottom="5dp"
                     android:paddingTop="5dp"
-                    android:paddingLeft="7dp"
-                    android:textSize="10sp"
-                    android:paddingRight="7dp"
-                    android:paddingBottom="5dp"/>
+                    android:inputType="text"
+                    android:layout_below="@id/relative"
+                    android:background="@drawable/white_button_bj"
+                    android:elevation="8dp"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginRight="10dp"
+                    android:text="Rejected"
+                    android:textColor="@color/red"
+                    android:padding="5dp"
+                    android:textSize="13sp" />
 
                 <ImageView
                     android:layout_width="35dp"
@@ -413,43 +276,44 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="70dp"
                     android:layout_marginRight="20dp"
+                    android:layout_centerVertical="true"
                     android:src="@drawable/ic_green_call"/>
 
                 <LinearLayout
                     android:id="@+id/linear"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="20dp"
                     android:layout_marginTop="25dp"
-                    android:layout_below="@id/call">
-
+                    android:layout_marginBottom="10dp"
+                    android:layout_alignParentBottom="true">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:text="View Resume"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="Report"
                         android:textAlignment="center"
                         android:paddingRight="7dp"
                         android:paddingLeft="7dp"
                         android:paddingTop="5dp"
                         android:paddingBottom="5dp"
+                        android:textColor="@color/black"
                         android:layout_weight="1"
                         android:elevation="8dp"
-                        android:textColor="@color/black"
-                        android:background="@drawable/card_button_bg_blue_stroke"
+                        android:textSize="12sp"
+                        android:background="@drawable/white_button_bj"
                         android:gravity="center_horizontal" />
-
 
                     <TextView
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
                         android:layout_marginLeft="10dp"
-                        android:text="Update Status"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="Resume"
                         android:textAlignment="center"
                         android:paddingRight="7dp"
                         android:paddingLeft="7dp"
@@ -458,12 +322,30 @@
                         android:textColor="@color/black"
                         android:layout_weight="1"
                         android:elevation="8dp"
-                        android:background="@drawable/card_button_bg_blue_stroke"
+                        android:textSize="12sp"
+                        android:background="@drawable/white_button_bj"
                         android:gravity="center_horizontal" />
 
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="Remarks"
+                        android:textAlignment="center"
+                        android:paddingRight="7dp"
+                        android:paddingLeft="7dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textColor="@color/black"
+                        android:layout_weight="1"
+                        android:elevation="6dp"
+                        android:textSize="12sp"
+                        android:background="@drawable/white_button_bj"
+                        android:gravity="center_horizontal" />
 
                 </LinearLayout>
-
 
             </RelativeLayout>
 
@@ -472,7 +354,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/card1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="210dp"
             app:cardCornerRadius="30dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
@@ -485,17 +367,25 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/bg_stroke">
 
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_dots"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"/>
+
                 <TextView
                     android:id="@+id/name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
+                    android:textSize="17sp"
                     android:textColor="@color/black"
                     android:text="Name of Candidate"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="22dp"
                     android:layout_marginLeft="20dp"/>
 
                 <RelativeLayout
+                    android:id="@+id/relative"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -523,18 +413,29 @@
                 <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="12sp"
                     android:entries="@array/assigned_by"
-                    android:text="Date"
-                    android:background="@drawable/card_button_bg_blue_stroke"
-                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:paddingBottom="5dp"
                     android:paddingTop="5dp"
-                    android:paddingLeft="7dp"
-                    android:textSize="10sp"
-                    android:paddingRight="7dp"
-                    android:paddingBottom="5dp"/>
+                    android:inputType="text"
+                    android:layout_below="@id/relative"
+                    android:background="@drawable/white_button_bj"
+                    android:elevation="8dp"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginRight="10dp"
+                    android:text="Rejected"
+                    android:textColor="@color/red"
+                    android:padding="5dp"
+                    android:textSize="13sp" />
 
                 <ImageView
                     android:layout_width="35dp"
@@ -544,43 +445,44 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="70dp"
                     android:layout_marginRight="20dp"
+                    android:layout_centerVertical="true"
                     android:src="@drawable/ic_green_call"/>
 
                 <LinearLayout
                     android:id="@+id/linear"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="20dp"
                     android:layout_marginTop="25dp"
-                    android:layout_below="@id/call">
-
+                    android:layout_marginBottom="10dp"
+                    android:layout_alignParentBottom="true">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:text="View Resume"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="Report"
                         android:textAlignment="center"
                         android:paddingRight="7dp"
                         android:paddingLeft="7dp"
                         android:paddingTop="5dp"
                         android:paddingBottom="5dp"
+                        android:textColor="@color/black"
                         android:layout_weight="1"
                         android:elevation="8dp"
-                        android:textColor="@color/black"
-                        android:background="@drawable/card_button_bg_blue_stroke"
+                        android:textSize="12sp"
+                        android:background="@drawable/white_button_bj"
                         android:gravity="center_horizontal" />
-
 
                     <TextView
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
                         android:layout_marginLeft="10dp"
-                        android:text="Update Status"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="Resume"
                         android:textAlignment="center"
                         android:paddingRight="7dp"
                         android:paddingLeft="7dp"
@@ -589,12 +491,30 @@
                         android:textColor="@color/black"
                         android:layout_weight="1"
                         android:elevation="8dp"
-                        android:background="@drawable/card_button_bg_blue_stroke"
+                        android:textSize="12sp"
+                        android:background="@drawable/white_button_bj"
                         android:gravity="center_horizontal" />
 
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="Remarks"
+                        android:textAlignment="center"
+                        android:paddingRight="7dp"
+                        android:paddingLeft="7dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textColor="@color/black"
+                        android:layout_weight="1"
+                        android:elevation="6dp"
+                        android:textSize="12sp"
+                        android:background="@drawable/white_button_bj"
+                        android:gravity="center_horizontal" />
 
                 </LinearLayout>
-
 
             </RelativeLayout>
 
@@ -603,7 +523,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/card1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="210dp"
             app:cardCornerRadius="30dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
@@ -616,17 +536,25 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/bg_stroke">
 
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_dots"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"/>
+
                 <TextView
                     android:id="@+id/name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
+                    android:textSize="17sp"
                     android:textColor="@color/black"
                     android:text="Name of Candidate"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="22dp"
                     android:layout_marginLeft="20dp"/>
 
                 <RelativeLayout
+                    android:id="@+id/relative"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -654,18 +582,29 @@
                 <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="12sp"
                     android:entries="@array/assigned_by"
-                    android:text="Date"
-                    android:background="@drawable/card_button_bg_blue_stroke"
-                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:paddingBottom="5dp"
                     android:paddingTop="5dp"
-                    android:paddingLeft="7dp"
-                    android:textSize="10sp"
-                    android:paddingRight="7dp"
-                    android:paddingBottom="5dp"/>
+                    android:inputType="text"
+                    android:layout_below="@id/relative"
+                    android:background="@drawable/white_button_bj"
+                    android:elevation="8dp"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginRight="10dp"
+                    android:text="Rejected"
+                    android:textColor="@color/red"
+                    android:padding="5dp"
+                    android:textSize="13sp" />
 
                 <ImageView
                     android:layout_width="35dp"
@@ -675,43 +614,44 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="70dp"
                     android:layout_marginRight="20dp"
+                    android:layout_centerVertical="true"
                     android:src="@drawable/ic_green_call"/>
 
                 <LinearLayout
                     android:id="@+id/linear"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="20dp"
                     android:layout_marginTop="25dp"
-                    android:layout_below="@id/call">
-
+                    android:layout_marginBottom="10dp"
+                    android:layout_alignParentBottom="true">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:text="View Resume"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="Report"
                         android:textAlignment="center"
                         android:paddingRight="7dp"
                         android:paddingLeft="7dp"
                         android:paddingTop="5dp"
                         android:paddingBottom="5dp"
+                        android:textColor="@color/black"
                         android:layout_weight="1"
                         android:elevation="8dp"
-                        android:textColor="@color/black"
-                        android:background="@drawable/card_button_bg_blue_stroke"
+                        android:textSize="12sp"
+                        android:background="@drawable/white_button_bj"
                         android:gravity="center_horizontal" />
-
 
                     <TextView
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
                         android:layout_marginLeft="10dp"
-                        android:text="Update Status"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="Resume"
                         android:textAlignment="center"
                         android:paddingRight="7dp"
                         android:paddingLeft="7dp"
@@ -720,18 +660,203 @@
                         android:textColor="@color/black"
                         android:layout_weight="1"
                         android:elevation="8dp"
-                        android:background="@drawable/card_button_bg_blue_stroke"
+                        android:textSize="12sp"
+                        android:background="@drawable/white_button_bj"
                         android:gravity="center_horizontal" />
 
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="Remarks"
+                        android:textAlignment="center"
+                        android:paddingRight="7dp"
+                        android:paddingLeft="7dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textColor="@color/black"
+                        android:layout_weight="1"
+                        android:elevation="6dp"
+                        android:textSize="12sp"
+                        android:background="@drawable/white_button_bj"
+                        android:gravity="center_horizontal" />
 
                 </LinearLayout>
-
 
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card1"
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            app:cardCornerRadius="30dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_cardview"
+            android:elevation="12dp">
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_stroke">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_dots"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"/>
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textColor="@color/black"
+                    android:text="Name of Candidate"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginLeft="20dp"/>
+
+                <RelativeLayout
+                    android:id="@+id/relative"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/name"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginLeft="20dp">
+
+                    <TextView
+                        android:id="@+id/applied_for"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:text="Applied for"/>
+
+                    <TextView
+                        android:id="@+id/date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:layout_below="@id/applied_for"
+                        android:text="Date &amp; Time"/>
+
+                </RelativeLayout>
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="12sp"
+                    android:entries="@array/assigned_by"
+                    android:textColorHint="@color/black"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    android:inputType="text"
+                    android:layout_below="@id/relative"
+                    android:background="@drawable/white_button_bj"
+                    android:elevation="8dp"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginRight="10dp"
+                    android:text="Rejected"
+                    android:textColor="@color/red"
+                    android:padding="5dp"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:id="@+id/call"
+                    android:layout_height="35dp"
+                    android:layout_weight="1"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="70dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_green_call"/>
+
+                <LinearLayout
+                    android:id="@+id/linear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_alignParentBottom="true">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="Report"
+                        android:textAlignment="center"
+                        android:paddingRight="7dp"
+                        android:paddingLeft="7dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textColor="@color/black"
+                        android:layout_weight="1"
+                        android:elevation="8dp"
+                        android:textSize="12sp"
+                        android:background="@drawable/white_button_bj"
+                        android:gravity="center_horizontal" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="Resume"
+                        android:textAlignment="center"
+                        android:paddingRight="7dp"
+                        android:paddingLeft="7dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textColor="@color/black"
+                        android:layout_weight="1"
+                        android:elevation="8dp"
+                        android:textSize="12sp"
+                        android:background="@drawable/white_button_bj"
+                        android:gravity="center_horizontal" />
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="Remarks"
+                        android:textAlignment="center"
+                        android:paddingRight="7dp"
+                        android:paddingLeft="7dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textColor="@color/black"
+                        android:layout_weight="1"
+                        android:elevation="6dp"
+                        android:textSize="12sp"
+                        android:background="@drawable/white_button_bj"
+                        android:gravity="center_horizontal" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 

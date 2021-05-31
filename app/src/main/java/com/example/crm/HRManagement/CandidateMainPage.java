@@ -21,7 +21,7 @@ public class CandidateMainPage extends AppCompatActivity {
         register = findViewById(R.id.candidate_register);
         shortlisted = findViewById(R.id.shortlisted);
         onlinetest = findViewById(R.id.onlinetest);
-        documentation = findViewById(R.id.documentation);
+        documentation = findViewById(R.id.preferantioal);
         meeting = findViewById(R.id.meeting);
         new_register = findViewById(R.id.new_register);
 
@@ -30,10 +30,10 @@ public class CandidateMainPage extends AppCompatActivity {
             startActivity(intent);
         });
 
-//        documentation.setOnClickListener(v -> {
-//            Intent intent = new Intent(CandidateMainPage.this, DocumentationActivity.class);
-//            startActivity(intent);
-//        });
+        documentation.setOnClickListener(v -> {
+            Intent intent = new Intent(CandidateMainPage.this, PreferenticalActivity.class);
+            startActivity(intent);
+        });
 
         shortlisted.setOnClickListener(v -> {
             Intent intent = new Intent(CandidateMainPage.this, ShortlistedCandidateDetailsActivity.class);

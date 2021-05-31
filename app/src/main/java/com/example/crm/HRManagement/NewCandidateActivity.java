@@ -18,7 +18,7 @@ public class NewCandidateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_candidate);
 
-        cardView = findViewById(R.id.card1);
+        cardView = findViewById(R.id.card);
 
         cardView.setOnClickListener(v -> startActivity(new Intent(NewCandidateActivity.this, CandidateRemark.class)));
     }

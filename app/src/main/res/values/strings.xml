@@ -34,6 +34,12 @@
 
     </string-array>
 
+    <string-array name="assigned_by">
+        <item>Assigned By</item>
+        <item>Aarika</item>
+        <item>Shubham</item>
+    </string-array>
+
     <string-array name="Department">
         <item>Select Department</item>
         <item>HR Management</item>
@@ -102,5 +108,7 @@
         <item>Interested</item>
         <item>Not Interested</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

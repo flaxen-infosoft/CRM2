@@ -53,7 +53,7 @@ public class SalesMainActivity extends AppCompatActivity implements NavigationVi
 
         reports.setOnClickListener(v -> startActivity(new Intent(SalesMainActivity.this, SalesReportsActivity.class )));
 
-        leaves.setOnClickListener(v -> startActivity(new Intent(SalesMainActivity.this, LeaveApplicationActivity.class)));
+        leaves.setOnClickListener(v -> startActivity(new Intent(SalesMainActivity.this, LeaveActivity.class)));
 
     }
 

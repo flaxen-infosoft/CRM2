@@ -29,23 +29,24 @@ public class CandidateRemark extends AppCompatActivity {
         setContentView(R.layout.activity_candidate_remark);
 
         btnregister = findViewById(R.id.candidate_register);
-        spin_department = findViewById(R.id.department);
+//        spin_department = findViewById(R.id.department);
         spin_status = findViewById(R.id.status);
 
         job = findViewById(R.id.job);
         intern = findViewById(R.id.intern);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Department, android.R.layout.simple_spinner_dropdown_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spin_department.setAdapter(adapter);
+//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Department, android.R.layout.simple_spinner_dropdown_item);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spin_department.setAdapter(adapter);
 
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.Status, android.R.layout.simple_spinner_dropdown_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin_status.setAdapter(adapter1);
 
         btnregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(CandidateRemark.this, NewCandidateActivity2.class));
                 Toast.makeText(CandidateRemark.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
             }
         });
