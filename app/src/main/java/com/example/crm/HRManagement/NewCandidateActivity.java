@@ -2,12 +2,23 @@ package com.example.crm.HRManagement;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.crm.Model.Candidate;
 import com.example.crm.R;
+import com.example.crm.Retro.RetroInterface;
+import com.example.crm.Retro.Retrofi;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class NewCandidateActivity extends AppCompatActivity {
     RecyclerView recyclerView;
@@ -31,8 +42,12 @@ recyclerView.setLayoutManager(new LinearLayoutManager(NewCandidateActivity.this)
                recyclerView.setAdapter(newCandidateAdapter);
            }
 
-        cardView = findViewById(R.id.card1);
+           @Override
+           public void onFailure(Call<List<Candidate>> call, Throwable t) {
+
+           }
 
 
-    }
+       });
+}
 }

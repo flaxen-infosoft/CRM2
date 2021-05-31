@@ -17,6 +17,7 @@ public class Retrofi {
         return new Retrofit.Builder()
                 .baseUrl("https://Creatorsdesire.in/app_api/")
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+                .addConverterFactory(new NullOnEmptyConverterFactory())
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
     }

@@ -59,6 +59,7 @@
         <activity android:name=".EmployeeRegistration" />
         <activity android:name=".CustomerRegisteration" />
         <activity android:name=".HomeActivity" />
+        <activity android:name=".HRManagement.PdfViewerActivity"/>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -16,7 +16,7 @@ public interface RetroInterface {
     Call<Candidate> addCandidate(@Body Candidate candidate);
 
     @PUT("update_candidate.php")
-    Call<Candidate> uodateCandidate(@Body Candidate candidate);
+    Call<Candidate> updateCandidate(@Body Candidate candidate);
 
     @GET("get_candidate.php")
     Call<List<Candidate>> getcandidate();
