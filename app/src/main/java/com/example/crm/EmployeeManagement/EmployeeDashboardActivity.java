@@ -17,7 +17,7 @@ public class EmployeeDashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_dashboard);
 
-        register = findViewById(R.id.employee_register);
+        register = findViewById(R.id.employee_newjoinee);
         department = findViewById(R.id.departments);
         documentation = findViewById(R.id.documentation);
 
@@ -32,7 +32,7 @@ public class EmployeeDashboardActivity extends AppCompatActivity {
         });
 
         register.setOnClickListener(v -> {
-            Intent intent = new Intent(EmployeeDashboardActivity.this, EmployeeRegistrationActvity.class);
+            Intent intent = new Intent(EmployeeDashboardActivity.this, EmployeeRegisterSecondActivity.class);
             startActivity(intent);
         });
 

@@ -44,7 +44,7 @@
         android:layout_margin="10dp">
 
         <LinearLayout
-            android:id="@+id/linear"
+            android:id="@+id/linearemp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -52,7 +52,7 @@
             android:layout_centerHorizontal="true">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/employee_register"
+                android:id="@+id/employee_newjoinee"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginLeft="20dp"
@@ -68,7 +68,7 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:id="@+id/img"
+                        android:id="@+id/imgnew"
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:src="@drawable/ic_registration"
@@ -79,7 +79,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Registration"
+                        android:text="New Joinee"
                         android:layout_marginTop="5dp"
                         android:textColor="@color/black"
                         android:layout_centerHorizontal="true"
