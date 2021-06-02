@@ -83,7 +83,7 @@
                         android:layout_marginTop="5dp"
                         android:textColor="@color/black"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/img"/>
+                        android:layout_below="@+id/imgnew"/>
 
                 </RelativeLayout>
 
@@ -174,7 +174,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Documentation"
+                        android:text="Enrolled"
                         android:layout_marginTop="5dp"
                         android:textColor="@color/black"
                         android:layout_centerHorizontal="true"
@@ -186,7 +186,47 @@
 
 
             </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/departments"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="15dp"
+                android:elevation="8dp">
 
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/img4"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/ic_registration"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="15dp"/>
+
+                    <TextView
+                        android:layout_below="@id/img4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Trainings"
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/black"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="10dp" />
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
 
 
 
