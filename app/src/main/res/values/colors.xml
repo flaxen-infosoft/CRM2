@@ -20,5 +20,5 @@
     <color name="lightsky">#D5E0F3</color>
     <color name="red">#FF0000</color>
     <color name="light_green">#00D998</color>
-    <color name="skyblue" />
+    <color name="skyblue" >#64B4FD</color>
 </resources>
