@@ -1,30 +1,29 @@
 package com.example.crm.LeaveManagement;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.crm.R;
 
 public class LeaveManagementActivity extends AppCompatActivity {
 
-    CardView btn_accept;
+    ViewPager viewPager;
+    ViewPagerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leave_management);
 
-        btn_accept = findViewById(R.id.accept);
+        viewPager = findViewById(R.id.viewPager);
+        adapter = new ViewPagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        adapter.add(new LeaveManagementFragment1());
+        adapter.add(new LeaveManagementFragment2());
 
-        btn_accept.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LeaveManagementActivity.this, LeaveDetailsActivity.class));
-            }
-        });
+        viewPager.setAdapter(adapter);
+
     }
 }
