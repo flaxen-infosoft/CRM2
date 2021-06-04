@@ -81,619 +81,398 @@
                 </com.google.android.material.card.MaterialCardView>
 
 
-                <GridLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:columnCount="5"
-                    android:useDefaultMargins="true">
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_row="0"
-                        android:layout_column="0"
-                        android:layout_columnWeight="2"
-                        android:text="Adhaar Card no."
-                        android:textColor="@color/black"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="0"
-                        android:layout_column="1"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="View"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="2"
+                            android:text="Adhaar Card no."
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="0"
-                        android:layout_column="2"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Update"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:paddingStart="0dp"
+                            android:paddingLeft="0dp"
+                            android:paddingEnd="0dp"
+                            android:text="View"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="0"
-                        android:layout_column="3"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Approve"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_weight="1"
+                            android:text="Update"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="0"
-                        android:layout_column="4"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Edit"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_row="1"
-                        android:layout_column="0"
-                        android:layout_columnWeight="1.5"
-                        android:text="PAN Card no."
-                        android:textColor="@color/black"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="1"
-                        android:layout_column="1"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="View"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="2"
+                            android:text="PAN Card no."
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="1"
-                        android:layout_column="2"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Update"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:paddingStart="0dp"
+                            android:paddingLeft="0dp"
+                            android:paddingEnd="0dp"
+                            android:text="View"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="1"
-                        android:layout_column="3"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Approve"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_weight="1"
+                            android:text="Update"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="1"
-                        android:layout_column="4"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Edit"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_row="2"
-                        android:layout_column="0"
-                        android:layout_columnWeight="1.5"
-                        android:text="10th Mark sheet"
-                        android:textColor="@color/black"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="2"
-                        android:layout_column="1"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="View"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="2"
+                            android:text="10th Mark sheet"
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="2"
-                        android:layout_column="2"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Update"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:paddingStart="0dp"
+                            android:paddingLeft="0dp"
+                            android:paddingEnd="0dp"
+                            android:text="View"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="2"
-                        android:layout_column="3"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Approve"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_weight="1"
+                            android:text="Update"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="2"
-                        android:layout_column="4"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Edit"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_row="3"
-                        android:layout_column="0"
-                        android:layout_columnWeight="1.5"
-                        android:text="12th Mark sheet"
-                        android:textColor="@color/black"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="3"
-                        android:layout_column="1"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="View"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="2"
+                            android:text="12th Mark sheet"
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="3"
-                        android:layout_column="2"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Update"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:paddingStart="0dp"
+                            android:paddingLeft="0dp"
+                            android:paddingEnd="0dp"
+                            android:text="View"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="3"
-                        android:layout_column="3"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Approve"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_weight="1"
+                            android:text="Update"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="3"
-                        android:layout_column="4"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Edit"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_row="4"
-                        android:layout_column="0"
-                        android:layout_columnWeight="1.5"
-                        android:breakStrategy="high_quality"
-                        android:text="Graduation Mark sheet"
-                        android:textColor="@color/black"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="4"
-                        android:layout_column="1"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="View"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="2"
+                            android:text="Graduation Mark sheet"
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="4"
-                        android:layout_column="2"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Update"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:paddingStart="0dp"
+                            android:paddingLeft="0dp"
+                            android:paddingEnd="0dp"
+                            android:text="View"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="4"
-                        android:layout_column="3"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Approve"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_weight="1"
+                            android:text="Update"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="4"
-                        android:layout_column="4"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Edit"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_row="5"
-                        android:layout_column="0"
-                        android:layout_columnWeight="1.5"
-                        android:text="Graduation Certificate"
-                        android:textColor="@color/black"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="5"
-                        android:layout_column="1"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="View"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="2"
+                            android:text="Graduation Certificate"
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="5"
-                        android:layout_column="2"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Update"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:paddingStart="0dp"
+                            android:paddingLeft="0dp"
+                            android:paddingEnd="0dp"
+                            android:text="View"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="5"
-                        android:layout_column="3"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Approve"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_weight="1"
+                            android:text="Update"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="5"
-                        android:layout_column="4"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Edit"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_row="6"
-                        android:layout_column="0"
-                        android:layout_columnWeight="1.5"
-                        android:text="Previous Company Certificate(if any)"
-                        android:textColor="@color/black"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="6"
-                        android:layout_column="1"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="View"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="2"
+                            android:text="Previous Company Certificate(if any)"
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="6"
-                        android:layout_column="2"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Update"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:paddingStart="0dp"
+                            android:paddingLeft="0dp"
+                            android:paddingEnd="0dp"
+                            android:text="View"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="6"
-                        android:layout_column="3"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Approve"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_weight="1"
+                            android:text="Update"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="6"
-                        android:layout_column="4"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Edit"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_row="7"
-                        android:layout_column="0"
-                        android:layout_columnWeight="1.5"
-                        android:text="Cheque"
-                        android:textColor="@color/black"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="7"
-                        android:layout_column="1"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="View"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="2"
+                            android:text="Cheque"
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="7"
-                        android:layout_column="2"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Update"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:paddingStart="0dp"
+                            android:paddingLeft="0dp"
+                            android:paddingEnd="0dp"
+                            android:text="View"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="7"
-                        android:layout_column="3"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Approve"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_weight="1"
+                            android:text="Update"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="7"
-                        android:layout_column="4"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Edit"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_row="8"
-                        android:layout_column="0"
-                        android:layout_columnWeight="1.5"
-                        android:text="Account Details"
-                        android:textColor="@color/black"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="8"
-                        android:layout_column="1"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="View"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="2"
+                            android:text="Account Details"
+                            android:textColor="@color/black"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="8"
-                        android:layout_column="2"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Update"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:paddingStart="0dp"
+                            android:paddingLeft="0dp"
+                            android:paddingEnd="0dp"
+                            android:text="View"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="8"
-                        android:layout_column="3"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Approve"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_weight="1"
+                            android:text="Update"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="8"
-                        android:layout_column="4"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Edit"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
-
-
-                </GridLayout>
+                    </LinearLayout>
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -702,553 +481,349 @@
                     android:text="Sent Documents"
                     android:textSize="30sp" />
 
-
-                <GridLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:columnCount="5"
-                    android:useDefaultMargins="true">
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_row="0"
-                        android:layout_column="0"
-                        android:layout_columnWeight="1.5"
-                        android:paddingRight="2dp"
-                        android:text="Offer Letter"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="0"
-                        android:layout_column="1"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="View"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="2"
+                            android:text="Offer Letter"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="0"
-                        android:layout_column="2"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Update"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:paddingStart="0dp"
+                            android:paddingLeft="0dp"
+                            android:paddingEnd="0dp"
+                            android:text="View"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="0"
-                        android:layout_column="3"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Approve"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_weight="1"
+                            android:text="Update"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="0"
-                        android:layout_column="4"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Edit"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_row="1"
-                        android:layout_column="0"
-                        android:layout_columnWeight="1.5"
-                        android:paddingRight="2dp"
-                        android:text="Non Discloser Aggrement"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="1"
-                        android:layout_column="1"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="View"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="2"
+                            android:text="Non Discloser Aggrement"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="1"
-                        android:layout_column="2"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Update"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:paddingStart="0dp"
+                            android:paddingLeft="0dp"
+                            android:paddingEnd="0dp"
+                            android:text="View"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="1"
-                        android:layout_column="3"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Approve"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_weight="1"
+                            android:text="Update"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="1"
-                        android:layout_column="4"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Edit"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_row="2"
-                        android:layout_column="0"
-                        android:layout_columnWeight="1.5"
-                        android:paddingRight="2dp"
-                        android:text="Verification Form"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="2"
-                        android:layout_column="1"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="View"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="2"
+                            android:text="Verification Form"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="2"
-                        android:layout_column="2"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Update"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:paddingStart="0dp"
+                            android:paddingLeft="0dp"
+                            android:paddingEnd="0dp"
+                            android:text="View"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="2"
-                        android:layout_column="3"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Approve"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_weight="1"
+                            android:text="Update"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="2"
-                        android:layout_column="4"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Edit"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_row="3"
-                        android:layout_column="0"
-                        android:layout_columnWeight="1.5"
-                        android:paddingRight="2dp"
-                        android:text="Training Forum"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="3"
-                        android:layout_column="1"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="View"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="2"
+                            android:text="Training Forum"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="3"
-                        android:layout_column="2"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Update"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:paddingStart="0dp"
+                            android:paddingLeft="0dp"
+                            android:paddingEnd="0dp"
+                            android:text="View"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="3"
-                        android:layout_column="3"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Approve"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_weight="1"
+                            android:text="Update"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="3"
-                        android:layout_column="4"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Edit"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_row="4"
-                        android:layout_column="0"
-                        android:layout_columnWeight="1.5"
-                        android:breakStrategy="high_quality"
-                        android:paddingRight="2dp"
-                        android:text="Official Mail"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="4"
-                        android:layout_column="1"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="View"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="2"
+                            android:text="Official Mail"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="4"
-                        android:layout_column="2"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Update"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:paddingStart="0dp"
+                            android:paddingLeft="0dp"
+                            android:paddingEnd="0dp"
+                            android:text="View"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="4"
-                        android:layout_column="3"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Approve"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_weight="1"
+                            android:text="Update"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="4"
-                        android:layout_column="4"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Edit"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_row="5"
-                        android:layout_column="0"
-                        android:layout_columnWeight="1.5"
-                        android:paddingRight="2dp"
-                        android:text="Official Sim"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="5"
-                        android:layout_column="1"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="View"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="2"
+                            android:text="Official Sim"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="5"
-                        android:layout_column="2"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Update"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:paddingStart="0dp"
+                            android:paddingLeft="0dp"
+                            android:paddingEnd="0dp"
+                            android:text="View"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="5"
-                        android:layout_column="3"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Approve"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_weight="1"
+                            android:text="Update"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="5"
-                        android:layout_column="4"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Edit"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_row="6"
-                        android:layout_column="0"
-                        android:layout_columnWeight="1.5"
-                        android:paddingRight="2dp"
-                        android:text="Intern Certificate"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="6"
-                        android:layout_column="1"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="View"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="2"
+                            android:text="Intern Certificate"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="6"
-                        android:layout_column="2"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Update"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:paddingStart="0dp"
+                            android:paddingLeft="0dp"
+                            android:paddingEnd="0dp"
+                            android:text="View"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="6"
-                        android:layout_column="3"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Approve"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_weight="1"
+                            android:text="Update"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="6"
-                        android:layout_column="4"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Edit"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_row="7"
-                        android:layout_column="0"
-                        android:layout_columnWeight="1.5"
-                        android:paddingRight="2dp"
-                        android:text="Releving letter"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="4">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="7"
-                        android:layout_column="1"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="View"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="2"
+                            android:text="Releving letter"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="7"
-                        android:layout_column="2"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Update"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:paddingStart="0dp"
+                            android:paddingLeft="0dp"
+                            android:paddingEnd="0dp"
+                            android:text="View"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="7"
-                        android:layout_column="3"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Approve"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_weight="1"
+                            android:text="Update"
+                            android:textSize="10sp"
+                            app:cornerRadius="15dp" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_row="7"
-                        android:layout_column="4"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="5dp"
-                        android:paddingEnd="5dp"
-                        android:paddingRight="5dp"
-                        android:text="Edit"
-                        android:textSize="8sp"
-                        app:cornerRadius="15dp" />
+                    </LinearLayout>
 
-
-                </GridLayout>
+                </LinearLayout>
 
 
             </LinearLayout>
