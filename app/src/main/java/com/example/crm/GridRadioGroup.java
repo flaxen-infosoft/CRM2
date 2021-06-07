@@ -5,8 +5,6 @@ import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.ArrayList;
 
 public class GridRadioGroup {
@@ -14,12 +12,12 @@ public class GridRadioGroup {
 	ArrayList<RadioButton> radioButtons;
 	RadioGroup.OnCheckedChangeListener rglistener;
 
-	public GridRadioGroup(Context context, int radioGroupId) {
+	public GridRadioGroup(Context context, RadioGroup rg) {
 		radioButtons = new ArrayList<>();
 		CompoundButton.OnCheckedChangeListener rblistener = (buttonView, isChecked) -> {
-			if(isChecked){
+			if (isChecked) {
 				for (int i = 0; i < 4; i++) {
-					if (buttonView.getId() == radioButtonId[i] ) {
+					if (buttonView.getId() == radioButtonId[i]) {
 						radioButtons.get(i).setChecked(true);
 						if (rglistener != null) {
 							rglistener.onCheckedChanged(null, radioButtonId[i]);
@@ -30,7 +28,6 @@ public class GridRadioGroup {
 			}
 		};
 
-		RadioGroup rg = ((AppCompatActivity) context).findViewById(radioGroupId);
 		for (int i = 0; i < 4; i++) {
 			RadioButton rb = rg.findViewById(radioButtonId[i]);
 			rb.setOnCheckedChangeListener(rblistener);

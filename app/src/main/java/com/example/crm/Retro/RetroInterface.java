@@ -2,6 +2,7 @@ package com.example.crm.Retro;
 
 import com.example.crm.Model.Candidate;
 import com.example.crm.Model.Employee;
+import com.example.crm.Model.QuestionPaper;
 
 import java.util.List;
 
@@ -23,4 +24,7 @@ public interface RetroInterface {
 
     @POST("employee_registerapi.php")
     Call<Employee> addEmployee(@Body Employee employee);
+
+    @GET("/question_paper")
+    Call<QuestionPaper> getQuestionPaper();
 }

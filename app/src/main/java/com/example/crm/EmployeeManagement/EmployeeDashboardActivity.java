@@ -1,10 +1,10 @@
 package com.example.crm.EmployeeManagement;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.example.crm.R;
 
@@ -22,7 +22,8 @@ public class EmployeeDashboardActivity extends AppCompatActivity {
         documentation = findViewById(R.id.documentation);
 
         documentation.setOnClickListener(v -> {
-            Intent intent = new Intent(EmployeeDashboardActivity.this, FlaxenDocumentationActivity.class);
+            //Intent intent = new Intent(EmployeeDashboardActivity.this, FlaxenDocumentationActivity.class);
+            Intent intent = new Intent(EmployeeDashboardActivity.this, ActivityNewJoinee.class);
             startActivity(intent);
         });
 
