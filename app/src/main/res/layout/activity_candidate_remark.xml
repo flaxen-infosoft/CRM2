@@ -23,93 +23,91 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_backarrow"/>
+                    android:src="@drawable/ic_backarrow" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Registration"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:textColor="@color/white"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="30dp"/>
+                    android:layout_marginRight="30dp"
+                    android:text="Registration"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
             </RelativeLayout>
 
         </androidx.appcompat.widget.Toolbar>
 
 
-
         <ImageView
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:src="@drawable/ic_cuate"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_alignParentRight="true" />
+            android:src="@drawable/ic_cuate" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_below="@id/toolbar"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="50dp"
-            android:padding="10dp"
             android:background="@drawable/bg_stroke"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Date of Interview"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="30dp"
-                android:textColor="@color/black"/>
+                android:text="Date of Interview"
+                android:textColor="@color/black" />
 
             <Button
+                android:id="@+id/candidate_remark_dateofinterview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/bg_btn"
-                android:id="@+id/candidate_remark_dateofinterview"
-                app:backgroundTint="@color/lightgrey"
-                android:layout_marginTop="10dp"/>
+                app:backgroundTint="@color/lightgrey" />
 
 
             <TextView
+                android:id="@+id/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Applied for"
+                android:layout_below="@+id/linear"
                 android:layout_marginLeft="10dp"
-                android:id="@+id/text"
-                android:textColor="@color/black"
                 android:layout_marginTop="10dp"
-                android:layout_below="@+id/linear"/>
+                android:text="Applied for"
+                android:textColor="@color/black" />
 
             <RadioGroup
+                android:id="@+id/internshipjobrg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/linear"
-                android:layout_toRightOf="@+id/text"
                 android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/text"
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/intern"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Internship"
-                    android:onClick="showmyinformation"
                     android:layout_marginLeft="10dp"
-                    android:id="@+id/intern"/>
+                    android:text="Internship" />
 
                 <RadioButton
+                    android:id="@+id/job"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Job"
-                    android:onClick="showjobinformation"
                     android:layout_marginLeft="10dp"
-                    android:id="@+id/job"/>
+                    android:text="Job" />
 
             </RadioGroup>
 
@@ -117,10 +115,10 @@
                 android:id="@+id/mycontent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:ael_expanded="false"
+                android:orientation="vertical"
                 app:ael_duration="300"
-                app:el_parallax="0.5"
-                android:orientation="vertical">
+                app:ael_expanded="false"
+                app:el_parallax="0.5">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -131,81 +129,81 @@
                         android:id="@+id/txtcollage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Collage"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="30dp"
-                        android:textColor="@color/black"/>
+                        android:text="Collage"
+                        android:textColor="@color/black" />
 
                     <EditText
                         android:id="@+id/candidate_collage_name"
-                        android:layout_below="@id/txtcollage"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_below="@id/txtcollage"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginRight="5dp"
                         android:background="@drawable/edittext_bg"
-                        android:padding="13dp"
-                        android:textSize="15sp"
+                        android:elevation="8dp"
                         android:inputType="text"
-                        android:elevation="8dp"/>
+                        android:padding="13dp"
+                        android:textSize="15sp" />
 
                     <TextView
                         android:id="@+id/txtduration"
-                        android:layout_below="@id/collage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Duration"
+                        android:layout_below="@id/collage"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="30dp"
-                        android:textColor="@color/black"/>
+                        android:text="Duration"
+                        android:textColor="@color/black" />
 
                     <EditText
                         android:id="@+id/Candidate_internship_duration"
-                        android:layout_below="@id/txtduration"
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
+                        android:layout_below="@id/txtduration"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginRight="5dp"
                         android:background="@drawable/edittext_bg"
-                        android:padding="13dp"
-                        android:textSize="15sp"
+                        android:elevation="8dp"
                         android:inputType="text"
-                        android:elevation="8dp"/>
+                        android:padding="13dp"
+                        android:textSize="15sp" />
 
                     <TextView
                         android:id="@+id/txtstipend"
-                        android:layout_below="@id/duration"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Stipend"
+                        android:layout_below="@id/duration"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="30dp"
-                        android:textColor="@color/black"/>
+                        android:text="Stipend"
+                        android:textColor="@color/black" />
 
                     <RadioGroup
                         android:id="@+id/radiogroup"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_below="@id/txtstipend"
                         android:layout_marginTop="10dp"
-                        android:layout_below="@id/txtstipend">
+                        android:orientation="horizontal">
 
                         <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Yes"
                             android:id="@+id/stipendyes"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="30dp"/>
-
-                        <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="NO"
+                            android:layout_marginLeft="30dp"
+                            android:layout_weight="1"
+                            android:text="Yes" />
+
+                        <RadioButton
                             android:id="@+id/stipendno"
-                            android:layout_weight="1"/>
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="NO" />
 
                     </RadioGroup>
 
@@ -221,21 +219,19 @@
 
                     <EditText
                         android:id="@+id/Stipendamount"
-                        android:layout_below="@id/txtamount"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_below="@id/txtamount"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginRight="5dp"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/edittext_bg"
-                        android:padding="13dp"
-                        android:textSize="15sp"
+                        android:elevation="8dp"
                         android:inputType="text"
-                        android:elevation="8dp"/>
+                        android:padding="13dp"
+                        android:textSize="15sp" />
                 </LinearLayout>
-
-
 
 
             </net.cachapa.expandablelayout.ExpandableLayout>
@@ -244,10 +240,10 @@
                 android:id="@+id/myjobcontent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:ael_expanded="false"
+                android:orientation="vertical"
                 app:ael_duration="300"
-                app:el_parallax="0.5"
-                android:orientation="vertical">
+                app:ael_expanded="false"
+                app:el_parallax="0.5">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -258,52 +254,51 @@
                         android:id="@+id/internradiogroup"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_below="@id/txtstipend"
                         android:layout_marginTop="10dp"
-                        android:layout_below="@id/txtstipend">
+                        android:orientation="horizontal">
 
                         <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Fresher"
                             android:id="@+id/fresher"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="30dp"/>
-
-                        <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Experience"
+                            android:layout_marginLeft="30dp"
+                            android:layout_weight="1"
+                            android:text="Fresher" />
+
+                        <RadioButton
                             android:id="@+id/experience"
-                            android:layout_weight="1"/>
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Experience" />
 
                     </RadioGroup>
 
                     <TextView
                         android:id="@+id/txtjobamount"
-                        android:layout_below="@id/internradiogroup"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Amount"
+                        android:layout_below="@id/internradiogroup"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="30dp"
-                        android:textColor="@color/black"/>
+                        android:text="Amount"
+                        android:textColor="@color/black" />
 
                     <EditText
                         android:id="@+id/jobamount"
-                        android:layout_below="@id/txtjobamount"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_below="@id/txtjobamount"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginRight="5dp"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/edittext_bg"
-                        android:padding="13dp"
-                        android:textSize="15sp"
+                        android:elevation="8dp"
                         android:inputType="text"
-                        android:elevation="8dp"/>
-
+                        android:padding="13dp"
+                        android:textSize="15sp" />
 
 
                 </LinearLayout>
@@ -313,128 +308,128 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Have A Laptop"
-                android:textColor="@color/black"
+                android:layout_below="@+id/text"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_below="@+id/text"/>
+                android:text="Have A Laptop"
+                android:textColor="@color/black" />
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/text"
-                android:layout_toRightOf="@+id/text2"
                 android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/text2"
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/yes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Yes"
                     android:layout_marginLeft="10dp"
-                    android:id="@+id/yes"/>
+                    android:text="Yes" />
 
                 <RadioButton
+                    android:id="@+id/no"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="No"
                     android:layout_marginLeft="10dp"
-                    android:id="@+id/no"/>
+                    android:text="No" />
 
             </RadioGroup>
 
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Department"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:layout_marginLeft="10dp"-->
-<!--                android:id="@+id/text2"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:layout_below="@+id/text"/>-->
+            <!--            <TextView-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="Department"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:layout_marginLeft="10dp"-->
+            <!--                android:id="@+id/text2"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:layout_below="@+id/text"/>-->
 
-<!--            <Spinner-->
-<!--                android:id="@+id/department"-->
-<!--                android:layout_width="200dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_below="@+id/text2"-->
-<!--                android:layout_marginLeft="5dp"-->
-<!--                android:layout_marginTop="15dp"-->
-<!--                android:layout_marginRight="5dp"-->
-<!--                android:background="@drawable/edittext_bg"-->
-<!--                android:entries="@array/Department"-->
-<!--                android:elevation="6dp"-->
-<!--                android:hint="Department"-->
-<!--                android:padding="6dp" />-->
+            <!--            <Spinner-->
+            <!--                android:id="@+id/department"-->
+            <!--                android:layout_width="200dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_below="@+id/text2"-->
+            <!--                android:layout_marginLeft="5dp"-->
+            <!--                android:layout_marginTop="15dp"-->
+            <!--                android:layout_marginRight="5dp"-->
+            <!--                android:background="@drawable/edittext_bg"-->
+            <!--                android:entries="@array/Department"-->
+            <!--                android:elevation="6dp"-->
+            <!--                android:hint="Department"-->
+            <!--                android:padding="6dp" />-->
 
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Designation"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:layout_marginLeft="10dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:layout_below="@+id/text"/>-->
+            <!--            <TextView-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="Designation"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:layout_marginLeft="10dp"-->
+            <!--                android:layout_marginTop="10dp"-->
+            <!--                android:layout_below="@+id/text"/>-->
 
-<!--            <EditText-->
-<!--                android:layout_width="200dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:id="@+id/candidate_designation"-->
-<!--                android:layout_below="@+id/department"-->
-<!--                android:layout_marginLeft="5dp"-->
-<!--                android:layout_marginRight="5dp"-->
-<!--                android:layout_marginTop="15dp"-->
-<!--                android:background="@drawable/edittext_bg"-->
-<!--                android:padding="13dp"-->
-<!--                android:textSize="15sp"-->
-<!--                android:inputType="text"-->
-<!--                android:elevation="6dp"/>-->
+            <!--            <EditText-->
+            <!--                android:layout_width="200dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:id="@+id/candidate_designation"-->
+            <!--                android:layout_below="@+id/department"-->
+            <!--                android:layout_marginLeft="5dp"-->
+            <!--                android:layout_marginRight="5dp"-->
+            <!--                android:layout_marginTop="15dp"-->
+            <!--                android:background="@drawable/edittext_bg"-->
+            <!--                android:padding="13dp"-->
+            <!--                android:textSize="15sp"-->
+            <!--                android:inputType="text"-->
+            <!--                android:elevation="6dp"/>-->
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Status"
-                android:textColor="@color/black"
+                android:layout_below="@+id/text"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_below="@+id/text"/>
+                android:text="Status"
+                android:textColor="@color/black" />
 
             <Spinner
+                android:id="@+id/status"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/status"
                 android:layout_below="@+id/candidate_designation"
                 android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
                 android:layout_marginTop="15dp"
-                android:hint="Department"
-                android:entries="@array/Status"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/edittext_bg"
-                android:padding="6dp"
-                android:elevation="6dp"/>
+                android:elevation="6dp"
+                android:entries="@array/Status"
+                android:hint="Department"
+                android:padding="6dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Remarks"
-                android:textColor="@color/black"
+                android:layout_below="@+id/text"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_below="@+id/text"/>
+                android:text="Remarks"
+                android:textColor="@color/black" />
 
             <EditText
+                android:id="@+id/candidate_remark"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:id="@+id/candidate_remark"
                 android:layout_below="@+id/status"
                 android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
                 android:layout_marginTop="15dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/edittext_bg"
-                android:padding="13dp"
-                android:textSize="15sp"
+                android:elevation="6dp"
                 android:inputType="textEmailAddress"
-                android:elevation="6dp"/>
+                android:padding="13dp"
+                android:textSize="15sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -444,36 +439,35 @@
 
                 <com.google.android.material.checkbox.MaterialCheckBox
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Send Online test Link"
+                    android:textColor="@color/blue_border"
                     android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/blue_border"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
             <Button
+                android:id="@+id/candidate_register"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/candidate_register"
                 android:layout_below="@id/candidate_remark"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="50dp"
-                android:text="Update"
                 android:layout_gravity="center_horizontal"
-                android:textColor="@color/white"
-                app:backgroundTint="@color/megenta"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="50dp"
                 android:background="@drawable/bg_btn"
-                android:elevation="6dp"/>
+                android:elevation="6dp"
+                android:text="Update"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/megenta" />
 
         </LinearLayout>
-
 
 
     </RelativeLayout>
