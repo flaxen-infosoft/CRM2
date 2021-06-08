@@ -14,22 +14,25 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 
 public interface RetroInterface {
-    @POST("candidate_registerapi.php")
-    Call<Candidate> addCandidate(@Body Candidate candidate);
+	@POST("candidate_registerapi.php")
+	Call<Candidate> addCandidate(@Body Candidate candidate);
 
-    @PUT("update_candidate.php")
-    Call<Candidate> updateCandidate(@Body Candidate candidate);
+	@PUT("update_candidate.php")
+	Call<Candidate> updateCandidate(@Body Candidate candidate);
 
-    @GET("get_candidate.php")
-    Call<List<Candidate>> getcandidate();
+	@GET("get_candidate.php")
+	Call<List<Candidate>> getcandidate();
 
-    @POST("employee_registerapi.php")
-    Call<Employee> addEmployee(@Body Employee employee);
+	@POST("employee_registerapi.php")
+	Call<Employee> addEmployee(@Body Employee employee);
 
-    @GET("/question_paper")
-    Call<QuestionPaper> getQuestionPaper();
+	@GET("/question_paper")
+	Call<QuestionPaper> getQuestionPaper();
 
-    @GET("/updates_candidates")
-    Call<ArrayList<Candidate>> getUpdatesCandidates();
+	@GET("/updates_candidates")
+	Call<ArrayList<Candidate>> getUpdatesCandidates();
+
+	@GET("get_short_candidate.php")
+	Call<ArrayList<Candidate>> getAllShortlistedCandidates();
 
 }

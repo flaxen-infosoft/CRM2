@@ -1,5 +1,8 @@
 package com.example.crm.HRManagement;
 
+import android.graphics.Color;
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,77 +12,121 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
-import android.os.Bundle;
-
+import com.example.crm.CustomToast;
+import com.example.crm.Model.Candidate;
 import com.example.crm.R;
-import com.example.crm.SalesManagement.LeaveActivity;
-import com.example.crm.SalesManagement.LeaveApprovedFragment;
-import com.example.crm.SalesManagement.LeaveDeclinedFragment;
+import com.example.crm.Retro.RetroInterface;
+import com.example.crm.Retro.Retrofi;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class ShortlistedCandidateDetailsActivity extends AppCompatActivity {
 
-    TabLayout tabLayout;
-    ViewPager viewPager;
-    MainAdapter adapter;
+	TabLayout tabLayout;
+	ViewPager viewPager;
+	MainAdapter adapter;
+	ArrayList<Candidate> shortlistedCandidates;
+	CardView cardView;
+	FirstRoundFragment firstRoundFragment;
+	SecondRoundFragment secondRoundFragment;
+	RejectedFragment rejectedFragment;
+	OnHoldFragment onHoldFragment;
+	BlackListedFragment blackListedFragment;
 
-    CardView cardView;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_shortlisted_candidate_details);
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_shortlisted_candidate_details);
+		retriveShortlistedCandidates();
+		cardView = findViewById(R.id.card1);
+		tabLayout = findViewById(R.id.tab_layout);
+		viewPager = findViewById(R.id.view_pager);
 
-        cardView = findViewById(R.id.card1);
-        tabLayout = findViewById(R.id.tab_layout);
-        viewPager = findViewById(R.id.view_pager);
+		firstRoundFragment = new FirstRoundFragment();
+		secondRoundFragment = new SecondRoundFragment();
+		rejectedFragment = new RejectedFragment();
+		onHoldFragment = new OnHoldFragment();
+		blackListedFragment = new BlackListedFragment();
 
-        adapter= new MainAdapter(getSupportFragmentManager());
-        adapter.AddFragment(new FirstRoundFragment(), "1st Round");
-        adapter.AddFragment(new SecondRoundFragment(), "2nd Round");
-        adapter.AddFragment(new RejectedFragment(), "Rejected");
-        adapter.AddFragment(new OnHoldFragment(), "On Hold");
-        adapter.AddFragment(new BlackListedFragment(), "BlackListed");
+		adapter = new MainAdapter(getSupportFragmentManager());
+		adapter.AddFragment(firstRoundFragment, "1st Round");
+		adapter.AddFragment(secondRoundFragment, "2nd Round");
+		adapter.AddFragment(rejectedFragment, "Rejected");
+		adapter.AddFragment(onHoldFragment, "On Hold");
+		adapter.AddFragment(blackListedFragment, "BlackListed");
 
-        viewPager.setAdapter(adapter);
+		viewPager.setAdapter(adapter);
 
-        tabLayout.setupWithViewPager(viewPager);
+		tabLayout.setupWithViewPager(viewPager);
 
-    }
+	}
 
-    private class MainAdapter extends FragmentPagerAdapter {
+	private void retriveShortlistedCandidates() {
+		RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
+		Call<ArrayList<Candidate>> call = ri.getAllShortlistedCandidates();
+		call.enqueue(new Callback<ArrayList<Candidate>>() {
+			@Override
+			public void onResponse(Call<ArrayList<Candidate>> call, Response<ArrayList<Candidate>> response) {
+				if (response.isSuccessful()) {
+					shortlistedCandidates = response.body();
+					if (shortlistedCandidates == null)
+						shortlistedCandidates = new ArrayList<>();
+					updateUI();
 
-        ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
-        ArrayList<String> stringArrayList = new ArrayList<>();
+				} else {
+					CustomToast.makeText(ShortlistedCandidateDetailsActivity.this, "Failed to load results", 0, Color.RED);
+				}
+			}
 
-        public void AddFragment(Fragment fragment, String s){
-            fragmentArrayList.add(fragment);
-            stringArrayList.add(s);
-        }
+			@Override
+			public void onFailure(Call<ArrayList<Candidate>> call, Throwable t) {
+				CustomToast.makeText(ShortlistedCandidateDetailsActivity.this, "Internal error occured :(", 0, Color.RED);
+			}
+		});
 
-        public MainAdapter(@NonNull FragmentManager fm) {
-            super(fm);
-        }
 
-        @NonNull
-        @Override
-        public Fragment getItem(int position) {
-            return  fragmentArrayList.get(position);
-        }
+	}
 
-        @Override
-        public int getCount() {
-            return fragmentArrayList.size();
-        }
+	private void updateUI() {
+		firstRoundFragment.setShortlistedCandidates(shortlistedCandidates);
+	}
 
-        @Nullable
-        @Override
-        public CharSequence getPageTitle(int position) {
+	private class MainAdapter extends FragmentPagerAdapter {
 
-            return stringArrayList.get(position);
-        }
-    }
+		ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
+		ArrayList<String> stringArrayList = new ArrayList<>();
+
+		public MainAdapter(@NonNull FragmentManager fm) {
+			super(fm);
+		}
+
+		public void AddFragment(Fragment fragment, String s) {
+			fragmentArrayList.add(fragment);
+			stringArrayList.add(s);
+		}
+
+		@NonNull
+		@Override
+		public Fragment getItem(int position) {
+			return fragmentArrayList.get(position);
+		}
+
+		@Override
+		public int getCount() {
+			return fragmentArrayList.size();
+		}
+
+		@Nullable
+		@Override
+		public CharSequence getPageTitle(int position) {
+
+			return stringArrayList.get(position);
+		}
+	}
 }

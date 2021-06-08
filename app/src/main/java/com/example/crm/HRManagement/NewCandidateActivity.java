@@ -1,13 +1,10 @@
 package com.example.crm.HRManagement;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
 
 import com.example.crm.Model.Candidate;
 import com.example.crm.R;
@@ -27,8 +24,8 @@ public class NewCandidateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_candidate);
-recyclerView=findViewById(R.id.new_registerrecyler);
-recyclerView.setLayoutManager(new LinearLayoutManager(NewCandidateActivity.this));
+        recyclerView=findViewById(R.id.new_registerrecyler);
+        recyclerView.setLayoutManager(new LinearLayoutManager(NewCandidateActivity.this));
         RetroInterface retroInterface = Retrofi.initretro().create(RetroInterface.class);
         Call<List<Candidate>> candidateCall= retroInterface.getcandidate();
        candidateCall.enqueue(new Callback<List<Candidate>>() {

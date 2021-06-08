@@ -1,66 +1,102 @@
 package com.example.crm.HRManagement;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.crm.Model.Candidate;
 import com.example.crm.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FirstRoundFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
 public class FirstRoundFragment extends Fragment {
+	ArrayList<Candidate> shortlistedCandidates;
+	RecyclerView rv = null;
+	FirstFragmentAdapter firstFragmentAdapter;
+	View v;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+	public FirstRoundFragment() {
+		// Required empty public constructor
+	}
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+	public void setShortlistedCandidates(ArrayList<Candidate> shortlistedCandidates) {
+		this.shortlistedCandidates = shortlistedCandidates;
 
-    public FirstRoundFragment() {
-        // Required empty public constructor
-    }
+		firstFragmentAdapter = new FirstFragmentAdapter();
+		rv.setAdapter(firstFragmentAdapter);
+		rv.setLayoutManager(new LinearLayoutManager(getContext()));
+	}
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FirstRoundFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FirstRoundFragment newInstance(String param1, String param2) {
-        FirstRoundFragment fragment = new FirstRoundFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+	}
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first_round, container, false);
-    }
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+	                         Bundle savedInstanceState) {
+
+		if (v == null)
+			v = inflater.inflate(R.layout.fragment_first_round, container, false);
+		if (rv == null)
+			rv = v.findViewById(R.id.recyclerView);
+		return v;
+	}
+
+	public class FirstFragmentListViewHolder extends RecyclerView.ViewHolder {
+		TextView name, appliedfor, date;
+		ImageView call;
+
+		public FirstFragmentListViewHolder(@NonNull View itemView) {
+			super(itemView);
+			name = itemView.findViewById(R.id.name);
+			appliedfor = itemView.findViewById(R.id.applied_for);
+			date = itemView.findViewById(R.id.date);
+			call = itemView.findViewById(R.id.call);
+
+
+			call.setOnClickListener(v -> {
+				int pos = getAdapterPosition();
+				Uri u = Uri.parse("tel:" + shortlistedCandidates.get(pos).getPhone());
+				Intent i = new Intent(Intent.ACTION_DIAL, u);
+				startActivity(i);
+			});
+
+		}
+	}
+
+	public class FirstFragmentAdapter extends RecyclerView.Adapter<FirstFragmentListViewHolder> {
+
+		@NonNull
+		@Override
+		public FirstFragmentListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+			View v = LayoutInflater.from(FirstRoundFragment.this.getContext()).inflate(R.layout.round_fragment_list_item, parent, false);
+			return new FirstFragmentListViewHolder(v);
+		}
+
+		@Override
+		public void onBindViewHolder(@NonNull FirstFragmentListViewHolder holder, int position) {
+			Candidate candidate = shortlistedCandidates.get(position);
+			holder.name.setText(candidate.getName());
+			holder.appliedfor.setText("Applied for: " + candidate.getApplied_for());
+			holder.date.setText("Date: " + candidate.getDateof_interview());
+		}
+
+		@Override
+		public int getItemCount() {
+			return shortlistedCandidates.size();
+		}
+	}
 }
