@@ -29,9 +29,6 @@ public interface RetroInterface {
 	@GET("/question_paper")
 	Call<QuestionPaper> getQuestionPaper();
 
-	@GET("/updates_candidates")
-	Call<ArrayList<Candidate>> getUpdatesCandidates();
-
 	@GET("get_short_candidate.php")
 	Call<ArrayList<Candidate>> getAllShortlistedCandidates();
 

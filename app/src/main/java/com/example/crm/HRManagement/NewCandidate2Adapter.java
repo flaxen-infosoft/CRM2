@@ -13,12 +13,13 @@ import com.example.crm.Model.Candidate;
 import com.example.crm.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adapter.CandidateHolder> {
 	Context context;
-	ArrayList<Candidate> candidates;
+	List<Candidate> candidates;
 
-	public NewCandidate2Adapter(Context context, ArrayList<Candidate> candidates) {
+	public NewCandidate2Adapter(Context context, List<Candidate> candidates) {
 		this.context = context;
 		this.candidates = candidates;
 	}
