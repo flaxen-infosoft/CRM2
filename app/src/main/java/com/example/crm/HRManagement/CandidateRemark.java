@@ -1,6 +1,7 @@
 package com.example.crm.HRManagement;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -122,8 +123,12 @@ public class CandidateRemark extends AppCompatActivity {
                     public void onResponse(Call<Candidate> call, Response<Candidate> response) {
                         if (!response.isSuccessful()) {
                             System.out.println(response.code());
+                        } else {
+                            CustomToast.makeText(CandidateRemark.this, "Details Updated", 0, Color.parseColor("#32CD32"));
+                            Intent i = new Intent(CandidateRemark.this, NewCandidateActivity2.class);
+                            startActivity(i);
+                            finish();
                         }
-                        CustomToast.makeText(CandidateRemark.this,"Details Updated",0,  Color.parseColor("#32CD32"));
                     }
 
                     @Override

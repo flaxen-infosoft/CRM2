@@ -4,6 +4,7 @@ import com.example.crm.Model.Candidate;
 import com.example.crm.Model.Employee;
 import com.example.crm.Model.QuestionPaper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -27,4 +28,8 @@ public interface RetroInterface {
 
     @GET("/question_paper")
     Call<QuestionPaper> getQuestionPaper();
+
+    @GET("/updates_candidates")
+    Call<ArrayList<Candidate>> getUpdatesCandidates();
+
 }
