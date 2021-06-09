@@ -3,7 +3,6 @@ package com.example.crm.HRManagement;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,10 +47,10 @@ public class FirstRoundFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
 
-		if (v == null)
+		if (v == null) {
 			v = inflater.inflate(R.layout.fragment_first_round, container, false);
-		if (rv == null)
 			rv = v.findViewById(R.id.recyclerView);
+		}
 		return v;
 	}
 

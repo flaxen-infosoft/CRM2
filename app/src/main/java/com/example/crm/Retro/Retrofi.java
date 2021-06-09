@@ -12,8 +12,6 @@ public class Retrofi {
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
-
-
         return new Retrofit.Builder()
                 .baseUrl("https://Creatorsdesire.in/app_api/")
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())

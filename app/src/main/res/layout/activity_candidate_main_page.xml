@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HRManagement.CandidateMainPage"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".HRManagement.CandidateMainPage">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
@@ -106,7 +106,7 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:id="@+id/img4"
+                        android:id="@+id/img10"
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:layout_centerHorizontal="true"
@@ -117,7 +117,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/img4"
+                        android:layout_below="@id/img10"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="5dp"
@@ -275,7 +275,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/meeting"
+                android:id="@+id/manage"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginLeft="10dp"
@@ -297,8 +297,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
                         android:layout_marginTop="15dp"
-                        android:src="@drawable/ic_manage"
-                        />
+                        android:src="@drawable/ic_manage" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -306,14 +305,13 @@
                         android:layout_below="@+id/img5"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="5dp"
-                        android:text=""
+                        android:text="Manage"
                         android:textColor="@color/black" />
 
                 </RelativeLayout>
 
 
             </androidx.cardview.widget.CardView>
-
 
 
         </LinearLayout>
