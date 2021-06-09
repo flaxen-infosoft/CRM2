@@ -11,17 +11,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.crm.Model.Candidate;
 import com.example.crm.R;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adapter.CandidateHolder> {
 	Context context;
 	List<Candidate> candidates;
+	GeneralInterface gi;
 
-	public NewCandidate2Adapter(Context context, List<Candidate> candidates) {
+	public NewCandidate2Adapter(Context context, List<Candidate> candidates, GeneralInterface gi) {
 		this.context = context;
 		this.candidates = candidates;
+		this.gi = gi;
 	}
 
 	@NonNull
@@ -45,7 +47,8 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 
 	public class CandidateHolder extends RecyclerView.ViewHolder {
 
-		TextView name, date, applied_for, link;
+		TextView name, date, applied_for, link, updateStatus;
+
 
 		public CandidateHolder(@NonNull View itemView) {
 			super(itemView);
@@ -53,6 +56,20 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 			date = itemView.findViewById(R.id.date);
 			applied_for = itemView.findViewById(R.id.applied_for);
 			link = itemView.findViewById(R.id.link);
+			updateStatus = itemView.findViewById(R.id.updateStatus);
+
+			updateStatus.setOnClickListener(v -> {
+				int pos = getAdapterPosition();
+				new MaterialAlertDialogBuilder(context).setTitle("Shortlist " + candidates.get(pos).getName() + "?")
+						.setNeutralButton("Cancel", (dialog, which) -> {
+							dialog.dismiss();
+						})
+						.setPositiveButton("Shortlist", (dialog, which) -> {
+							gi.onShortlistCandidate(candidates.get(pos));
+						}).show();
+
+			});
+
 
 		}
 	}

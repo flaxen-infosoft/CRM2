@@ -1,7 +1,9 @@
 package com.example.crm.HRManagement;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,6 +14,7 @@ import com.example.crm.Model.Candidate;
 import com.example.crm.R;
 import com.example.crm.Retro.RetroInterface;
 import com.example.crm.Retro.Retrofi;
+import com.google.gson.JsonObject;
 
 import java.util.List;
 
@@ -24,6 +27,7 @@ public class NewCandidateActivity2 extends AppCompatActivity {
 	List<Candidate> candidates;
 	NewCandidate2Adapter adapter;
 	RecyclerView rv;
+	GeneralInterface gi;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +35,41 @@ public class NewCandidateActivity2 extends AppCompatActivity {
 		setContentView(R.layout.activity_new_candidate2);
 		rv = findViewById(R.id.recyclerView);
 
+		gi = new GeneralInterface() {
+			@Override
+			public void onShortlistCandidate(Candidate candidate) {
+				shortlistCandidate(candidate);
+			}
+		};
+
+
 		fetchCandidates();
+
+	}
+
+	private void shortlistCandidate(Candidate candidate) {
+
+		RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
+		Call<JsonObject> call = ri.shortListCandidate(candidate.getId());
+		call.enqueue(new Callback<JsonObject>() {
+			@Override
+			public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+				if (response.isSuccessful()) {
+					Intent i = new Intent(NewCandidateActivity2.this, ShortlistedCandidateDetailsActivity.class);
+					startActivity(i);
+					finish();
+				} else {
+					CustomToast.makeText(NewCandidateActivity2.this, "Failed to update status :(", 0, Color.RED);
+				}
+			}
+
+			@Override
+			public void onFailure(Call<JsonObject> call, Throwable t) {
+				CustomToast.makeText(NewCandidateActivity2.this, "Failed to update status :( " + t.getMessage(), 0, Color.RED);
+				Log.e("123", t.getMessage());
+			}
+		});
+
 
 	}
 
@@ -46,7 +84,7 @@ public class NewCandidateActivity2 extends AppCompatActivity {
 					CustomToast.makeText(NewCandidateActivity2.this, "Failed to fetch", 0, Color.parseColor("#32CD32"));
 				} else {
 					candidates = response.body();
-					adapter = new NewCandidate2Adapter(NewCandidateActivity2.this, candidates);
+					adapter = new NewCandidate2Adapter(NewCandidateActivity2.this, candidates, gi);
 					rv.setLayoutManager(new LinearLayoutManager(NewCandidateActivity2.this));
 					rv.setAdapter(adapter);
 				}
