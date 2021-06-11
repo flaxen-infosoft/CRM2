@@ -1,16 +1,24 @@
 package com.example.crm.Model;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-public class Question {
+public class Question implements Cloneable {
 	String que;
 	@Nullable
 	int ans;
 	ArrayList<String> options;
 
 	public Question() {
+		ans = -1;
+	}
+
+	@NonNull
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		return super.clone();
 	}
 
 	public String getQue() {

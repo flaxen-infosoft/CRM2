@@ -46,4 +46,8 @@ public class GridRadioGroup {
 		}
 		return 0;
 	}
+
+	public void setCheked(int pos) {
+		radioButtons.get(pos).setChecked(true);
+	}
 }

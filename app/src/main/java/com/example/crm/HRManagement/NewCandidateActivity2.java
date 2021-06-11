@@ -14,6 +14,7 @@ import com.example.crm.Model.Candidate;
 import com.example.crm.R;
 import com.example.crm.Retro.RetroInterface;
 import com.example.crm.Retro.Retrofi;
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 import java.util.List;
@@ -49,12 +50,16 @@ public class NewCandidateActivity2 extends AppCompatActivity {
 
 	private void shortlistCandidate(Candidate candidate) {
 
+		Gson gson = new Gson();
+		Log.e("123", gson.toJson(candidate));
+
 		RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
 		Call<JsonObject> call = ri.shortListCandidate(candidate.getId());
 		call.enqueue(new Callback<JsonObject>() {
 			@Override
 			public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
 				if (response.isSuccessful()) {
+					Log.e("123", response.message() + response.code() + candidate.getId());
 					Intent i = new Intent(NewCandidateActivity2.this, ShortlistedCandidateDetailsActivity.class);
 					startActivity(i);
 					finish();
@@ -62,6 +67,19 @@ public class NewCandidateActivity2 extends AppCompatActivity {
 					CustomToast.makeText(NewCandidateActivity2.this, "Failed to update status :(", 0, Color.RED);
 				}
 			}
+
+			/*
+			-
+			-
+			abc
+			abc
+			abc
+			4
+			4
+			1
+			4
+			4
+			 */
 
 			@Override
 			public void onFailure(Call<JsonObject> call, Throwable t) {

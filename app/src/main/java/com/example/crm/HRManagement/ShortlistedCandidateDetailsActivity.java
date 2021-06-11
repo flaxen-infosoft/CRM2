@@ -2,6 +2,7 @@ package com.example.crm.HRManagement;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,6 +19,7 @@ import com.example.crm.R;
 import com.example.crm.Retro.RetroInterface;
 import com.example.crm.Retro.Retrofi;
 import com.google.android.material.tabs.TabLayout;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -94,6 +96,9 @@ public class ShortlistedCandidateDetailsActivity extends AppCompatActivity {
 	}
 
 	private void updateUI() {
+		Gson gson = new Gson();
+		Log.e("123", "in long activity");
+		Log.e("123", gson.toJson(shortlistedCandidates.get(shortlistedCandidates.size() - 1)));
 		firstRoundFragment.setShortlistedCandidates(shortlistedCandidates);
 	}
 

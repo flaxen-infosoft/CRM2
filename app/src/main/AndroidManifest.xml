@@ -12,13 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CRM">
+        <activity android:name=".HRManagement.TestResponsesRecorder"></activity>
         <activity android:name=".EmployeeManagement.NewJoineeEmployee"></activity>
         <activity android:name=".EmployeeManagement.ActivityNewJoinee" />
         <activity android:name=".EmployeeManagement.DepartmentActivity" />
         <activity android:name=".HRManagement.TestRespoondActivity" />
-        <activity android:name=".HRManagement.LiteratureTestPaper" />
-        <activity android:name=".HRManagement.TechnicalTestPaper" />
-        <activity android:name=".HRManagement.LogicalreasoningTestPaper" />
         <activity android:name=".HRManagement.NewCandidateActivity" />
         <activity android:name=".HRManagement.NewCandidateActivity2" />
         <activity android:name=".SalesManagement.LeaveActivity" />
@@ -56,7 +54,18 @@
         <activity android:name=".HRManagement.ShortlistedCandidateFullDetailsActivity" />
         <activity android:name=".HRManagement.ShortlistedCandidateDetailsActivity" />
         <activity android:name=".HRManagement.TestPaperRespondActivity" />
-        <activity android:name=".HRManagement.TestPaperActivity" />
+        <activity android:name=".HRManagement.TestPaperActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="com.example.crm"
+                    android:scheme="http" />
+            </intent-filter>
+        </activity>
         <activity android:name=".HRManagement.TestPaperSummerActivity" />
         <activity android:name=".HRManagement.CandidateMainPage" />
         <activity android:name=".CRMManagement.CustomerDetails" />

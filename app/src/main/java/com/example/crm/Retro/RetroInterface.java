@@ -13,6 +13,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Query;
 
 public interface RetroInterface {
 	@POST("candidate_registerapi.php")
@@ -34,6 +35,6 @@ public interface RetroInterface {
 	Call<ArrayList<Candidate>> getAllShortlistedCandidates();
 
 	@POST("shortlisted_candidateapi.php")
-	Call<JsonObject> shortListCandidate(@Body String id);
+	Call<JsonObject> shortListCandidate(@Query("id") String id);
 
 }

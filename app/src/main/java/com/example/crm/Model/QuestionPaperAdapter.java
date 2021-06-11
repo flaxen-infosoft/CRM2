@@ -1,6 +1,10 @@
 package com.example.crm.Model;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,13 +39,26 @@ public class QuestionPaperAdapter extends RecyclerView.Adapter<QuestionPaperAdap
 
 	@Override
 	public void onBindViewHolder(@NonNull QuestionViewHolder holder, int position) {
-
-		holder.que.setText(questions.get(position).getQue());
+		SpannableString str = new SpannableString(questions.get(position).getQue() + " *");
+		str.setSpan(new ForegroundColorSpan(Color.RED), str.length() - 1, str.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+		holder.que.setText(str);
 		ArrayList<String> options = questions.get(position).getOptions();
 		holder.op1.setText(options.get(0));
 		holder.op2.setText(options.get(1));
 		holder.op3.setText(options.get(2));
 		holder.op4.setText(options.get(3));
+
+		if (questions.get(position).getAns() != -1) {
+			holder.grg.setCheked(questions.get(position).getAns());
+		}
+	}
+
+	public ArrayList<Question> getQuestions() {
+		return questions;
+	}
+
+	public void setQuestions(ArrayList<Question> questions) {
+		this.questions = questions;
 	}
 
 	@Override
