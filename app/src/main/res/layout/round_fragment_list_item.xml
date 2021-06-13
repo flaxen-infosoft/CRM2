@@ -12,7 +12,6 @@
         android:background="@drawable/bg_cardview"
         android:elevation="12dp"
         app:cardCornerRadius="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -83,13 +82,16 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/round"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="22dp"
                 android:layout_marginRight="10dp"
+                android:gravity="center_horizontal"
                 android:padding="5dp"
                 android:text="Round Cleared"
+                android:textAlignment="center"
                 android:textColor="@color/green"
                 android:textSize="13sp" />
 
@@ -174,7 +176,6 @@
             </LinearLayout>
 
         </RelativeLayout>
-
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

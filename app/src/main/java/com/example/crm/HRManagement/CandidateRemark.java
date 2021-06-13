@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ import com.example.crm.Model.Candidate;
 import com.example.crm.R;
 import com.example.crm.Retro.RetroInterface;
 import com.example.crm.Retro.Retrofi;
+import com.google.gson.Gson;
 
 import net.cachapa.expandablelayout.ExpandableLayout;
 
@@ -143,6 +145,8 @@ public class CandidateRemark extends AppCompatActivity {
 						if (!response.isSuccessful()) {
 							System.out.println(response.code());
 						} else {
+							Gson g = new Gson();
+							Log.e("123", g.toJson(response.body()));
 							CustomToast.makeText(CandidateRemark.this, "Details Updated", 0, Color.parseColor("#32CD32"));
 							Intent i = new Intent(CandidateRemark.this, NewCandidateActivity2.class);
 							startActivity(i);

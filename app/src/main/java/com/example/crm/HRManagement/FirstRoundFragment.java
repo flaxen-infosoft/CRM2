@@ -3,6 +3,7 @@ package com.example.crm.HRManagement;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 public class FirstRoundFragment extends Fragment {
 	ArrayList<Candidate> shortlistedCandidates;
 	RecyclerView rv = null;
-	FirstFragmentAdapter firstFragmentAdapter;
+	SFragmentAdapter firstFragmentAdapter;
 	View v;
 
 	public FirstRoundFragment() {
@@ -32,7 +33,7 @@ public class FirstRoundFragment extends Fragment {
 	public void setShortlistedCandidates(ArrayList<Candidate> shortlistedCandidates) {
 		this.shortlistedCandidates = shortlistedCandidates;
 
-		firstFragmentAdapter = new FirstFragmentAdapter();
+		firstFragmentAdapter = new SFragmentAdapter();
 		rv.setAdapter(firstFragmentAdapter);
 		rv.setLayoutManager(new LinearLayoutManager(getContext()));
 	}
@@ -41,6 +42,11 @@ public class FirstRoundFragment extends Fragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+	}
+
+	public void refreshData() {
+		if (firstFragmentAdapter != null)
+			firstFragmentAdapter.notifyDataSetChanged();
 	}
 
 	@Override
@@ -54,17 +60,24 @@ public class FirstRoundFragment extends Fragment {
 		return v;
 	}
 
-	public class FirstFragmentListViewHolder extends RecyclerView.ViewHolder {
-		TextView name, appliedfor, date;
+
+	public class SFragmentListViewHolder extends RecyclerView.ViewHolder {
+		TextView name, appliedfor, date, round, title;
 		ImageView call;
 
-		public FirstFragmentListViewHolder(@NonNull View itemView) {
+		public SFragmentListViewHolder(@NonNull View itemView) {
 			super(itemView);
 			name = itemView.findViewById(R.id.name);
 			appliedfor = itemView.findViewById(R.id.applied_for);
 			date = itemView.findViewById(R.id.date);
 			call = itemView.findViewById(R.id.call);
+			round = itemView.findViewById(R.id.round);
 
+			round.setOnClickListener(v -> {
+				Log.e("123", "pressed");
+				int pos = getAdapterPosition();
+				((ShortlistedCandidateDetailsActivity) getActivity()).createDialog(shortlistedCandidates.get(pos));
+			});
 
 			call.setOnClickListener(v -> {
 				int pos = getAdapterPosition();
@@ -76,21 +89,23 @@ public class FirstRoundFragment extends Fragment {
 		}
 	}
 
-	public class FirstFragmentAdapter extends RecyclerView.Adapter<FirstFragmentListViewHolder> {
+	public class SFragmentAdapter extends RecyclerView.Adapter<SFragmentListViewHolder> {
 
 		@NonNull
 		@Override
-		public FirstFragmentListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+		public SFragmentListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 			View v = LayoutInflater.from(FirstRoundFragment.this.getContext()).inflate(R.layout.round_fragment_list_item, parent, false);
-			return new FirstFragmentListViewHolder(v);
+			return new SFragmentListViewHolder(v);
 		}
 
 		@Override
-		public void onBindViewHolder(@NonNull FirstFragmentListViewHolder holder, int position) {
+		public void onBindViewHolder(@NonNull SFragmentListViewHolder holder, int position) {
 			Candidate candidate = shortlistedCandidates.get(position);
 			holder.name.setText(candidate.getName());
 			holder.appliedfor.setText("Applied for: " + candidate.getApplied_for());
 			holder.date.setText("Date: " + candidate.getDateof_interview());
+			holder.round.setText("1st\nRound Cleared");
+
 		}
 
 		@Override

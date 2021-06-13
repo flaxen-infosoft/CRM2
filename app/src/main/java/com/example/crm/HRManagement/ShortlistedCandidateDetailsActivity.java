@@ -1,8 +1,12 @@
 package com.example.crm.HRManagement;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,6 +22,7 @@ import com.example.crm.Model.Candidate;
 import com.example.crm.R;
 import com.example.crm.Retro.RetroInterface;
 import com.example.crm.Retro.Retrofi;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
 
@@ -32,7 +37,7 @@ public class ShortlistedCandidateDetailsActivity extends AppCompatActivity {
 	TabLayout tabLayout;
 	ViewPager viewPager;
 	MainAdapter adapter;
-	ArrayList<Candidate> shortlistedCandidates;
+	ArrayList<Candidate> shortlistedCandidates, firstrcleared, secondrcleared, onhold, blacklisted, rejected;
 	CardView cardView;
 	FirstRoundFragment firstRoundFragment;
 	SecondRoundFragment secondRoundFragment;
@@ -62,7 +67,6 @@ public class ShortlistedCandidateDetailsActivity extends AppCompatActivity {
 		adapter.AddFragment(rejectedFragment, "Rejected");
 		adapter.AddFragment(onHoldFragment, "On Hold");
 		adapter.AddFragment(blackListedFragment, "BlackListed");
-
 		viewPager.setAdapter(adapter);
 
 		tabLayout.setupWithViewPager(viewPager);
@@ -92,14 +96,219 @@ public class ShortlistedCandidateDetailsActivity extends AppCompatActivity {
 			}
 		});
 
-
 	}
 
 	private void updateUI() {
+		firstrcleared = new ArrayList<>();
+		secondrcleared = new ArrayList<>();
+		onhold = new ArrayList<>();
+		blacklisted = new ArrayList<>();
+		rejected = new ArrayList<>();
+
+		for (Candidate c : shortlistedCandidates) {
+			switch (c.getStatus()) {
+				case "Second Round Cleared":
+					secondrcleared.add(c);
+					break;
+				case "On Hold":
+					onhold.add(c);
+					break;
+				case "Rejected":
+					rejected.add(c);
+					break;
+				case "Blacklisted":
+					blacklisted.add(c);
+					break;
+				default:
+					firstrcleared.add(c);
+					break;
+			}
+		}
+
+
+		firstRoundFragment.setShortlistedCandidates(firstrcleared);
+		secondRoundFragment.setShortlistedCandidates(secondrcleared);
+		onHoldFragment.setShortlistedCandidates(onhold);
+		rejectedFragment.setShortlistedCandidates(rejected);
+		blackListedFragment.setShortlistedCandidates(blacklisted);
+
+	}
+
+	public void createDialog(Candidate candidate) {
+		View v = LayoutInflater.from(this).inflate(R.layout.shortlist_dialog_layout, null, false);
+		TextView promote = v.findViewById(R.id.promote);
+		TextView title = v.findViewById(R.id.title);
+		TextView blacklist = v.findViewById(R.id.blacklist);
+		TextView onhold = v.findViewById(R.id.hold);
+		TextView reject = v.findViewById(R.id.reject);
+
+
+		MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(this);
+		final int[] currSelection = {-1};
+
+		title.setText("Confirm action for " + candidate.getName() + "?");
+		View.OnClickListener listener = new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				switch (v.getId()) {
+					case R.id.promote:
+						promote.setBackgroundColor(Color.parseColor("#E0F7FA"));
+						blacklist.setBackgroundColor(Color.TRANSPARENT);
+						onhold.setBackgroundColor(Color.TRANSPARENT);
+						reject.setBackgroundColor(Color.TRANSPARENT);
+						currSelection[0] = 0;
+						break;
+					case R.id.blacklist:
+						promote.setBackgroundColor(Color.TRANSPARENT);
+						blacklist.setBackgroundColor(Color.parseColor("#E0F7FA"));
+						onhold.setBackgroundColor(Color.TRANSPARENT);
+						reject.setBackgroundColor(Color.TRANSPARENT);
+						currSelection[0] = 1;
+						break;
+					case R.id.hold:
+						promote.setBackgroundColor(Color.TRANSPARENT);
+						blacklist.setBackgroundColor(Color.TRANSPARENT);
+						onhold.setBackgroundColor(Color.parseColor("#E0F7FA"));
+						reject.setBackgroundColor(Color.TRANSPARENT);
+						currSelection[0] = 2;
+						break;
+					case R.id.reject:
+						promote.setBackgroundColor(Color.TRANSPARENT);
+						blacklist.setBackgroundColor(Color.TRANSPARENT);
+						onhold.setBackgroundColor(Color.TRANSPARENT);
+						reject.setBackgroundColor(Color.parseColor("#E0F7FA"));
+						currSelection[0] = 3;
+						break;
+				}
+			}
+		};
+
+		promote.setOnClickListener(listener);
+		blacklist.setOnClickListener(listener);
+		onhold.setOnClickListener(listener);
+		reject.setOnClickListener(listener);
+
+		dialog.setView(v);
+		dialog.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+
+				int prev = -1;
+				switch (candidate.getStatus()) {
+					case "Second Round Cleared":
+						prev = 1;
+						break;
+					case "Blacklisted":
+						prev = 4;
+						break;
+					case "On Hold":
+						prev = 3;
+						break;
+					case "Rejected":
+						prev = 2;
+						break;
+					default:
+						prev = 0;
+				}
+				switch (currSelection[0]) {
+					case 0:
+						candidate.setStatus("Second Round Cleared");
+						updateCandidateStatus(candidate, prev, 1);
+						break;
+					case 1:
+						candidate.setStatus("Blacklisted");
+						updateCandidateStatus(candidate, prev, 4);
+						break;
+					case 2:
+						candidate.setStatus("On Hold");
+						updateCandidateStatus(candidate, prev, 3);
+						break;
+					case 3:
+						candidate.setStatus("Rejected");
+						updateCandidateStatus(candidate, prev, 2);
+						break;
+					default:
+						break;
+				}
+			}
+		}).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+			}
+		}).show();
+
+
+	}
+
+	public void updateCandidateStatus(Candidate candidate, int from, int to) {
+		Log.e("123", String.format("from %d to %d", from, to));
 		Gson gson = new Gson();
-		Log.e("123", "in long activity");
-		Log.e("123", gson.toJson(shortlistedCandidates.get(shortlistedCandidates.size() - 1)));
-		firstRoundFragment.setShortlistedCandidates(shortlistedCandidates);
+		Candidate nc = new Candidate();
+		nc.setId(candidate.getId());
+		nc.setStatus(candidate.getStatus());
+		Log.e("123", gson.toJson(candidate));
+		RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
+		Call<Candidate> call = ri.updateCandidate(candidate);
+		call.enqueue(new Callback<Candidate>() {
+			@Override
+			public void onResponse(Call<Candidate> call, Response<Candidate> response) {
+				//from = 0 for 1st rnd, 1 for 2nd rnd, 2 for rejected, 3 for hold, 4 blacklisted
+				if (response.isSuccessful()) {
+					switch (from) {
+						case 0:
+							firstrcleared.remove(candidate);
+							firstRoundFragment.refreshData();
+							break;
+						case 1:
+							secondrcleared.remove(candidate);
+							secondRoundFragment.refreshData();
+							break;
+						case 2:
+							rejected.remove(candidate);
+							rejectedFragment.refreshData();
+							break;
+						case 3:
+							onhold.remove(candidate);
+							onHoldFragment.refreshData();
+							break;
+						case 4:
+							blacklisted.remove(candidate);
+							blackListedFragment.refreshData();
+					}
+
+					switch (to) {
+						case 0:
+							firstrcleared.add(candidate);
+							firstRoundFragment.refreshData();
+							break;
+						case 1:
+							secondrcleared.add(candidate);
+							secondRoundFragment.refreshData();
+							break;
+						case 2:
+							rejected.add(candidate);
+							rejectedFragment.refreshData();
+							break;
+						case 3:
+							onhold.add(candidate);
+							onHoldFragment.refreshData();
+							break;
+						case 4:
+							blacklisted.add(candidate);
+							blackListedFragment.refreshData();
+					}
+					viewPager.setCurrentItem(to, true);
+				}
+				Gson gson = new Gson();
+				Log.e("123", gson.toJson(response.body()));
+			}
+
+			@Override
+			public void onFailure(Call<Candidate> call, Throwable t) {
+				CustomToast.makeText(ShortlistedCandidateDetailsActivity.this, "Failed to update status :(", 0, Color.RED);
+			}
+		});
 	}
 
 	private class MainAdapter extends FragmentPagerAdapter {
