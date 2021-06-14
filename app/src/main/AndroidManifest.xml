@@ -67,6 +67,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".HRManagement.TestPaperSummerActivity" />
+        <activity android:name=".HRManagement.PreferenticalActivity" />
         <activity android:name=".HRManagement.CandidateMainPage" />
         <activity android:name=".CRMManagement.CustomerDetails" />
         <activity android:name=".CRMManagement.CustomersDetails" />

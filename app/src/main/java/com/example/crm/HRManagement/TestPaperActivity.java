@@ -69,7 +69,6 @@ public class TestPaperActivity extends AppCompatActivity implements View.OnClick
 		verify.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Log.e("123", pass.getEditText().getText().toString());
 				if (pass.getEditText().getText().toString().equals("123")) {
 					sub.setVisibility(View.GONE);
 					main.setVisibility(View.VISIBLE);

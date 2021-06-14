@@ -145,8 +145,6 @@ public class CandidateRemark extends AppCompatActivity {
 						if (!response.isSuccessful()) {
 							System.out.println(response.code());
 						} else {
-							Gson g = new Gson();
-							Log.e("123", g.toJson(response.body()));
 							CustomToast.makeText(CandidateRemark.this, "Details Updated", 0, Color.parseColor("#32CD32"));
 							Intent i = new Intent(CandidateRemark.this, NewCandidateActivity2.class);
 							startActivity(i);

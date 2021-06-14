@@ -37,4 +37,10 @@ public interface RetroInterface {
 	@POST("shortlisted_candidateapi.php")
 	Call<JsonObject> shortListCandidate(@Query("id") String id);
 
+	@GET("get_prefer_candidate.php")
+	Call<ArrayList<Candidate>> getPreferCandidate();
+
+	@POST("insert_prefer_candidate.php")
+	Call<JsonObject> preferCandidate(@Body Candidate candidate, @Query("id") String id);
+
 }

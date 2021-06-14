@@ -1,9 +1,9 @@
 package com.example.crm.HRManagement;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -25,6 +25,7 @@ import com.example.crm.Retro.Retrofi;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 
@@ -212,8 +213,12 @@ public class ShortlistedCandidateDetailsActivity extends AppCompatActivity {
 				}
 				switch (currSelection[0]) {
 					case 0:
-						candidate.setStatus("Second Round Cleared");
-						updateCandidateStatus(candidate, prev, 1);
+						if (prev == 1) {
+							showDialogToConfirm(candidate);
+						} else {
+							candidate.setStatus("Second Round Cleared");
+							updateCandidateStatus(candidate, prev, 1);
+						}
 						break;
 					case 1:
 						candidate.setStatus("Blacklisted");
@@ -242,12 +247,10 @@ public class ShortlistedCandidateDetailsActivity extends AppCompatActivity {
 	}
 
 	public void updateCandidateStatus(Candidate candidate, int from, int to) {
-		Log.e("123", String.format("from %d to %d", from, to));
 		Gson gson = new Gson();
 		Candidate nc = new Candidate();
 		nc.setId(candidate.getId());
 		nc.setStatus(candidate.getStatus());
-		Log.e("123", gson.toJson(candidate));
 		RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
 		Call<Candidate> call = ri.updateCandidate(candidate);
 		call.enqueue(new Callback<Candidate>() {
@@ -300,8 +303,6 @@ public class ShortlistedCandidateDetailsActivity extends AppCompatActivity {
 					}
 					viewPager.setCurrentItem(to, true);
 				}
-				Gson gson = new Gson();
-				Log.e("123", gson.toJson(response.body()));
 			}
 
 			@Override
@@ -309,6 +310,50 @@ public class ShortlistedCandidateDetailsActivity extends AppCompatActivity {
 				CustomToast.makeText(ShortlistedCandidateDetailsActivity.this, "Failed to update status :(", 0, Color.RED);
 			}
 		});
+	}
+
+	private void showDialogToConfirm(Candidate candidate) {
+		new MaterialAlertDialogBuilder(this).setTitle("Confirm wanted to add " + candidate.getName() + " in preferential?")
+				.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						addCandidateToPrefrential(candidate);
+					}
+				})
+				.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+					}
+				}).show();
+	}
+
+	private void addCandidateToPrefrential(Candidate candidate) {
+		candidate.setStatus("Preferential");
+
+		RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
+		Call<JsonObject> call = ri.preferCandidate(candidate, candidate.getId());
+
+		call.enqueue(new Callback<JsonObject>() {
+			@Override
+			public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+				if (response.isSuccessful()) {
+
+					Intent i = new Intent(ShortlistedCandidateDetailsActivity.this, PreferenticalActivity.class);
+					startActivity(i);
+					finish();
+				} else {
+					CustomToast.makeText(ShortlistedCandidateDetailsActivity.this, "Failed to update status :(", 0, Color.RED);
+				}
+			}
+
+			@Override
+			public void onFailure(Call<JsonObject> call, Throwable t) {
+				CustomToast.makeText(ShortlistedCandidateDetailsActivity.this, "Failed to update status :(", 0, Color.RED);
+			}
+		});
+
+
 	}
 
 	private class MainAdapter extends FragmentPagerAdapter {

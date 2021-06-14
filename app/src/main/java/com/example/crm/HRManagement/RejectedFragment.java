@@ -81,7 +81,6 @@ public class RejectedFragment extends Fragment {
 				startActivity(i);
 			});
 			round.setOnClickListener(v -> {
-				Log.e("123", "pressed");
 				int pos = getAdapterPosition();
 				((ShortlistedCandidateDetailsActivity) getActivity()).createDialog(shortlistedCandidates.get(pos));
 			});
