@@ -42,11 +42,30 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CandidateRegistration extends AppCompatActivity {
 
+	private static final String[] departments = {"Select Department",
+			"HR Management",
+			"Development",
+			"Sales",
+			"Digital Marketing",
+			"Designer"};
+	private static final String[] designations = {"Select Designation",
+			"HR",
+			"Android APP Development",
+			"Website Development",
+			"Sales",
+			"Digital Marketing",
+			"UI UX Designer", "Graphic Designer"
+	};
+
+	private static final int[][] mappings = {{0}, {1}, {2, 3}, {4}, {5}, {6, 7}};
+
 	EditText name, phone, alt_phone, personal_email, official_email, source, address;
 	Spinner city, state, department, designation;
 	Button btn_update, btn_upresume;
 	List<String> stateList = new ArrayList<>();
 	List<String> cityList = new ArrayList<>();
+	ArrayAdapter departmentsAdapter, designationsAdapter;
+	List<String> tempList;
 	private String resumepdf;
 
 	@SuppressLint("WrongViewCast")
@@ -68,6 +87,29 @@ public class CandidateRegistration extends AppCompatActivity {
 		btn_upresume = findViewById(R.id.uploadresume);
 		city = findViewById(R.id.cityspin);
 		state = findViewById(R.id.statespin);
+		tempList = new ArrayList<>();
+		departmentsAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, departments);
+		departmentsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		department.setAdapter(departmentsAdapter);
+		designationsAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, tempList);
+		designationsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		designation.setAdapter(designationsAdapter);
+		department.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+				tempList.clear();
+				for (int a : mappings[position]) {
+					tempList.add(designations[a]);
+				}
+				designationsAdapter.notifyDataSetChanged();
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+
+			}
+		});
+
 		btn_upresume.setOnClickListener(view -> {
 			filePicker();
 		});
