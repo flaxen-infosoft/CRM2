@@ -1,6 +1,7 @@
 package com.example.crm.HRManagement;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.crm.Constants;
 import com.example.crm.Model.Candidate;
 import com.example.crm.R;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -68,6 +70,20 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 							gi.onShortlistCandidate(candidates.get(pos));
 						}).show();
 
+			});
+			link.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					int pos = getAdapterPosition();
+					Intent intent = new Intent(Intent.ACTION_SEND);
+					intent.setType("text/html");
+					intent.putExtra(Intent.EXTRA_EMAIL, candidates.get(pos).getPid());
+					intent.putExtra(Intent.EXTRA_SUBJECT, Constants.email_subject);
+					intent.putExtra(Intent.EXTRA_TEXT, Constants.body + "http://com.example.crm/" + candidates.get(pos).getId());
+					context.startActivity(Intent.createChooser(intent, "Send Email"));
+					//((NewCandidateActivity2)context).sendEmail(candidates.get(pos));
+
+				}
 			});
 
 

@@ -62,19 +62,6 @@ public class NewCandidateActivity2 extends AppCompatActivity {
 				}
 			}
 
-			/*
-			-
-			-
-			abc
-			abc
-			abc
-			4
-			4
-			1
-			4
-			4
-			 */
-
 			@Override
 			public void onFailure(Call<JsonObject> call, Throwable t) {
 				CustomToast.makeText(NewCandidateActivity2.this, "Failed to update status :( " + t.getMessage(), 0, Color.RED);

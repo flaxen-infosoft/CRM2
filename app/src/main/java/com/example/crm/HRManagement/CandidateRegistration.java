@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Base64;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -176,7 +177,7 @@ public class CandidateRegistration extends AppCompatActivity {
 		} else if (canname.isEmpty()) {
 			name.setError("Please Enter  Name");
 			name.requestFocus();
-		} else if (!canpersonalemail.contains("@")) {
+		} else if (!Patterns.EMAIL_ADDRESS.matcher(canpersonalemail).matches()) {
 			personal_email.setError("Please Enter a Valid Email Address");
 			personal_email.requestFocus();
 		} else if (canaddress.isEmpty()) {
