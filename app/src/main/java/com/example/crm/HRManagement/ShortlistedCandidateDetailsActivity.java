@@ -252,7 +252,7 @@ public class ShortlistedCandidateDetailsActivity extends AppCompatActivity {
 		nc.setId(candidate.getId());
 		nc.setStatus(candidate.getStatus());
 		RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
-		Call<Candidate> call = ri.updateCandidate(candidate);
+		Call<Candidate> call = ri.updateShortlisedCandidate(candidate);
 		call.enqueue(new Callback<Candidate>() {
 			@Override
 			public void onResponse(Call<Candidate> call, Response<Candidate> response) {
@@ -332,7 +332,7 @@ public class ShortlistedCandidateDetailsActivity extends AppCompatActivity {
 		candidate.setStatus("Preferential");
 
 		RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
-		Call<JsonObject> call = ri.preferCandidate(candidate, candidate.getId());
+		Call<JsonObject> call = ri.preferCandidate(candidate);
 
 		call.enqueue(new Callback<JsonObject>() {
 			@Override

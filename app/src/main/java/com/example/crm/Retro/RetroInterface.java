@@ -22,6 +22,9 @@ public interface RetroInterface {
 	@PUT("update_candidate.php")
 	Call<Candidate> updateCandidate(@Body Candidate candidate);
 
+	@PUT("shortlisted_candidateupdateapi.php")
+	Call<Candidate> updateShortlisedCandidate(@Body Candidate candidate);
+
 	@GET("get_candidate.php")
 	Call<List<Candidate>> getcandidate();
 
@@ -41,6 +44,6 @@ public interface RetroInterface {
 	Call<ArrayList<Candidate>> getPreferCandidate();
 
 	@POST("insert_prefer_candidate.php")
-	Call<JsonObject> preferCandidate(@Body Candidate candidate, @Query("id") String id);
+	Call<JsonObject> preferCandidate(@Body Candidate candidate);
 
 }
