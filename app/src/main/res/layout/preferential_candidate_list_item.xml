@@ -14,7 +14,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#4DE3F2FD">
+        android:background="#E3F2FD">
 
         <TextView
             android:id="@+id/name"
@@ -53,17 +53,6 @@
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
-            <TextView
-                android:id="@+id/comfirmationmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/date"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="20dp"
-                android:text="Confirmation Mail"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
         </RelativeLayout>
 
         <ImageView
@@ -80,13 +69,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/rel"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp">
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/materialCardView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="#F1F0F0"
                 app:cardCornerRadius="25dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.1"
