@@ -3,6 +3,7 @@ package com.example.crm.Retro;
 import com.example.crm.Model.Candidate;
 import com.example.crm.Model.Employee;
 import com.example.crm.Model.QuestionPaper;
+import com.example.crm.Model.TestResponse;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
@@ -45,5 +46,8 @@ public interface RetroInterface {
 
 	@POST("insert_prefer_candidate.php")
 	Call<JsonObject> preferCandidate(@Body Candidate candidate);
+
+	@POST("test_response.php")
+	Call<JsonObject> postTestResponse(@Body TestResponse testResponse);
 
 }

@@ -29,6 +29,15 @@ public class TechTestFragment extends Fragment {
 		this.q = q;
 	}
 
+	public int getCorrectAnswers() {
+		int cnt = 0;
+		for (Question que : q) {
+			if (que.getAns() == que.getCorrectAns())
+				cnt++;
+		}
+		return cnt;
+	}
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

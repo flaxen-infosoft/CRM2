@@ -21,13 +21,16 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.crm.CustomToast;
 import com.example.crm.Model.QuestionPaper;
 import com.example.crm.Model.QuestionPaperAdapter;
+import com.example.crm.Model.TestResponse;
 import com.example.crm.R;
 import com.example.crm.Retro.RetroInterface;
+import com.example.crm.Retro.Retrofi;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,11 +50,15 @@ public class TestPaperActivity extends AppCompatActivity implements View.OnClick
 	QuestionPaper qp;
 	TextView name, time;
 	CountDownTimer cdt;
-	Fragment aptiFrag, logicFrag, techFrag, litFrag;
+	AptitudeTestFragment aptiFrag;
+	LogicTestFragment logicFrag;
+	TechTestFragment techFrag;
+	LiteratureTestFragment litFrag;
 	ViewPagerAdpater pagerAdpater;
 	TabLayout tabLayout;
 	ConstraintLayout main, sub;
 	TextInputLayout pass;
+	long milliseconds, duration = 10 * 60 * 1000;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +100,7 @@ public class TestPaperActivity extends AppCompatActivity implements View.OnClick
 		cdt = new CountDownTimer(600000, 1000) {
 
 			public void onTick(long millisUntilFinished) {
+				TestPaperActivity.this.milliseconds = millisUntilFinished;
 				int sec = (int) (millisUntilFinished / 1000);
 				String smin = "" + (int) (sec / 60);
 				String ssec = "" + (int) (sec % 60);
@@ -106,6 +114,7 @@ public class TestPaperActivity extends AppCompatActivity implements View.OnClick
 			public void onFinish() {
 				time.setText("Time over :(");
 				CustomToast.makeText(TestPaperActivity.this, "Time over", 0, Color.GREEN);
+				submitPaper();
 			}
 		};
 
@@ -134,6 +143,40 @@ public class TestPaperActivity extends AppCompatActivity implements View.OnClick
 			}
 		});
 		prepareQuestionPaper();
+	}
+
+	private void submitPaper() {
+		TestResponse tr = new TestResponse();
+		tr.setCandidateID(ID);
+		tr.setRemark("");
+		tr.setTimeRequired(duration - milliseconds);
+		tr.getCorrectAns().add(aptiFrag.getCorrectAnswers());
+		tr.getCorrectAns().add(logicFrag.getCorrectAnswers());
+		tr.getCorrectAns().add(techFrag.getCorrectAnswers());
+		tr.getCorrectAns().add(litFrag.getCorrectAnswers());
+
+		RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
+
+		Call<JsonObject> call = ri.postTestResponse(tr);
+		call.enqueue(new Callback<JsonObject>() {
+			@Override
+			public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+				if (response.isSuccessful()) {
+					Intent i = new Intent(TestPaperActivity.this, TestResponsesRecorder.class);
+					startActivity(i);
+					finish();
+				} else {
+					Log.e("123", response.code() + " " + response.message());
+					CustomToast.makeText(TestPaperActivity.this, "Failed to submit answers :(", 0, Color.RED);
+				}
+			}
+
+			@Override
+			public void onFailure(Call<JsonObject> call, Throwable t) {
+				Log.e("123", t.getMessage());
+				CustomToast.makeText(TestPaperActivity.this, "Error: " + t.getMessage(), 0, Color.RED);
+			}
+		});
 	}
 
 	private void prepareQuestionPaper() {
@@ -213,9 +256,7 @@ public class TestPaperActivity extends AppCompatActivity implements View.OnClick
 			case R.id.next:
 				int position = pager.getCurrentItem();
 				if (position == 3) {
-					Intent i = new Intent(TestPaperActivity.this, TestResponsesRecorder.class);
-					startActivity(i);
-					finish();
+					submitPaper();
 				} else {
 					pager.setCurrentItem(position + 1, true);
 				}
