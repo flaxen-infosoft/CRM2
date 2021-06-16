@@ -1,11 +1,13 @@
 package com.example.crm.HRManagement;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.crm.CustomProgressAlert;
 import com.example.crm.Model.Candidate;
 import com.example.crm.R;
 import com.example.crm.Retro.RetroInterface;
@@ -20,11 +22,15 @@ import retrofit2.Response;
 
 public class NewCandidateActivity extends AppCompatActivity {
 	RecyclerView recyclerView;
+	ProgressDialog loading;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_candidate);
+
+		loading = CustomProgressAlert.make(this, "Loading...");
+		loading.show();
 		recyclerView = findViewById(R.id.new_registerrecyler);
 		recyclerView.setLayoutManager(new LinearLayoutManager(NewCandidateActivity.this));
 		RetroInterface retroInterface = Retrofi.initretro().create(RetroInterface.class);
@@ -34,13 +40,15 @@ public class NewCandidateActivity extends AppCompatActivity {
 			public void onResponse(Call<List<Candidate>> call, Response<List<Candidate>> response) {
 				if (!response.isSuccessful()) {
 					System.out.println(response.code());
+				} else {
+					List<Candidate> candidateList;
+					candidateList = response.body();
+					if (candidateList == null)
+						candidateList = new ArrayList<>();
+					NewCandidateAdapter newCandidateAdapter = new NewCandidateAdapter(NewCandidateActivity.this, candidateList);
+					recyclerView.setAdapter(newCandidateAdapter);
+					loading.hide();
 				}
-				List<Candidate> candidateList;
-				candidateList = response.body();
-				if (candidateList == null)
-					candidateList = new ArrayList<>();
-				NewCandidateAdapter newCandidateAdapter = new NewCandidateAdapter(NewCandidateActivity.this, candidateList);
-				recyclerView.setAdapter(newCandidateAdapter);
 			}
 
 			@Override

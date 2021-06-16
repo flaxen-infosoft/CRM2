@@ -1,5 +1,6 @@
 package com.example.crm.HRManagement;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -15,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.crm.CustomProgressAlert;
 import com.example.crm.CustomToast;
 import com.example.crm.EmployeeManagement.EmployeeListActivity;
 import com.example.crm.Model.Candidate;
@@ -37,12 +39,15 @@ public class PreferenticalActivity extends AppCompatActivity {
 	ArrayList<Candidate> candidates;
 	PreferentialCandidateAdapter adapter;
 	RecyclerView rv;
+	ProgressDialog loading;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_preferentical);
 		rv = findViewById(R.id.recyclerView);
+		loading = CustomProgressAlert.make(this, "Loading...");
+		loading.show();
 		getPreferentialCandidate();
 	}
 
@@ -74,7 +79,7 @@ public class PreferenticalActivity extends AppCompatActivity {
 	}
 
 	private void updateUI() {
-
+		loading.hide();
 		adapter = new PreferentialCandidateAdapter();
 		rv.setLayoutManager(new LinearLayoutManager(PreferenticalActivity.this));
 		rv.setAdapter(adapter);
@@ -82,7 +87,7 @@ public class PreferenticalActivity extends AppCompatActivity {
 	}
 
 	private void addCandidateIntoEmployee(Candidate candidate) {
-		
+
 		Employee dummyEmployee = new Employee();
 
 		RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);

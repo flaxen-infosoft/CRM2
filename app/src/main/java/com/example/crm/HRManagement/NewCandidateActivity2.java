@@ -1,5 +1,6 @@
 package com.example.crm.HRManagement;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.crm.CustomProgressAlert;
 import com.example.crm.CustomToast;
 import com.example.crm.Model.Candidate;
 import com.example.crm.R;
@@ -27,12 +29,15 @@ public class NewCandidateActivity2 extends AppCompatActivity {
 	NewCandidate2Adapter adapter;
 	RecyclerView rv;
 	GeneralInterface gi;
+	ProgressDialog loading;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_candidate2);
 		rv = findViewById(R.id.recyclerView);
+		loading = CustomProgressAlert.make(this, "Loading...");
+		loading.show();
 
 		gi = new GeneralInterface() {
 			@Override
@@ -85,6 +90,7 @@ public class NewCandidateActivity2 extends AppCompatActivity {
 					adapter = new NewCandidate2Adapter(NewCandidateActivity2.this, candidates, gi);
 					rv.setLayoutManager(new LinearLayoutManager(NewCandidateActivity2.this));
 					rv.setAdapter(adapter);
+					loading.hide();
 				}
 			}
 

@@ -1,5 +1,6 @@
 package com.example.crm.HRManagement;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -17,6 +18,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.crm.CustomProgressAlert;
 import com.example.crm.CustomToast;
 import com.example.crm.Model.Candidate;
 import com.example.crm.R;
@@ -45,12 +47,15 @@ public class ShortlistedCandidateDetailsActivity extends AppCompatActivity {
 	RejectedFragment rejectedFragment;
 	OnHoldFragment onHoldFragment;
 	BlackListedFragment blackListedFragment;
+	ProgressDialog loading;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_shortlisted_candidate_details);
 
+		loading = CustomProgressAlert.make(this, "Loading...");
+		loading.show();
 		retriveShortlistedCandidates();
 		cardView = findViewById(R.id.card1);
 		tabLayout = findViewById(R.id.tab_layout);
@@ -100,6 +105,7 @@ public class ShortlistedCandidateDetailsActivity extends AppCompatActivity {
 	}
 
 	private void updateUI() {
+		loading.hide();
 		firstrcleared = new ArrayList<>();
 		secondrcleared = new ArrayList<>();
 		onhold = new ArrayList<>();
