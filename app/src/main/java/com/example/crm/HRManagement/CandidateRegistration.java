@@ -298,8 +298,12 @@ public class CandidateRegistration extends AppCompatActivity {
 			public void onResponse(Call<Candidate> call, Response<Candidate> response) {
 				if (!response.isSuccessful()) {
 					System.out.println(response.code());
+				} else {
+					CustomToast.makeText(CandidateRegistration.this, "Candidate Registered", 0, Color.parseColor("#32CD32"));
+					Intent i = new Intent(CandidateRegistration.this, NewCandidateActivity.class);
+					startActivity(i);
+					finish();
 				}
-				CustomToast.makeText(CandidateRegistration.this, "Candidate Registered", 0, Color.parseColor("#32CD32"));
 			}
 
 			@Override

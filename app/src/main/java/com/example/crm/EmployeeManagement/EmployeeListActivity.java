@@ -12,5 +12,6 @@ public class EmployeeListActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_employee_list);
+		//TODO Create API to fetch all employees and show them here
 	}
 }

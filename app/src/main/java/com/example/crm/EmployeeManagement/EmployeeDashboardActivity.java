@@ -33,7 +33,7 @@ public class EmployeeDashboardActivity extends AppCompatActivity {
 		});
 
 		register.setOnClickListener(v -> {
-			Intent intent = new Intent(EmployeeDashboardActivity.this, EmployeeRegisterSecondActivity.class);
+			Intent intent = new Intent(EmployeeDashboardActivity.this, EmployeeListActivity.class);
 			startActivity(intent);
 		});
 

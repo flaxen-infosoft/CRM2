@@ -20,7 +20,6 @@ import retrofit2.Response;
 
 public class NewCandidateActivity extends AppCompatActivity {
 	RecyclerView recyclerView;
-	;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
