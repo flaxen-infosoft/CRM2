@@ -73,7 +73,7 @@
             android:layout_marginBottom="10dp">
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/materialCardView5"
+                android:id="@+id/accepted"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="25dp"
@@ -94,7 +94,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/materialCardView6"
+                android:id="@+id/declined"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="25dp"
