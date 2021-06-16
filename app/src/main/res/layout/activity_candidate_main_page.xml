@@ -139,7 +139,7 @@
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/onlinetest"
+                android:id="@+id/manage"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginLeft="20dp"
@@ -150,29 +150,26 @@
                 android:elevation="8dp"
                 app:cardCornerRadius="15dp">
 
-
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:id="@+id/img2"
+                        android:id="@+id/img5"
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
                         android:layout_marginTop="15dp"
-                        android:src="@drawable/ic_file" />
+                        android:src="@drawable/ic_manage" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/img2"
-                        android:layout_alignParentBottom="true"
+                        android:layout_below="@+id/img5"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="5dp"
-                        android:layout_marginBottom="10dp"
-                        android:text="Online Test"
+                        android:text="Manage"
                         android:textColor="@color/black" />
 
                 </RelativeLayout>
@@ -267,45 +264,6 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="10dp"
                         android:text="Preferential"
-                        android:textColor="@color/black" />
-
-                </RelativeLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/manage"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_weight="1"
-                android:elevation="8dp"
-                app:cardCornerRadius="15dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/img5"
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginTop="15dp"
-                        android:src="@drawable/ic_manage" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/img5"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="5dp"
-                        android:text="Manage"
                         android:textColor="@color/black" />
 
                 </RelativeLayout>

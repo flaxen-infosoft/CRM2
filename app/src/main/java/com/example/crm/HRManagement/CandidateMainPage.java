@@ -10,7 +10,7 @@ import com.example.crm.R;
 
 public class CandidateMainPage extends AppCompatActivity {
 
-	CardView register, shortlisted, onlinetest, documentation, manage, new_register;
+	CardView register, shortlisted, documentation, manage, new_register;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,6 @@ public class CandidateMainPage extends AppCompatActivity {
 
 		register = findViewById(R.id.candidate_register);
 		shortlisted = findViewById(R.id.shortlisted);
-		onlinetest = findViewById(R.id.onlinetest);
 		documentation = findViewById(R.id.preferantioal);
 		manage = findViewById(R.id.manage);
 		new_register = findViewById(R.id.new_register);
@@ -41,11 +40,6 @@ public class CandidateMainPage extends AppCompatActivity {
 
 		register.setOnClickListener(v -> {
 			Intent intent = new Intent(CandidateMainPage.this, CandidateRegistration.class);
-			startActivity(intent);
-		});
-
-		onlinetest.setOnClickListener(v -> {
-			Intent intent = new Intent(CandidateMainPage.this, TestRespoondActivity.class);
 			startActivity(intent);
 		});
 		manage.setOnClickListener(v -> {

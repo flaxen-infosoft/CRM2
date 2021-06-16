@@ -2,9 +2,11 @@ package com.example.crm.HRManagement;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.OpenableColumns;
 import android.util.Base64;
 import android.util.Patterns;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -59,6 +62,7 @@ public class CandidateRegistration extends AppCompatActivity {
 
 	private static final int[][] mappings = {{0}, {1}, {2, 3}, {4}, {5}, {6, 7}};
 
+	TextView filename;
 	EditText name, phone, alt_phone, personal_email, official_email, source, address;
 	Spinner city, state, department, designation;
 	Button btn_update, btn_upresume;
@@ -87,6 +91,7 @@ public class CandidateRegistration extends AppCompatActivity {
 		btn_upresume = findViewById(R.id.uploadresume);
 		city = findViewById(R.id.cityspin);
 		state = findViewById(R.id.statespin);
+		filename = findViewById(R.id.filename);
 		tempList = new ArrayList<>();
 		departmentsAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, departments);
 		departmentsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -193,6 +198,7 @@ public class CandidateRegistration extends AppCompatActivity {
 				byte[] pdfinByte = new byte[inputStream.available()];
 				inputStream.read(pdfinByte);
 				resumepdf = Base64.encodeToString(pdfinByte, Base64.DEFAULT);
+				getFilename(path);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -200,6 +206,31 @@ public class CandidateRegistration extends AppCompatActivity {
 			}
 
 		}
+	}
+
+	private void getFilename(Uri path) {
+		String result = "";
+		if (path.getScheme().equals("content")) {
+			Cursor cursor = getContentResolver().query(path, null, null, null, null);
+			try {
+				if (cursor != null && cursor.moveToFirst()) {
+					result = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+				}
+			} finally {
+				cursor.close();
+			}
+		}
+		if (result == null) {
+			result = path.getPath();
+			int cut = result.lastIndexOf('/');
+			if (cut != -1) {
+				result = result.substring(cut + 1);
+			}
+		}
+
+		filename.setText(result);
+		filename.setTextColor(Color.BLACK);
+
 	}
 
 	private void Check() {
