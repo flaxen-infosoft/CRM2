@@ -18,7 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.crm.CustomProgressAlert;
 import com.example.crm.CustomToast;
-import com.example.crm.EmployeeManagement.EmployeeListActivity;
+import com.example.crm.EmployeeManagement.EmployeeRegisterSecondActivity;
+import com.example.crm.EmployeeManagement.EmployeeRegistrationActvity;
 import com.example.crm.Model.Candidate;
 import com.example.crm.Model.Employee;
 import com.example.crm.R;
@@ -97,7 +98,7 @@ public class PreferenticalActivity extends AppCompatActivity {
 			@Override
 			public void onResponse(Call<Employee> call, Response<Employee> response) {
 				if (response.isSuccessful()) {
-					Intent i = new Intent(PreferenticalActivity.this, EmployeeListActivity.class);
+					Intent i = new Intent(PreferenticalActivity.this, EmployeeRegistrationActvity.class);
 					startActivity(i);
 					finish();
 				} else {
