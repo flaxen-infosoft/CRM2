@@ -89,10 +89,10 @@
     </string-array>
 
     <string-array name="sort_by">
-        <item>Sort By</item>
+        <item>Filter</item>
         <item>HR</item>
         <item>Development</item>
-        <item>sales</item>
+        <item>Sales</item>
         <item>Designing</item>
         <item>Digital Marketing</item>
     </string-array>

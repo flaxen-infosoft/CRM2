@@ -15,6 +15,7 @@ import com.example.crm.Model.Candidate;
 import com.example.crm.R;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adapter.CandidateHolder> {
@@ -24,8 +25,15 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 
 	public NewCandidate2Adapter(Context context, List<Candidate> candidates, GeneralInterface gi) {
 		this.context = context;
-		this.candidates = candidates;
+		this.candidates = new ArrayList<>();
+		this.candidates.addAll(candidates);
 		this.gi = gi;
+	}
+
+	public void setTempList(List<Candidate> nc) {
+		candidates.clear();
+		candidates.addAll(nc);
+		notifyDataSetChanged();
 	}
 
 	@NonNull
@@ -49,7 +57,7 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 
 	public class CandidateHolder extends RecyclerView.ViewHolder {
 
-		TextView name, date, applied_for, link, updateStatus;
+		TextView name, date, applied_for, link, updateStatus, viewresume;
 
 
 		public CandidateHolder(@NonNull View itemView) {
@@ -59,6 +67,16 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 			applied_for = itemView.findViewById(R.id.applied_for);
 			link = itemView.findViewById(R.id.link);
 			updateStatus = itemView.findViewById(R.id.updateStatus);
+			viewresume = itemView.findViewById(R.id.viewresume);
+
+			viewresume.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent(context, PdfViewerActivity.class);
+					intent.putExtra("pdfurl", candidates.get(getAdapterPosition()).getResume());
+					context.startActivity(intent);
+				}
+			});
 
 			updateStatus.setOnClickListener(v -> {
 				int pos = getAdapterPosition();
