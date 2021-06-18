@@ -32,10 +32,16 @@ public class RejectedFragment extends Fragment {
 	}
 
 	public void setShortlistedCandidates(ArrayList<Candidate> shortlistedCandidates) {
-		this.shortlistedCandidates = shortlistedCandidates;
+		this.shortlistedCandidates = new ArrayList<>();
+		this.shortlistedCandidates.addAll(shortlistedCandidates);
 
 		firstFragmentAdapter = new SFragmentAdapter();
 
+	}
+	public void setTempList(ArrayList<Candidate> temp){
+		shortlistedCandidates.clear();
+		shortlistedCandidates.addAll(temp);
+		firstFragmentAdapter.notifyDataSetChanged();
 	}
 
 	public void refreshData() {

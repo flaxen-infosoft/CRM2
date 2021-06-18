@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,10 +31,17 @@ public class BlackListedFragment extends Fragment {
 	}
 
 	public void setShortlistedCandidates(ArrayList<Candidate> shortlistedCandidates) {
-		this.shortlistedCandidates = shortlistedCandidates;
+		this.shortlistedCandidates = new ArrayList<>();
+		this.shortlistedCandidates.addAll(shortlistedCandidates);
 
 		firstFragmentAdapter = new SFragmentAdapter();
 
+	}
+
+	public void setTempList(ArrayList<Candidate> temp) {
+		shortlistedCandidates.clear();
+		shortlistedCandidates.addAll(temp);
+		firstFragmentAdapter.notifyDataSetChanged();
 	}
 
 	@Override

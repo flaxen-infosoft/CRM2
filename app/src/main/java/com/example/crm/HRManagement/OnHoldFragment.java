@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,10 +32,16 @@ public class OnHoldFragment extends Fragment {
 	}
 
 	public void setShortlistedCandidates(ArrayList<Candidate> shortlistedCandidates) {
-		this.shortlistedCandidates = shortlistedCandidates;
+		this.shortlistedCandidates = new ArrayList<>();
+		this.shortlistedCandidates.addAll(shortlistedCandidates);
 
 		firstFragmentAdapter = new SFragmentAdapter();
 
+	}
+	public void setTempList(ArrayList<Candidate> temp){
+		shortlistedCandidates.clear();
+		shortlistedCandidates.addAll(temp);
+		firstFragmentAdapter.notifyDataSetChanged();
 	}
 
 	public void refreshData() {
@@ -105,7 +110,7 @@ public class OnHoldFragment extends Fragment {
 			holder.name.setText(candidate.getName());
 			holder.appliedfor.setText("Applied for: " + candidate.getApplied_for());
 			holder.date.setText("Date: " + candidate.getDateof_interview());
-			holder.round.setTextColor(Color.YELLOW);
+			holder.round.setTextColor(Color.parseColor("#D4E157"));
 			holder.round.setText("On hold");
 
 		}

@@ -3,7 +3,6 @@ package com.example.crm.HRManagement;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,11 +30,17 @@ public class FirstRoundFragment extends Fragment {
 	}
 
 	public void setShortlistedCandidates(ArrayList<Candidate> shortlistedCandidates) {
-		this.shortlistedCandidates = shortlistedCandidates;
+		this.shortlistedCandidates = new ArrayList<>();
+		this.shortlistedCandidates.addAll(shortlistedCandidates);
 
 		firstFragmentAdapter = new SFragmentAdapter();
 		rv.setAdapter(firstFragmentAdapter);
 		rv.setLayoutManager(new LinearLayoutManager(getContext()));
+	}
+	public void setTempList(ArrayList<Candidate> temp){
+		shortlistedCandidates.clear();
+		shortlistedCandidates.addAll(temp);
+		firstFragmentAdapter.notifyDataSetChanged();
 	}
 
 	@Override
@@ -103,7 +108,7 @@ public class FirstRoundFragment extends Fragment {
 			holder.name.setText(candidate.getName());
 			holder.appliedfor.setText("Applied for: " + candidate.getApplied_for());
 			holder.date.setText("Date: " + candidate.getDateof_interview());
-			holder.round.setText("1st\nRound Cleared");
+			holder.round.setText("1st Round Cleared");
 
 		}
 

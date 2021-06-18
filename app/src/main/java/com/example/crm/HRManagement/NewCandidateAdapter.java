@@ -42,6 +42,7 @@ public class NewCandidateAdapter extends RecyclerView.Adapter<NewCandidateAdapte
 		Candidate candidate = candidateList.get(position);
 		holder.name.setText(candidate.getName());
 		holder.designation.setText(candidate.getDesignation());
+		holder.date.setText(candidate.getDateof_interview());
 		holder.resumebt.setOnClickListener(view -> {
 			Intent intent = new Intent(context, PdfViewerActivity.class);
 			intent.putExtra("pdfurl", candidate.getResume());

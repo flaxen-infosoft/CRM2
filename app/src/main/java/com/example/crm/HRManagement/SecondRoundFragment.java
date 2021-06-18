@@ -31,10 +31,16 @@ public class SecondRoundFragment extends Fragment {
 	}
 
 	public void setShortlistedCandidates(ArrayList<Candidate> shortlistedCandidates) {
-		this.shortlistedCandidates = shortlistedCandidates;
+		this.shortlistedCandidates = new ArrayList<>();
+		this.shortlistedCandidates.addAll(shortlistedCandidates);
 		firstFragmentAdapter = new SFragmentAdapter();
 		rv.setAdapter(firstFragmentAdapter);
 		rv.setLayoutManager(new LinearLayoutManager(getContext()));
+	}
+	public void setTempList(ArrayList<Candidate> temp){
+		shortlistedCandidates.clear();
+		shortlistedCandidates.addAll(temp);
+		firstFragmentAdapter.notifyDataSetChanged();
 	}
 
 	@Override
@@ -100,7 +106,7 @@ public class SecondRoundFragment extends Fragment {
 			holder.name.setText(candidate.getName());
 			holder.appliedfor.setText("Applied for: " + candidate.getApplied_for());
 			holder.date.setText("Date: " + candidate.getDateof_interview());
-			holder.round.setText("2nd\nRound Cleared");
+			holder.round.setText("2nd Round Cleared");
 
 		}
 

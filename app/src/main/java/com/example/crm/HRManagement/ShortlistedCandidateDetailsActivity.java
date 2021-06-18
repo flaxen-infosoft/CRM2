@@ -5,8 +5,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -42,6 +45,7 @@ public class ShortlistedCandidateDetailsActivity extends AppCompatActivity {
 	MainAdapter adapter;
 	ArrayList<Candidate> shortlistedCandidates, firstrcleared, secondrcleared, onhold, blacklisted, rejected;
 	CardView cardView;
+	EditText search;
 	FirstRoundFragment firstRoundFragment;
 	SecondRoundFragment secondRoundFragment;
 	RejectedFragment rejectedFragment;
@@ -60,6 +64,7 @@ public class ShortlistedCandidateDetailsActivity extends AppCompatActivity {
 		cardView = findViewById(R.id.card1);
 		tabLayout = findViewById(R.id.tab_layout);
 		viewPager = findViewById(R.id.view_pager);
+		search = findViewById(R.id.search);
 
 		firstRoundFragment = new FirstRoundFragment();
 		secondRoundFragment = new SecondRoundFragment();
@@ -76,6 +81,81 @@ public class ShortlistedCandidateDetailsActivity extends AppCompatActivity {
 		viewPager.setAdapter(adapter);
 
 		tabLayout.setupWithViewPager(viewPager);
+
+		search.addTextChangedListener(new TextWatcher() {
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+			}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				ArrayList<Candidate> temp = new ArrayList<>();
+				ArrayList<Candidate> par;
+				switch (viewPager.getCurrentItem()) {
+					case 0:
+						par = firstrcleared;
+						break;
+					case 1:
+						par = secondrcleared;
+						break;
+					case 2:
+						par = rejected;
+						break;
+					case 3:
+						par = onhold;
+						break;
+					case 4:
+						par = blacklisted;
+						break;
+					default:
+						throw new IllegalStateException("Unexpected value: " + viewPager.getCurrentItem());
+				}
+
+				for (Candidate c : par) {
+					if (c.getName().contains(s))
+						temp.add(c);
+				}
+				switch (viewPager.getCurrentItem()) {
+					case 0:
+						if (s.toString().length() == 0)
+							firstRoundFragment.setTempList(firstrcleared);
+						else
+							firstRoundFragment.setTempList(temp);
+						break;
+					case 1:
+						if (s.toString().length() == 0)
+							secondRoundFragment.setTempList(secondrcleared);
+						else
+							secondRoundFragment.setTempList(temp);
+						break;
+					case 2:
+						if (s.toString().length() == 0)
+							rejectedFragment.setTempList(rejected);
+						else
+							rejectedFragment.setTempList(temp);
+						break;
+					case 3:
+						if (s.toString().length() == 0)
+							onHoldFragment.setTempList(onhold);
+						else
+							onHoldFragment.setTempList(temp);
+						break;
+					case 4:
+						if (s.toString().length() == 0)
+							blackListedFragment.setTempList(blacklisted);
+						else
+							blackListedFragment.setTempList(temp);
+						break;
+				}
+			}
+
+			@Override
+			public void afterTextChanged(Editable s) {
+
+			}
+		});
+
 
 	}
 

@@ -104,7 +104,7 @@
     </string-array>
 
     <string-array name="calling">
-        <item>Select</item>
+        <item>Update Status</item>
         <item>Interested</item>
         <item>Not Interested</item>
     </string-array>
