@@ -1,112 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.cardview.widget.CardView
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginRight="10dp"
+    android:background="@drawable/bg_cardview"
+    android:elevation="8dp"
+    app:cardCornerRadius="30dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        app:cardCornerRadius="30dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/bg_cardview"
-        android:elevation="8dp">
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_stroke">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/bg_stroke">
+        <TextView
+            android:id="@+id/tv_card_candidatename"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="Name of Candidate"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_card_candidatedesignation"
+            app:layout_constraintStart_toStartOf="@+id/tv_card_candidatedesignation"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="10dp"
-                android:padding="10dp">
+        <TextView
+            android:id="@+id/tv_card_candidatedesignation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Applied for"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout3" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="17sp"
-                    android:id="@+id/tv_card_candidatename"
-                    android:textColor="@color/black"
-                    android:text="Name of Candidate"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/tv_card_candidatedesignation"
-                    android:text="Applied for"/>
+        <TextView
+            android:id="@+id/tv_card_candidatedate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="20dp"
+            android:src="@drawable/ic_call4"
+            android:text="Date"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_card_candidatename"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_card_candidatename" />
 
-            </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="10dp"
+            android:weightSum="8"
+            app:layout_constraintBottom_toTopOf="@+id/textView14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView14">
+
+            <ImageView
+                android:id="@+id/callimage"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_call1" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/resumebt"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_call4"
-                android:layout_alignParentEnd="true"
-                android:layout_margin="20dp"
-                android:text="Date"
-                android:id="@+id/tv_card_candidatedate"
-                android:textSize="15sp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="5dp"
+                android:layout_weight="3"
+                android:background="@drawable/bg_stroke"
+                android:elevation="8dp"
+                android:gravity="center_vertical|center_horizontal"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:text="Resume"
+                android:textAlignment="center"
                 android:textColor="@color/black"
-                android:layout_alignParentRight="true" />
-
+                android:textSize="17sp" />
 
             <Spinner
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_green_stroke"
-                android:layout_alignParentRight="true"
                 android:layout_below="@id/tv_card_candidatedate"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="5dp"
+                android:layout_weight="3"
+                android:background="@drawable/bg_green_stroke"
                 android:entries="@array/calling"
+                android:gravity="center_horizontal"
                 android:padding="5dp"
                 android:textAlignment="center"
-                android:layout_marginRight="10dp"
-                android:layout_centerVertical="true"
-                android:gravity="center_horizontal" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_green" />
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:id="@+id/callimage"
-                    android:src="@drawable/ic_call1"/>
 
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:text="Resume"
-                    android:textAlignment="center"
-                    android:padding="8dp"
-                    android:id="@+id/resumebt"
-                    android:layout_weight="1"
-                    android:elevation="8dp"
-                    android:background="@drawable/bg_stroke"
-                    android:gravity="center_horizontal" />
+        </LinearLayout>
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_green"
-                    android:layout_marginLeft="20dp"/>
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="Assigned by"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-            </LinearLayout>
-
-        </RelativeLayout>
-
-    </androidx.cardview.widget.CardView>
-</RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
