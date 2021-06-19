@@ -162,7 +162,7 @@ public class TestPaperActivity extends AppCompatActivity implements View.OnClick
 			@Override
 			public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
 				if (response.isSuccessful()) {
-					Intent i = new Intent(TestPaperActivity.this, TestResponsesRecorder.class);
+					Intent i = new Intent(TestPaperActivity.this, TestResponsesRecorded.class);
 					startActivity(i);
 					finish();
 				} else {

@@ -121,6 +121,7 @@
 
 
             <TextView
+                android:id="@+id/testreport"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -140,6 +141,7 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/resumebt"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -160,6 +162,7 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/remarks"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"

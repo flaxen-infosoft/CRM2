@@ -38,7 +38,8 @@ public class OnHoldFragment extends Fragment {
 		firstFragmentAdapter = new SFragmentAdapter();
 
 	}
-	public void setTempList(ArrayList<Candidate> temp){
+
+	public void setTempList(ArrayList<Candidate> temp) {
 		shortlistedCandidates.clear();
 		shortlistedCandidates.addAll(temp);
 		firstFragmentAdapter.notifyDataSetChanged();
@@ -68,7 +69,7 @@ public class OnHoldFragment extends Fragment {
 	}
 
 	public class SFragmentListViewHolder extends RecyclerView.ViewHolder {
-		TextView name, appliedfor, date, round, title;
+		TextView name, appliedfor, date, round, resume, testreport;
 		ImageView call;
 
 		public SFragmentListViewHolder(@NonNull View itemView) {
@@ -78,7 +79,8 @@ public class OnHoldFragment extends Fragment {
 			date = itemView.findViewById(R.id.date);
 			call = itemView.findViewById(R.id.call);
 			round = itemView.findViewById(R.id.round);
-			title = itemView.findViewById(R.id.title);
+			resume = itemView.findViewById(R.id.resumebt);
+			testreport = itemView.findViewById(R.id.testreport);
 
 
 			call.setOnClickListener(v -> {
@@ -90,6 +92,11 @@ public class OnHoldFragment extends Fragment {
 			round.setOnClickListener(v -> {
 				int pos = getAdapterPosition();
 				((ShortlistedCandidateDetailsActivity) getActivity()).createDialog(shortlistedCandidates.get(pos));
+			});
+			resume.setOnClickListener(v -> {
+				Intent i = new Intent(getContext(), PdfViewerActivity.class);
+				i.putExtra("pdfurl", shortlistedCandidates.get(getAdapterPosition()).getResume());
+				startActivity(i);
 			});
 
 		}

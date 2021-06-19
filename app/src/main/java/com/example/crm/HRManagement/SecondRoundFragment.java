@@ -3,7 +3,6 @@ package com.example.crm.HRManagement;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +36,8 @@ public class SecondRoundFragment extends Fragment {
 		rv.setAdapter(firstFragmentAdapter);
 		rv.setLayoutManager(new LinearLayoutManager(getContext()));
 	}
-	public void setTempList(ArrayList<Candidate> temp){
+
+	public void setTempList(ArrayList<Candidate> temp) {
 		shortlistedCandidates.clear();
 		shortlistedCandidates.addAll(temp);
 		firstFragmentAdapter.notifyDataSetChanged();
@@ -65,7 +65,7 @@ public class SecondRoundFragment extends Fragment {
 	}
 
 	public class SFragmentListViewHolder extends RecyclerView.ViewHolder {
-		TextView name, appliedfor, date, title, round;
+		TextView name, appliedfor, date, round, resume, testreport;
 		ImageView call;
 
 		public SFragmentListViewHolder(@NonNull View itemView) {
@@ -75,6 +75,8 @@ public class SecondRoundFragment extends Fragment {
 			date = itemView.findViewById(R.id.date);
 			call = itemView.findViewById(R.id.call);
 			round = itemView.findViewById(R.id.round);
+			resume = itemView.findViewById(R.id.resumebt);
+			testreport = itemView.findViewById(R.id.testreport);
 
 
 			call.setOnClickListener(v -> {
@@ -86,6 +88,11 @@ public class SecondRoundFragment extends Fragment {
 			round.setOnClickListener(v -> {
 				int pos = getAdapterPosition();
 				((ShortlistedCandidateDetailsActivity) getActivity()).createDialog(shortlistedCandidates.get(pos));
+			});
+			resume.setOnClickListener(v -> {
+				Intent i = new Intent(getContext(), PdfViewerActivity.class);
+				i.putExtra("pdfurl", shortlistedCandidates.get(getAdapterPosition()).getResume());
+				startActivity(i);
 			});
 
 		}

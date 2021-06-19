@@ -37,7 +37,8 @@ public class FirstRoundFragment extends Fragment {
 		rv.setAdapter(firstFragmentAdapter);
 		rv.setLayoutManager(new LinearLayoutManager(getContext()));
 	}
-	public void setTempList(ArrayList<Candidate> temp){
+
+	public void setTempList(ArrayList<Candidate> temp) {
 		shortlistedCandidates.clear();
 		shortlistedCandidates.addAll(temp);
 		firstFragmentAdapter.notifyDataSetChanged();
@@ -67,7 +68,7 @@ public class FirstRoundFragment extends Fragment {
 
 
 	public class SFragmentListViewHolder extends RecyclerView.ViewHolder {
-		TextView name, appliedfor, date, round, title;
+		TextView name, appliedfor, date, round, resume, testreport;
 		ImageView call;
 
 		public SFragmentListViewHolder(@NonNull View itemView) {
@@ -77,6 +78,8 @@ public class FirstRoundFragment extends Fragment {
 			date = itemView.findViewById(R.id.date);
 			call = itemView.findViewById(R.id.call);
 			round = itemView.findViewById(R.id.round);
+			resume = itemView.findViewById(R.id.resumebt);
+			testreport = itemView.findViewById(R.id.testreport);
 
 			round.setOnClickListener(v -> {
 				int pos = getAdapterPosition();
@@ -87,6 +90,18 @@ public class FirstRoundFragment extends Fragment {
 				int pos = getAdapterPosition();
 				Uri u = Uri.parse("tel:" + shortlistedCandidates.get(pos).getPhone());
 				Intent i = new Intent(Intent.ACTION_DIAL, u);
+				startActivity(i);
+			});
+
+			resume.setOnClickListener(v -> {
+				Intent i = new Intent(getContext(), PdfViewerActivity.class);
+				i.putExtra("pdfurl", shortlistedCandidates.get(getAdapterPosition()).getResume());
+				startActivity(i);
+			});
+
+			testreport.setOnClickListener(v -> {
+				Intent i = new Intent(getContext(), ViewTestResponseActivity.class);
+				i.putExtra("candidateID", shortlistedCandidates.get(getAdapterPosition()).getId());
 				startActivity(i);
 			});
 

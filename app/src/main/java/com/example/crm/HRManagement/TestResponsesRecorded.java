@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.crm.R;
 
-public class TestResponsesRecorder extends AppCompatActivity {
+public class TestResponsesRecorded extends AppCompatActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
