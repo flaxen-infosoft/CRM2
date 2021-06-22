@@ -2,6 +2,7 @@ package com.example.crm.EmployeeManagement;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +15,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.crm.Model.Employee;
 import com.example.crm.R;
+import com.example.crm.Retro.RetroInterface;
+import com.example.crm.Retro.Retrofi;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class EmployeeListActivity extends AppCompatActivity {
 
@@ -38,7 +45,26 @@ public class EmployeeListActivity extends AppCompatActivity {
 
 		//TODO Create API to fetch all employees and show them here => dummy employees
 
+		fetch();
 
+
+	}
+
+	private void fetch() {
+		RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
+		Gson gson = new Gson();
+		Call<ArrayList<Employee>> call = ri.getEmployee();
+		call.enqueue(new Callback<ArrayList<Employee>>() {
+			@Override
+			public void onResponse(Call<ArrayList<Employee>> call, Response<ArrayList<Employee>> response) {
+				Log.e("123", "inside employee" + gson.toJson(response.body()));
+			}
+
+			@Override
+			public void onFailure(Call<ArrayList<Employee>> call, Throwable t) {
+				Log.e("123", t.getMessage());
+			}
+		});
 	}
 
 	private void initEmployees() {

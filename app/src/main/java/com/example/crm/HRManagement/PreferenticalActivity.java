@@ -5,10 +5,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,7 +20,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.crm.CustomProgressAlert;
 import com.example.crm.CustomToast;
-import com.example.crm.EmployeeManagement.EmployeeRegisterSecondActivity;
 import com.example.crm.EmployeeManagement.EmployeeRegistrationActvity;
 import com.example.crm.Model.Candidate;
 import com.example.crm.Model.Employee;
@@ -27,7 +28,7 @@ import com.example.crm.Retro.RetroInterface;
 import com.example.crm.Retro.Retrofi;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 
@@ -37,16 +38,46 @@ import retrofit2.Response;
 
 public class PreferenticalActivity extends AppCompatActivity {
 
-	ArrayList<Candidate> candidates;
+	ArrayList<Candidate> candidates, tempList;
 	PreferentialCandidateAdapter adapter;
 	RecyclerView rv;
 	ProgressDialog loading;
+	EditText search;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_preferentical);
 		rv = findViewById(R.id.recyclerView);
+		search = findViewById(R.id.search);
+		tempList = new ArrayList<>();
+		search.addTextChangedListener(new TextWatcher() {
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+			}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				tempList.clear();
+				if (s.length() == 0) {
+					for (Candidate c : candidates)
+						tempList.add(c);
+				} else {
+					for (Candidate c : candidates) {
+						if (c.getName().contains(s))
+							tempList.add(c);
+					}
+				}
+				adapter.notifyDataSetChanged();
+			}
+
+			@Override
+			public void afterTextChanged(Editable s) {
+
+			}
+		});
+
 		loading = CustomProgressAlert.make(this, "Loading...");
 		loading.show();
 		getPreferentialCandidate();
@@ -62,8 +93,8 @@ public class PreferenticalActivity extends AppCompatActivity {
 			public void onResponse(Call<ArrayList<Candidate>> call, Response<ArrayList<Candidate>> response) {
 				if (response.isSuccessful()) {
 					candidates = response.body();
-					Gson gson = new Gson();
-					Log.e("123", gson.toJson(candidates));
+					for (Candidate c : candidates)
+						tempList.add(c);
 					updateUI();
 				} else {
 					CustomToast.makeText(PreferenticalActivity.this, "Server Error :(", 0, Color.RED);
@@ -80,7 +111,7 @@ public class PreferenticalActivity extends AppCompatActivity {
 	}
 
 	private void updateUI() {
-		loading.hide();
+		loading.dismiss();
 		adapter = new PreferentialCandidateAdapter();
 		rv.setLayoutManager(new LinearLayoutManager(PreferenticalActivity.this));
 		rv.setAdapter(adapter);
@@ -90,25 +121,26 @@ public class PreferenticalActivity extends AppCompatActivity {
 	private void addCandidateIntoEmployee(Candidate candidate) {
 
 		Employee dummyEmployee = new Employee();
+		dummyEmployee.setName(candidate.getName());
 
 		RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
-		Call<Employee> call = ri.addEmployee(dummyEmployee);
+		Call<JsonObject> call = ri.addEmployee(dummyEmployee);
 
-		call.enqueue(new Callback<Employee>() {
+		call.enqueue(new Callback<JsonObject>() {
 			@Override
-			public void onResponse(Call<Employee> call, Response<Employee> response) {
+			public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
 				if (response.isSuccessful()) {
 					Intent i = new Intent(PreferenticalActivity.this, EmployeeRegistrationActvity.class);
 					startActivity(i);
 					finish();
 				} else {
-					CustomToast.makeText(PreferenticalActivity.this, "Failed to perform action", 0, Color.RED);
+					CustomToast.makeText(PreferenticalActivity.this, "Failed to perform action" + response.message(), 0, Color.RED);
 				}
 			}
 
 			@Override
-			public void onFailure(Call<Employee> call, Throwable t) {
-				CustomToast.makeText(PreferenticalActivity.this, "Failed to perform action", 0, Color.RED);
+			public void onFailure(Call<JsonObject> call, Throwable t) {
+				CustomToast.makeText(PreferenticalActivity.this, "Failed to perform action" + t.getMessage(), 0, Color.RED);
 			}
 		});
 
@@ -161,9 +193,9 @@ public class PreferenticalActivity extends AppCompatActivity {
 		@Override
 		public void onBindViewHolder(@NonNull PreferentialCandidateViewHolder holder, int position) {
 
-			holder.name.setText(candidates.get(position).getName());
-			holder.applied_for.setText(candidates.get(position).getApplied_for());
-			holder.date.setText(candidates.get(position).getDateof_interview());
+			holder.name.setText(tempList.get(position).getName());
+			holder.applied_for.setText(tempList.get(position).getApplied_for());
+			holder.date.setText(tempList.get(position).getDateof_interview());
 		}
 
 		@Override
