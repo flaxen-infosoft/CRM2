@@ -32,7 +32,6 @@
         <activity android:name=".SalesManagement.SalesLoginActivity" />
         <activity android:name=".CRMManagement.CRM_RegisterActivity" />
         <activity android:name=".CRMManagement.CRMDashboardActivity" />
-        <activity android:name=".LeaveManagement.LeaveDetailsActivity" />
         <activity android:name=".LeaveManagement.LeaveManagementActivity" />
         <activity android:name=".EmployeeManagement.DigitalMarketingEmployeeDetailsActivity" />
         <activity android:name=".EmployeeManagement.DevelopmentEmployeeDetailsActivity" />

@@ -5,7 +5,6 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/accept"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -40,7 +39,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
@@ -57,7 +56,7 @@
 
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/sub"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -66,9 +65,10 @@
                 android:textColor="@color/black"
                 android:textSize="19sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+                app:layout_constraintTop_toBottomOf="@+id/name" />
 
             <TextView
+                android:id="@+id/leavetype"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -79,45 +79,9 @@
                 android:paddingRight="20dp"
                 android:paddingBottom="5dp"
                 android:textColorHint="@color/blue_border"
-                app:layout_constraintBottom_toBottomOf="@+id/textView12"
+                app:layout_constraintBottom_toBottomOf="@+id/sub"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView12" />
-
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="CC"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-            <LinearLayout
-                android:id="@+id/linear1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/edittext_bg"
-                android:orientation="vertical"
-                android:padding="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView10">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:maxLines="1"
-                    android:text="CC"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
+                app:layout_constraintTop_toTopOf="@+id/sub" />
 
             <LinearLayout
                 android:id="@+id/linear2"
@@ -129,9 +93,10 @@
                 android:padding="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linear1">
+                app:layout_constraintTop_toBottomOf="@+id/sub">
 
                 <TextView
+                    android:id="@+id/body"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
@@ -173,6 +138,7 @@
                         android:textSize="16sp" />
 
                     <ImageView
+                        android:id="@+id/depthr1"
                         android:layout_width="14dp"
                         android:layout_height="14dp"
                         android:layout_gravity="center_vertical"
@@ -195,6 +161,7 @@
                         android:textSize="16sp" />
 
                     <ImageView
+                        android:id="@+id/depthr2"
                         android:layout_width="14dp"
                         android:layout_height="14dp"
                         android:layout_gravity="center_vertical"
@@ -217,6 +184,7 @@
                         android:textSize="16sp" />
 
                     <ImageView
+                        android:id="@+id/teamlead"
                         android:layout_width="14dp"
                         android:layout_height="14dp"
                         android:layout_gravity="center_vertical"
@@ -239,6 +207,7 @@
                         android:textSize="16sp" />
 
                     <ImageView
+                        android:id="@+id/teammember"
                         android:layout_width="14dp"
                         android:layout_height="14dp"
                         android:layout_gravity="center_vertical"
@@ -266,7 +235,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/expand">
 
                 <Button
-
+                    android:id="@+id/accept"
                     android:layout_width="100dp"
                     android:layout_height="40dp"
                     android:layout_below="@+id/linear"
@@ -281,6 +250,7 @@
                     app:backgroundTint="@color/green" />
 
                 <Button
+                    android:id="@+id/reject"
                     android:layout_width="100dp"
                     android:layout_height="40dp"
                     android:layout_below="@+id/linear"

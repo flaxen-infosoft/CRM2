@@ -19,6 +19,8 @@ public class LeaveManagementFragment1 extends Fragment {
 	RecyclerView recyclerView;
 	RecyclerViewAdapter adapter;
 	ArrayList<LeaveItem> leaveItems;
+	View v;
+	UpdateStatusListeners usl;
 
 	public LeaveManagementFragment1() {
 		// Required empty public constructor
@@ -27,22 +29,37 @@ public class LeaveManagementFragment1 extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		leaveItems = new ArrayList<>();
-		leaveItems.add(new LeaveItem());
-		leaveItems.add(new LeaveItem());
-		leaveItems.add(new LeaveItem());
 
-		adapter = new RecyclerViewAdapter(getContext(), leaveItems);
+		usl = new UpdateStatusListeners() {
+			@Override
+			public void approve(LeaveItem leaveItem) {
+				((LeaveManagementActivity) getContext()).updateLeave(true, leaveItem);
+			}
+
+			@Override
+			public void reject(LeaveItem leaveItem) {
+				((LeaveManagementActivity) getContext()).updateLeave(false, leaveItem);
+			}
+		};
+
+
+		adapter = new RecyclerViewAdapter(getContext(), leaveItems, usl);
+	}
+
+	public void setLeaveItems(ArrayList<LeaveItem> leaves) {
+		leaveItems = leaves;
+		adapter.notifyDataSetChanged();
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.fragment_leave_management1, container, false);
-
-		recyclerView = v.findViewById(R.id.recyclerView);
-		recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-		recyclerView.setAdapter(adapter);
+		if (v == null) {
+			v = inflater.inflate(R.layout.fragment_leave_management1, container, false);
+			recyclerView = v.findViewById(R.id.recyclerView);
+			recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+			recyclerView.setAdapter(adapter);
+		}
 
 		return v;
 	}

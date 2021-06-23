@@ -2,6 +2,7 @@ package com.example.crm.Retro;
 
 import com.example.crm.Model.Candidate;
 import com.example.crm.Model.Employee;
+import com.example.crm.Model.LeaveItem;
 import com.example.crm.Model.QuestionPaper;
 import com.example.crm.Model.TestResponse;
 import com.google.gson.JsonObject;
@@ -29,7 +30,7 @@ public interface RetroInterface {
 	@GET("get_candidate.php")
 	Call<List<Candidate>> getcandidate();
 
-	@POST("employee_registerapi.php")
+	@POST("insert_employee.php")
 	Call<JsonObject> addEmployee(@Body Employee employee);
 
 	@GET("/question_paper")
@@ -52,5 +53,11 @@ public interface RetroInterface {
 
 	@GET("get_employee.php")
 	Call<ArrayList<Employee>> getEmployee();
+
+	@GET("get_leave.php")
+	Call<ArrayList<LeaveItem>> getLeaves();
+
+	@PUT("update_leave.php")
+	Call<JsonObject> updateLeave(@Body LeaveItem leaveItem);
 
 }

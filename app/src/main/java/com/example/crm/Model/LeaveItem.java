@@ -4,6 +4,7 @@ public class LeaveItem {
 
 	String title, body, date, status, leavetype, deptHr, deptHr1, teamLead, teamMember;
 	int duration;
+	String employeeID;
 
 	public int getDuration() {
 		return duration;
