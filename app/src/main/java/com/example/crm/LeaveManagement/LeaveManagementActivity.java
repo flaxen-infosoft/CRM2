@@ -91,7 +91,6 @@ public class LeaveManagementActivity extends AppCompatActivity {
 					CustomToast.makeText(LeaveManagementActivity.this, "Failed to update status", 0, Color.RED);
 				}
 			}
-
 			@Override
 			public void onFailure(Call<JsonObject> call, Throwable t) {
 				CustomToast.makeText(LeaveManagementActivity.this, "Failed to update status", 0, Color.RED);
