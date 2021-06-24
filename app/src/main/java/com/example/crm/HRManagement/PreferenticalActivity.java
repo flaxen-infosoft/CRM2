@@ -61,8 +61,7 @@ public class PreferenticalActivity extends AppCompatActivity {
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
 				tempList.clear();
 				if (s.length() == 0) {
-					for (Candidate c : candidates)
-						tempList.add(c);
+					tempList.addAll(candidates);
 				} else {
 					for (Candidate c : candidates) {
 						if (c.getName().contains(s))
@@ -200,7 +199,7 @@ public class PreferenticalActivity extends AppCompatActivity {
 
 		@Override
 		public int getItemCount() {
-			return candidates.size();
+			return tempList.size();
 		}
 	}
 }
