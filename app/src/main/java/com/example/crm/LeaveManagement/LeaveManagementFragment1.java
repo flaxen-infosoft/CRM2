@@ -42,12 +42,12 @@ public class LeaveManagementFragment1 extends Fragment {
 			}
 		};
 
-
-		adapter = new RecyclerViewAdapter(getContext(), leaveItems, usl);
 	}
 
 	public void setLeaveItems(ArrayList<LeaveItem> leaves) {
 		leaveItems = leaves;
+		if (adapter == null)
+			adapter = new RecyclerViewAdapter(getContext(), leaveItems, usl);
 		adapter.notifyDataSetChanged();
 	}
 

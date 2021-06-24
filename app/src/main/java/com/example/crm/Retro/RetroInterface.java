@@ -30,7 +30,7 @@ public interface RetroInterface {
 	@GET("get_candidate.php")
 	Call<List<Candidate>> getcandidate();
 
-	@POST("employee_registerapi.php")
+	@POST("insert_emp1.php")
 	Call<JsonObject> addEmployee(@Body Employee employee);
 
 	@GET("/question_paper")
