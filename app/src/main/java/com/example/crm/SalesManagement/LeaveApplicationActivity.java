@@ -84,7 +84,7 @@ public class LeaveApplicationActivity extends AppCompatActivity implements DateP
 			@Override
 			public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
 				if (response.isSuccessful()) {
-					CustomToast.makeText(LeaveApplicationActivity.this, "done" + response.message(), 0, Color.RED);
+					CustomToast.makeText(LeaveApplicationActivity.this, "done" + response.message(), 0, Color.parseColor("#32CD32"));
 				} else {
 					CustomToast.makeText(LeaveApplicationActivity.this, "Failed to do" + response.message(), 0, Color.RED);
 				}
