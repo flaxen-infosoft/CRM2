@@ -36,7 +36,7 @@ public class EmployeeListActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_employee_list);
-		initEmployees();
+		employees = new ArrayList<>();
 		rv = findViewById(R.id.recyclerView);
 		adapter = new EmployeeAdapter();
 		rv.setLayoutManager(new LinearLayoutManager(this));
@@ -57,37 +57,16 @@ public class EmployeeListActivity extends AppCompatActivity {
 		call.enqueue(new Callback<ArrayList<Employee>>() {
 			@Override
 			public void onResponse(Call<ArrayList<Employee>> call, Response<ArrayList<Employee>> response) {
-				Log.e("123", "inside employee" + gson.toJson(response.body()));
+				employees.addAll(response.body());
+				adapter.notifyDataSetChanged();
 			}
 
 			@Override
 			public void onFailure(Call<ArrayList<Employee>> call, Throwable t) {
-				Log.e("123", t.getMessage());
 			}
 		});
 	}
 
-	private void initEmployees() {
-		Employee employee = new Employee();
-		employee.setName("Omkar");
-		employee.setCity("Nanded");
-		employee.setDate("18/06/2021");
-		employee.setDepartment("Developer");
-		employee.setDesignation("Android app develpment");
-		employee.setGender("Male");
-		employee.setId("1000");
-		employee.setPassword("Omkar");
-		employee.setPhone("+918888206352");
-		employee.setState("Maharashtra");
-
-		employees = new ArrayList<>();
-		employees.add(employee);
-		employees.add(employee);
-		employees.add(employee);
-		employees.add(employee);
-		employees.add(employee);
-		employees.add(employee);
-	}
 
 
 	public class EmployeeViewHolder extends RecyclerView.ViewHolder {

@@ -1,9 +1,11 @@
 package com.example.crm.Model;
 
+import java.io.Serializable;
+
 import lombok.Data;
 
 @Data
-public class Employee {
+public class Employee implements Serializable {
 	String id;
 	String name;
 	String department;
@@ -17,7 +19,7 @@ public class Employee {
 	String password;
 	String status;
 	String gender;
-	String altphone, source, resume, address, have_laptop, college_name, duration, stipend_amount, dateofjoin, adhaarcard, pancard, sscmarksheet, hscmarksheet, graduationmarksheet, graduationcertificate, previouscompany, check, accountdetails, offerletter, nda, verificationform, trainingform, officialmail, officialsim, interncertificate, reevingletter;
+	String altphone, source, resume, address, have_leptop, college_name, duration, stipend_amount, dateofjion, aadharcard, pancard, markof10th, markof12th, graduation, gradu_certificate, pre_com_certi, cheque, ac_details, offer_letter, non_ds_aggre, verification_form, training_form, official_mail, official_sim, intern_certificate, reevingletter;
 
 	public String getId() {
 		return id;
@@ -33,214 +35,6 @@ public class Employee {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getAltphone() {
-		return altphone;
-	}
-
-	public void setAltphone(String altphone) {
-		this.altphone = altphone;
-	}
-
-	public String getSource() {
-		return source;
-	}
-
-	public void setSource(String source) {
-		this.source = source;
-	}
-
-	public String getResume() {
-		return resume;
-	}
-
-	public void setResume(String resume) {
-		this.resume = resume;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getHave_laptop() {
-		return have_laptop;
-	}
-
-	public void setHave_laptop(String have_laptop) {
-		this.have_laptop = have_laptop;
-	}
-
-	public String getCollege_name() {
-		return college_name;
-	}
-
-	public void setCollege_name(String college_name) {
-		this.college_name = college_name;
-	}
-
-	public String getDuration() {
-		return duration;
-	}
-
-	public void setDuration(String duration) {
-		this.duration = duration;
-	}
-
-	public String getStipend_amount() {
-		return stipend_amount;
-	}
-
-	public void setStipend_amount(String stipend_amount) {
-		this.stipend_amount = stipend_amount;
-	}
-
-	public String getDateofjoin() {
-		return dateofjoin;
-	}
-
-	public void setDateofjoin(String dateofjoin) {
-		this.dateofjoin = dateofjoin;
-	}
-
-	public String getAdhaarcard() {
-		return adhaarcard;
-	}
-
-	public void setAdhaarcard(String adhaarcard) {
-		this.adhaarcard = adhaarcard;
-	}
-
-	public String getPancard() {
-		return pancard;
-	}
-
-	public void setPancard(String pancard) {
-		this.pancard = pancard;
-	}
-
-	public String getSscmarksheet() {
-		return sscmarksheet;
-	}
-
-	public void setSscmarksheet(String sscmarksheet) {
-		this.sscmarksheet = sscmarksheet;
-	}
-
-	public String getHscmarksheet() {
-		return hscmarksheet;
-	}
-
-	public void setHscmarksheet(String hscmarksheet) {
-		this.hscmarksheet = hscmarksheet;
-	}
-
-	public String getGraduationmarksheet() {
-		return graduationmarksheet;
-	}
-
-	public void setGraduationmarksheet(String graduationmarksheet) {
-		this.graduationmarksheet = graduationmarksheet;
-	}
-
-	public String getGraduationcertificate() {
-		return graduationcertificate;
-	}
-
-	public void setGraduationcertificate(String graduationcertificate) {
-		this.graduationcertificate = graduationcertificate;
-	}
-
-	public String getPreviouscompany() {
-		return previouscompany;
-	}
-
-	public void setPreviouscompany(String previouscompany) {
-		this.previouscompany = previouscompany;
-	}
-
-	public String getCheck() {
-		return check;
-	}
-
-	public void setCheck(String check) {
-		this.check = check;
-	}
-
-	public String getAccountdetails() {
-		return accountdetails;
-	}
-
-	public void setAccountdetails(String accountdetails) {
-		this.accountdetails = accountdetails;
-	}
-
-	public String getOfferletter() {
-		return offerletter;
-	}
-
-	public void setOfferletter(String offerletter) {
-		this.offerletter = offerletter;
-	}
-
-	public String getNda() {
-		return nda;
-	}
-
-	public void setNda(String nda) {
-		this.nda = nda;
-	}
-
-	public String getVerificationform() {
-		return verificationform;
-	}
-
-	public void setVerificationform(String verificationform) {
-		this.verificationform = verificationform;
-	}
-
-	public String getTrainingform() {
-		return trainingform;
-	}
-
-	public void setTrainingform(String trainingform) {
-		this.trainingform = trainingform;
-	}
-
-	public String getOfficialmail() {
-		return officialmail;
-	}
-
-	public void setOfficialmail(String officialmail) {
-		this.officialmail = officialmail;
-	}
-
-	public String getOfficialsim() {
-		return officialsim;
-	}
-
-	public void setOfficialsim(String officialsim) {
-		this.officialsim = officialsim;
-	}
-
-	public String getInterncertificate() {
-		return interncertificate;
-	}
-
-	public void setInterncertificate(String interncertificate) {
-		this.interncertificate = interncertificate;
-	}
-
-	public String getReevingletter() {
-		return reevingletter;
-	}
-
-	public void setReevingletter(String reevingletter) {
-		this.reevingletter = reevingletter;
 	}
 
 	public String getDepartment() {
@@ -329,5 +123,213 @@ public class Employee {
 
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+
+	public String getAltphone() {
+		return altphone;
+	}
+
+	public void setAltphone(String altphone) {
+		this.altphone = altphone;
+	}
+
+	public String getSource() {
+		return source;
+	}
+
+	public void setSource(String source) {
+		this.source = source;
+	}
+
+	public String getResume() {
+		return resume;
+	}
+
+	public void setResume(String resume) {
+		this.resume = resume;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getHave_leptop() {
+		return have_leptop;
+	}
+
+	public void setHave_leptop(String have_leptop) {
+		this.have_leptop = have_leptop;
+	}
+
+	public String getCollege_name() {
+		return college_name;
+	}
+
+	public void setCollege_name(String college_name) {
+		this.college_name = college_name;
+	}
+
+	public String getDuration() {
+		return duration;
+	}
+
+	public void setDuration(String duration) {
+		this.duration = duration;
+	}
+
+	public String getStipend_amount() {
+		return stipend_amount;
+	}
+
+	public void setStipend_amount(String stipend_amount) {
+		this.stipend_amount = stipend_amount;
+	}
+
+	public String getDateofjion() {
+		return dateofjion;
+	}
+
+	public void setDateofjion(String dateofjion) {
+		this.dateofjion = dateofjion;
+	}
+
+	public String getAadharcard() {
+		return aadharcard;
+	}
+
+	public void setAadharcard(String aadharcard) {
+		this.aadharcard = aadharcard;
+	}
+
+	public String getPancard() {
+		return pancard;
+	}
+
+	public void setPancard(String pancard) {
+		this.pancard = pancard;
+	}
+
+	public String getMarkof10th() {
+		return markof10th;
+	}
+
+	public void setMarkof10th(String markof10th) {
+		this.markof10th = markof10th;
+	}
+
+	public String getMarkof12th() {
+		return markof12th;
+	}
+
+	public void setMarkof12th(String markof12th) {
+		this.markof12th = markof12th;
+	}
+
+	public String getGraduation() {
+		return graduation;
+	}
+
+	public void setGraduation(String graduation) {
+		this.graduation = graduation;
+	}
+
+	public String getGradu_certificate() {
+		return gradu_certificate;
+	}
+
+	public void setGradu_certificate(String gradu_certificate) {
+		this.gradu_certificate = gradu_certificate;
+	}
+
+	public String getPre_com_certi() {
+		return pre_com_certi;
+	}
+
+	public void setPre_com_certi(String pre_com_certi) {
+		this.pre_com_certi = pre_com_certi;
+	}
+
+	public String getCheque() {
+		return cheque;
+	}
+
+	public void setCheque(String cheque) {
+		this.cheque = cheque;
+	}
+
+	public String getAc_details() {
+		return ac_details;
+	}
+
+	public void setAc_details(String ac_details) {
+		this.ac_details = ac_details;
+	}
+
+	public String getOffer_letter() {
+		return offer_letter;
+	}
+
+	public void setOffer_letter(String offer_letter) {
+		this.offer_letter = offer_letter;
+	}
+
+	public String getNon_ds_aggre() {
+		return non_ds_aggre;
+	}
+
+	public void setNon_ds_aggre(String non_ds_aggre) {
+		this.non_ds_aggre = non_ds_aggre;
+	}
+
+	public String getVerification_form() {
+		return verification_form;
+	}
+
+	public void setVerification_form(String verification_form) {
+		this.verification_form = verification_form;
+	}
+
+	public String getTraining_form() {
+		return training_form;
+	}
+
+	public void setTraining_form(String training_form) {
+		this.training_form = training_form;
+	}
+
+	public String getOfficial_mail() {
+		return official_mail;
+	}
+
+	public void setOfficial_mail(String official_mail) {
+		this.official_mail = official_mail;
+	}
+
+	public String getOfficial_sim() {
+		return official_sim;
+	}
+
+	public void setOfficial_sim(String official_sim) {
+		this.official_sim = official_sim;
+	}
+
+	public String getIntern_certificate() {
+		return intern_certificate;
+	}
+
+	public void setIntern_certificate(String intern_certificate) {
+		this.intern_certificate = intern_certificate;
+	}
+
+	public String getReevingletter() {
+		return reevingletter;
+	}
+
+	public void setReevingletter(String reevingletter) {
+		this.reevingletter = reevingletter;
 	}
 }

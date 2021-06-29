@@ -152,7 +152,7 @@
                         android:id="@+id/txtduration"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/collage"
+                        android:layout_below="@id/candidate_collage_name"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="30dp"
                         android:text="Duration"

@@ -37,12 +37,11 @@ public class NewJoineeEmployee extends AppCompatActivity {
 		call.enqueue(new Callback<ArrayList<Employee>>() {
 			@Override
 			public void onResponse(Call<ArrayList<Employee>> call, Response<ArrayList<Employee>> response) {
-				Log.e("123", "inside employee" + gson.toJson(response.body()));
 			}
 
 			@Override
 			public void onFailure(Call<ArrayList<Employee>> call, Throwable t) {
-				Log.e("123", t.getMessage());
+
 			}
 		});
 

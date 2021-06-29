@@ -1,134 +1,232 @@
 package com.example.crm.EmployeeManagement;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.RadioButton;
-import android.widget.Spinner;
+import android.provider.OpenableColumns;
+import android.util.Base64;
+import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
+import com.example.crm.CustomToast;
+import com.example.crm.Model.Employee;
 import com.example.crm.R;
-import com.example.crm.citystate.Cities;
-import com.example.crm.citystate.Rinterface;
-import com.example.crm.citystate.object;
+import com.example.crm.Retro.RetroInterface;
+import com.example.crm.Retro.Retrofi;
+import com.google.gson.JsonObject;
 
-import net.cachapa.expandablelayout.ExpandableLayout;
-
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class EmployeeRegistrationActvity extends AppCompatActivity {
 
-	Spinner stateSpin, citySpin, genderSpin;
-	List<String> stateList = new ArrayList<>();
-	List<String> cityList = new ArrayList<>();
-	Button register;
-	RadioButton job, intern;
-	ExpandableLayout expandablemycontent, expandableinterncontent;
+	private static final int RESULT_RESUME = 1001;
+	private static final int RESULT_ADHAAR_CARD = 1002;
+	private static final int RESULT_PAN_CARD = 1003;
+	private static final int RESULT_SSC_MARKSHEET = 1004;
+	private static final int RESULT_HSC_MARKSHEET = 1005;
+	private static final int RESULT_GRADUATION_CERTIFICATE = 1006;
+	private static final int RESULT_PREVIOUS_COMPANY_CERTIFICATE = 1007;
+	private static final int RESULT_CHEQUE = 1008;
+	private static final int RESULT_OFFER_LETTER = 1009;
+	private static final int RESULT_NDA = 1010;
+	private static final int RESULT_VERIFICATION_FORM = 1011;
+	private static final int RESULT_TRAINING_FORM = 1012;
+	private static final int RESULT_INTERNSHIP_CERTIFICATE = 1013;
+	private static final int RESULT_RELEVING_LETTER = 1014;
+	Employee employee;
+	ViewPager pager;
+	EmployeeRegistrationFragment1 frag1;
+	EmployeeRegistrationFragment2 frag2;
+	ViewPagerAdapter adapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_employee_registration_actvity);
 
-		stateSpin = findViewById(R.id.state);
-		citySpin = findViewById(R.id.city);
-		register = findViewById(R.id.btn_register);
-		job = findViewById(R.id.job);
-		intern = findViewById(R.id.intern);
-		genderSpin = findViewById(R.id.gender);
-
-		register.setOnClickListener(v -> {
-			Intent intent = new Intent(EmployeeRegistrationActvity.this, EmployeeListActivity.class);
-			startActivity(intent);
-		});
-
-		Retrofit retrofit = new Retrofit.Builder()
-				.baseUrl("https://raw.githubusercontent.com/fayazara/Indian-Cities-API/master/")
-				.addConverterFactory(GsonConverterFactory.create())
-				.build();
-
-		Rinterface rinterface = retrofit.create(Rinterface.class);
-		Call<object> call = rinterface.getObject();
-		call.enqueue(new Callback<object>() {
-			@Override
-			public void onResponse(Call<object> call, Response<object> response) {
-				if (!response.isSuccessful()) {
-					System.out.println("response.code() = " + response.code());
-				}
-
-				List<Cities> cities = response.body().getCities();
-				for (Cities cities1 : cities) {
-					stateList.add(cities1.getState());
-				}
-				List<String> filteredStateList = removeDuplicates(stateList);
-				Collections.sort(filteredStateList);
-				filteredStateList.add(0, "Select State");
-				stateSpin.setAdapter(new ArrayAdapter<>(EmployeeRegistrationActvity.this, android.R.layout.simple_spinner_dropdown_item, filteredStateList));
-				stateSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-					@Override
-					public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-						String state = stateSpin.getSelectedItem().toString();
-						cityList.clear();
-						for (Cities cities1 : cities) {
-							if (cities1.getState().equals(state)) {
-								cityList.add(cities1.getCity());
-							}
-						}
-						List<String> filteredCityList = removeDuplicates(cityList);
-						Collections.sort(filteredCityList);
-						filteredCityList.add(0, "Select City");
-						citySpin.setAdapter(new ArrayAdapter<>(EmployeeRegistrationActvity.this, android.R.layout.simple_spinner_dropdown_item, filteredCityList));
-
-					}
-
-					@Override
-					public void onNothingSelected(AdapterView<?> parent) {
-
-					}
-				});
-			}
-
-			@Override
-			public void onFailure(Call<object> call, Throwable t) {
-				System.out.println("t.getMessage() = " + t.getMessage());
-			}
-		});
-//        List<String> tasks = Arrays.asList(getResources().getStringArray(R.array.tasks));
-//        taskSpin.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, tasks));
-		genderSpin.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, new String[]{"Male", "Female", "Other"}));
+		employee = (Employee) getIntent().getSerializableExtra("employee");
+		pager = findViewById(R.id.viewPager);
+		frag1 = new EmployeeRegistrationFragment1();
+		frag1.setEmployee(employee);
+		frag2 = new EmployeeRegistrationFragment2();
+		frag2.setEmployee(employee);
+		adapter = new ViewPagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+		adapter.add(frag1);
+		adapter.add(frag2);
+		pager.setAdapter(adapter);
 
 	}
 
-	private List<String> removeDuplicates(List<String> stateList) {
-		List<String> statesList = new ArrayList<>();
-		for (String state : stateList) {
-			if (!statesList.contains(state)) {
-				statesList.add(state);
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (resultCode == RESULT_OK && data != null) {
+			Uri path = data.getData();
+			InputStream inputStream = null;
+			String file = null, filename = null;
+
+			try {
+				inputStream = EmployeeRegistrationActvity.this.getContentResolver().openInputStream(path);
+				byte[] pdfinByte = new byte[inputStream.available()];
+				inputStream.read(pdfinByte);
+				file = Base64.encodeToString(pdfinByte, Base64.DEFAULT);
+				filename = getFilename(path);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			switch (requestCode) {
+				case RESULT_RESUME:
+					employee.setResume(file);
+					frag2.updateTextView(requestCode, filename);
+					break;
+				case RESULT_ADHAAR_CARD:
+					employee.setAadharcard(file);
+					frag2.updateTextView(requestCode, filename);
+					break;
+				case RESULT_PAN_CARD:
+					employee.setPancard(file);
+					frag2.updateTextView(requestCode, filename);
+					break;
+				case RESULT_SSC_MARKSHEET:
+					employee.setMarkof10th(file);
+					frag2.updateTextView(requestCode, filename);
+					break;
+				case RESULT_HSC_MARKSHEET:
+					employee.setMarkof12th(file);
+					frag2.updateTextView(requestCode, filename);
+					break;
+				case RESULT_GRADUATION_CERTIFICATE:
+					employee.setGradu_certificate(file);
+					frag2.updateTextView(requestCode, filename);
+					break;
+				case RESULT_PREVIOUS_COMPANY_CERTIFICATE:
+					employee.setPre_com_certi(file);
+					frag2.updateTextView(requestCode, filename);
+					break;
+				case RESULT_CHEQUE:
+					employee.setCheque(file);
+					frag2.updateTextView(requestCode, filename);
+					break;
+				case RESULT_OFFER_LETTER:
+					employee.setOffer_letter(file);
+					frag2.updateTextView(requestCode, filename);
+					break;
+				case RESULT_NDA:
+					employee.setNon_ds_aggre(file);
+					frag2.updateTextView(requestCode, filename);
+					break;
+				case RESULT_VERIFICATION_FORM:
+					employee.setVerification_form(file);
+					frag2.updateTextView(requestCode, filename);
+					break;
+				case RESULT_TRAINING_FORM:
+					employee.setTraining_form(file);
+					frag2.updateTextView(requestCode, filename);
+					break;
+				case RESULT_INTERNSHIP_CERTIFICATE:
+					employee.setIntern_certificate(file);
+					frag2.updateTextView(requestCode, filename);
+					break;
+				case RESULT_RELEVING_LETTER:
+					employee.setReevingletter(file);
+					frag2.updateTextView(requestCode, filename);
+					break;
+
 			}
 		}
-		return statesList;
+
+
+	}
+
+	public void postEmployee() {
+		RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
+		Call<JsonObject> call = ri.addEmployee(employee);
+		call.enqueue(new Callback<JsonObject>() {
+			@Override
+			public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+				if (response.isSuccessful()) {
+					Intent intent = new Intent(EmployeeRegistrationActvity.this, EmployeeListActivity.class);
+					startActivity(intent);
+				} else {
+					CustomToast.makeText(EmployeeRegistrationActvity.this, "Failed to perform action" + response.message(), 0, Color.RED);
+				}
+			}
+
+			@Override
+			public void onFailure(Call<JsonObject> call, Throwable t) {
+				CustomToast.makeText(EmployeeRegistrationActvity.this, "Failed to perform action" + t.getMessage(), 0, Color.RED);
+			}
+		});
+	}
+
+	private String getFilename(Uri path) {
+		String result = "";
+		if (path.getScheme().equals("content")) {
+			Cursor cursor = getContentResolver().query(path, null, null, null, null);
+			try {
+				if (cursor != null && cursor.moveToFirst()) {
+					result = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+				}
+			} finally {
+				cursor.close();
+			}
+		}
+		if (result == null) {
+			result = path.getPath();
+			int cut = result.lastIndexOf('/');
+			if (cut != -1) {
+				result = result.substring(cut + 1);
+			}
+		}
+		return result;
+
+	}
+
+	public void switchFragment() {
+		pager.setCurrentItem(1, true);
 	}
 
 
-	public void showmyinformation(View view) {
-		expandablemycontent = (ExpandableLayout) findViewById(R.id.mycontent);
-		expandablemycontent.toggle();
-	}
+	public class ViewPagerAdapter extends FragmentPagerAdapter {
 
-	public void showjobinformation(View view) {
-		expandableinterncontent = findViewById(R.id.myjobcontent);
-		expandableinterncontent.toggle();
+		private final ArrayList<Fragment> fragments = new ArrayList<>();
+
+		public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
+			super(fm, behavior);
+		}
+
+		@NonNull
+		@Override
+		public Fragment getItem(int position) {
+			return fragments.get(position);
+		}
+
+		public void add(Fragment fragment) {
+			fragments.add(fragment);
+		}
+
+		@Override
+		public int getCount() {
+			return fragments.size();
+		}
 	}
 }

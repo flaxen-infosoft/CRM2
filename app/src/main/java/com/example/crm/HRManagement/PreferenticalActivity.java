@@ -28,7 +28,6 @@ import com.example.crm.Retro.RetroInterface;
 import com.example.crm.Retro.Retrofi;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 
@@ -121,27 +120,27 @@ public class PreferenticalActivity extends AppCompatActivity {
 
 		Employee dummyEmployee = new Employee();
 		dummyEmployee.setName(candidate.getName());
+		dummyEmployee.setDepartment(candidate.getDepartment());
+		dummyEmployee.setDesignation(candidate.getDesignation());
+		dummyEmployee.setPhone(candidate.getPhone());
+		dummyEmployee.setAltphone(candidate.getAltphone());
+		dummyEmployee.setPid(candidate.getPid());
+		dummyEmployee.setOid(candidate.getOid());
+		dummyEmployee.setSource(candidate.getSource());
+		dummyEmployee.setState(candidate.getState());
+		dummyEmployee.setCity(candidate.getCity());
+		dummyEmployee.setStatus(candidate.getStatus());
+		dummyEmployee.setResume(candidate.getResume());
+		dummyEmployee.setAddress(candidate.getAddress());
+		dummyEmployee.setHave_leptop(candidate.getHave_laptop());
+		dummyEmployee.setCollege_name(candidate.getCollege_name());
+		dummyEmployee.setDuration(candidate.getDuration());
+		dummyEmployee.setStipend_amount(candidate.getStipend());
 
-		RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
-		Call<JsonObject> call = ri.addEmployee(dummyEmployee);
-
-		call.enqueue(new Callback<JsonObject>() {
-			@Override
-			public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-				if (response.isSuccessful()) {
-					Intent i = new Intent(PreferenticalActivity.this, EmployeeRegistrationActvity.class);
-					startActivity(i);
-					finish();
-				} else {
-					CustomToast.makeText(PreferenticalActivity.this, "Failed to perform action" + response.message(), 0, Color.RED);
-				}
-			}
-
-			@Override
-			public void onFailure(Call<JsonObject> call, Throwable t) {
-				CustomToast.makeText(PreferenticalActivity.this, "Failed to perform action" + t.getMessage(), 0, Color.RED);
-			}
-		});
+		Intent i = new Intent(PreferenticalActivity.this, EmployeeRegistrationActvity.class);
+		i.putExtra("employee", dummyEmployee);
+		startActivity(i);
+		finish();
 
 
 	}

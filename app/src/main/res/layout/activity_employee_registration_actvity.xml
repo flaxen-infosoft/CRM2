@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,675 +7,121 @@
     android:background="#fff"
     tools:context=".EmployeeManagement.EmployeeRegistrationActvity">
 
-    <RelativeLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/relative">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@color/blue_border">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_backarrow"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Registration"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:textColor="@color/white"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="30dp"/>
-
-            </RelativeLayout>
-
-        </androidx.appcompat.widget.Toolbar>
+        android:layout_height="60dp"
+        android:background="@color/blue_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
-            android:id="@+id/linear"
-            android:layout_below="@id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
 
-            <RelativeLayout
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_backarrow" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/info">
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Register"
-                    android:textSize="17sp"
-                    android:textColor="@color/yellow"
-                    android:layout_marginTop="20dp"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true"/>
-
-            </RelativeLayout>
-
-            <View
-                android:layout_width="wrap_content"
-                android:layout_height="1dp"
-                android:background="@color/black"
-                android:layout_toRightOf="@+id/info"
-                android:layout_toLeftOf="@+id/phase"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_centerVertical="true"
-                />
-
-            <RelativeLayout
-                android:id="@+id/phase"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Documentation"
-                    android:textColor="@color/grey"
-                    android:textSize="17sp"
-                    android:layout_marginTop="20dp"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true"/>
-
-            </RelativeLayout>
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:text="Registration"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:src="@drawable/ic_cuate"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="130dp"/>
+    </androidx.appcompat.widget.Toolbar>
 
+    <RelativeLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_below="@id/linear"
-            android:layout_marginBottom="50dp"
-            android:padding="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/bg_stroke"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Name of Employee"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:textColor="@color/black"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/empregname"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/edittext_bg"
-                android:padding="13dp"
-                android:textSize="15sp"
-                android:inputType="text"
-                android:elevation="8dp"/>
-
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp">
-
-                <RadioButton
-                    android:id="@+id/job"
-                    android:onClick="showmyinformation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Internship"
-                    android:layout_weight="1"/>
-
-                <RadioButton
-                    android:id="@+id/internship"
-                    android:onClick="showjobinformation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Job"
-                    android:layout_weight="1"/>
-
-            </RadioGroup>
-
-            <net.cachapa.expandablelayout.ExpandableLayout
-                android:id="@+id/mycontent"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:ael_expanded="false"
-                app:ael_duration="300"
-                app:el_parallax="0.5"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/txtcollage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Collage"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="30dp"
-                        android:textColor="@color/black"/>
-
-                    <EditText
-                        android:id="@+id/collage"
-                        android:layout_below="@id/txtcollage"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/edittext_bg"
-                        android:padding="13dp"
-                        android:textSize="15sp"
-                        android:inputType="text"
-                        android:elevation="8dp"/>
-
-                    <TextView
-                        android:id="@+id/txtduration"
-                        android:layout_below="@id/collage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Duration"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="30dp"
-                        android:textColor="@color/black"/>
-
-                    <EditText
-                        android:id="@+id/duration"
-                        android:layout_below="@id/txtduration"
-                        android:layout_width="250dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/edittext_bg"
-                        android:padding="13dp"
-                        android:textSize="15sp"
-                        android:inputType="text"
-                        android:elevation="8dp"/>
-
-                    <TextView
-                        android:id="@+id/txtstipend"
-                        android:layout_below="@id/duration"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Stipend"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="30dp"
-                        android:textColor="@color/black"/>
-
-                    <RadioGroup
-                        android:id="@+id/radiogroup"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="10dp"
-                        android:layout_below="@id/txtstipend">
-
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Yes"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="30dp"/>
-
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="NO"
-                            android:layout_weight="1"/>
-
-                    </RadioGroup>
-
-                    <TextView
-                        android:id="@+id/txtamount"
-                        android:layout_below="@id/radiogroup"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Amount"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="30dp"
-                        android:textColor="@color/black"/>
-
-                    <EditText
-                        android:id="@+id/amount"
-                        android:layout_below="@id/txtamount"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:background="@drawable/edittext_bg"
-                        android:padding="13dp"
-                        android:textSize="15sp"
-                        android:inputType="text"
-                        android:elevation="8dp"/>
-                </LinearLayout>
-
-
-
-
-            </net.cachapa.expandablelayout.ExpandableLayout>
-
-            <net.cachapa.expandablelayout.ExpandableLayout
-                android:id="@+id/myjobcontent"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:ael_expanded="false"
-                app:ael_duration="300"
-                app:el_parallax="0.5"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <RadioGroup
-                        android:id="@+id/internradiogroup"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="10dp"
-                        android:layout_below="@id/txtstipend">
-
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Fresher"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="30dp"/>
-
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Experience"
-                            android:layout_weight="1"/>
-
-                    </RadioGroup>
-
-                    <TextView
-                        android:id="@+id/txtjobamount"
-                        android:layout_below="@id/internradiogroup"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Amount"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="30dp"
-                        android:textColor="@color/black"/>
-
-                    <EditText
-                        android:id="@+id/jobamount"
-                        android:layout_below="@id/txtjobamount"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:background="@drawable/edittext_bg"
-                        android:padding="13dp"
-                        android:textSize="15sp"
-                        android:inputType="text"
-                        android:elevation="8dp"/>
-
-
-
-                </LinearLayout>
-
-            </net.cachapa.expandablelayout.ExpandableLayout>
-
+        <RelativeLayout
+            android:id="@+id/info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Designation"
-                android:layout_marginLeft="10dp"
-
-                android:textColor="@color/black"
-                android:layout_marginTop="10dp"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/candidate_phone"
-                android:layout_below="@+id/candidate_name"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/edittext_bg"
-                android:padding="13dp"
-                android:textSize="15sp"
-                android:inputType="text"
-                android:elevation="6dp"/>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rel">
-
-                    <TextView
-                        android:id="@+id/txtphone"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Phone No"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/black" />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/candidate_alt_phone"
-                        android:layout_below="@+id/txtphone"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/edittext_bg"
-                        android:padding="13dp"
-                        android:textSize="15sp"
-                        android:inputType="number"
-                        android:layout_marginBottom="10dp"
-                        android:elevation="6dp"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_below="@id/rel">
-
-                    <TextView
-                        android:id="@+id/img"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="Date"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/black" />
-
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_below="@+id/img"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:background="@drawable/edittext_bg"
-                        android:padding="13dp"
-                        android:textSize="15sp"
-                        app:backgroundTint="@color/lightgrey"
-                        android:inputType="text"
-                        android:elevation="6dp"/>
-
-
-
-                </RelativeLayout>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rel1">
-
-                    <TextView
-                        android:id="@+id/txtstate"
-                        android:layout_width="230dp"
-                        android:layout_height="wrap_content"
-                        android:text="Select State"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/black" />
-
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/state"
-                        android:layout_below="@+id/txtstate"
-                        android:layout_marginRight="5dp"
-                        android:entries="@array/Spinner_items_state"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/edittext_bg"
-                        android:padding="8dp"
-                        android:layout_marginBottom="10dp"
-                        android:elevation="6dp"/>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_below="@id/rel1"
-                    android:layout_marginTop="10dp">
-
-                    <TextView
-                        android:id="@+id/txtcity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Select City"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/black" />
-
-                    <Spinner
-                        android:id="@+id/city"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/txtcity"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginTop="10dp"
-                        android:entries="@array/Spinner_items_city"
-                        android:layout_marginBottom="10dp"
-                        android:background="@drawable/edittext_bg"
-                        android:padding="8dp"
-                        android:elevation="6dp"/>
-
-
-
-                </RelativeLayout>
-
-            </RelativeLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Official Id"
-                android:layout_marginLeft="10dp"
-                android:textColor="@color/black"
-                android:layout_marginTop="10dp"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/candidate_personal_email"
-                android:layout_below="@+id/candidate_alt_phone"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/edittext_bg"
-                android:padding="13dp"
-                android:textSize="15sp"
-                android:inputType="textEmailAddress"
-                android:elevation="6dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Personal Id"
-                android:layout_marginLeft="10dp"
-                android:textColor="@color/black"
-                android:layout_marginTop="10dp"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/candidate_official_email"
-                android:layout_below="@+id/candidate_personal_email"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/edittext_bg"
-                android:padding="13dp"
-                android:textSize="15sp"
-                android:inputType="textEmailAddress"
-                android:elevation="6dp"/>
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Address"
-                android:layout_marginLeft="10dp"
-                android:textColor="@color/black"
-                android:layout_marginTop="10dp"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:id="@+id/candidate_address"
-                android:layout_below="@+id/candidate_source"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/edittext_bg"
-                android:padding="13dp"
-                android:textSize="15sp"
-                android:inputType="text"
-                android:elevation="6dp"/>
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Password"
-                android:layout_marginLeft="10dp"
-                android:textColor="@color/black"
-                android:layout_marginTop="10dp"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/candidate_state"
-                android:layout_below="@+id/candidate_city"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/edittext_bg"
-                android:padding="13dp"
-                android:textSize="15sp"
-                android:inputType="text"
-                android:elevation="6dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Status"
-                android:layout_marginLeft="10dp"
-                android:textColor="@color/black"
-                android:layout_marginTop="10dp"/>
-
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/employee_status"
-                android:layout_below="@+id/candidate_city"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp"
-                android:entries="@array/Status"
-                android:background="@drawable/edittext_bg"
-                android:padding="6dp"
-                android:elevation="6dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Gender"
-                android:layout_marginLeft="10dp"
-                android:textColor="@color/black"
-                android:layout_marginTop="10dp"/>
-
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/gender"
-                android:layout_below="@+id/candidate_city"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp"
-                android:entries="@array/Gender"
-                android:background="@drawable/edittext_bg"
-                android:padding="6dp"
-                android:elevation="6dp"/>
-
-
-            <Button
-                android:id="@+id/btn_register"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/candidate_state"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="50dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/bg_btn"
-                android:elevation="6dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="20dp"
                 android:text="Register"
-                android:textColor="@color/white"
-                app:backgroundTint="@color/megenta" />
+                android:textColor="@color/yellow"
+                android:textSize="17sp" />
 
+        </RelativeLayout>
 
-        </LinearLayout>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@+id/phase"
+            android:layout_toRightOf="@+id/info"
+            android:background="@color/black" />
+
+        <RelativeLayout
+            android:id="@+id/phase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="20dp"
+                android:text="Documentation"
+                android:textColor="@color/grey"
+                android:textSize="17sp" />
+
+        </RelativeLayout>
 
     </RelativeLayout>
 
-</ScrollView>
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_cuate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linear" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

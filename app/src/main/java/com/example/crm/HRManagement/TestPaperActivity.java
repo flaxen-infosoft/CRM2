@@ -166,14 +166,12 @@ public class TestPaperActivity extends AppCompatActivity implements View.OnClick
 					startActivity(i);
 					finish();
 				} else {
-					Log.e("123", response.code() + " " + response.message());
 					CustomToast.makeText(TestPaperActivity.this, "Failed to submit answers :(", 0, Color.RED);
 				}
 			}
 
 			@Override
 			public void onFailure(Call<JsonObject> call, Throwable t) {
-				Log.e("123", t.getMessage());
 				CustomToast.makeText(TestPaperActivity.this, "Error: " + t.getMessage(), 0, Color.RED);
 			}
 		});

@@ -71,8 +71,6 @@ public class LeaveApplicationActivity extends AppCompatActivity implements DateP
 			insertLeave(leave);
 
 		});
-
-
 	}
 
 	private void insertLeave(LeaveItem leave) {
