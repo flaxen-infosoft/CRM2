@@ -1,10 +1,12 @@
 package com.example.crm.EmployeeManagement;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -13,13 +15,18 @@ import androidx.fragment.app.Fragment;
 import com.example.crm.Model.Employee;
 import com.example.crm.R;
 
-public class EmployeeRegistrationFragment1 extends Fragment {
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+public class EmployeeRegistrationFragment1 extends Fragment implements DatePickerDialog.OnDateSetListener {
 
 	View v;
 	Employee employee;
 	EditText name, designation, phone, altphone, date, state, city, pid, oid, officialsim, address, password, status, clgname, duration, stipend;
 	Button next;
 	Spinner gender;
+
 
 	public EmployeeRegistrationFragment1() {
 		// Required empty public constructor
@@ -38,7 +45,6 @@ public class EmployeeRegistrationFragment1 extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
-		// Inflate the layout for this fragment
 		if (v == null) {
 			v = inflater.inflate(R.layout.fragment_employee_registration1, container, false);
 			name = v.findViewById(R.id.name);
@@ -86,6 +92,15 @@ public class EmployeeRegistrationFragment1 extends Fragment {
 				}
 			});
 
+			date.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Calendar calendar = Calendar.getInstance();
+					DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), EmployeeRegistrationFragment1.this::onDateSet, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+					datePickerDialog.show();
+				}
+			});
+
 		}
 		if (v != null) {
 			name.setText(employee.getName());
@@ -106,5 +121,17 @@ public class EmployeeRegistrationFragment1 extends Fragment {
 			stipend.setText(employee.getStipend_amount());
 		}
 		return v;
+	}
+
+	@Override
+	public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+		Calendar c = Calendar.getInstance();
+		c.set(Calendar.YEAR, year);
+		c.set(Calendar.MONTH, month);
+		c.set(Calendar.DATE, dayOfMonth);
+		Date _date = c.getTime();
+		SimpleDateFormat formatter = new SimpleDateFormat("dd MMM yyyy");
+		String formatted = formatter.format(date);
+		date.setText(formatted);
 	}
 }
