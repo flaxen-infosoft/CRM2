@@ -54,12 +54,16 @@ public class EmployeeListActivity extends AppCompatActivity {
 		call.enqueue(new Callback<ArrayList<Employee>>() {
 			@Override
 			public void onResponse(Call<ArrayList<Employee>> call, Response<ArrayList<Employee>> response) {
+				if (!response.isSuccessful()){
+					System.out.println("response = " + response.code());
+				}
 				employees.addAll(response.body());
 				adapter.notifyDataSetChanged();
 			}
 
 			@Override
 			public void onFailure(Call<ArrayList<Employee>> call, Throwable t) {
+				System.out.println("t = " + t.getMessage());
 			}
 		});
 	}
