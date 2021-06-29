@@ -38,12 +38,14 @@
 
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="38dp"
         android:id="@+id/tab_layout"
         android:layout_margin="10dp"
-        app:tabMode="fixed"
+        android:background="@drawable/bg_stroke"
+        app:tabMode="scrollable"
         app:tabGravity="center"
         app:tabIndicatorGravity="stretch"
+        android:padding="4dp"
         app:tabSelectedTextColor="@color/white"
         app:tabIndicatorAnimationMode="elastic"
         app:tabIndicator="@drawable/tab_indicator"/>

@@ -17,57 +17,67 @@ import java.util.ArrayList;
 
 public class LeaveActivity extends AppCompatActivity {
 
-    TabLayout tabLayout;
-    ViewPager viewPager;
-    MainAdapter adapter;
+	TabLayout tabLayout;
+	ViewPager viewPager;
+	MainAdapter adapter;
+	LeaveApprovedFragment approved;
+	LeavePendingFragment pending;
+	LeaveDeclinedFragment declined;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_leave);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_leave);
 
-        tabLayout = findViewById(R.id.tab_layout);
-        viewPager = findViewById(R.id.view_pager);
 
-        adapter= new MainAdapter(getSupportFragmentManager());
-        adapter.AddFragment(new LeaveApprovedFragment(), "Leave Approved");
-        adapter.AddFragment(new LeaveDeclinedFragment(), "Leave Declined");
+		//TODO Fetch leaves where employee id = id of logged in employee
 
-        viewPager.setAdapter(adapter);
+		tabLayout = findViewById(R.id.tab_layout);
+		viewPager = findViewById(R.id.view_pager);
+		approved = new LeaveApprovedFragment();
+		pending = new LeavePendingFragment();
+		declined = new LeaveDeclinedFragment();
 
-        tabLayout.setupWithViewPager(viewPager);
+		adapter = new MainAdapter(getSupportFragmentManager());
+		adapter.AddFragment(pending, "Pending leaves");
+		adapter.AddFragment(approved, "Approved leaves");
+		adapter.AddFragment(declined, "Declined leaves");
 
-    }
-    private class MainAdapter extends FragmentPagerAdapter{
+		viewPager.setAdapter(adapter);
 
-        ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
-        ArrayList<String> stringArrayList = new ArrayList<>();
+		tabLayout.setupWithViewPager(viewPager);
+	}
 
-        public void AddFragment(Fragment fragment, String s){
-            fragmentArrayList.add(fragment);
-            stringArrayList.add(s);
-        }
+	private class MainAdapter extends FragmentPagerAdapter {
 
-        public MainAdapter(@NonNull FragmentManager fm) {
-            super(fm);
-        }
+		ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
+		ArrayList<String> stringArrayList = new ArrayList<>();
 
-        @NonNull
-        @Override
-        public Fragment getItem(int position) {
-            return  fragmentArrayList.get(position);
-        }
+		public MainAdapter(@NonNull FragmentManager fm) {
+			super(fm);
+		}
 
-        @Override
-        public int getCount() {
-            return fragmentArrayList.size();
-        }
+		public void AddFragment(Fragment fragment, String s) {
+			fragmentArrayList.add(fragment);
+			stringArrayList.add(s);
+		}
 
-        @Nullable
-        @Override
-        public CharSequence getPageTitle(int position) {
+		@NonNull
+		@Override
+		public Fragment getItem(int position) {
+			return fragmentArrayList.get(position);
+		}
 
-            return stringArrayList.get(position);
-        }
-    }
+		@Override
+		public int getCount() {
+			return fragmentArrayList.size();
+		}
+
+		@Nullable
+		@Override
+		public CharSequence getPageTitle(int position) {
+
+			return stringArrayList.get(position);
+		}
+	}
 }
