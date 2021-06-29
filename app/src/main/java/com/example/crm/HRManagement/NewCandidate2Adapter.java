@@ -1,10 +1,13 @@
 package com.example.crm.HRManagement;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -57,7 +60,10 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 
 	public class CandidateHolder extends RecyclerView.ViewHolder {
 
-		TextView name, date, applied_for, link, updateStatus, viewresume;
+		TextView name, date, applied_for, link, updateStatus, viewresume, remark;
+		LinearLayout tremark;
+		TextView remarks;
+		ImageView addremark;
 
 
 		public CandidateHolder(@NonNull View itemView) {
@@ -68,6 +74,10 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 			link = itemView.findViewById(R.id.link);
 			updateStatus = itemView.findViewById(R.id.updateStatus);
 			viewresume = itemView.findViewById(R.id.viewresume);
+			remark = itemView.findViewById(R.id.remark);
+			tremark = itemView.findViewById(R.id.tremark);
+			remarks = itemView.findViewById(R.id.remarks);
+			addremark = itemView.findViewById(R.id.addremark);
 
 			viewresume.setOnClickListener(new View.OnClickListener() {
 				@Override
@@ -102,6 +112,31 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 					//((NewCandidateActivity2)context).sendEmail(candidates.get(pos));
 
 				}
+			});
+
+			remark.setOnClickListener(v -> {
+				tremark.setVisibility(tremark.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE);
+			});
+
+			addremark.setOnClickListener(v -> {
+				View d = LayoutInflater.from(context).inflate(R.layout.add_remark_dialog, null, false);
+				new MaterialAlertDialogBuilder(context)
+						.setView(d)
+						.setTitle("Add Remark")
+						.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								dialog.dismiss();
+							}
+						}).setCancelable(false)
+						.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								dialog.dismiss();
+							}
+						}).show();
+
+
 			});
 
 
