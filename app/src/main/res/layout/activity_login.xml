@@ -4,91 +4,90 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
+    android:background="@color/ayushBlue"
     android:orientation="vertical"
-    android:background="@color/ayushBlue">
+    tools:context=".LoginActivity">
 
-   <RelativeLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:layout_centerInParent="true">
-
-
-      <ImageView
-          android:id="@+id/logo"
-          android:layout_width="150dp"
-          android:layout_height="150dp"
-          android:layout_centerHorizontal="true"
-          android:src="@drawable/logo" />
-
-      <Spinner
-          android:id="@+id/employee_id"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_below="@id/logo"
-          android:layout_marginTop="40dp"
-          android:entries="@array/Department"
-          android:layout_marginLeft="20dp"
-          android:layout_marginRight="20dp"
-          android:background="@drawable/edback"
-          android:padding="13dp"/>
-
-      <EditText
-          android:id="@+id/mobile"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:hint="Mobile No"
-          android:layout_below="@id/employee_id"
-          android:layout_marginTop="20dp"
-          android:layout_marginLeft="20dp"
-          android:inputType="number"
-          android:layout_marginRight="20dp"
-          android:textColorHint="@color/black"
-          android:background="@drawable/edback"
-          android:padding="13dp"/>
-
-      <EditText
-          android:id="@+id/password"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:hint="Password"
-          android:layout_below="@id/mobile"
-          android:textColorHint="@color/black"
-          android:layout_marginTop="20dp"
-          android:inputType="textWebPassword"
-          android:layout_marginLeft="20dp"
-          android:layout_marginRight="20dp"
-          android:background="@drawable/edback"
-          android:padding="13dp"/>
-
-      <Button
-          android:id="@+id/login_button"
-          android:layout_width="120dp"
-          android:layout_height="wrap_content"
-          android:hint="Login"
-          android:layout_centerHorizontal="true"
-          android:layout_below="@id/password"
-          android:layout_marginTop="40dp"
-          android:layout_marginLeft="20dp"
-          android:layout_marginRight="20dp"
-          android:background="@drawable/edback"
-          app:backgroundTint="@color/white"
-          android:textColorHint="@color/blue_border"/>
-
-      <TextView
-          android:id="@+id/forgot_password"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="Forgot Password ?"
-          android:layout_below="@id/login_button"
-          android:layout_marginTop="10dp"
-          android:layout_marginLeft="20dp"
-          android:layout_marginRight="20dp"
-          android:layout_centerHorizontal="true"
-          android:textColor="@color/white"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
 
 
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/logo" />
 
-   </RelativeLayout>
+        <Spinner
+            android:id="@+id/employee_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/logo"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edback"
+            android:entries="@array/LoginAs"
+            android:padding="13dp" />
+
+        <EditText
+            android:id="@+id/mobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/employee_id"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edback"
+            android:hint="Mobile No"
+            android:inputType="number"
+            android:padding="13dp"
+            android:textColorHint="@color/black" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mobile"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edback"
+            android:hint="Password"
+            android:inputType="textWebPassword"
+            android:padding="13dp"
+            android:textColorHint="@color/black" />
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/password"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edback"
+            android:hint="Login"
+            android:textColorHint="@color/blue_border"
+            app:backgroundTint="@color/white" />
+
+        <TextView
+            android:id="@+id/forgot_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:text="Forgot Password ?"
+            android:textColor="@color/white" />
+
+
+    </RelativeLayout>
 
 </RelativeLayout>

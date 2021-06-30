@@ -63,4 +63,7 @@ public interface RetroInterface {
 	@POST("insert_leave.php")
 	Call<JsonObject> insertLeave(@Body LeaveItem leaveItem);
 
+	@GET("get_emp_by_id.php")
+	Call<ArrayList<Employee>> getEmployeeById(@Query("id") int id);
 }
+
