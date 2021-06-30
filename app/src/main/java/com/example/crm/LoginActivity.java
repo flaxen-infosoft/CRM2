@@ -9,9 +9,11 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.crm.EmployeeManagement.EmployeeDashboardActivity;
 import com.example.crm.Model.Employee;
 import com.example.crm.Retro.RetroInterface;
 import com.example.crm.Retro.Retrofi;
+import com.example.crm.SalesManagement.SalesMainActivity;
 
 import java.util.ArrayList;
 
@@ -46,19 +48,25 @@ public class LoginActivity extends AppCompatActivity {
 			} else {
 				switch (employee_id.getSelectedItem().toString()) {
 					case "Android APP Development":
+						verify(m, pass, 0);
 						break;
 					case "Website Development":
+						verify(m, pass, 1);
 						break;
 					case "Sales":
+						verify(m, pass, 2);
 						break;
 					case "Digital Marketing":
+						verify(m, pass, 3);
 						break;
 					case "UI UX Designer":
+						verify(m, pass, 4);
 						break;
 					case "Graphic Designer":
+						verify(m, pass, 5);
 						break;
 					case "Admin":
-						verifyAdmin(m, pass);
+						verify(m, pass, 6);
 						break;
 				}
 
@@ -66,19 +74,22 @@ public class LoginActivity extends AppCompatActivity {
 		});
 	}
 
-	private void verifyAdmin(String mobile, String password) {
-		Call<ArrayList<Employee>> call = ri.getEmployeeById(155);
+	private void verify(String mobile, String password, int id) {
+		Call<ArrayList<Employee>> call = ri.getEmployeeByPhone(mobile);
 		call.enqueue(new Callback<ArrayList<Employee>>() {
 			@Override
 			public void onResponse(Call<ArrayList<Employee>> call, Response<ArrayList<Employee>> response) {
 				if (response.isSuccessful()) {
-					Employee te = response.body().get(0);
-					if (mobile.equals(te.getPhone()) && password.equals(te.getPassword())) {
-						startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+					if (response.body().size() == 0) {
+						CustomToast.makeText(LoginActivity.this, "No such user exists.", 0, Color.RED);
 					} else {
-						CustomToast.makeText(LoginActivity.this, "Credential doesn't match :(", 0, Color.RED);
+						Employee te = response.body().get(0);
+						if (mobile.equals(te.getPhone()) && password.equals(te.getPassword())) {
+							startActivity(id);
+						} else {
+							CustomToast.makeText(LoginActivity.this, "Credential doesn't match :(", 0, Color.RED);
+						}
 					}
-
 				} else {
 					CustomToast.makeText(LoginActivity.this, "Failed :(", 0, Color.RED);
 				}
@@ -86,10 +97,32 @@ public class LoginActivity extends AppCompatActivity {
 
 			@Override
 			public void onFailure(Call<ArrayList<Employee>> call, Throwable t) {
-				CustomToast.makeText(LoginActivity.this, "Failed :(", 0, Color.RED);
+
 			}
 		});
-
-
 	}
+
+	private void startActivity(int id) {
+		switch (id) {
+			case 0:
+			case 1:
+			case 3:
+			case 4:
+			case 5:
+				startActivity(new Intent(LoginActivity.this, EmployeeDashboardActivity.class));
+				finish();
+				break;
+			case 2:
+				startActivity(new Intent(LoginActivity.this, SalesMainActivity.class));
+				finish();
+				break;
+			case 6:
+				startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+				finish();
+				break;
+
+		}
+		startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+	}
+
 }

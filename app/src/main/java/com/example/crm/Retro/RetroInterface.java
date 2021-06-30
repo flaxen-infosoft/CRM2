@@ -65,5 +65,8 @@ public interface RetroInterface {
 
 	@GET("get_emp_by_id.php")
 	Call<ArrayList<Employee>> getEmployeeById(@Query("id") int id);
+
+	@GET("get_emp_by_mobileno.php")
+	Call<ArrayList<Employee>> getEmployeeByPhone(@Query("phone") String phone);
 }
 
