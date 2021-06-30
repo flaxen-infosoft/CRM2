@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -16,7 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.crm.Constants;
 import com.example.crm.Model.Candidate;
 import com.example.crm.R;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +52,7 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 		holder.name.setText(candidates.get(position).getName());
 		holder.date.setText("Date of Interview: " + candidates.get(position).getDateof_interview());
 		holder.applied_for.setText("Applied for: " + candidates.get(position).getDesignation());
+		holder.remarks.setText(candidates.get(position).getRemarks());
 	}
 
 	@Override
@@ -63,7 +65,7 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 		TextView name, date, applied_for, link, updateStatus, viewresume, remark;
 		LinearLayout tremark;
 		TextView remarks;
-		ImageView addremark;
+		MaterialCardView addremark;
 
 
 		public CandidateHolder(@NonNull View itemView) {
@@ -76,7 +78,7 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 			viewresume = itemView.findViewById(R.id.viewresume);
 			remark = itemView.findViewById(R.id.remark);
 			tremark = itemView.findViewById(R.id.tremark);
-			remarks = itemView.findViewById(R.id.remarks);
+			remarks = itemView.findViewById(R.id.remarktxt);
 			addremark = itemView.findViewById(R.id.addremark);
 
 			viewresume.setOnClickListener(new View.OnClickListener() {
@@ -86,6 +88,11 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 					intent.putExtra("pdfurl", candidates.get(getAdapterPosition()).getResume());
 					context.startActivity(intent);
 				}
+			});
+
+			remarks.setOnTouchListener((v, event) -> {
+				v.getParent().requestDisallowInterceptTouchEvent(false);
+				return true;
 			});
 
 			updateStatus.setOnClickListener(v -> {
@@ -119,6 +126,7 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 			});
 
 			addremark.setOnClickListener(v -> {
+				int pos = getAdapterPosition();
 				View d = LayoutInflater.from(context).inflate(R.layout.add_remark_dialog, null, false);
 				new MaterialAlertDialogBuilder(context)
 						.setView(d)
@@ -126,7 +134,9 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 						.setPositiveButton("Done", new DialogInterface.OnClickListener() {
 							@Override
 							public void onClick(DialogInterface dialog, int which) {
+								String remark = ((TextInputLayout) d.findViewById(R.id.et)).getEditText().getText().toString();
 								dialog.dismiss();
+								((NewCandidateActivity2) context).updateRemark(candidates.get(pos), remark, pos);
 							}
 						}).setCancelable(false)
 						.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -138,7 +148,6 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 
 
 			});
-
 
 		}
 	}

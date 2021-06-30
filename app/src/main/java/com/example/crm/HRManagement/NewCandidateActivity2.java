@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -141,6 +142,29 @@ public class NewCandidateActivity2 extends AppCompatActivity {
 
 	}
 
+	public void updateRemark(Candidate candidate, String remark, int pos) {
+		Log.e("123", remark + " " + pos);
+		RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
+		Call<Candidate> call = ri.updateCandidate(candidate);
+		call.enqueue(new Callback<Candidate>() {
+			@Override
+			public void onResponse(Call<Candidate> call, Response<Candidate> response) {
+				if (response.isSuccessful()) {
+					Log.e("123", "success");
+					candidates.get(pos).setRemarks(candidates.get(pos).getRemarks() + "\n\n" + remark);
+					adapter.notifyItemChanged(pos);
+				} else {
+					CustomToast.makeText(NewCandidateActivity2.this, "Failed to update", 0, Color.RED);
+				}
+			}
+
+			@Override
+			public void onFailure(Call<Candidate> call, Throwable t) {
+				CustomToast.makeText(NewCandidateActivity2.this, "Failed to update", 0, Color.RED);
+			}
+		});
+	}
+
 	public void fetchCandidates() {
 		RetroInterface retroInterface = Retrofi.initretro().create(RetroInterface.class);
 
@@ -155,7 +179,7 @@ public class NewCandidateActivity2 extends AppCompatActivity {
 					adapter = new NewCandidate2Adapter(NewCandidateActivity2.this, candidates, gi);
 					rv.setLayoutManager(new LinearLayoutManager(NewCandidateActivity2.this));
 					rv.setAdapter(adapter);
-					loading.hide();
+					loading.dismiss();
 				}
 			}
 
