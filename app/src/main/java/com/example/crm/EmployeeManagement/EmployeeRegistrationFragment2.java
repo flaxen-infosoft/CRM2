@@ -122,7 +122,6 @@ public class EmployeeRegistrationFragment2 extends Fragment implements View.OnCl
 
 		switch (v.getId()) {
 			case R.id.resume:
-
 				filePicker(RESULT_RESUME);
 				break;
 			case R.id.adhaar:

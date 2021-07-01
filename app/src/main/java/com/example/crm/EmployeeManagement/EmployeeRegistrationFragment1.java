@@ -1,6 +1,8 @@
 package com.example.crm.EmployeeManagement;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +16,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.crm.Model.Employee;
 import com.example.crm.R;
+import com.google.android.material.imageview.ShapeableImageView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -21,11 +24,13 @@ import java.util.Date;
 
 public class EmployeeRegistrationFragment1 extends Fragment implements DatePickerDialog.OnDateSetListener {
 
+	public static final int RESULT_PROFILE = 2001;
 	View v;
 	Employee employee;
 	EditText name, designation, phone, altphone, date, state, city, pid, oid, officialsim, address, password, status, clgname, duration, stipend;
 	Button next;
 	Spinner gender;
+	ShapeableImageView profile;
 
 
 	public EmployeeRegistrationFragment1() {
@@ -65,6 +70,14 @@ public class EmployeeRegistrationFragment1 extends Fragment implements DatePicke
 			stipend = v.findViewById(R.id.stipend);
 			next = v.findViewById(R.id.btn_next);
 			gender = v.findViewById(R.id.gender);
+			profile = v.findViewById(R.id.profile);
+
+			profile.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					filePicker(RESULT_PROFILE);
+				}
+			});
 
 			next.setOnClickListener(new View.OnClickListener() {
 				@Override
@@ -133,5 +146,16 @@ public class EmployeeRegistrationFragment1 extends Fragment implements DatePicke
 		SimpleDateFormat formatter = new SimpleDateFormat("dd MMM yyyy");
 		String formatted = formatter.format(date);
 		date.setText(formatted);
+	}
+
+	private void filePicker(int requestCode) {
+		Intent intent = new Intent();
+		intent.setType("image/*");
+		intent.setAction(Intent.ACTION_GET_CONTENT);
+		getActivity().startActivityForResult(Intent.createChooser(intent, "Select Picture"), RESULT_PROFILE);
+	}
+
+	public void setBitmap(Bitmap bitmap) {
+		profile.setImageBitmap(bitmap);
 	}
 }
