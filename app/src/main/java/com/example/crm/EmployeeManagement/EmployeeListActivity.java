@@ -54,7 +54,7 @@ public class EmployeeListActivity extends AppCompatActivity {
 		call.enqueue(new Callback<ArrayList<Employee>>() {
 			@Override
 			public void onResponse(Call<ArrayList<Employee>> call, Response<ArrayList<Employee>> response) {
-				if (!response.isSuccessful()){
+				if (!response.isSuccessful()) {
 					System.out.println("response = " + response.code());
 				}
 				employees.addAll(response.body());
@@ -82,11 +82,9 @@ public class EmployeeListActivity extends AppCompatActivity {
 			itemView.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					Gson gson = new Gson();
 					int pos = getAdapterPosition();
-
 					Intent i = new Intent(EmployeeListActivity.this, ActivityNewJoinee.class);
-					i.putExtra("employee", gson.toJson(employees.get(pos)));
+					i.putExtra("employee", employees.get(pos));
 					startActivity(i);
 				}
 			});

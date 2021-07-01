@@ -13,6 +13,7 @@
         android:orientation="vertical">
 
         <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profile"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_gravity="center_horizontal"
@@ -110,6 +111,7 @@
                             android:textStyle="bold" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/vadhar"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -124,6 +126,7 @@
                             app:cornerRadius="15dp" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/uadhar"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -156,6 +159,7 @@
                             android:textStyle="bold" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/vpan"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -171,6 +175,7 @@
                             app:cornerRadius="15dp" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/upan"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -202,6 +207,7 @@
                             android:textStyle="bold" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/vssc"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -216,6 +222,7 @@
                             app:cornerRadius="15dp" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/ussc"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -247,6 +254,7 @@
                             android:textStyle="bold" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/vhsc"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -261,6 +269,7 @@
                             app:cornerRadius="15dp" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/uhsc"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -292,6 +301,7 @@
                             android:textStyle="bold" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/vgrad"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -306,6 +316,7 @@
                             app:cornerRadius="15dp" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/ugrad"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -337,6 +348,7 @@
                             android:textStyle="bold" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/vgradcer"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -351,6 +363,7 @@
                             app:cornerRadius="15dp" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/ugradcer"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -382,6 +395,7 @@
                             android:textStyle="bold" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/vpcc"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -396,6 +410,7 @@
                             app:cornerRadius="15dp" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/upcc"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -427,6 +442,7 @@
                             android:textStyle="bold" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/vcheque"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -441,6 +457,7 @@
                             app:cornerRadius="15dp" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/ucheque"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -530,6 +547,7 @@
                             android:textStyle="bold" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/vol"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -544,6 +562,7 @@
                             app:cornerRadius="15dp" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/uol"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -575,6 +594,7 @@
                             android:textStyle="bold" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/vnda"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -589,6 +609,7 @@
                             app:cornerRadius="15dp" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/unda"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -619,6 +640,7 @@
                             android:textStyle="bold" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/vvf"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -633,6 +655,7 @@
                             app:cornerRadius="15dp" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/uvf"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -663,6 +686,7 @@
                             android:textStyle="bold" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/vtf"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -677,6 +701,7 @@
                             app:cornerRadius="15dp" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/utf"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -795,6 +820,7 @@
                             android:textStyle="bold" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/vic"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -809,6 +835,7 @@
                             app:cornerRadius="15dp" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/uic"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -839,6 +866,7 @@
                             android:textStyle="bold" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/vrl"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
@@ -853,6 +881,7 @@
                             app:cornerRadius="15dp" />
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/url"
                             android:layout_width="30dp"
                             android:layout_height="35dp"
                             android:layout_gravity="center_vertical"
