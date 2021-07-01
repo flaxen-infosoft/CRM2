@@ -84,10 +84,10 @@ public class LeaveManagementActivity extends AppCompatActivity {
 		else item.setStatus("Rejected");
 
 		RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
-		Call<JsonObject> call = ri.updateLeave(item);
-		call.enqueue(new Callback<JsonObject>() {
+		Call<LeaveItem> call = ri.updateLeave(item);
+		call.enqueue(new Callback<LeaveItem>() {
 			@Override
-			public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+			public void onResponse(Call<LeaveItem> call, Response<LeaveItem> response) {
 				if (response.isSuccessful()) {
 					CustomToast.makeText(LeaveManagementActivity.this, "Status updated", 0, Color.GREEN);
 				} else {
@@ -96,7 +96,7 @@ public class LeaveManagementActivity extends AppCompatActivity {
 			}
 
 			@Override
-			public void onFailure(Call<JsonObject> call, Throwable t) {
+			public void onFailure(Call<LeaveItem> call, Throwable t) {
 				CustomToast.makeText(LeaveManagementActivity.this, "Failed to update status", 0, Color.RED);
 			}
 		});

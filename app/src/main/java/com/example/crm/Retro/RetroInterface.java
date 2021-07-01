@@ -58,10 +58,10 @@ public interface RetroInterface {
 	Call<ArrayList<LeaveItem>> getLeaves();
 
 	@PUT("update_leave.php")
-	Call<JsonObject> updateLeave(@Body LeaveItem leaveItem);
+	Call<LeaveItem> updateLeave(@Body LeaveItem leaveItem);
 
 	@POST("insert_leave.php")
-	Call<JsonObject> insertLeave(@Body LeaveItem leaveItem);
+	Call<LeaveItem> insertLeave(@Body LeaveItem leaveItem);
 
 	@GET("get_emp_by_id.php")
 	Call<ArrayList<Employee>> getEmployeeById(@Query("id") int id);
