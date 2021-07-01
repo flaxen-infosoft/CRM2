@@ -19,7 +19,41 @@ public class Employee implements Serializable {
 	String password;
 	String status;
 	String gender;
-	String altphone, source, resume, address, have_leptop, college_name, duration, stipend_amount, dateofjion, aadharcard, pancard, markof10th, markof12th, graduation, gradu_certificate, pre_com_certi, cheque, ac_details, offer_letter, non_ds_aggre, verification_form, training_form, official_mail, official_sim, intern_certificate, reevingletter;
+	String altphone;
+	String source;
+	String resume;
+	String address;
+	String have_leptop;
+	String college_name;
+	String duration;
+	String stipend_amount;
+	String dateofjion;
+	String aadharcard;
+	String pancard;
+	String markof10th;
+	String markof12th;
+	String graduation;
+	String gradu_certificate;
+	String pre_com_certi;
+	String cheque;
+	String ac_details;
+	String offer_letter;
+	String non_ds_aggre;
+	String verification_form;
+	String training_form;
+	String official_mail;
+	String official_sim;
+	String intern_certificate;
+	String reevingletter;
+	String profileImg;
+
+	public String getProfileImg() {
+		return profileImg;
+	}
+
+	public void setProfileImg(String profileImg) {
+		this.profileImg = profileImg;
+	}
 
 	public String getId() {
 		return id;

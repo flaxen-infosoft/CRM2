@@ -2,12 +2,13 @@ package com.example.crm.EmployeeManagement;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.OpenableColumns;
 import android.util.Base64;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -35,6 +36,7 @@ import retrofit2.Response;
 
 public class EmployeeRegistrationActvity extends AppCompatActivity {
 
+	public static final int RESULT_PROFILE = 2001;
 	private static final int RESULT_RESUME = 1001;
 	private static final int RESULT_ADHAAR_CARD = 1002;
 	private static final int RESULT_PAN_CARD = 1003;
@@ -49,6 +51,7 @@ public class EmployeeRegistrationActvity extends AppCompatActivity {
 	private static final int RESULT_TRAINING_FORM = 1012;
 	private static final int RESULT_INTERNSHIP_CERTIFICATE = 1013;
 	private static final int RESULT_RELEVING_LETTER = 1014;
+	boolean profileImg;
 	Employee employee;
 	ViewPager pager;
 	EmployeeRegistrationFragment1 frag1;
@@ -83,81 +86,96 @@ public class EmployeeRegistrationActvity extends AppCompatActivity {
 
 			try {
 				inputStream = EmployeeRegistrationActvity.this.getContentResolver().openInputStream(path);
-				byte[] pdfinByte = new byte[inputStream.available()];
-				inputStream.read(pdfinByte);
-				file = Base64.encodeToString(pdfinByte, Base64.DEFAULT);
-				filename = getFilename(path);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
 			}
+			if (requestCode == RESULT_PROFILE) {
+				profileImg = true;
+				Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+				frag1.setBitmap(bitmap);
+				employee.setProfileImg(file);
 
-			switch (requestCode) {
-				case RESULT_RESUME:
-					employee.setResume(file);
-					frag2.updateTextView(requestCode, filename);
-					break;
-				case RESULT_ADHAAR_CARD:
-					employee.setAadharcard(file);
-					frag2.updateTextView(requestCode, filename);
-					break;
-				case RESULT_PAN_CARD:
-					employee.setPancard(file);
-					frag2.updateTextView(requestCode, filename);
-					break;
-				case RESULT_SSC_MARKSHEET:
-					employee.setMarkof10th(file);
-					frag2.updateTextView(requestCode, filename);
-					break;
-				case RESULT_HSC_MARKSHEET:
-					employee.setMarkof12th(file);
-					frag2.updateTextView(requestCode, filename);
-					break;
-				case RESULT_GRADUATION_CERTIFICATE:
-					employee.setGradu_certificate(file);
-					frag2.updateTextView(requestCode, filename);
-					break;
-				case RESULT_PREVIOUS_COMPANY_CERTIFICATE:
-					employee.setPre_com_certi(file);
-					frag2.updateTextView(requestCode, filename);
-					break;
-				case RESULT_CHEQUE:
-					employee.setCheque(file);
-					frag2.updateTextView(requestCode, filename);
-					break;
-				case RESULT_OFFER_LETTER:
-					employee.setOffer_letter(file);
-					frag2.updateTextView(requestCode, filename);
-					break;
-				case RESULT_NDA:
-					employee.setNon_ds_aggre(file);
-					frag2.updateTextView(requestCode, filename);
-					break;
-				case RESULT_VERIFICATION_FORM:
-					employee.setVerification_form(file);
-					frag2.updateTextView(requestCode, filename);
-					break;
-				case RESULT_TRAINING_FORM:
-					employee.setTraining_form(file);
-					frag2.updateTextView(requestCode, filename);
-					break;
-				case RESULT_INTERNSHIP_CERTIFICATE:
-					employee.setIntern_certificate(file);
-					frag2.updateTextView(requestCode, filename);
-					break;
-				case RESULT_RELEVING_LETTER:
-					employee.setReevingletter(file);
-					frag2.updateTextView(requestCode, filename);
-					break;
+			} else {
 
+				byte[] pdfinByte = new byte[0];
+				try {
+					pdfinByte = new byte[inputStream.available()];
+					inputStream.read(pdfinByte);
+					file = Base64.encodeToString(pdfinByte, Base64.DEFAULT);
+					filename = getFilename(path);
+					inputStream.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
+				switch (requestCode) {
+					case RESULT_RESUME:
+						employee.setResume(file);
+						frag2.updateTextView(requestCode, filename);
+						break;
+					case RESULT_ADHAAR_CARD:
+						employee.setAadharcard(file);
+						frag2.updateTextView(requestCode, filename);
+						break;
+					case RESULT_PAN_CARD:
+						employee.setPancard(file);
+						frag2.updateTextView(requestCode, filename);
+						break;
+					case RESULT_SSC_MARKSHEET:
+						employee.setMarkof10th(file);
+						frag2.updateTextView(requestCode, filename);
+						break;
+					case RESULT_HSC_MARKSHEET:
+						employee.setMarkof12th(file);
+						frag2.updateTextView(requestCode, filename);
+						break;
+					case RESULT_GRADUATION_CERTIFICATE:
+						employee.setGradu_certificate(file);
+						frag2.updateTextView(requestCode, filename);
+						break;
+					case RESULT_PREVIOUS_COMPANY_CERTIFICATE:
+						employee.setPre_com_certi(file);
+						frag2.updateTextView(requestCode, filename);
+						break;
+					case RESULT_CHEQUE:
+						employee.setCheque(file);
+						frag2.updateTextView(requestCode, filename);
+						break;
+					case RESULT_OFFER_LETTER:
+						employee.setOffer_letter(file);
+						frag2.updateTextView(requestCode, filename);
+						break;
+					case RESULT_NDA:
+						employee.setNon_ds_aggre(file);
+						frag2.updateTextView(requestCode, filename);
+						break;
+					case RESULT_VERIFICATION_FORM:
+						employee.setVerification_form(file);
+						frag2.updateTextView(requestCode, filename);
+						break;
+					case RESULT_TRAINING_FORM:
+						employee.setTraining_form(file);
+						frag2.updateTextView(requestCode, filename);
+						break;
+					case RESULT_INTERNSHIP_CERTIFICATE:
+						employee.setIntern_certificate(file);
+						frag2.updateTextView(requestCode, filename);
+						break;
+					case RESULT_RELEVING_LETTER:
+						employee.setReevingletter(file);
+						frag2.updateTextView(requestCode, filename);
+						break;
+				}
 			}
 		}
-
 
 	}
 
 	public void postEmployee() {
+		if (!profileImg) {
+			CustomToast.makeText(this, "Please select profile image", 0, Color.RED);
+			return;
+		}
 		RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
 		Call<JsonObject> call = ri.addEmployee(employee);
 		call.enqueue(new Callback<JsonObject>() {
