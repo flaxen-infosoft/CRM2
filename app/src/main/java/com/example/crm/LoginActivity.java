@@ -1,5 +1,6 @@
 package com.example.crm;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
 	Spinner employee_id;
 	EditText mobile, password;
 	RetroInterface ri;
+	ProgressDialog loading;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
 		mobile = findViewById(R.id.mobile);
 		password = findViewById(R.id.password);
 		ri = Retrofi.initretro().create(RetroInterface.class);
+		loading = CustomProgressAlert.make(this, "Verifying...");
 
 		login.setOnClickListener(v ->
 		{
@@ -75,11 +78,13 @@ public class LoginActivity extends AppCompatActivity {
 	}
 
 	private void verify(String mobile, String password, int id) {
+		loading.show();
 		Call<ArrayList<Employee>> call = ri.getEmployeeByPhone(mobile);
 		call.enqueue(new Callback<ArrayList<Employee>>() {
 			@Override
 			public void onResponse(Call<ArrayList<Employee>> call, Response<ArrayList<Employee>> response) {
 				if (response.isSuccessful()) {
+					loading.dismiss();
 					if (response.body().size() == 0) {
 						CustomToast.makeText(LoginActivity.this, "No such user exists.", 0, Color.RED);
 					} else {
@@ -97,7 +102,8 @@ public class LoginActivity extends AppCompatActivity {
 
 			@Override
 			public void onFailure(Call<ArrayList<Employee>> call, Throwable t) {
-
+				loading.dismiss();
+				CustomToast.makeText(LoginActivity.this, "Failed :(", 0, Color.RED);
 			}
 		});
 	}
