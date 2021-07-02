@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.DashboardFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/linear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
-            android:layout_centerHorizontal="true">
+            android:orientation="horizontal">
 
 
             <androidx.cardview.widget.CardView
@@ -28,8 +28,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                app:cardCornerRadius="15dp"
-                android:elevation="8dp">
+                android:elevation="8dp"
+                app:cardCornerRadius="15dp">
 
 
                 <RelativeLayout
@@ -41,22 +41,22 @@
                         android:id="@+id/img1"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/candidate"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="15dp"/>
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/candidate" />
 
                     <TextView
-                        android:layout_below="@id/img1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Candidate\nManagement"
-                        android:textSize="12sp"
-                        android:textAlignment="center"
-                        android:layout_marginTop="5dp"
-                        android:textColor="@color/black"
+                        android:layout_below="@id/img1"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:gravity="center_horizontal" />
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_horizontal"
+                        android:text="Candidate\nManagement"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
 
                 </RelativeLayout>
 
@@ -68,11 +68,11 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                app:cardCornerRadius="15dp"
-                android:elevation="8dp">
+                android:elevation="8dp"
+                app:cardCornerRadius="15dp">
 
 
                 <RelativeLayout
@@ -84,22 +84,22 @@
                         android:id="@+id/img1"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/ic_employee_dash"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="15dp"/>
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/ic_employee_dash" />
 
                     <TextView
-                        android:layout_below="@id/img1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Employee\nManagement"
-                        android:textSize="12sp"
-                        android:layout_marginTop="5dp"
-                        android:textColor="@color/black"
-                        android:gravity="center_horizontal"
+                        android:layout_below="@id/img1"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginBottom="10dp" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center_horizontal"
+                        android:text="Employee\nManagement"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
 
                 </RelativeLayout>
 
@@ -110,10 +110,10 @@
                 android:id="@+id/crm"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
-                app:cardCornerRadius="15dp"
-                android:elevation="8dp">
+                android:layout_marginRight="10dp"
+                android:elevation="8dp"
+                app:cardCornerRadius="15dp">
 
 
                 <RelativeLayout
@@ -125,22 +125,22 @@
                         android:id="@+id/img1"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/ic_crm"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="15dp"/>
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/ic_crm" />
 
                     <TextView
-                        android:layout_below="@id/img1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Customer\nManagement"
-                        android:textSize="12sp"
-                        android:layout_marginTop="5dp"
-                        android:gravity="center_horizontal"
-                        android:textColor="@color/black"
+                        android:layout_below="@id/img1"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginBottom="10dp" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center_horizontal"
+                        android:text="Customer\nManagement"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
 
                 </RelativeLayout>
 
@@ -154,9 +154,9 @@
             android:id="@+id/linear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
-            android:orientation="horizontal"
-            android:layout_centerHorizontal="true">
+            android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/taskmanager"
@@ -165,8 +165,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                app:cardCornerRadius="15dp"
-                android:elevation="8dp">
+                android:elevation="8dp"
+                app:cardCornerRadius="15dp">
 
 
                 <RelativeLayout
@@ -178,22 +178,22 @@
                         android:id="@+id/img1"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/ic_task_manager"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="15dp"/>
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/ic_task_manager" />
 
                     <TextView
-                        android:layout_below="@id/img1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Task\nManagement"
-                        android:textSize="12sp"
-                        android:gravity="center_horizontal"
-                        android:layout_marginTop="5dp"
-                        android:textColor="@color/black"
+                        android:layout_below="@id/img1"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginBottom="10dp" />
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center_horizontal"
+                        android:text="Task\nManagement"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
 
                 </RelativeLayout>
 
@@ -205,11 +205,11 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                app:cardCornerRadius="15dp"
-                android:elevation="8dp">
+                android:elevation="8dp"
+                app:cardCornerRadius="15dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -220,25 +220,23 @@
                         android:id="@+id/img"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/ic_email"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="15dp"/>
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/ic_email" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_below="@+id/img"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_horizontal"
                         android:text="Leave\nManagement"
                         android:textAlignment="center"
                         android:textColor="@color/black"
-                        android:textSize="12sp"
-                        android:layout_marginTop="5dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/img"
-                        android:gravity="center_horizontal" />
+                        android:textSize="12sp" />
 
                 </RelativeLayout>
-
-
 
 
             </androidx.cardview.widget.CardView>
@@ -247,11 +245,11 @@
                 android:id="@+id/attendance"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                app:cardCornerRadius="15dp"
-                android:elevation="8dp">
+                android:elevation="8dp"
+                app:cardCornerRadius="15dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -262,24 +260,22 @@
                         android:id="@+id/img"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/icon_fingerprintsharp"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="15dp"/>
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/icon_fingerprintsharp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Attendence\nManagement"
-                        android:textColor="@color/black"
-                        android:textSize="12sp"
+                        android:layout_below="@+id/img"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="5dp"
                         android:gravity="center_horizontal"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/img"/>
+                        android:text="Attendence\nManagement"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
 
                 </RelativeLayout>
-
-
 
 
             </androidx.cardview.widget.CardView>
@@ -291,10 +287,9 @@
             android:id="@+id/linear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
-            android:layout_centerHorizontal="true">
-
+            android:orientation="horizontal">
 
 
             <androidx.cardview.widget.CardView
@@ -304,8 +299,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                app:cardCornerRadius="15dp"
-                android:elevation="8dp">
+                android:elevation="8dp"
+                app:cardCornerRadius="15dp">
 
 
                 <RelativeLayout
@@ -342,10 +337,10 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
-                app:cardCornerRadius="15dp"
-                android:elevation="8dp">
+                android:layout_marginRight="10dp"
+                android:elevation="8dp"
+                app:cardCornerRadius="15dp">
 
 
                 <RelativeLayout
@@ -356,21 +351,21 @@
                         android:id="@+id/img1"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/ic_mic"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginTop="15dp"/>
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/ic_mic" />
 
                     <TextView
-                        android:layout_below="@id/img1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Support"
-                        android:textSize="12sp"
-                        android:textColor="@color/black"
+                        android:layout_below="@id/img1"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginBottom="10dp" />
+                        android:layout_marginBottom="10dp"
+                        android:text="Support"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
 
                 </RelativeLayout>
 
@@ -381,10 +376,10 @@
                 android:id="@+id/reporting"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
-                app:cardCornerRadius="15dp"
-                android:elevation="8dp">
+                android:layout_marginRight="10dp"
+                android:elevation="8dp"
+                app:cardCornerRadius="15dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -394,23 +389,21 @@
                         android:id="@+id/img"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/tabler_report"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginTop="15dp"/>
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/tabler_report" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_below="@+id/img"
+                        android:layout_centerHorizontal="true"
                         android:text="Reporting"
                         android:textColor="@color/black"
-                        android:textSize="12sp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/img"/>
+                        android:textSize="12sp" />
 
                 </RelativeLayout>
-
-
 
 
             </androidx.cardview.widget.CardView>
@@ -421,9 +414,9 @@
             android:id="@+id/linear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
-            android:layout_centerHorizontal="true">
+            android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/invoice"
@@ -431,8 +424,8 @@
                 android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                app:cardCornerRadius="15dp"
-                android:elevation="8dp">
+                android:elevation="8dp"
+                app:cardCornerRadius="15dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -442,24 +435,22 @@
                         android:id="@+id/img"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/ic_invoice"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginTop="15dp"/>
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/ic_invoice" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Invoice"
-                        android:layout_marginTop="5dp"
-                        android:textColor="@color/black"
-                        android:textSize="12sp"
+                        android:layout_below="@+id/img"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/img"/>
+                        android:layout_marginTop="5dp"
+                        android:text="Invoice"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
 
                 </RelativeLayout>
-
-
 
 
             </androidx.cardview.widget.CardView>
@@ -469,11 +460,11 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                app:cardCornerRadius="15dp"
-                android:elevation="8dp">
+                android:elevation="8dp"
+                app:cardCornerRadius="15dp">
 
 
                 <RelativeLayout
@@ -484,21 +475,21 @@
                         android:id="@+id/img1"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/payslip"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginTop="15dp"/>
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/payslip" />
 
                     <TextView
-                        android:layout_below="@id/img1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Payslip"
-                        android:textSize="12sp"
-                        android:textColor="@color/black"
+                        android:layout_below="@id/img1"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginBottom="10dp" />
+                        android:layout_marginBottom="10dp"
+                        android:text="Payslip"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
 
                 </RelativeLayout>
 
@@ -509,11 +500,11 @@
                 android:id="@+id/expences"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                app:cardCornerRadius="15dp"
-                android:elevation="8dp">
+                android:elevation="8dp"
+                app:cardCornerRadius="15dp">
 
 
                 <RelativeLayout
@@ -524,21 +515,21 @@
                         android:id="@+id/img1"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/ic_graph"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginTop="15dp"/>
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/ic_graph" />
 
                     <TextView
-                        android:layout_below="@id/img1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Expenses"
-                        android:textSize="12sp"
-                        android:textColor="@color/black"
+                        android:layout_below="@id/img1"
                         android:layout_alignParentBottom="true"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginBottom="10dp" />
+                        android:layout_marginBottom="10dp"
+                        android:text="Expenses"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
 
                 </RelativeLayout>
 
@@ -546,6 +537,59 @@
 
 
         </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/applyforleave"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:elevation="8dp"
+                app:cardCornerRadius="15dp">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/ic_calender" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/img1"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="10dp"
+                        android:text="Apply for Leave"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
 
     </LinearLayout>
 

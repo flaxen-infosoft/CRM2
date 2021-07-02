@@ -19,7 +19,6 @@ import com.example.crm.Model.LeaveItem;
 import com.example.crm.R;
 import com.example.crm.Retro.RetroInterface;
 import com.example.crm.Retro.Retrofi;
-import com.google.gson.JsonObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -83,6 +82,7 @@ public class LeaveApplicationActivity extends AppCompatActivity implements DateP
 			public void onResponse(Call<LeaveItem> call, Response<LeaveItem> response) {
 				if (response.isSuccessful()) {
 					CustomToast.makeText(LeaveApplicationActivity.this, "done" + response.message(), 0, Color.parseColor("#32CD32"));
+					finish();
 				} else {
 					CustomToast.makeText(LeaveApplicationActivity.this, "Failed to do" + response.message(), 0, Color.RED);
 				}
