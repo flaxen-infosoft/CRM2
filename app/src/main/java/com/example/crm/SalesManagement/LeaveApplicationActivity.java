@@ -76,11 +76,11 @@ public class LeaveApplicationActivity extends AppCompatActivity implements DateP
 	private void insertLeave(LeaveItem leave) {
 		RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
 
-		Call<JsonObject> call = ri.insertLeave(leave);
+		Call<LeaveItem> call = ri.insertLeave(leave);
 
-		call.enqueue(new Callback<JsonObject>() {
+		call.enqueue(new Callback<LeaveItem>() {
 			@Override
-			public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+			public void onResponse(Call<LeaveItem> call, Response<LeaveItem> response) {
 				if (response.isSuccessful()) {
 					CustomToast.makeText(LeaveApplicationActivity.this, "done" + response.message(), 0, Color.parseColor("#32CD32"));
 				} else {
@@ -89,7 +89,7 @@ public class LeaveApplicationActivity extends AppCompatActivity implements DateP
 			}
 
 			@Override
-			public void onFailure(Call<JsonObject> call, Throwable t) {
+			public void onFailure(Call<LeaveItem> call, Throwable t) {
 				CustomToast.makeText(LeaveApplicationActivity.this, "Failed to do" + t.getMessage(), 0, Color.RED);
 			}
 		});
