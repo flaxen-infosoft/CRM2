@@ -33,6 +33,7 @@ public class LeaveApplicationActivity extends AppCompatActivity implements DateP
 	EditText subject, body;
 	TextView name, datetime;
 	Button send;
+	String formatted;
 	Spinner leavetype;
 	int day, month, year, hour, minute;
 	int myday, myMonth, myYear, myHour, myMinute;
@@ -54,6 +55,16 @@ public class LeaveApplicationActivity extends AppCompatActivity implements DateP
 			year = calendar.get(Calendar.YEAR);
 			month = calendar.get(Calendar.MONTH);
 			day = calendar.get(Calendar.DAY_OF_MONTH);
+			Calendar c = Calendar.getInstance();
+			c.set(Calendar.DATE, myday);
+			c.set(Calendar.MONTH, myMonth);
+			c.set(Calendar.YEAR, myYear);
+			c.set(Calendar.HOUR_OF_DAY, myHour);
+			c.set(Calendar.MINUTE, myMinute);
+
+			Date date = c.getTime();
+			SimpleDateFormat formatter = new SimpleDateFormat("dd MMM yyyy HH:mm");
+			formatted = formatter.format(date);
 			DatePickerDialog datePickerDialog = new DatePickerDialog(LeaveApplicationActivity.this, LeaveApplicationActivity.this, year, month, day);
 			datePickerDialog.show();
 		});
@@ -63,7 +74,7 @@ public class LeaveApplicationActivity extends AppCompatActivity implements DateP
 			leave.setStatus("Na");
 			leave.setBody(body.getText().toString());
 			leave.setTitle(subject.getText().toString());
-			leave.setDate(datetime.getText().toString());
+			leave.setDate(formatted);
 
 			leave.setLeavetype(leavetype.getSelectedItem().toString());
 
