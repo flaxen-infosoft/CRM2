@@ -18,59 +18,59 @@ import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
 public interface RetroInterface {
-	@POST("candidate_registerapi.php")
-	Call<Candidate> addCandidate(@Body Candidate candidate);
+    @POST("candidate_registerapi.php")
+    Call<Candidate> addCandidate(@Body Candidate candidate);
 
-	@GET("get_candidate.php")
-	Call<List<Candidate>> getcandidate();
+    @GET("get_candidate.php")
+    Call<List<Candidate>> getcandidate();
 
-	@PUT("update_candidate.php")
-	Call<Candidate> updateCandidate(@Body Candidate candidate);
+    @PUT("update_candidate.php")
+    Call<Candidate> updateCandidate(@Body Candidate candidate);
 
-	@GET("/question_paper")
-	Call<QuestionPaper> getQuestionPaper();
+    @GET("/question_paper")
+    Call<QuestionPaper> getQuestionPaper();
 
-	@POST("test_response.php")
-	Call<JsonObject> postTestResponse(@Body TestResponse testResponse);
+    @POST("test_response.php")
+    Call<JsonObject> postTestResponse(@Body TestResponse testResponse);
 
-	@GET("get_short_candidate.php")
-	Call<ArrayList<Candidate>> getAllShortlistedCandidates();
+    @GET("get_short_candidate.php")
+    Call<ArrayList<Candidate>> getAllShortlistedCandidates();
 
-	@POST("shortlisted_candidateapi.php")
-	Call<JsonObject> shortListCandidate(@Query("id") String id);
+    @POST("shortlisted_candidateapi.php")
+    Call<JsonObject> shortListCandidate(@Query("id") String id);
 
-	@PUT("shortlisted_candidateupdateapi.php")
-	Call<Candidate> updateShortlisedCandidate(@Body Candidate candidate);
+    @PUT("shortlisted_candidateupdateapi.php")
+    Call<Candidate> updateShortlisedCandidate(@Body Candidate candidate);
 
-	@POST("insert_prefer_candidate.php")
-	Call<JsonObject> preferCandidate(@Body Candidate candidate);
+    @POST("insert_prefer_candidate.php")
+    Call<JsonObject> preferCandidate(@Body Candidate candidate);
 
-	@GET("get_prefer_candidate.php")
-	Call<ArrayList<Candidate>> getPreferCandidate();
+    @GET("get_prefer_candidate.php")
+    Call<ArrayList<Candidate>> getPreferCandidate();
 
-	@POST("insert_emp1.php")
-	Call<JsonObject> addEmployee(@Body Employee employee);
+    @POST("insert_emp1.php")
+    Call<JsonObject> addEmployee(@Body Employee employee);
 
-	@GET("get_employee.php")
-	Call<ArrayList<Employee>> getEmployee();
+    @GET("get_employee.php")
+    Call<ArrayList<Employee>> getEmployee();
 
-	@GET("get_emp_by_id.php")
-	Call<ArrayList<Employee>> getEmployeeById(@Query("id") int id);
+    @GET("get_emp_by_id.php")
+    Call<ArrayList<Employee>> getEmployeeById(@Query("id") int id);
 
-	@GET("get_emp_by_mobileno.php")
-	Call<ArrayList<Employee>> getEmployeeByPhone(@Query("phone") String phone);
+    @GET("get_emp_by_mobileno.php")
+    Call<ArrayList<Employee>> getEmployeeByPhone(@Query("phone") String phone);
 
-	@PUT("update_employee.php")
-	Call<Employee> updateEmployee(@Body Employee employee);
+    @PUT("update_employee.php")
+    Call<Employee> updateEmployee(@Body Employee employee);
 
-	@POST("insert_leave.php")
-	Call<LeaveItem> insertLeave(@Body LeaveItem leaveItem);
+    @POST("insert_leave.php")
+    Call<LeaveItem> insertLeave(@Body LeaveItem leaveItem);
 
-	@GET("get_leave.php")
-	Call<ArrayList<LeaveItem>> getLeaves();
+    @GET("get_leave.php")
+    Call<ArrayList<LeaveItem>> getLeaves();
 
-	@PUT("update_leave.php")
-	Call<LeaveItem> updateLeave(@Body LeaveItem leaveItem);
+    @PUT("update_leave.php")
+    Call<LeaveItem> updateLeave(@Body LeaveItem leaveItem);
 
 
 }
