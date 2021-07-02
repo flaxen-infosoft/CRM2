@@ -302,7 +302,7 @@ public class ActivityNewJoinee extends AppCompatActivity implements View.OnClick
 
 	private void updateEmployee(Employee newEmployee) {
 		RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
-		Call<Employee> call = ri.updateEmployee(employee);
+		Call<Employee> call = ri.updateEmployee(newEmployee);
 		call.enqueue(new Callback<Employee>() {
 			@Override
 			public void onResponse(Call<Employee> call, Response<Employee> response) {
