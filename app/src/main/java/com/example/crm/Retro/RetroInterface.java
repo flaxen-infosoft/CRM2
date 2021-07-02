@@ -21,20 +21,17 @@ public interface RetroInterface {
 	@POST("candidate_registerapi.php")
 	Call<Candidate> addCandidate(@Body Candidate candidate);
 
-	@PUT("update_candidate.php")
-	Call<Candidate> updateCandidate(@Body Candidate candidate);
-
-	@PUT("shortlisted_candidateupdateapi.php")
-	Call<Candidate> updateShortlisedCandidate(@Body Candidate candidate);
-
 	@GET("get_candidate.php")
 	Call<List<Candidate>> getcandidate();
 
-	@POST("insert_emp1.php")
-	Call<JsonObject> addEmployee(@Body Employee employee);
+	@PUT("update_candidate.php")
+	Call<Candidate> updateCandidate(@Body Candidate candidate);
 
 	@GET("/question_paper")
 	Call<QuestionPaper> getQuestionPaper();
+
+	@POST("test_response.php")
+	Call<JsonObject> postTestResponse(@Body TestResponse testResponse);
 
 	@GET("get_short_candidate.php")
 	Call<ArrayList<Candidate>> getAllShortlistedCandidates();
@@ -42,26 +39,20 @@ public interface RetroInterface {
 	@POST("shortlisted_candidateapi.php")
 	Call<JsonObject> shortListCandidate(@Query("id") String id);
 
-	@GET("get_prefer_candidate.php")
-	Call<ArrayList<Candidate>> getPreferCandidate();
+	@PUT("shortlisted_candidateupdateapi.php")
+	Call<Candidate> updateShortlisedCandidate(@Body Candidate candidate);
 
 	@POST("insert_prefer_candidate.php")
 	Call<JsonObject> preferCandidate(@Body Candidate candidate);
 
-	@POST("test_response.php")
-	Call<JsonObject> postTestResponse(@Body TestResponse testResponse);
+	@GET("get_prefer_candidate.php")
+	Call<ArrayList<Candidate>> getPreferCandidate();
+
+	@POST("insert_emp1.php")
+	Call<JsonObject> addEmployee(@Body Employee employee);
 
 	@GET("get_employee.php")
 	Call<ArrayList<Employee>> getEmployee();
-
-	@GET("get_leave.php")
-	Call<ArrayList<LeaveItem>> getLeaves();
-
-	@PUT("update_leave.php")
-	Call<LeaveItem> updateLeave(@Body LeaveItem leaveItem);
-
-	@POST("insert_leave.php")
-	Call<LeaveItem> insertLeave(@Body LeaveItem leaveItem);
 
 	@GET("get_emp_by_id.php")
 	Call<ArrayList<Employee>> getEmployeeById(@Query("id") int id);
@@ -71,5 +62,16 @@ public interface RetroInterface {
 
 	@PUT("update_employee.php")
 	Call<Employee> updateEmployee(@Body Employee employee);
+
+	@POST("insert_leave.php")
+	Call<LeaveItem> insertLeave(@Body LeaveItem leaveItem);
+
+	@GET("get_leave.php")
+	Call<ArrayList<LeaveItem>> getLeaves();
+
+	@PUT("update_leave.php")
+	Call<LeaveItem> updateLeave(@Body LeaveItem leaveItem);
+
+
 }
 
