@@ -2,7 +2,6 @@ package com.example.crm.LeaveManagement;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -14,7 +13,6 @@ import com.example.crm.R;
 import com.example.crm.Retro.RetroInterface;
 import com.example.crm.Retro.Retrofi;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 
