@@ -40,6 +40,10 @@ public class LoginActivity extends AppCompatActivity {
 		ri = Retrofi.initretro().create(RetroInterface.class);
 		loading = CustomProgressAlert.make(this, "Verifying...");
 
+
+		if (SPOps.getLoggedUser(this) != null) {
+			startActivity(SPOps.getId(this));
+		}
 		login.setOnClickListener(v ->
 		{
 			String m = mobile.getText().toString();
@@ -90,6 +94,7 @@ public class LoginActivity extends AppCompatActivity {
 					} else {
 						Employee te = response.body().get(0);
 						if (mobile.equals(te.getPhone()) && password.equals(te.getPassword())) {
+							SPOps.loggedIn(te, id, LoginActivity.this);
 							startActivity(id);
 						} else {
 							CustomToast.makeText(LoginActivity.this, "Credential doesn't match :(", 0, Color.RED);
@@ -128,7 +133,5 @@ public class LoginActivity extends AppCompatActivity {
 				break;
 
 		}
-		startActivity(new Intent(LoginActivity.this, HomeActivity.class));
 	}
-
 }
