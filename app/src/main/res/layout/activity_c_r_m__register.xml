@@ -291,7 +291,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/city"
-                android:layout_below="@+id/candidate_address"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
@@ -309,7 +308,7 @@
                 android:layout_marginTop="10dp"/>
 
             <EditText
-                android:id="@+id/address"
+                android:id="@+id/custumeraddress"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_below="@+id/candidate_city"

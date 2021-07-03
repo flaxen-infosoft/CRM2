@@ -32,7 +32,6 @@ public class DashboardFragment extends Fragment {
 		View v = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
 		employee_cardView = v.findViewById(R.id.employee);
-		cardView = v.findViewById(R.id.employee);
 		attendancecard = v.findViewById(R.id.attendance);
 		webmailcard = v.findViewById(R.id.webmail);
 		leave_card = v.findViewById(R.id.leavemanagement);
