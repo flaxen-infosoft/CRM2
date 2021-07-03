@@ -302,20 +302,20 @@ public class ActivityNewJoinee extends AppCompatActivity implements View.OnClick
 
 	private void updateEmployee(Employee newEmployee) {
 		RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
-		Call<Employee> call = ri.updateEmployee(employee);
+		Call<Employee> call = ri.updateEmployee(newEmployee);
 		call.enqueue(new Callback<Employee>() {
 			@Override
 			public void onResponse(Call<Employee> call, Response<Employee> response) {
 				if (response.isSuccessful()) {
 					//success
 				} else {
-					CustomToast.makeText(ActivityNewJoinee.this, "Failed :(", 0, Color.RED);
+					CustomToast.makeText(ActivityNewJoinee.this, "Failed :("+response.code(), 0, Color.RED);
 				}
 			}
 
 			@Override
 			public void onFailure(Call<Employee> call, Throwable t) {
-				CustomToast.makeText(ActivityNewJoinee.this, "Failed :(", 0, Color.RED);
+				CustomToast.makeText(ActivityNewJoinee.this, "Failed :("+t.getMessage(), 0, Color.RED);
 			}
 		});
 	}
