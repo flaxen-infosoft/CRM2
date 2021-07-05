@@ -76,6 +76,8 @@ public interface RetroInterface {
 
 	@POST("insert_customer.php")
 	Call<Customer> insertCustomer(@Body Customer customer);
+	@GET("get_all_customer.php")
+	Call<ArrayList<Customer>> getAllCustomers();
 
 	@GET("get_all_upcoming_customer.php")
 	Call<UpcomingCustomer> getAllUpcomingCustomer();

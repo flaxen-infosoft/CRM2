@@ -40,10 +40,8 @@ public class CustomersDetails extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_customers_details);
 
-		cardView = findViewById(R.id.card);
 		recyclerView = findViewById(R.id.customer_details_recycler);
 		recyclerView.setLayoutManager(new LinearLayoutManager(this));
-		cardView.setOnClickListener(v -> startActivity(new Intent(CustomersDetails.this, CustomerDetails.class)));
 
 		fetchCustomers();
 
@@ -61,7 +59,7 @@ public class CustomersDetails extends AppCompatActivity {
 
 	private void fetchCustomers() {
 		RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
-		Call<ArrayList<Customer>> call = ri.getCustomers();
+		Call<ArrayList<Customer>> call = ri.getAllCustomers();
 
 		call.enqueue(new Callback<ArrayList<Customer>>() {
 			@Override
@@ -106,7 +104,12 @@ public class CustomersDetails extends AppCompatActivity {
 
 		@Override
 		public void onBindViewHolder(@NonNull @NotNull CustomerViewHolder holder, int position) {
-
+		Customer customer = customers.get(position);
+holder.itemView.setOnClickListener(view ->{
+	Intent intent = new Intent(CustomersDetails.this,CustomerDetails.class);
+	intent.putExtra("id",customer.getId());
+	startActivity(intent);
+});
 		}
 
 		@Override
