@@ -32,21 +32,21 @@ RecyclerView recyclerView;
 
     private void fetchupcoming() {
         RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
-        Call<UpcomingCustomer> call = ri.getAllUpcomingCustomer();
-        call.enqueue(new Callback<UpcomingCustomer>() {
+        Call<List<UpcomingCustomer>> call = ri.getAllUpcomingCustomer();
+        call.enqueue(new Callback<List<UpcomingCustomer>>() {
             @Override
-            public void onResponse(Call<UpcomingCustomer> call, Response<UpcomingCustomer> response) {
+            public void onResponse(Call<List<UpcomingCustomer>> call, Response<List<UpcomingCustomer>> response) {
                 if (!response.isSuccessful()){
                     System.out.println("response = " + response.code());
                 }
-                upcomingCustomerList= (List<UpcomingCustomer>) response.body();
+                upcomingCustomerList=  response.body();
                 UpcomingAdapter upcomingAdapter= new UpcomingAdapter(upcomingCustomerList);
                 recyclerView.setAdapter(upcomingAdapter);
 
             }
 
             @Override
-            public void onFailure(Call<UpcomingCustomer> call, Throwable t) {
+            public void onFailure(Call<List<UpcomingCustomer>> call, Throwable t) {
                 System.out.println("t = " + t.getMessage());
             }
         });

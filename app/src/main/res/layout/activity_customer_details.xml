@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="Name"
+            android:id="@+id/name_of_upcoming_customer"
             android:textColor="@color/ayushtextBlue" />
 
         <TextView
@@ -30,6 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="Priority"
+            android:id="@+id/priorityofcustomer"
             android:textColor="@color/ayushtextBlue" />
 
         <TextView
@@ -148,5 +150,12 @@
                 android:text="grdafasf"
                 android:textColor="@color/ayushtextBlue" />
         </LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/bt_addupcoming"
+            android:backgroundTint="@color/ayushtextBlue"
+            android:text="Add to Upcoming Customer" />
     </LinearLayout>
 </ScrollView>
