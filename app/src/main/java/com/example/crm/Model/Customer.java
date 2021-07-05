@@ -1,6 +1,6 @@
 package com.example.crm.Model;
-
-public class Customer {
+import java.io.Serializable;
+public class Customer implements Serializable{
 
 	int id;
 	String name, domain, sub_domain, package_name, package_value, source, mail_id, phone_no, gender, state, city, address, priority, status, remark;

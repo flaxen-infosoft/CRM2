@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import com.example.crm.CustomToast;
+import com.example.crm.Model.Customer;
 import com.example.crm.Model.UpcomingCustomer;
 import com.example.crm.R;
 import com.example.crm.Retro.RetroInterface;
@@ -24,7 +25,8 @@ Button upcoming;
         setContentView(R.layout.activity_customer_details);
         upcoming= findViewById(R.id.bt_addupcoming);
         upcoming.setOnClickListener(view -> {
-            UpcomingCustomer upcomingCustomer=new UpcomingCustomer();
+            Customer customer= (Customer) getIntent().getSerializableExtra("customer");
+            UpcomingCustomer upcomingCustomer= (UpcomingCustomer) customer;
             addUpcoming(upcomingCustomer);
         });
     }

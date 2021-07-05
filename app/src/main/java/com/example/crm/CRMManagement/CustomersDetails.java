@@ -22,6 +22,7 @@ import com.example.crm.Retro.Retrofi;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -107,7 +108,7 @@ public class CustomersDetails extends AppCompatActivity {
 		Customer customer = customers.get(position);
 holder.itemView.setOnClickListener(view ->{
 	Intent intent = new Intent(CustomersDetails.this,CustomerDetails.class);
-	intent.putExtra("id",customer.getId());
+	intent.putExtra("customer", customers.get(position));
 	startActivity(intent);
 });
 		}
