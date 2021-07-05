@@ -80,6 +80,7 @@ public interface RetroInterface {
 	@GET("get_all_upcoming_customer.php")
 	Call<UpcomingCustomer> getAllUpcomingCustomer();
 
-
+	@GET("get_all_customer.php")
+	Call<ArrayList<Customer>> getCustomers();
 }
 
