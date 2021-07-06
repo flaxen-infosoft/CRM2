@@ -71,9 +71,9 @@ public class NewCandidateAdapter extends RecyclerView.Adapter<NewCandidateAdapte
 	}
 
 	static class ViewHolder extends RecyclerView.ViewHolder {
-		TextView name, designation, resumebt, date;
+		TextView name, designation, resumebt, date, updatestatus;
 		ImageView call;
-		Button updatestatus,interested,notinterested;
+		Button interested,notinterested;
 		ExpandableRelativeLayout expandableRelativeLayout;
 
 		public ViewHolder(@NonNull View itemView) {

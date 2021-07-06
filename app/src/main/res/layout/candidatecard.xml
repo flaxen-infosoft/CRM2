@@ -15,7 +15,8 @@
         android:id="@+id/constrant"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_stroke">
+        android:background="@drawable/bg_stroke"
+        android:padding="10dp">
 
 
         <TextView
@@ -33,8 +34,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_card_candidatename"
-            android:layout_marginTop="13dp"
             android:layout_margin="10dp"
+            android:layout_marginTop="13dp"
             android:text="Applied for"
             android:textColor="@color/black"
             android:textSize="16sp" />
@@ -61,8 +62,7 @@
             android:layout_below="@id/tv_card_candidatedesignation"
 
             android:layout_marginRight="15dp"
-            android:layout_marginBottom="10dp"
-            >
+            android:layout_marginBottom="10dp">
 
             <ImageView
                 android:id="@+id/callimage"
@@ -89,20 +89,22 @@
                 android:textColor="@color/black"
                 android:textSize="17sp" />
 
-            <Button
+            <TextView
+                android:id="@+id/updateStatusofcandidate"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_card_candidatedate"
                 android:layout_gravity="center_vertical"
                 android:layout_marginHorizontal="5dp"
                 android:layout_weight="3"
-                android:background="@drawable/bg_green_stroke"
+                android:background="@drawable/bg_stroke"
                 android:entries="@array/calling"
                 android:gravity="center_horizontal"
                 android:padding="5dp"
-                android:id="@+id/updateStatusofcandidate"
                 android:text="Update Status"
                 android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="17sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
@@ -130,9 +132,11 @@
         <com.github.aakira.expandablelayout.ExpandableRelativeLayout
             android:id="@+id/admin_expandableLayout"
             android:layout_width="match_parent"
-            android:layout_height="77dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/textView14"
+            android:layout_marginTop="10dp"
             android:background="@drawable/bg_stroke"
+            android:paddingVertical="10dp"
             app:ael_duration="500"
             app:ael_expanded="false"
             app:ael_interpolator="accelerateDecelerate"
@@ -141,32 +145,43 @@
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="195dp">
 
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+                <Button
+                    android:id="@+id/interestedbt"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/linear"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn"
+                    android:text="Interested"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/green" />
 
-            <Button
-                android:id="@+id/interestedbt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/bg_btn"
-                android:text="Interested"
-                android:textColor="@color/white"
-                android:textSize="15dp" />
+                <Button
+                    android:id="@+id/notinterestedbt"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/linear"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn"
+                    android:text="Not interested"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/red" />
 
-            <Button
-                android:id="@+id/notinterestedbt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_toRightOf="@id/interestedbt"
-                android:background="@drawable/bg_btn"
-                android:text="Not Interested"
-                android:textColor="@color/white"
-                android:textSize="15dp" />
+            </LinearLayout>
         </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
 
     </RelativeLayout>
