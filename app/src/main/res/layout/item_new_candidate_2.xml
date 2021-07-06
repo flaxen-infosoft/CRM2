@@ -99,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/call"
                 android:layout_margin="15dp"
-                app:layout_constraintBottom_toTopOf="@+id/tremark"
+                app:layout_constraintBottom_toTopOf="@+id/link"
                 tools:layout_editor_absoluteX="10dp">
 
 
@@ -159,13 +159,13 @@
 
             </LinearLayout>
 
-            <LinearLayout
+            <!--<LinearLayout
                 android:id="@+id/tremark"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:background="@drawable/bg_stroke_grey"
-                android:visibility="gone"
+                android:visibility="visible"
                 android:weightSum="5"
                 app:layout_constraintBottom_toTopOf="@+id/link"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -214,7 +214,7 @@
                 </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
-
+-->
             <TextView
                 android:id="@+id/link"
                 android:layout_width="wrap_content"

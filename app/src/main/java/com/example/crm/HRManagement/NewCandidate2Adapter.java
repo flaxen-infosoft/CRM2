@@ -1,12 +1,14 @@
 package com.example.crm.HRManagement;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.Scroller;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.crm.Constants;
 import com.example.crm.Model.Candidate;
 import com.example.crm.R;
-import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -52,7 +53,6 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 		holder.name.setText(candidates.get(position).getName());
 		holder.date.setText("Date of Interview: " + candidates.get(position).getDateof_interview());
 		holder.applied_for.setText("Applied for: " + candidates.get(position).getDesignation());
-		holder.remarks.setText(candidates.get(position).getRemarks());
 	}
 
 	@Override
@@ -63,11 +63,8 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 	public class CandidateHolder extends RecyclerView.ViewHolder {
 
 		TextView name, date, applied_for, link, updateStatus, viewresume, remark;
-		LinearLayout tremark;
-		TextView remarks;
-		MaterialCardView addremark;
 
-
+		@SuppressLint("ClickableViewAccessibility")
 		public CandidateHolder(@NonNull View itemView) {
 			super(itemView);
 			name = itemView.findViewById(R.id.name);
@@ -77,9 +74,6 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 			updateStatus = itemView.findViewById(R.id.updateStatus);
 			viewresume = itemView.findViewById(R.id.viewresume);
 			remark = itemView.findViewById(R.id.remark);
-			tremark = itemView.findViewById(R.id.tremark);
-			remarks = itemView.findViewById(R.id.remarktxt);
-			addremark = itemView.findViewById(R.id.addremark);
 
 			viewresume.setOnClickListener(new View.OnClickListener() {
 				@Override
@@ -90,9 +84,49 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 				}
 			});
 
-			remarks.setOnTouchListener((v, event) -> {
-				v.getParent().requestDisallowInterceptTouchEvent(false);
-				return true;
+			remark.setOnClickListener(v -> {
+				int pos = getAdapterPosition();
+				View view = LayoutInflater.from(context).inflate(R.layout.remarks_dialog, null, false);
+				TextView textView = ((TextView) view.findViewById(R.id.remarktxt));
+				textView.setText(candidates.get(pos).getRemarks());
+				textView.setScroller(new Scroller(context));
+				textView.setVerticalScrollBarEnabled(true);
+				textView.setMovementMethod(new ScrollingMovementMethod());
+
+				new MaterialAlertDialogBuilder(context)
+						.setTitle("Remarks for " + candidates.get(pos).getName())
+						.setView(view)
+						.setCancelable(false)
+						.setPositiveButton("Add remark", new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								dialog.dismiss();
+								View d = LayoutInflater.from(context).inflate(R.layout.add_remark_dialog, null, false);
+								new MaterialAlertDialogBuilder(context)
+										.setView(d)
+										.setTitle("Add Remark")
+										.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+											@Override
+											public void onClick(DialogInterface dialog, int which) {
+												String remark = ((TextInputLayout) d.findViewById(R.id.et)).getEditText().getText().toString();
+												dialog.dismiss();
+												((NewCandidateActivity2) context).updateRemark(candidates.get(pos), remark, pos);
+											}
+										}).setCancelable(false)
+										.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+											@Override
+											public void onClick(DialogInterface dialog, int which) {
+												dialog.dismiss();
+											}
+										}).show();
+
+							}
+						}).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+					}
+				}).show();
 			});
 
 			updateStatus.setOnClickListener(v -> {
@@ -104,7 +138,6 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 						.setPositiveButton("Shortlist", (dialog, which) -> {
 							gi.onShortlistCandidate(candidates.get(pos));
 						}).show();
-
 			});
 			link.setOnClickListener(new View.OnClickListener() {
 				@Override
@@ -121,11 +154,7 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 				}
 			});
 
-			remark.setOnClickListener(v -> {
-				tremark.setVisibility(tremark.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE);
-			});
-
-			addremark.setOnClickListener(v -> {
+			/*addremark.setOnClickListener(v -> {
 				int pos = getAdapterPosition();
 				View d = LayoutInflater.from(context).inflate(R.layout.add_remark_dialog, null, false);
 				new MaterialAlertDialogBuilder(context)
@@ -147,8 +176,9 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 						}).show();
 
 
-			});
+			});*/
 
 		}
 	}
+
 }

@@ -227,5 +227,9 @@ public class NewCandidateActivity2 extends AppCompatActivity {
 
     }
 
+    public void setRVScrollable(boolean bool) {
+        rv.requestDisallowInterceptTouchEvent(bool);
+    }
+
 
 }
