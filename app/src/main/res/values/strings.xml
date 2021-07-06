@@ -101,11 +101,15 @@
 
     <string-array name="sort_by">
         <item>Filter</item>
-        <item>HR</item>
-        <item>Development</item>
+        <item>Sort by: Date</item>
+        <item>Sort by: Status</item>
+        <item>Date range</item>
+        <item>Android APP Development</item>
+        <item>Website Development</item>
         <item>Sales</item>
-        <item>Designing</item>
         <item>Digital Marketing</item>
+        <item>UI UX Designer</item>
+        <item>Graphic Designer</item>
     </string-array>
 
     <string-array name="interview">
