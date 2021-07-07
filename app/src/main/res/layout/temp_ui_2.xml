@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/search"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edittext_black_stroke_bg"
+        android:drawableRight="@drawable/ic_baseline_search_24"
+        android:hint="Search customer"
+        android:paddingLeft="7dp"
+        android:paddingTop="5dp"
+        android:paddingRight="7dp"
+        android:paddingBottom="5dp"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="20dp"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Today's task"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="006/Jul/2021"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/textView10"
+                app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/materialCardView5"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="20dp"
+                app:cardBackgroundColor="#F5F5F5"
+                app:cardCornerRadius="25dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView11"
+                app:strokeColor="#969696"
+                app:strokeWidth="2dp" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:elevation="10dp"
+                android:text="Today's task"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/materialCardView5"
+                app:layout_constraintTop_toTopOf="@+id/materialCardView5" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:elevation="10dp"
+                android:text="bfj bebd fibiube mf dkjbkvhf vfiubdf fdueriberjhvbdf ib bjhf fvikb fbfibr bfbirwkbv eriuv rwvbriubr berlikbrjbrbuvk ribe bb eobkef efk fir kb h bvjfmb kfjbbik bkjrb bijfkbkfdjbm bifkbjk"
+                android:textColor="#646464"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="@+id/materialCardView5"
+                app:layout_constraintStart_toStartOf="@+id/materialCardView5"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
