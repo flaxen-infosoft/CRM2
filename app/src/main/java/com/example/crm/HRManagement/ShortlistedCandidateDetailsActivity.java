@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -31,6 +32,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
@@ -439,6 +442,29 @@ public class ShortlistedCandidateDetailsActivity extends AppCompatActivity {
 			}
 		});
 
+
+	}
+
+	public void updateRemark(Candidate candidate, String remark, int pos) {
+		candidate.setRemarks(candidate.getRemarks() + "\n\n" + remark);
+		RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
+		Call<Candidate> call = ri.updateShortlisedCandidate(candidate);
+		call.enqueue(new Callback<Candidate>() {
+			@Override
+			public void onResponse(@NotNull Call<Candidate> call, Response<Candidate> response) {
+				if (response.isSuccessful()) {
+					Log.e("123", "success");
+					shortlistedCandidates.get(pos).setRemarks(shortlistedCandidates.get(pos).getRemarks() + "\n\n" + remark);
+				} else {
+					CustomToast.makeText(ShortlistedCandidateDetailsActivity.this, "Failed to update", 0, Color.RED);
+				}
+			}
+
+			@Override
+			public void onFailure(@NotNull Call<Candidate> call, @NotNull Throwable t) {
+				CustomToast.makeText(ShortlistedCandidateDetailsActivity.this, "Failed to update", 0, Color.RED);
+			}
+		});
 
 	}
 

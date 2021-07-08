@@ -1,14 +1,17 @@
 package com.example.crm.HRManagement;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Scroller;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,6 +21,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.crm.Model.Candidate;
 import com.example.crm.R;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 
@@ -67,7 +72,7 @@ public class RejectedFragment extends Fragment {
 	}
 
 	public class SFragmentListViewHolder extends RecyclerView.ViewHolder {
-		TextView name, appliedfor, date, round , resume, testreport;
+		TextView name, appliedfor, date, round , resume, testreport, remark;
 		ImageView call;
 
 		public SFragmentListViewHolder(@NonNull View itemView) {
@@ -79,6 +84,7 @@ public class RejectedFragment extends Fragment {
 			round = itemView.findViewById(R.id.round);
 			resume = itemView.findViewById(R.id.resumebt);
 			testreport = itemView.findViewById(R.id.testreport);
+			remark = itemView.findViewById(R.id.remark);
 
 
 			call.setOnClickListener(v -> {
@@ -95,6 +101,51 @@ public class RejectedFragment extends Fragment {
 				Intent i = new Intent(getContext(), PdfViewerActivity.class);
 				i.putExtra("pdfurl", shortlistedCandidates.get(getAdapterPosition()).getResume());
 				startActivity(i);
+			});
+
+			remark.setOnClickListener(v -> {
+				int pos = getAdapterPosition();
+				View view = LayoutInflater.from(getContext()).inflate(R.layout.remarks_dialog, null, false);
+				TextView textView = ((TextView) view.findViewById(R.id.remarktxt));
+				textView.setText(shortlistedCandidates.get(pos).getRemarks());
+				textView.setScroller(new Scroller(getContext()));
+				textView.setVerticalScrollBarEnabled(true);
+				textView.setMovementMethod(new ScrollingMovementMethod());
+
+				new MaterialAlertDialogBuilder(getContext())
+						.setTitle("Remarks for " + shortlistedCandidates.get(pos).getName())
+						.setView(view)
+						.setCancelable(false)
+						.setPositiveButton("Add remark", new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								dialog.dismiss();
+								View d = LayoutInflater.from(getContext()).inflate(R.layout.add_remark_dialog, null, false);
+								new MaterialAlertDialogBuilder(getContext())
+										.setView(d)
+										.setTitle("Add Remark")
+										.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+											@Override
+											public void onClick(DialogInterface dialog, int which) {
+												String remark = ((TextInputLayout) d.findViewById(R.id.et)).getEditText().getText().toString();
+												dialog.dismiss();
+												((ShortlistedCandidateDetailsActivity) getActivity()).updateRemark(shortlistedCandidates.get(pos), remark, pos);
+											}
+										}).setCancelable(false)
+										.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+											@Override
+											public void onClick(DialogInterface dialog, int which) {
+												dialog.dismiss();
+											}
+										}).show();
+
+							}
+						}).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+					}
+				}).show();
 			});
 
 		}

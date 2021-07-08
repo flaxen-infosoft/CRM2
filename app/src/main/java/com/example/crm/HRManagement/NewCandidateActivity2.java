@@ -179,7 +179,7 @@ public class NewCandidateActivity2 extends AppCompatActivity {
     }
 
     public void updateRemark(Candidate candidate, String remark, int pos) {
-        Log.e("123", remark + " " + pos);
+        candidate.setRemarks(candidate.getRemarks() + "\n\n" + remark);
         RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
         Call<Candidate> call = ri.updateCandidate(candidate);
         call.enqueue(new Callback<Candidate>() {
@@ -187,7 +187,6 @@ public class NewCandidateActivity2 extends AppCompatActivity {
             public void onResponse(@NotNull Call<Candidate> call, Response<Candidate> response) {
                 if (response.isSuccessful()) {
                     Log.e("123", "success");
-                    candidates.get(pos).setRemarks(candidates.get(pos).getRemarks() + "\n\n" + remark);
                     adapter.notifyItemChanged(pos);
                 } else {
                     CustomToast.makeText(NewCandidateActivity2.this, "Failed to update", 0, Color.RED);
