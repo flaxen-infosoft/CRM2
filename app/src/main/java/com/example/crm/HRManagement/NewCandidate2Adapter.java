@@ -53,6 +53,7 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 		holder.name.setText(candidates.get(position).getName());
 		holder.date.setText("Date of Interview: " + candidates.get(position).getDateof_interview());
 		holder.applied_for.setText("Applied for: " + candidates.get(position).getDesignation());
+		holder.assignedBy.setText("Assigned by: " + candidates.get(position).getAssignedBy());
 	}
 
 	@Override
@@ -62,7 +63,7 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 
 	public class CandidateHolder extends RecyclerView.ViewHolder {
 
-		TextView name, date, applied_for, link, updateStatus, viewresume, remark;
+		TextView name, date, applied_for, link, updateStatus, viewresume, remark, assignedBy;
 
 		@SuppressLint("ClickableViewAccessibility")
 		public CandidateHolder(@NonNull View itemView) {
@@ -74,6 +75,7 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 			updateStatus = itemView.findViewById(R.id.updateStatus);
 			viewresume = itemView.findViewById(R.id.viewresume);
 			remark = itemView.findViewById(R.id.remark);
+			assignedBy = itemView.findViewById(R.id.assignedBy);
 
 			viewresume.setOnClickListener(new View.OnClickListener() {
 				@Override
@@ -149,35 +151,9 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 					intent.putExtra(Intent.EXTRA_SUBJECT, Constants.email_subject);
 					intent.putExtra(Intent.EXTRA_TEXT, Constants.body + "http://com.example.crm/" + candidates.get(pos).getId());
 					context.startActivity(Intent.createChooser(intent, "Send Email"));
-					//((NewCandidateActivity2)context).sendEmail(candidates.get(pos));
 
 				}
 			});
-
-			/*addremark.setOnClickListener(v -> {
-				int pos = getAdapterPosition();
-				View d = LayoutInflater.from(context).inflate(R.layout.add_remark_dialog, null, false);
-				new MaterialAlertDialogBuilder(context)
-						.setView(d)
-						.setTitle("Add Remark")
-						.setPositiveButton("Done", new DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(DialogInterface dialog, int which) {
-								String remark = ((TextInputLayout) d.findViewById(R.id.et)).getEditText().getText().toString();
-								dialog.dismiss();
-								((NewCandidateActivity2) context).updateRemark(candidates.get(pos), remark, pos);
-							}
-						}).setCancelable(false)
-						.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(DialogInterface dialog, int which) {
-								dialog.dismiss();
-							}
-						}).show();
-
-
-			});*/
-
 		}
 	}
 
