@@ -1,10 +1,25 @@
 package com.example.crm.Model;
 
 
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.StyleSpan;
+import android.util.Log;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Locale;
+
 import lombok.Data;
+
+import static android.graphics.Typeface.BOLD;
 
 @Data
 public class Candidate {
+
     String id;
     String department;
     String designation;
@@ -29,6 +44,10 @@ public class Candidate {
     String eligibility;
     String dateof_interview;
     String assignedBy;
+
+    public Candidate() {
+        this.remarks = "[]";
+    }
 
     public String getAssignedBy() {
         return assignedBy;
@@ -150,12 +169,34 @@ public class Candidate {
         this.address = address;
     }
 
-    public String getRemarks() {
-        return remarks;
+    public SpannableStringBuilder getRemarks() {
+        Log.e("123", remarks);
+        SpannableStringBuilder builder = new SpannableStringBuilder();
+        Gson gson = new Gson();
+        ArrayList<Remark> remarks = gson.fromJson(this.remarks.replace("&quot;", "\""), new TypeToken<ArrayList<Remark>>() {
+        }.getType());
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        for (Remark remark : remarks) {
+            int offset = builder.length();
+
+            String txt = remark.getText();
+            String author = remark.getAuthor() + " " + simpleDateFormat.format(remark.getDate());
+            builder.append(txt);
+            builder.append("\n- " + author);
+            builder.setSpan(new StyleSpan(BOLD), offset + txt.length(), offset + txt.length() + author.length() + 3, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            builder.append("\n\n");
+        }
+        return builder;
     }
 
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
+    public void setRemarks(Remark remark) {
+        Gson gson = new Gson();
+        ArrayList<Remark> remarks = gson.fromJson(this.remarks.replace("&quot;", "\""), new TypeToken<ArrayList<Remark>>() {
+        }.getType());
+        remarks.add(remark);
+
+        this.remarks = gson.toJson(remarks);
     }
 
     public String getHave_laptop() {

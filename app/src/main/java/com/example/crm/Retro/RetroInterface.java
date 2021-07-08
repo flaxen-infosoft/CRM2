@@ -8,7 +8,6 @@ import com.example.crm.Model.QuestionPaper;
 import com.example.crm.Model.Report;
 import com.example.crm.Model.TestResponse;
 import com.example.crm.Model.UpcomingCustomer;
-import com.example.crm.UpcomingAdapter;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
@@ -76,7 +75,7 @@ public interface RetroInterface {
     @PUT("update_leave.php")
     Call<LeaveItem> updateLeave(@Body LeaveItem leaveItem);
 
-    @POST("insert_customer.php")
+    @POST("insert_c.php")
     Call<JsonObject> insertCustomer(@Body Customer customer);
 
     @GET("get_all_customer.php")
@@ -89,7 +88,7 @@ public interface RetroInterface {
     Call<List<UpcomingCustomer>> getAllUpcomingCustomer();
 
     @POST("insert_report.php")
-Call<Report> insertreport(@Body Report report);
+    Call<Report> insertreport(@Body Report report);
 
 
 }

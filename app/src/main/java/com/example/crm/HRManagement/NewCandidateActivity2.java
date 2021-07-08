@@ -20,6 +20,7 @@ import com.example.crm.CustomDateRangePicker;
 import com.example.crm.CustomProgressAlert;
 import com.example.crm.CustomToast;
 import com.example.crm.Model.Candidate;
+import com.example.crm.Model.Remark;
 import com.example.crm.R;
 import com.example.crm.Retro.RetroInterface;
 import com.example.crm.Retro.Retrofi;
@@ -178,16 +179,16 @@ public class NewCandidateActivity2 extends AppCompatActivity {
 
     }
 
-    public void updateRemark(Candidate candidate, String remark, int pos) {
-        candidate.setRemarks(candidate.getRemarks() + "\n\n" + remark);
+    public void updateRemark(Candidate candidate, Remark remark) {
+        candidate.setRemarks(remark);
         RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
         Call<Candidate> call = ri.updateCandidate(candidate);
         call.enqueue(new Callback<Candidate>() {
             @Override
             public void onResponse(@NotNull Call<Candidate> call, Response<Candidate> response) {
                 if (response.isSuccessful()) {
-                    Log.e("123", "success");
-                    adapter.notifyItemChanged(pos);
+                    CustomToast.makeText(NewCandidateActivity2.this, "Remark Added", 0, Color.GREEN);
+
                 } else {
                     CustomToast.makeText(NewCandidateActivity2.this, "Failed to update", 0, Color.RED);
                 }
@@ -208,7 +209,9 @@ public class NewCandidateActivity2 extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Candidate>> call, Response<List<Candidate>> response) {
                 if (!response.isSuccessful()) {
-                    CustomToast.makeText(NewCandidateActivity2.this, "Failed to fetch", 0, Color.parseColor("#32CD32"));
+                    loading.dismiss();
+                    Log.e("123", " iabhi" + response.message());
+                    CustomToast.makeText(NewCandidateActivity2.this, "Failed to fetch", 0, Color.RED);
                 } else {
                     candidates = response.body();
                     adapter = new NewCandidate2Adapter(NewCandidateActivity2.this, candidates, gi);
@@ -220,7 +223,9 @@ public class NewCandidateActivity2 extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Candidate>> call, Throwable t) {
-                CustomToast.makeText(NewCandidateActivity2.this, "Failed to fetch", 0, Color.parseColor("#32CD32"));
+                loading.dismiss();
+                Log.e("123", " iabhii" + t.getMessage());
+                CustomToast.makeText(NewCandidateActivity2.this, "Failed to fetch", 0, Color.RED);
             }
         });
 

@@ -18,11 +18,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.crm.Model.Candidate;
+import com.example.crm.Model.Remark;
 import com.example.crm.R;
+import com.example.crm.SPOps;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class FirstRoundFragment extends Fragment {
 	ArrayList<Candidate> shortlistedCandidates;
@@ -137,8 +140,12 @@ public class FirstRoundFragment extends Fragment {
 											@Override
 											public void onClick(DialogInterface dialog, int which) {
 												String remark = ((TextInputLayout) d.findViewById(R.id.et)).getEditText().getText().toString();
+												Remark r = new Remark();
+												r.setAuthor(SPOps.getLoggedInUserName(getContext()));
+												r.setText(remark);
+												r.setDate(new Date());
 												dialog.dismiss();
-												((ShortlistedCandidateDetailsActivity) getActivity()).updateRemark(shortlistedCandidates.get(pos), remark, pos);
+												((ShortlistedCandidateDetailsActivity) getActivity()).updateRemark(shortlistedCandidates.get(pos), r);
 											}
 										}).setCancelable(false)
 										.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
