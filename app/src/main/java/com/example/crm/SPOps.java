@@ -21,11 +21,17 @@ public class SPOps {
 	public static void loggedIn(Employee employee, int id, Context context) {
 		SharedPreferences sp = context.getSharedPreferences("config", Context.MODE_PRIVATE);
 		Gson gson = new Gson();
-		sp.edit().putString("loggedInUser", gson.toJson(employee)).putInt("id", id).apply();
+		sp.edit().putString("loggedInUser", gson.toJson(employee)).putInt("id", id).putString("name", employee.getName()).apply();
 	}
 
-	public static int getId(Context context) {
+	public static int getLoggedInUserId(Context context) {
 		SharedPreferences sp = context.getSharedPreferences("config", Context.MODE_PRIVATE);
 		return sp.getInt("id", -1);
 	}
+
+	public static String getLoggedInUserName(Context context) {
+		SharedPreferences sp = context.getSharedPreferences("config", Context.MODE_PRIVATE);
+		return sp.getString("name", null);
+	}
+
 }

@@ -5,7 +5,38 @@ import lombok.Data;
 
 @Data
 public class Candidate {
-    String id, department, designation, name, phone, altphone, pid, oid, source, state, city, status, resume, address, remarks, have_laptop, applied_for, college_name, duration, stipend, amount, eligibility, dateof_interview;
+    String id;
+    String department;
+    String designation;
+    String name;
+    String phone;
+    String altphone;
+    String pid;
+    String oid;
+    String source;
+    String state;
+    String city;
+    String status;
+    String resume;
+    String address;
+    String remarks;
+    String have_laptop;
+    String applied_for;
+    String college_name;
+    String duration;
+    String stipend;
+    String amount;
+    String eligibility;
+    String dateof_interview;
+    String assignedBy;
+
+    public String getAssignedBy() {
+        return assignedBy;
+    }
+
+    public void setAssignedBy(String assignedBy) {
+        this.assignedBy = assignedBy;
+    }
 
     public String getId() {
         return id;
