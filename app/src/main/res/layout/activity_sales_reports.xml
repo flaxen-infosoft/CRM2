@@ -277,72 +277,26 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Prospectus"
-                android:layout_marginLeft="10dp"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_marginTop="10dp"/>
-
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp">
-
-                <RadioButton
-                    android:id="@+id/job"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Yes"
-                    android:layout_weight="1"/>
-
-                <RadioButton
-                    android:id="@+id/internship"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="No"
-                    android:layout_weight="1"/>
-
-            </RadioGroup>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_height="15dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
-                android:text="Follow Up"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:text="Number of Prospectus"
+                android:textColor="@color/black" />
 
-            <RadioGroup
-                android:layout_width="match_parent"
+            <EditText
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:id="@+id/noofprospectus"
+                android:layout_below="@+id/candidate_address"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp">
-
-                <RadioButton
-                    android:id="@+id/job"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Yes" />
-
-                <RadioButton
-                    android:id="@+id/internship"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="No"
-                    android:layout_weight="1"/>
-
-            </RadioGroup>
-
+                android:layout_marginTop="10dp"
+                android:entries="@array/Spinner_items_city"
+                android:background="@drawable/edittext_bg"
+                android:padding="13dp"
+                android:textSize="14sp"
+                android:inputType="text"
+                android:elevation="6dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="15dp"
@@ -392,7 +346,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/cust_reg"
+                android:id="@+id/reportsub"
                 android:layout_below="@+id/candidate_state"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"

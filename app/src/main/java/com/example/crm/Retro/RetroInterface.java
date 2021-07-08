@@ -5,6 +5,7 @@ import com.example.crm.Model.Customer;
 import com.example.crm.Model.Employee;
 import com.example.crm.Model.LeaveItem;
 import com.example.crm.Model.QuestionPaper;
+import com.example.crm.Model.Report;
 import com.example.crm.Model.TestResponse;
 import com.example.crm.Model.UpcomingCustomer;
 import com.example.crm.UpcomingAdapter;
@@ -86,6 +87,9 @@ public interface RetroInterface {
 
     @GET("get_all_upcoming_customer.php")
     Call<List<UpcomingCustomer>> getAllUpcomingCustomer();
+
+    @POST("insert_report.php")
+Call<Report> insertreport(@Body Report report);
 
 
 }
