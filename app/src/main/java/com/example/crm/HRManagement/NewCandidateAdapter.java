@@ -63,6 +63,7 @@ public class NewCandidateAdapter extends RecyclerView.Adapter<NewCandidateAdapte
 			intent.putExtra("id", candidate.getId());
 			context.startActivity(intent);
 		});
+		holder.assignedBy.setText("Assigned by: " + candidate.getAssignedBy());
 	}
 
 	@Override
@@ -71,9 +72,9 @@ public class NewCandidateAdapter extends RecyclerView.Adapter<NewCandidateAdapte
 	}
 
 	static class ViewHolder extends RecyclerView.ViewHolder {
-		TextView name, designation, resumebt, date, updatestatus;
+		TextView name, designation, resumebt, date, updatestatus, assignedBy;
 		ImageView call;
-		Button interested,notinterested;
+		Button interested, notinterested;
 		ExpandableRelativeLayout expandableRelativeLayout;
 
 		public ViewHolder(@NonNull View itemView) {
@@ -83,10 +84,11 @@ public class NewCandidateAdapter extends RecyclerView.Adapter<NewCandidateAdapte
 			date = itemView.findViewById(R.id.tv_card_candidatedate);
 			resumebt = itemView.findViewById(R.id.resumebt);
 			call = itemView.findViewById(R.id.callimage);
-			updatestatus=itemView.findViewById(R.id.updateStatusofcandidate);
-			interested=itemView.findViewById(R.id.interestedbt);
-			notinterested=itemView.findViewById(R.id.notinterestedbt);
-			expandableRelativeLayout= itemView.findViewById(R.id.admin_expandableLayout);
+			updatestatus = itemView.findViewById(R.id.updateStatusofcandidate);
+			interested = itemView.findViewById(R.id.interestedbt);
+			notinterested = itemView.findViewById(R.id.notinterestedbt);
+			expandableRelativeLayout = itemView.findViewById(R.id.admin_expandableLayout);
+			assignedBy = itemView.findViewById(R.id.assignedBy);
 		}
 	}
 }

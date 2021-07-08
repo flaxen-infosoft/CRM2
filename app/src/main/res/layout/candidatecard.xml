@@ -11,10 +11,10 @@
     android:elevation="8dp"
     app:cardCornerRadius="30dp">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constrant"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@drawable/bg_stroke"
         android:padding="10dp">
 
@@ -23,22 +23,25 @@
             android:id="@+id/tv_card_candidatename"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
             android:text="Name of Candidate"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_card_candidatedesignation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_card_candidatename"
-            android:layout_margin="10dp"
-            android:layout_marginTop="13dp"
+            android:layout_marginTop="5dp"
             android:text="Applied for"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_card_candidatename"
+            app:layout_constraintTop_toBottomOf="@+id/tv_card_candidatename" />
 
         <TextView
             android:id="@+id/tv_card_candidatedate"
@@ -50,7 +53,7 @@
             android:src="@drawable/ic_call4"
             android:text="Date"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_card_candidatename"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tv_card_candidatename" />
@@ -60,9 +63,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_card_candidatedesignation"
-
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="10dp">
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/tv_card_candidatename"
+            app:layout_constraintTop_toBottomOf="@+id/assignedBy">
 
             <ImageView
                 android:id="@+id/callimage"
@@ -119,21 +122,21 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textView14"
+            android:id="@+id/assignedBy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/linearLayout3"
             android:text="Assigned by"
             android:textColor="@color/black"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="@+id/tv_card_candidatename"
+            app:layout_constraintTop_toBottomOf="@+id/tv_card_candidatedesignation" />
 
         <com.github.aakira.expandablelayout.ExpandableRelativeLayout
             android:id="@+id/admin_expandableLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textView14"
+            android:layout_below="@id/assignedBy"
             android:layout_marginTop="10dp"
             android:background="@drawable/bg_stroke"
             android:paddingVertical="10dp"
@@ -141,15 +144,15 @@
             app:ael_expanded="false"
             app:ael_interpolator="accelerateDecelerate"
             app:ael_orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
             tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="195dp">
+            tools:layout_editor_absoluteX="0dp">
 
             <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
+                android:layout_height="wrap_content">
 
                 <Button
                     android:id="@+id/interestedbt"
@@ -172,12 +175,12 @@
                     android:layout_width="100dp"
                     android:layout_height="40dp"
                     android:layout_below="@+id/linear"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:layout_gravity="center_vertical"
                     android:background="@drawable/bg_btn"
                     android:text="Not interested"
                     android:textColor="@color/white"
@@ -186,6 +189,6 @@
             </LinearLayout>
         </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

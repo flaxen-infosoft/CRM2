@@ -26,6 +26,7 @@ import com.example.crm.Model.Candidate;
 import com.example.crm.R;
 import com.example.crm.Retro.RetroInterface;
 import com.example.crm.Retro.Retrofi;
+import com.example.crm.SPOps;
 import com.example.crm.citystate.Cities;
 import com.example.crm.citystate.Rinterface;
 import com.example.crm.citystate.object;
@@ -66,8 +67,8 @@ public class CandidateRegistration extends AppCompatActivity {
 	EditText name, phone, alt_phone, personal_email, official_email, source, address;
 	Spinner city, state, department, designation;
 	Button btn_update, btn_upresume;
-	List<String> stateList = new ArrayList<>();
-	List<String> cityList = new ArrayList<>();
+	List<String> stateList = new ArrayList<String>();
+	List<String> cityList = new ArrayList<String>();
 	ArrayAdapter departmentsAdapter, designationsAdapter;
 	List<String> tempList;
 	private String resumepdf;
@@ -286,7 +287,10 @@ public class CandidateRegistration extends AppCompatActivity {
 			candidate.setResume(resumepdf);
 			candidate.setDepartment(candepatment);
 			candidate.setDesignation(designation.getSelectedItem().toString());
+			candidate.setAssignedBy(SPOps.getLoggedInUserName(this));
 			CandidateRegister(candidate);
+
+
 		}
 	}
 

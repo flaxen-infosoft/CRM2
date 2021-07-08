@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 		if (SPOps.getLoggedUser(this) != null) {
-			startActivity(SPOps.getId(this));
+			startActivity(SPOps.getLoggedInUserId(this));
 		}
 		login.setOnClickListener(v ->
 		{
