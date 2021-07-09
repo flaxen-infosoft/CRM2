@@ -21,6 +21,7 @@ import com.google.android.material.imageview.ShapeableImageView;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class EmployeeRegistrationFragment1 extends Fragment implements DatePickerDialog.OnDateSetListener {
 
@@ -143,8 +144,8 @@ public class EmployeeRegistrationFragment1 extends Fragment implements DatePicke
 		c.set(Calendar.MONTH, month);
 		c.set(Calendar.DATE, dayOfMonth);
 		Date _date = c.getTime();
-		SimpleDateFormat formatter = new SimpleDateFormat("dd MMM yyyy");
-		String formatted = formatter.format(date);
+		SimpleDateFormat formatter = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault());
+		String formatted = formatter.format(_date);
 		date.setText(formatted);
 	}
 
