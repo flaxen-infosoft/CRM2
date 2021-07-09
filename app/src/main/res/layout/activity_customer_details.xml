@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="Name"
-            android:id="@+id/name_of_upcoming_customer"
+            android:id="@+id/name_ofcustomer"
             android:textColor="@color/ayushtextBlue" />
 
         <TextView
@@ -64,6 +64,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/domainofcustomer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -71,6 +72,7 @@
                 android:textColor="@color/ayushtextBlue" />
 
             <TextView
+                android:id="@+id/subdomain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -78,6 +80,7 @@
                 android:textColor="@color/ayushtextBlue" />
 
             <TextView
+                android:id="@+id/packagevalueofcustomer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"

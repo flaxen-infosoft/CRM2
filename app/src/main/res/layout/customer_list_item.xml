@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -54,6 +55,7 @@
                 android:layout_marginLeft="10dp"
                 android:text="Name of Customer"
                 android:textColor="#446BF3"
+                android:id="@+id/nameofCustomer"
                 android:textSize="17sp" />
 
             <TextView
@@ -82,6 +84,7 @@
                 android:layout_marginBottom="50dp"
                 android:text="Opted for xakjbfoi Plan for 2 months deal closed by rkoio"
                 android:textColor="#446BF3"
+                android:id="@+id/descriptionofCustomer"
                 android:textSize="19sp" />
 
             <View
@@ -103,32 +106,32 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:src="@drawable/ic_green_call"
-                    android:tint="#5E93F8" />
+                    app:tint="#5E93F8" />
 
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:src="@drawable/ic_blue_at"
-                    android:tint="#5E93F8" />
+                    app:tint="#5E93F8" />
 
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:src="@drawable/ic_yellow_email"
-                    android:tint="#5E93F8" />
+                    app:tint="#5E93F8" />
 
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:src="@drawable/ic_green_call"
-                    android:tint="#5E93F8" />
+                    app:tint="#5E93F8" />
 
             </LinearLayout>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

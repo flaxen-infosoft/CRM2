@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -88,8 +89,11 @@ public class CustomersDetails extends AppCompatActivity {
 	}
 
 	private class CustomerViewHolder extends RecyclerView.ViewHolder {
+		TextView Name,Description;
 		public CustomerViewHolder(@NonNull @NotNull View itemView) {
 			super(itemView);
+			Name= itemView.findViewById(R.id.nameofCustomer);
+	Description=itemView.findViewById(R.id.descriptionofCustomer);
 		}
 	}
 
@@ -106,6 +110,8 @@ public class CustomersDetails extends AppCompatActivity {
 		@Override
 		public void onBindViewHolder(@NonNull @NotNull CustomerViewHolder holder, int position) {
 		Customer customer = customers.get(position);
+		holder.Name.setText(customer.getName());
+		holder.Description.setText("Opted for "+customer.getPackage_name()+" Plan for "+customer.getDomain()+" deal closed by rkoio");
 holder.itemView.setOnClickListener(view ->{
 	Intent intent = new Intent(CustomersDetails.this,CustomerDetails.class);
 	intent.putExtra("customer", customers.get(position));

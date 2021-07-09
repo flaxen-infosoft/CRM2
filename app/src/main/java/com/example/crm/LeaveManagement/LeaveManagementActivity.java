@@ -59,12 +59,12 @@ public class LeaveManagementActivity extends AppCompatActivity {
 					updateUI();
 
 				} else
-					CustomToast.makeText(LeaveManagementActivity.this, "Failed to load", 0, Color.RED);
+					CustomToast.makeText(LeaveManagementActivity.this, "Failed to load"+response.code(), 0, Color.RED);
 			}
 
 			@Override
 			public void onFailure(Call<ArrayList<LeaveItem>> call, Throwable t) {
-				CustomToast.makeText(LeaveManagementActivity.this, "Failed to load", 0, Color.RED);
+				CustomToast.makeText(LeaveManagementActivity.this, "Failed to load"+t.getMessage(), 0, Color.RED);
 			}
 		});
 
