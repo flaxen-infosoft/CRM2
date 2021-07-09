@@ -4,7 +4,16 @@ public class LeaveItem {
 
 	String title, body, date, status, leavetype, deptHr, deptHr1, teamLead, teamMember;
 	int duration;
-	String employeeID;
+
+	public String getLeave_taken_by() {
+		return leave_taken_by;
+	}
+
+	public void setLeave_taken_by(String leave_taken_by) {
+		this.leave_taken_by = leave_taken_by;
+	}
+
+	String leave_taken_by;
 
 	public int getDuration() {
 		return duration;

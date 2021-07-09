@@ -70,6 +70,7 @@ public class LeaveApplicationActivity extends AppCompatActivity implements DateP
             leave.setTitle(subject.getText().toString());
             leave.setDate(datetime.getText().toString());
             leave.setLeavetype(leavetype.getSelectedItem().toString());
+            leave.setLeave_taken_by(SPOps.getLoggedInUserName(LeaveApplicationActivity.this));
             insertLeave(leave);
         });
     }
