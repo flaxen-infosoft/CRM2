@@ -24,6 +24,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         drawer = findViewById(R.id.drawer);
+        drawer.setScrimColor(getResources().getColor(android.R.color.transparent));
         navigationView = findViewById(R.id.nav_view);
         navigationView.bringToFront();
         Toolbar toolbar = findViewById(R.id.toolbar);
