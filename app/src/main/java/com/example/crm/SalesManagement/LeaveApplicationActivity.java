@@ -15,10 +15,12 @@ import android.widget.TimePicker;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.crm.CustomToast;
+import com.example.crm.Model.Employee;
 import com.example.crm.Model.LeaveItem;
 import com.example.crm.R;
 import com.example.crm.Retro.RetroInterface;
 import com.example.crm.Retro.Retrofi;
+import com.example.crm.SPOps;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -46,10 +48,11 @@ public class LeaveApplicationActivity extends AppCompatActivity implements DateP
 		subject = findViewById(R.id.subject);
 		body = findViewById(R.id.body);
 		datetime = findViewById(R.id.dateandtime);
-		name = findViewById(R.id.name);
+		name = findViewById(R.id.nameofemployee);
 		send = findViewById(R.id.btn_send);
 		leavetype = findViewById(R.id.leavetype);
-
+		Employee employee= SPOps.getLoggedUser(LeaveApplicationActivity.this);
+		name.setText(employee.getName());
 		datetime.setOnClickListener(v -> {
 			Calendar calendar = Calendar.getInstance();
 			year = calendar.get(Calendar.YEAR);
