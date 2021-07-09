@@ -23,6 +23,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:id="@+id/back"
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_backarrow" />
@@ -56,8 +57,10 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/bg_stroke"
+            android:clipChildren="false"
+            android:clipToPadding="false"
             android:orientation="vertical"
             android:padding="10dp">
 
@@ -72,7 +75,7 @@
             <EditText
                 android:id="@+id/name_of_candidate"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="5dp"
@@ -93,7 +96,7 @@
             <EditText
                 android:id="@+id/candidate_phoneno."
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_below="@id/candidate_name"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
@@ -115,7 +118,7 @@
             <EditText
                 android:id="@+id/candidate_alter_phone"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_below="@id/candidate_phone"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
@@ -138,7 +141,7 @@
             <EditText
                 android:id="@+id/candidateemail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_below="@id/candidate_alt_phone"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="15dp"
@@ -160,7 +163,7 @@
             <EditText
                 android:id="@+id/candidate_portfolio"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_below="@id/candidate_alt_phone"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="15dp"
@@ -184,7 +187,7 @@
             <Spinner
                 android:id="@+id/candidate_department"
                 android:layout_width="200dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_below="@+id/text2"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="15dp"
@@ -207,7 +210,7 @@
             <Spinner
                 android:id="@+id/candidate_designation"
                 android:layout_width="200dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_below="@+id/department"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="15dp"
@@ -230,7 +233,7 @@
             <EditText
                 android:id="@+id/candidate_sourceof"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="5dp"
@@ -252,7 +255,7 @@
             <Spinner
                 android:id="@+id/statespin"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_below="@id/candidate_address"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
@@ -273,7 +276,7 @@
             <Spinner
                 android:id="@+id/cityspin"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_below="@id/candidate_city"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
@@ -302,8 +305,9 @@
                 android:layout_marginRight="5dp"
                 android:background="@drawable/edittext_bg"
                 android:elevation="6dp"
-                android:inputType="text"
+                android:inputType="textMultiLine"
                 android:padding="13dp"
+                android:singleLine="false"
                 android:textSize="15sp" />
 
             <View
@@ -327,13 +331,13 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/edittext_bg"
-                android:elevation="8dp">
+                android:elevation="6dp">
 
                 <Button
                     android:id="@+id/uploadresume"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bg_btn"
+                    android:background="@drawable/edittext_bg"
                     android:text="Browse"
                     android:textColor="@color/white"
                     android:textSize="12sp"
@@ -356,9 +360,9 @@
                 android:layout_below="@id/candidate_state"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginRight="5dp"
-                android:layout_marginBottom="50dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/bg_btn"
                 android:elevation="6dp"
                 android:text="Register"

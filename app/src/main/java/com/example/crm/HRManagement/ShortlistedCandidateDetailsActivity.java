@@ -10,6 +10,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -55,11 +56,16 @@ public class ShortlistedCandidateDetailsActivity extends AppCompatActivity {
     OnHoldFragment onHoldFragment;
     BlackListedFragment blackListedFragment;
     ProgressDialog loading;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shortlisted_candidate_details);
+        back = findViewById(R.id.back);
+        back.setOnClickListener(v -> {
+            finish();
+        });
 
         loading = CustomProgressAlert.make(this, "Loading...");
         loading.show();

@@ -1,14 +1,14 @@
 package com.example.crm;
 
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
+
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
-import android.content.Intent;
-import android.graphics.Color;
-import android.os.Bundle;
 
 import com.example.crm.Fragments.DashboardFragment;
 import com.example.crm.HRManagement.CandidateMainPage;
@@ -39,11 +39,8 @@ public class HomeActivity extends AppCompatActivity {
 
         navigationView.setNavigationItemSelectedListener(item -> {
 
-
-
             switch (item.getItemId()) {
                 case R.id.dashboard:
-
                     getSupportFragmentManager().beginTransaction().replace(R.id.layout_frame, new DashboardFragment()).commit();
                     drawer.closeDrawer(GravityCompat.START);
                     break;
@@ -51,22 +48,12 @@ public class HomeActivity extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(), CandidateMainPage.class));
                     drawer.closeDrawer(GravityCompat.START);
                     break;
-//                case R.id.leaveoption:
-//
-//                    getSupportFragmentManager().beginTransaction().replace(R.id.layout_frame, new LeaveFragment()).commit();
-//                    CustomToast.makeText(this, "leave", Toast.LENGTH_SHORT, R.color.greyblue);
-//                    drawer.closeDrawer(GravityCompat.START);
-//                    break;
-//
-//
-//                case R.id.logout:
-//
-//                    getSupportFragmentManager().beginTransaction().replace(R.id.layout_frame, new LogoutFragment()).commit();
-//                    SP.setSharedPreferences("", "", "", "", "","", "",HomeActivity.this);
-//                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-//                    finish();
-//                    drawer.closeDrawer(GravityCompat.START);
-//                    break;
+                case R.id.logout:
+                    SPOps.logout(HomeActivity.this);
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    finish();
+                    drawer.closeDrawer(GravityCompat.START);
+                    break;
             }
 
             return true;

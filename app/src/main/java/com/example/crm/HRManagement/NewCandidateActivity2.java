@@ -6,10 +6,10 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -50,6 +50,7 @@ public class NewCandidateActivity2 extends AppCompatActivity {
     ProgressDialog loading;
     EditText search;
     Spinner spinner;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,10 @@ public class NewCandidateActivity2 extends AppCompatActivity {
         rv = findViewById(R.id.recyclerView);
         search = findViewById(R.id.search);
         spinner = findViewById(R.id.filter);
+        back = findViewById(R.id.back);
+        back.setOnClickListener(v -> {
+            finish();
+        });
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -210,7 +215,6 @@ public class NewCandidateActivity2 extends AppCompatActivity {
             public void onResponse(Call<List<Candidate>> call, Response<List<Candidate>> response) {
                 if (!response.isSuccessful()) {
                     loading.dismiss();
-                    Log.e("123", " iabhi" + response.message());
                     CustomToast.makeText(NewCandidateActivity2.this, "Failed to fetch", 0, Color.RED);
                 } else {
                     candidates = response.body();
@@ -224,7 +228,6 @@ public class NewCandidateActivity2 extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Candidate>> call, Throwable t) {
                 loading.dismiss();
-                Log.e("123", " iabhii" + t.getMessage());
                 CustomToast.makeText(NewCandidateActivity2.this, "Failed to fetch", 0, Color.RED);
             }
         });

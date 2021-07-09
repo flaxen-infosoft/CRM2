@@ -8,13 +8,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.OpenableColumns;
 import android.util.Base64;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -72,6 +72,7 @@ public class CandidateRegistration extends AppCompatActivity {
     List<String> cityList = new ArrayList<String>();
     ArrayAdapter departmentsAdapter, designationsAdapter;
     List<String> tempList;
+    ImageView back;
     private String resumepdf;
 
     @SuppressLint("WrongViewCast")
@@ -79,6 +80,11 @@ public class CandidateRegistration extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_candidate_registration);
+
+        back = findViewById(R.id.back);
+        back.setOnClickListener(v -> {
+            finish();
+        });
 
         name = findViewById(R.id.name_of_candidate);
         phone = findViewById(R.id.candidate_phoneno_);
@@ -313,7 +319,6 @@ public class CandidateRegistration extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Candidate> call, Throwable t) {
-                Log.e("123", t.getMessage());
                 CustomToast.makeText(CandidateRegistration.this, "Candidate Not Registered", 0, Color.RED);
 
             }
