@@ -16,51 +16,51 @@ import java.util.ArrayList;
 
 public class LeaveManagementFragment1 extends Fragment {
 
-	RecyclerView recyclerView;
-	RecyclerViewAdapter adapter;
-	ArrayList<LeaveItem> leaveItems;
-	View v;
-	UpdateStatusListeners usl;
+    RecyclerView recyclerView;
+    RecyclerViewAdapter adapter;
+    ArrayList<LeaveItem> leaveItems;
+    View v;
+    UpdateStatusListeners usl;
 
-	public LeaveManagementFragment1() {
-		// Required empty public constructor
-	}
+    public LeaveManagementFragment1() {
+        // Required empty public constructor
+    }
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-		usl = new UpdateStatusListeners() {
-			@Override
-			public void approve(LeaveItem leaveItem) {
-				((LeaveManagementActivity) getContext()).updateLeave(true, leaveItem);
-			}
+        leaveItems = new ArrayList<>();
+        usl = new UpdateStatusListeners() {
+            @Override
+            public void approve(LeaveItem leaveItem) {
+                ((LeaveManagementActivity) getContext()).updateLeave(true, leaveItem);
+            }
 
-			@Override
-			public void reject(LeaveItem leaveItem) {
-				((LeaveManagementActivity) getContext()).updateLeave(false, leaveItem);
-			}
-		};
+            @Override
+            public void reject(LeaveItem leaveItem) {
+                ((LeaveManagementActivity) getContext()).updateLeave(false, leaveItem);
+            }
+        };
 
-	}
+    }
 
-	public void setLeaveItems(ArrayList<LeaveItem> leaves) {
-		leaveItems = leaves;
-		if (adapter == null)
+    public void setLeaveItems(ArrayList<LeaveItem> leaves) {
+        leaveItems.addAll(leaves);
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        if (v == null) {
+            v = inflater.inflate(R.layout.fragment_leave_management1, container, false);
 			adapter = new RecyclerViewAdapter(getContext(), leaveItems, usl);
-		adapter.notifyDataSetChanged();
-	}
+            recyclerView = v.findViewById(R.id.recyclerView);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            recyclerView.setAdapter(adapter);
+        }
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-	                         Bundle savedInstanceState) {
-		if (v == null) {
-			v = inflater.inflate(R.layout.fragment_leave_management1, container, false);
-			recyclerView = v.findViewById(R.id.recyclerView);
-			recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-			recyclerView.setAdapter(adapter);
-		}
-
-		return v;
-	}
+        return v;
+    }
 }
