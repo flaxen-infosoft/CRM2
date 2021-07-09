@@ -58,5 +58,172 @@
             android:elevation="6dp"
             />
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_stroke">
+
+            <TextView
+                android:id="@+id/project_sum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="25dp"
+                android:gravity="top"
+                android:text="Project Summary"
+                android:textAlignment="center"
+                android:textColor="@color/green"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                tools:ignore="RtlCompat" />
+
+            <TextView
+                android:id="@+id/not_started"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/project_sum"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="25dp"
+                android:alpha="0.5"
+                android:gravity="top"
+                android:text="Not Started"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/inprogress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/project_sum"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="25dp"
+                android:layout_toRightOf="@id/not_started"
+                android:alpha="0.5"
+                android:gravity="top"
+                android:text="In Progress"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/not_started0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/not_started"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="15dp"
+                android:alpha="0.5"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:gravity="top"
+                android:text="0"
+                android:textSize="30sp" />
+            <TextView
+                android:id="@+id/inprogress0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/inprogress"
+                android:layout_marginLeft="160dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@id/not_started0"
+                android:alpha="0.5"
+                android:gravity="top"
+                android:text="0"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="30sp" />
+            <TextView
+                android:id="@+id/onhold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/not_started0"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="25dp"
+                android:alpha="0.5"
+                android:gravity="top"
+                android:text="On Hold"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/cancelled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/inprogress0"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="25dp"
+                android:layout_toRightOf="@id/not_started"
+                android:alpha="0.5"
+                android:gravity="top"
+                android:text="Cancelled"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/onhold0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/onhold"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="15dp"
+                android:alpha="0.5"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:gravity="top"
+                android:text="0"
+                android:textSize="30sp" />
+            <TextView
+                android:id="@+id/cancelled0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cancelled"
+                android:layout_marginLeft="160dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@id/not_started0"
+                android:alpha="0.5"
+                android:gravity="top"
+                android:text="0"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="30sp" />
+            <TextView
+                android:id="@+id/finished"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/onhold0"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="25dp"
+                android:alpha="0.5"
+                android:gravity="top"
+                android:text="Finished"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/finished0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/finished"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="15dp"
+                android:alpha="0.5"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:gravity="top"
+                android:text="0"
+                android:layout_marginBottom="25dp"
+                android:textSize="30sp" />
+        </RelativeLayout>
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/viewallbt"
+    android:layout_marginLeft="170dp"
+    android:layout_marginTop="25dp"
+    android:layout_marginBottom="15dp"
+    app:backgroundTint="@color/megenta"
+    android:background="@drawable/bg_btn"
+    android:elevation="6dp"
+    android:text="View All Projects"/>
     </LinearLayout>
 </RelativeLayout>
