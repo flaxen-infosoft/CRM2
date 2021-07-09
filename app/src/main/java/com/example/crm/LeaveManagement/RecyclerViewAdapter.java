@@ -45,7 +45,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull LeaveItemHolder holder, int position) {
         LeaveItem item = items.get(position);
-        holder.name.setText("");
+        holder.name.setText(item.getLeave_taken_by());
         holder.sub.setText(item.getTitle());
         holder.body.setText(item.getBody());
         holder.dateandtime.setText(item.getDate());
@@ -106,10 +106,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             details = itemView.findViewById(R.id.details);
             expand = itemView.findViewById(R.id.expand);
             container = itemView.findViewById(R.id.container);
-            name = itemView.findViewById(R.id.name);
+            name = itemView.findViewById(R.id.leave_employee_name);
             sub = itemView.findViewById(R.id.sub);
-            body = itemView.findViewById(R.id.body);
-            dateandtime = itemView.findViewById(R.id.dateandtime);
+            body = itemView.findViewById(R.id.bodyofleave);
+            dateandtime = itemView.findViewById(R.id.dateofleave);
             leavetype = itemView.findViewById(R.id.leavetype);
             depthr1 = itemView.findViewById(R.id.depthr1);
             depthr2 = itemView.findViewById(R.id.depthr2);
