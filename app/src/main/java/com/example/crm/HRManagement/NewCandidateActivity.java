@@ -2,7 +2,7 @@ package com.example.crm.HRManagement;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.util.Log;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,12 +24,17 @@ import retrofit2.Response;
 public class NewCandidateActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ProgressDialog loading;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_candidate);
 
+        back = findViewById(R.id.back);
+        back.setOnClickListener(v -> {
+            finish();
+        });
         loading = CustomProgressAlert.make(this, "Loading...");
         loading.show();
         recyclerView = findViewById(R.id.new_registerrecyler);
@@ -55,7 +60,6 @@ public class NewCandidateActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Candidate>> call, Throwable t) {
                 loading.dismiss();
-                Log.e("123", " iabhi" + t.getMessage());
             }
 
 

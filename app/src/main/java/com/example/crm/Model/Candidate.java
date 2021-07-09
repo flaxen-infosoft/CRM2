@@ -4,7 +4,6 @@ package com.example.crm.Model;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
-import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -170,7 +169,6 @@ public class Candidate {
     }
 
     public SpannableStringBuilder getRemarks() {
-        Log.e("123", remarks);
         SpannableStringBuilder builder = new SpannableStringBuilder();
         Gson gson = new Gson();
         ArrayList<Remark> remarks = gson.fromJson(this.remarks.replace("&quot;", "\""), new TypeToken<ArrayList<Remark>>() {
@@ -192,11 +190,10 @@ public class Candidate {
 
     public void setRemarks(Remark remark) {
         Gson gson = new Gson();
-        ArrayList<Remark> remarks = gson.fromJson(this.remarks.replace("&quot;", "\""), new TypeToken<ArrayList<Remark>>() {
+        ArrayList<Remark> aremarks = gson.fromJson(this.remarks.replace("&quot;", "\""), new TypeToken<ArrayList<Remark>>() {
         }.getType());
-        remarks.add(remark);
-
-        this.remarks = gson.toJson(remarks);
+        aremarks.add(remark);
+        this.remarks = gson.toJson(aremarks);
     }
 
     public String getHave_laptop() {
