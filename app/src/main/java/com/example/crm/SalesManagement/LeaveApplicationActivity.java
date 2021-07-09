@@ -45,10 +45,10 @@ public class LeaveApplicationActivity extends AppCompatActivity implements DateP
         subject = findViewById(R.id.subject);
         body = findViewById(R.id.body);
         datetime = findViewById(R.id.dateandtime);
-        name = findViewById(R.id.name);
+        name = findViewById(R.id.nameofemployee);
         send = findViewById(R.id.btn_send);
         leavetype = findViewById(R.id.leavetype);
-
+name.setText(SPOps.getLoggedInUserName(LeaveApplicationActivity.this));
         datetime.setOnClickListener(v -> {
             Calendar calendar = Calendar.getInstance();
             year = calendar.get(Calendar.YEAR);
