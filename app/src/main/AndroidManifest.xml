@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CRM">
-        <activity android:name=".CRMManagement.ProjectsActivty"></activity>
+        <activity android:name=".HRManagement.ReportingActivity"></activity>
+        <activity android:name=".CRMManagement.ProjectsActivty" />
         <activity android:name=".HRManagement.ViewTestResponseActivity" />
         <activity android:name=".EmployeeManagement.EmployeeListActivity" />
         <activity android:name=".HRManagement.TestResponsesRecorded" />
