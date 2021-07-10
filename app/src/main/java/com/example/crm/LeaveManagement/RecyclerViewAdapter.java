@@ -45,7 +45,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull LeaveItemHolder holder, int position) {
         LeaveItem item = items.get(position);
-        holder.name.setText(item.getLeave_taken_by());
+        holder.name.setText(item.getLeave_taken_by_name());
         holder.sub.setText(item.getTitle());
         holder.body.setText(item.getBody());
         holder.dateandtime.setText(item.getDate());

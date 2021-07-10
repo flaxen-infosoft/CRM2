@@ -136,7 +136,7 @@ public class PreferenticalActivity extends AppCompatActivity {
         dummyEmployee.setSource(candidate.getSource());
         dummyEmployee.setState(candidate.getState());
         dummyEmployee.setCity(candidate.getCity());
-        dummyEmployee.setStatus(candidate.getStatus());
+        dummyEmployee.setStatus("New Joinee");
         dummyEmployee.setResume(candidate.getResume());
         dummyEmployee.setAddress(candidate.getAddress());
         dummyEmployee.setHave_leptop(candidate.getHave_laptop());

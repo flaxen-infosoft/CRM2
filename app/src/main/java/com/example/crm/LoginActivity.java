@@ -15,6 +15,7 @@ import com.example.crm.Model.Employee;
 import com.example.crm.Retro.RetroInterface;
 import com.example.crm.Retro.Retrofi;
 import com.example.crm.SalesManagement.SalesMainActivity;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -40,9 +41,8 @@ public class LoginActivity extends AppCompatActivity {
 		ri = Retrofi.initretro().create(RetroInterface.class);
 		loading = CustomProgressAlert.make(this, "Verifying...");
 
-
 		if (SPOps.getLoggedUser(this) != null) {
-			startActivity(SPOps.getLoggedInUserId(this));
+			startActivity(SPOps.getLoggedInUserLocalId(this));
 		}
 		login.setOnClickListener(v ->
 		{
@@ -87,6 +87,8 @@ public class LoginActivity extends AppCompatActivity {
 		call.enqueue(new Callback<ArrayList<Employee>>() {
 			@Override
 			public void onResponse(Call<ArrayList<Employee>> call, Response<ArrayList<Employee>> response) {
+
+				Gson gson = new Gson();
 				if (response.isSuccessful()) {
 					loading.dismiss();
 					if (response.body().size() == 0) {

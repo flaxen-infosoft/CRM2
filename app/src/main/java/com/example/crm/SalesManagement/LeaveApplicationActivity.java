@@ -48,7 +48,7 @@ public class LeaveApplicationActivity extends AppCompatActivity implements DateP
         name = findViewById(R.id.nameofemployee);
         send = findViewById(R.id.btn_send);
         leavetype = findViewById(R.id.leavetype);
-name.setText(SPOps.getLoggedInUserName(LeaveApplicationActivity.this));
+        name.setText(SPOps.getLoggedInUserName(LeaveApplicationActivity.this));
         datetime.setOnClickListener(v -> {
             Calendar calendar = Calendar.getInstance();
             year = calendar.get(Calendar.YEAR);
@@ -70,7 +70,8 @@ name.setText(SPOps.getLoggedInUserName(LeaveApplicationActivity.this));
             leave.setTitle(subject.getText().toString());
             leave.setDate(datetime.getText().toString());
             leave.setLeavetype(leavetype.getSelectedItem().toString());
-            leave.setLeave_taken_by(SPOps.getLoggedInUserName(LeaveApplicationActivity.this));
+            leave.setLeave_taken_by_id(SPOps.getLoggedInUserGlobalId(LeaveApplicationActivity.this));
+            leave.setLeave_taken_by_name(SPOps.getLoggedInUserName(LeaveApplicationActivity.this));
             insertLeave(leave);
         });
     }

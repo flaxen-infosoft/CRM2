@@ -2,96 +2,104 @@ package com.example.crm.Model;
 
 public class LeaveItem {
 
-	String title, body, date, status, leavetype, deptHr, deptHr1, teamLead, teamMember;
-	int duration;
+    String title, body, date, status, leavetype, deptHr, deptHr1, teamLead, teamMember;
+    int duration;
+    String leave_taken_by_id;
+    String leave_taken_by_name;
 
-	public String getLeave_taken_by() {
-		return leave_taken_by;
-	}
+    public String getLeave_taken_by_id() {
+        return leave_taken_by_id;
+    }
 
-	public void setLeave_taken_by(String leave_taken_by) {
-		this.leave_taken_by = leave_taken_by;
-	}
+    public void setLeave_taken_by_id(String leave_taken_by_id) {
+        this.leave_taken_by_id = leave_taken_by_id;
+    }
 
-	String leave_taken_by;
+    public String getLeave_taken_by_name() {
+        return leave_taken_by_name;
+    }
 
-	public int getDuration() {
-		return duration;
-	}
+    public void setLeave_taken_by_name(String leave_taken_by_name) {
+        this.leave_taken_by_name = leave_taken_by_name;
+    }
 
-	public void setDuration(int duration) {
-		this.duration = duration;
-	}
+    public int getDuration() {
+        return duration;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public String getBody() {
-		return body;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public void setBody(String body) {
-		this.body = body;
-	}
+    public String getBody() {
+        return body;
+    }
 
-	public String getDate() {
-		return date;
-	}
+    public void setBody(String body) {
+        this.body = body;
+    }
 
-	public void setDate(String date) {
-		this.date = date;
-	}
+    public String getDate() {
+        return date;
+    }
 
-	public String getStatus() {
-		return status;
-	}
+    public void setDate(String date) {
+        this.date = date;
+    }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    public String getStatus() {
+        return status;
+    }
 
-	public String getLeavetype() {
-		return leavetype;
-	}
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-	public void setLeavetype(String leavetype) {
-		this.leavetype = leavetype;
-	}
+    public String getLeavetype() {
+        return leavetype;
+    }
 
-	public String getDeptHr() {
-		return deptHr;
-	}
+    public void setLeavetype(String leavetype) {
+        this.leavetype = leavetype;
+    }
 
-	public void setDeptHr(String deptHr) {
-		this.deptHr = deptHr;
-	}
+    public String getDeptHr() {
+        return deptHr;
+    }
 
-	public String getDeptHr1() {
-		return deptHr1;
-	}
+    public void setDeptHr(String deptHr) {
+        this.deptHr = deptHr;
+    }
 
-	public void setDeptHr1(String deptHr1) {
-		this.deptHr1 = deptHr1;
-	}
+    public String getDeptHr1() {
+        return deptHr1;
+    }
 
-	public String getTeamLead() {
-		return teamLead;
-	}
+    public void setDeptHr1(String deptHr1) {
+        this.deptHr1 = deptHr1;
+    }
 
-	public void setTeamLead(String teamLead) {
-		this.teamLead = teamLead;
-	}
+    public String getTeamLead() {
+        return teamLead;
+    }
 
-	public String getTeamMember() {
-		return teamMember;
-	}
+    public void setTeamLead(String teamLead) {
+        this.teamLead = teamLead;
+    }
 
-	public void setTeamMember(String teamMember) {
-		this.teamMember = teamMember;
-	}
+    public String getTeamMember() {
+        return teamMember;
+    }
+
+    public void setTeamMember(String teamMember) {
+        this.teamMember = teamMember;
+    }
 }
