@@ -4,10 +4,12 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Scroller;
 import android.widget.TextView;
 
@@ -67,7 +69,7 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
     public class CandidateHolder extends RecyclerView.ViewHolder {
 
         TextView name, date, applied_for, link, updateStatus, viewresume, remark, assignedBy;
-
+        ImageView call;
         @SuppressLint("ClickableViewAccessibility")
         public CandidateHolder(@NonNull View itemView) {
             super(itemView);
@@ -79,7 +81,7 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
             viewresume = itemView.findViewById(R.id.viewresume);
             remark = itemView.findViewById(R.id.remark);
             assignedBy = itemView.findViewById(R.id.assignedBy);
-
+            call = itemView.findViewById(R.id.callnew);
             viewresume.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -88,7 +90,11 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
                     context.startActivity(intent);
                 }
             });
-
+            call.setOnClickListener(view -> {
+                int pos = getAdapterPosition();
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + candidates.get(pos).getPhone()));
+                context.startActivity(intent);
+            });
             remark.setOnClickListener(v -> {
                 int pos = getAdapterPosition();
                 View view = LayoutInflater.from(context).inflate(R.layout.remarks_dialog, null, false);
