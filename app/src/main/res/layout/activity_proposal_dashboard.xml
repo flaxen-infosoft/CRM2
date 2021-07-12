@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CRMManagement.ProposalDashboardActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/blue_border">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_backarrow" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:text="Proposals Dashboard"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_stroke"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            tools:ignore="DuplicateIds">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/crm_register"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:elevation="8dp"
+                app:cardCornerRadius="15dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/img"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/ic_register_sec" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/img"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:text="Create Proposal"
+                        android:textColor="@color/black" />
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/manage"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:elevation="8dp"
+                app:cardCornerRadius="15dp">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/img1"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/ic_manage" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/img1"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Manage Proposal"
+                        android:textColor="@color/black" />
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/upcomming"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:elevation="8dp"
+                app:cardCornerRadius="15dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/img"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/ic_document" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/img"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:text="Send Proposal"
+                        android:textColor="@color/black" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
