@@ -89,6 +89,8 @@ public interface RetroInterface {
 
     @POST("insert_report.php")
     Call<Report> insertreport(@Body Report report);
+    @GET("get_All_Report.php")
+    Call<List<Report>> getReports();
 
 
 }

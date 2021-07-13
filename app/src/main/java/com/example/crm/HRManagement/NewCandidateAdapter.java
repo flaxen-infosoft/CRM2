@@ -55,7 +55,7 @@ public class NewCandidateAdapter extends RecyclerView.Adapter<NewCandidateAdapte
 			context.startActivity(intent);
 		});
 		holder.call.setOnClickListener(view -> {
-			Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + candidate.getPhone()));
+			Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + candidate.getPhone()));
 			context.startActivity(intent);
 		});
 		holder.itemView.setOnClickListener(view -> {
