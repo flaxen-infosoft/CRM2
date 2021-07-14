@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -43,263 +42,260 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class TestPaperActivity extends AppCompatActivity implements View.OnClickListener {
 
-	MaterialButton next, prev, verify;
-	ViewPager pager;
-	QuestionPaperAdapter qpa;
-	String ID;
-	QuestionPaper qp;
-	TextView name, time;
-	CountDownTimer cdt;
-	AptitudeTestFragment aptiFrag;
-	LogicTestFragment logicFrag;
-	TechTestFragment techFrag;
-	LiteratureTestFragment litFrag;
-	ViewPagerAdpater pagerAdpater;
-	TabLayout tabLayout;
-	ConstraintLayout main, sub;
-	TextInputLayout pass;
-	long milliseconds, duration = 10 * 60 * 1000;
+    MaterialButton next, prev, verify;
+    ViewPager pager;
+    QuestionPaperAdapter qpa;
+    String ID;
+    QuestionPaper qp;
+    TextView name, time;
+    CountDownTimer cdt;
+    AptitudeTestFragment aptiFrag;
+    LogicTestFragment logicFrag;
+    TechTestFragment techFrag;
+    LiteratureTestFragment litFrag;
+    ViewPagerAdpater pagerAdpater;
+    TabLayout tabLayout;
+    ConstraintLayout main, sub;
+    TextInputLayout pass;
+    long milliseconds, duration = 10 * 60 * 1000;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_test_paper);
-		Uri data = getIntent().getData();
-		List<String> params = data.getPathSegments();
-		ID = params.get(0);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_test_paper);
+        Uri data = getIntent().getData();
+        List<String> params = data.getPathSegments();
+        ID = params.get(0);
 
-		verify = findViewById(R.id.verify);
-		main = findViewById(R.id.main);
-		sub = findViewById(R.id.sub);
-		pass = findViewById(R.id.pass);
+        verify = findViewById(R.id.verify);
+        main = findViewById(R.id.main);
+        sub = findViewById(R.id.sub);
+        pass = findViewById(R.id.pass);
 
-		verify.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				if (pass.getEditText().getText().toString().equals("123")) {
-					sub.setVisibility(View.GONE);
-					main.setVisibility(View.VISIBLE);
-					init();
-				} else {
-					pass.setError("Invalid password");
-				}
-			}
-		});
-
-
-	}
-
-	private void init() {
-		name = findViewById(R.id.name);
-		time = findViewById(R.id.time);
-		tabLayout = findViewById(R.id.tab_layout);
-
-		name.setText("Candidate ID: " + ID);
-
-		pagerAdpater = new ViewPagerAdpater(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-		cdt = new CountDownTimer(600000, 1000) {
-
-			public void onTick(long millisUntilFinished) {
-				TestPaperActivity.this.milliseconds = millisUntilFinished;
-				int sec = (int) (millisUntilFinished / 1000);
-				String smin = "" + (int) (sec / 60);
-				String ssec = "" + (int) (sec % 60);
-				if (smin.length() == 1)
-					smin = "0" + smin;
-				if (ssec.length() == 1)
-					ssec = "0" + ssec;
-				time.setText("Time remaining: " + smin + ":" + ssec);
-			}
-
-			public void onFinish() {
-				time.setText("Time over :(");
-				CustomToast.makeText(TestPaperActivity.this, "Time over", 0, Color.GREEN);
-				submitPaper();
-			}
-		};
+        verify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (pass.getEditText().getText().toString().equals("123")) {
+                    sub.setVisibility(View.GONE);
+                    main.setVisibility(View.VISIBLE);
+                    init();
+                } else {
+                    pass.setError("Invalid password");
+                }
+            }
+        });
 
 
-		pager = findViewById(R.id.viewPager);
-		next = findViewById(R.id.next);
-		prev = findViewById(R.id.prev);
+    }
 
-		next.setOnClickListener(this);
-		prev.setOnClickListener(this);
+    private void init() {
+        name = findViewById(R.id.name);
+        time = findViewById(R.id.time);
+        tabLayout = findViewById(R.id.tab_layout);
 
-		pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-			@Override
-			public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-				handle(position);
-			}
+        name.setText("Candidate ID: " + ID);
 
-			@Override
-			public void onPageSelected(int position) {
-				handle(position);
-			}
+        pagerAdpater = new ViewPagerAdpater(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        cdt = new CountDownTimer(600000, 1000) {
 
-			@Override
-			public void onPageScrollStateChanged(int state) {
+            public void onTick(long millisUntilFinished) {
+                TestPaperActivity.this.milliseconds = millisUntilFinished;
+                int sec = (int) (millisUntilFinished / 1000);
+                String smin = "" + (int) (sec / 60);
+                String ssec = "" + (int) (sec % 60);
+                if (smin.length() == 1)
+                    smin = "0" + smin;
+                if (ssec.length() == 1)
+                    ssec = "0" + ssec;
+                time.setText("Time remaining: " + smin + ":" + ssec);
+            }
 
-			}
-		});
-		prepareQuestionPaper();
-	}
+            public void onFinish() {
+                time.setText("Time over :(");
+                CustomToast.makeText(TestPaperActivity.this, "Time over", 0, Color.GREEN);
+                submitPaper();
+            }
+        };
 
-	private void submitPaper() {
-		TestResponse tr = new TestResponse();
-		tr.setCandidateID(ID);
-		tr.setRemark("");
-		tr.setTimeRequired(duration - milliseconds);
-		tr.getCorrectAns().add(aptiFrag.getCorrectAnswers());
-		tr.getCorrectAns().add(logicFrag.getCorrectAnswers());
-		tr.getCorrectAns().add(techFrag.getCorrectAnswers());
-		tr.getCorrectAns().add(litFrag.getCorrectAnswers());
 
-		RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
+        pager = findViewById(R.id.viewPager);
+        next = findViewById(R.id.next);
+        prev = findViewById(R.id.prev);
 
-		Call<JsonObject> call = ri.postTestResponse(tr);
-		call.enqueue(new Callback<JsonObject>() {
-			@Override
-			public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-				if (response.isSuccessful()) {
-					Intent i = new Intent(TestPaperActivity.this, TestResponsesRecorded.class);
-					startActivity(i);
-					finish();
-				} else {
-					CustomToast.makeText(TestPaperActivity.this, "Failed to submit answers :(", 0, Color.RED);
-				}
-			}
+        next.setOnClickListener(this);
+        prev.setOnClickListener(this);
 
-			@Override
-			public void onFailure(Call<JsonObject> call, Throwable t) {
-				CustomToast.makeText(TestPaperActivity.this, "Error: " + t.getMessage(), 0, Color.RED);
-			}
-		});
-	}
+        pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                handle(position);
+            }
 
-	private void prepareQuestionPaper() {
+            @Override
+            public void onPageSelected(int position) {
+                handle(position);
+            }
 
-		qp = new QuestionPaper();
-		qp.setUid("" + ID);
-		try {
-			qp.init();
-		} catch (CloneNotSupportedException e) {
-			e.printStackTrace();
-		}
-		processQuestionPaper(qp);
-	}
+            @Override
+            public void onPageScrollStateChanged(int state) {
 
-	public void processQuestionPaper(QuestionPaper questionPaper) {
+            }
+        });
+        prepareQuestionPaper();
+    }
 
-		aptiFrag = new AptitudeTestFragment(questionPaper.getAptitiueQuestions());
-		logicFrag = new LogicTestFragment(questionPaper.getLogicalQuestions());
-		techFrag = new TechTestFragment(questionPaper.getTechnicalQuestions());
-		litFrag = new LiteratureTestFragment(questionPaper.getLiteratureQuestions());
+    private void submitPaper() {
+        TestResponse tr = new TestResponse();
+        tr.setCandidate_id(ID);
+        tr.setRemark("");
+        tr.setTime_required(duration - milliseconds);
+        String ans = "" + aptiFrag.getCorrectAnswers() + " " + logicFrag.getCorrectAnswers() + " " + techFrag.getCorrectAnswers() + " " + litFrag.getCorrectAnswers();
+        tr.setCorrection(ans);
 
-		pagerAdpater.add(aptiFrag, "Aptitude");
-		pagerAdpater.add(logicFrag, "Logical Reasoning");
-		pagerAdpater.add(techFrag, "Technical");
-		pagerAdpater.add(litFrag, "Literature");
-		pager.setAdapter(pagerAdpater);
-		tabLayout.setupWithViewPager(pager);
+        RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
+        Call<JsonObject> call = ri.postTestResponse(tr);
+        call.enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                if (response.isSuccessful()) {
+                    Intent i = new Intent(TestPaperActivity.this, TestResponsesRecorded.class);
+                    startActivity(i);
+                    finish();
+                } else {
+                    CustomToast.makeText(TestPaperActivity.this, "Failed to submit answers :(", 0, Color.RED);
+                }
+            }
 
-		cdt.start();
-	}
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+                CustomToast.makeText(TestPaperActivity.this, "Error: " + t.getMessage(), 0, Color.RED);
+            }
+        });
+    }
 
-	public void getQuestionPaper() {
-		Retrofit retrofit = new Retrofit.Builder()
-				.baseUrl("")
-				.addConverterFactory(GsonConverterFactory.create())
-				.build();
+    private void prepareQuestionPaper() {
 
-		RetroInterface ri = retrofit.create(RetroInterface.class);
-		Call<QuestionPaper> qpaper = ri.getQuestionPaper();
-		qpaper.enqueue(new Callback<QuestionPaper>() {
-			@Override
-			public void onResponse(Call<QuestionPaper> call, Response<QuestionPaper> response) {
-				qp = response.body();
-				processQuestionPaper(qp);
-			}
+        qp = new QuestionPaper();
+        qp.setUid("" + ID);
+        try {
+            qp.init();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        processQuestionPaper(qp);
+    }
 
-			@Override
-			public void onFailure(Call<QuestionPaper> call, Throwable t) {
-				Snackbar.make(findViewById(android.R.id.content), "Failed to load question paper", BaseTransientBottomBar.LENGTH_SHORT).show();
-			}
-		});
+    public void processQuestionPaper(QuestionPaper questionPaper) {
 
-	}
+        aptiFrag = new AptitudeTestFragment(questionPaper.getAptitiueQuestions());
+        logicFrag = new LogicTestFragment(questionPaper.getLogicalQuestions());
+        techFrag = new TechTestFragment(questionPaper.getTechnicalQuestions());
+        litFrag = new LiteratureTestFragment(questionPaper.getLiteratureQuestions());
 
-	private void handle(int position) {
-		switch (position) {
-			case 0:
-				next.setText("Next");
-				prev.setVisibility(View.GONE);
-				break;
-			case 1:
-				next.setText("Next");
-				prev.setVisibility(View.VISIBLE);
-				break;
-			case 2:
-				next.setText("Next");
-				break;
-			case 3:
-				next.setText("Submit");
-				break;
-		}
-	}
+        pagerAdpater.add(aptiFrag, "Aptitude");
+        pagerAdpater.add(logicFrag, "Logical Reasoning");
+        pagerAdpater.add(techFrag, "Technical");
+        pagerAdpater.add(litFrag, "Literature");
+        pager.setAdapter(pagerAdpater);
+        tabLayout.setupWithViewPager(pager);
 
-	@Override
-	public void onClick(View v) {
-		switch (v.getId()) {
-			case R.id.next:
-				int position = pager.getCurrentItem();
-				if (position == 3) {
-					submitPaper();
-				} else {
-					pager.setCurrentItem(position + 1, true);
-				}
-				break;
-			case R.id.prev:
-				int pos = pager.getCurrentItem();
-				if (pos != 0) {
-					pager.setCurrentItem(pos - 1);
-				}
-				break;
-		}
-	}
+        cdt.start();
+    }
 
-	public class ViewPagerAdpater extends FragmentPagerAdapter {
-		ArrayList<Fragment> fragments;
-		ArrayList<String> stringArrayList;
+    public void getQuestionPaper() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
-		public ViewPagerAdpater(@NonNull FragmentManager fm, int behavior) {
-			super(fm, behavior);
-			fragments = new ArrayList<>();
-			stringArrayList = new ArrayList<>();
-		}
+        RetroInterface ri = retrofit.create(RetroInterface.class);
+        Call<QuestionPaper> qpaper = ri.getQuestionPaper();
+        qpaper.enqueue(new Callback<QuestionPaper>() {
+            @Override
+            public void onResponse(Call<QuestionPaper> call, Response<QuestionPaper> response) {
+                qp = response.body();
+                processQuestionPaper(qp);
+            }
 
-		@NonNull
-		@Override
-		public Fragment getItem(int position) {
-			return fragments.get(position);
-		}
+            @Override
+            public void onFailure(Call<QuestionPaper> call, Throwable t) {
+                Snackbar.make(findViewById(android.R.id.content), "Failed to load question paper", BaseTransientBottomBar.LENGTH_SHORT).show();
+            }
+        });
 
-		public void add(Fragment fragment, String title) {
-			fragments.add(fragment);
-			stringArrayList.add(title);
-		}
+    }
 
-		@Override
-		public int getCount() {
-			return fragments.size();
-		}
+    private void handle(int position) {
+        switch (position) {
+            case 0:
+                next.setText("Next");
+                prev.setVisibility(View.GONE);
+                break;
+            case 1:
+                next.setText("Next");
+                prev.setVisibility(View.VISIBLE);
+                break;
+            case 2:
+                next.setText("Next");
+                break;
+            case 3:
+                next.setText("Submit");
+                break;
+        }
+    }
 
-		@Nullable
-		@Override
-		public CharSequence getPageTitle(int position) {
-			return stringArrayList.get(position);
-		}
-	}
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.next:
+                int position = pager.getCurrentItem();
+                if (position == 3) {
+                    submitPaper();
+                } else {
+                    pager.setCurrentItem(position + 1, true);
+                }
+                break;
+            case R.id.prev:
+                int pos = pager.getCurrentItem();
+                if (pos != 0) {
+                    pager.setCurrentItem(pos - 1);
+                }
+                break;
+        }
+    }
+
+    public class ViewPagerAdpater extends FragmentPagerAdapter {
+        ArrayList<Fragment> fragments;
+        ArrayList<String> stringArrayList;
+
+        public ViewPagerAdpater(@NonNull FragmentManager fm, int behavior) {
+            super(fm, behavior);
+            fragments = new ArrayList<>();
+            stringArrayList = new ArrayList<>();
+        }
+
+        @NonNull
+        @Override
+        public Fragment getItem(int position) {
+            return fragments.get(position);
+        }
+
+        public void add(Fragment fragment, String title) {
+            fragments.add(fragment);
+            stringArrayList.add(title);
+        }
+
+        @Override
+        public int getCount() {
+            return fragments.size();
+        }
+
+        @Nullable
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return stringArrayList.get(position);
+        }
+    }
 }
 
 

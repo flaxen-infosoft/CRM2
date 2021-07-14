@@ -33,7 +33,7 @@ public interface RetroInterface {
     @GET("/question_paper")
     Call<QuestionPaper> getQuestionPaper();
 
-    @POST("test_response.php")
+    @POST("insert_test_res.php")
     Call<JsonObject> postTestResponse(@Body TestResponse testResponse);
 
     @GET("get_short_candidate.php")
@@ -89,8 +89,12 @@ public interface RetroInterface {
 
     @POST("insert_report.php")
     Call<Report> insertreport(@Body Report report);
+
     @GET("get_All_Report.php")
     Call<List<Report>> getReports();
+
+    @GET("get_test_res.php")
+    Call<TestResponse> getTestResponse(@Query("candidate_id") String candidateID);
 
 
 }

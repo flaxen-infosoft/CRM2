@@ -1,46 +1,49 @@
 package com.example.crm.Model;
 
-import java.util.ArrayList;
-
 public class TestResponse {
-	String candidateID;
-	ArrayList<Integer> correctAns;
-	long timeRequired;
-	String remark;
+    String tid;
+    String candidate_id;
+    String correction;
+    long time_required;
+    String remark;
 
-	public TestResponse() {
-		correctAns = new ArrayList<>();
-	}
+    public String getTid() {
+        return tid;
+    }
 
-	public String getCandidateID() {
-		return candidateID;
-	}
+    public void setTid(String tid) {
+        this.tid = tid;
+    }
 
-	public void setCandidateID(String candidateID) {
-		this.candidateID = candidateID;
-	}
+    public String getCandidate_id() {
+        return candidate_id;
+    }
 
-	public ArrayList<Integer> getCorrectAns() {
-		return correctAns;
-	}
+    public void setCandidate_id(String candidate_id) {
+        this.candidate_id = candidate_id;
+    }
 
-	public void setCorrectAns(ArrayList<Integer> correctAns) {
-		this.correctAns = correctAns;
-	}
+    public String getCorrection() {
+        return correction;
+    }
 
-	public long getTimeRequired() {
-		return timeRequired;
-	}
+    public void setCorrection(String correction) {
+        this.correction = correction;
+    }
 
-	public void setTimeRequired(long timeRequired) {
-		this.timeRequired = timeRequired;
-	}
+    public long getTime_required() {
+        return time_required;
+    }
 
-	public String getRemark() {
-		return remark;
-	}
+    public void setTime_required(long time_required) {
+        this.time_required = time_required;
+    }
 
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
 }
