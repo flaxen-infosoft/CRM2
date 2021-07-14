@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,6 +71,7 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
 
         TextView name, date, applied_for, link, updateStatus, viewresume, remark, assignedBy;
         ImageView call;
+
         @SuppressLint("ClickableViewAccessibility")
         public CandidateHolder(@NonNull View itemView) {
             super(itemView);
@@ -162,7 +164,7 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
                     intent.setType("text/html");
                     intent.putExtra(Intent.EXTRA_EMAIL, candidates.get(pos).getPid());
                     intent.putExtra(Intent.EXTRA_SUBJECT, Constants.email_subject);
-                    intent.putExtra(Intent.EXTRA_TEXT, Constants.body + "http://com.example.crm/" + candidates.get(pos).getId());
+                    intent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(Constants.body));
                     context.startActivity(Intent.createChooser(intent, "Send Email"));
 
                 }
