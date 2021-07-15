@@ -28,6 +28,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adapter.CandidateHolder> {
     Context context;
@@ -164,7 +165,8 @@ public class NewCandidate2Adapter extends RecyclerView.Adapter<NewCandidate2Adap
                     intent.setType("text/html");
                     intent.putExtra(Intent.EXTRA_EMAIL, candidates.get(pos).getPid());
                     intent.putExtra(Intent.EXTRA_SUBJECT, Constants.email_subject);
-                    intent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(Constants.body));
+                    intent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(String.format(Locale.getDefault(), Constants.body, candidates.get(pos).getId(), candidates.get(pos).getId())));
+                    intent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(String.format(Locale.getDefault(), Constants.body, candidates.get(pos).getId(), candidates.get(pos).getId())));
                     context.startActivity(Intent.createChooser(intent, "Send Email"));
 
                 }
