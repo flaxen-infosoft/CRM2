@@ -160,9 +160,10 @@ public class NewCandidateActivity2 extends AppCompatActivity {
     }
 
     private void shortlistCandidate(Candidate candidate) {
-
+        Candidate dummy = new Candidate();
+        dummy.setId(candidate.getId());
         RetroInterface ri = Retrofi.initretro().create(RetroInterface.class);
-        Call<JsonObject> call = ri.shortListCandidate(candidate.getId());
+        Call<JsonObject> call = ri.shortListCandidate(dummy);
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(@NotNull Call<JsonObject> call, @NotNull Response<JsonObject> response) {

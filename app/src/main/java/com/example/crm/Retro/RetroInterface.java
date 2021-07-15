@@ -39,8 +39,8 @@ public interface RetroInterface {
     @GET("get_short_candidate.php")
     Call<ArrayList<Candidate>> getAllShortlistedCandidates();
 
-    @POST("shortlisted_candidateapi.php")
-    Call<JsonObject> shortListCandidate(@Query("id") String id);
+    @POST("insert_short_candidate.php")
+    Call<JsonObject> shortListCandidate(@Body Candidate id);
 
     @PUT("shortlisted_candidateupdateapi.php")
     Call<Candidate> updateShortlisedCandidate(@Body Candidate candidate);
