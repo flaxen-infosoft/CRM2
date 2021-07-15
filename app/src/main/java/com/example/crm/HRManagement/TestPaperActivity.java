@@ -145,6 +145,7 @@ public class TestPaperActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void submitPaper() {
+        cdt.cancel();
         TestResponse tr = new TestResponse();
         tr.setCandidate_id(ID);
         tr.setRemark("");
