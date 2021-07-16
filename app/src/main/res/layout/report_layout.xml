@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -15,8 +14,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/bg_stroke">
+            android:layout_height="wrap_content"
+            android:background="@drawable/report">
 
             <TextView
                 android:id="@+id/nameof_employee_report"
@@ -62,23 +61,24 @@
                 android:textSize="13sp" />
 
             <TextView
-                android:layout_width="wrap_content"
                 android:id="@+id/textrepo"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/relativereport"
                 android:layout_margin="20sp"
                 android:text="No. of Deals Done Today :"
                 android:textColor="@color/blue_border"
                 android:textSize="25dp" />
+
             <TextView
+                android:id="@+id/noofdeals"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/relativereport"
                 android:layout_marginTop="20sp"
+                android:layout_toRightOf="@id/textrepo"
                 android:text="10"
-                android:id="@+id/noofdeals"
-                android:textSize="25dp"
-                android:layout_toRightOf="@id/textrepo"/>
+                android:textSize="25dp" />
 
 
         </RelativeLayout>
