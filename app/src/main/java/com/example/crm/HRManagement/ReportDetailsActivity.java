@@ -5,6 +5,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.crm.Model.Report;
 import com.example.crm.R;
 
 public class ReportDetailsActivity extends AppCompatActivity {
@@ -14,6 +15,7 @@ public class ReportDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_details);
+        Report report = (Report) getIntent().getSerializableExtra("report");
         Nameofemployee= findViewById(R.id.nameof_employee_report_detail);
         NoofCalls=findViewById(R.id.number_of_calls_report);
         NoofNonPickedCalls=findViewById(R.id.non_picked_up_call_report);
@@ -28,5 +30,23 @@ public class ReportDetailsActivity extends AppCompatActivity {
         NoOfProspectus=findViewById(R.id.noofprospectus_report);
         NoOfFollowups=findViewById(R.id.follow_ups_taken_report);
         NoOfSalesDone=findViewById(R.id.sales_done_report);
+
+
+
+
+        Nameofemployee.setText(report.getName());
+        NoofCalls.setText(report.getNoofCalls());
+        NoofNonPickedCalls.setText(report.getNoofNonPickedCalls());
+        NoofNonInterestedCalls.setText(report.getNoofNonInterestedCalls());
+        NoofSwitchedoff.setText(report.getNoofSwitchedoff());
+        RequirementsofClients.setText(report.getRequirementsofClients());
+        DataRequirements.setText(report.getDataRequirements());
+        NoofAppDevelopments.setText(report.getNoofAppDevelopments());
+        NoofWebsiteDevelopments.setText(report.getNoofWebsiteDevelopments());
+        NoOfPhysicalMeetings.setText(report.getNoOfPhysicalMeetings());
+        NoOfVirtualMeetings.setText(report.getNoOfVirtualMeetings());
+        NoOfProspectus.setText(report.getNoOfProspectus());
+        NoOfFollowups.setText(report.getNoOfFollowups());
+        NoOfSalesDone.setText(report.getNoOfSalesDone());
     }
 }
