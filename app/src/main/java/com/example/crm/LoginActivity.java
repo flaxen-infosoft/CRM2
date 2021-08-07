@@ -122,7 +122,9 @@ public class LoginActivity extends AppCompatActivity {
 			case 3:
 			case 4:
 			case 5:
-				startActivity(new Intent(LoginActivity.this, EmployeeDashboardActivity.class));
+			//	startActivity(new Intent(LoginActivity.this, EmployeeDashboardActivity.class));
+				startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+				//startActivity(new Intent(LoginActivity.this, SalesMainActivity.class));
 				finish();
 				break;
 			case 2:
