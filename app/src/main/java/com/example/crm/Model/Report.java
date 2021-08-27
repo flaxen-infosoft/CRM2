@@ -3,7 +3,31 @@ package com.example.crm.Model;
 import java.io.Serializable;
 
 public class Report implements Serializable {
-    String NoofCalls, NoofNonPickedCalls, NoofNonInterestedCalls, NoofSwitchedoff, RequirementsofClients, DataRequirements, NoofAppDevelopments, NoofWebsiteDevelopments, NoOfPhysicalMeetings, NoOfVirtualMeetings, NoOfProspectus, NoOfFollowups, NoOfSalesDone, Reportgivenby;
+    String NoofCalls, NoofNonPickedCalls, NoofNonInterestedCalls, NoofSwitchedoff, RequirementsofClients, DataRequirements, NoofAppDevelopments, NoofWebsiteDevelopments, NoOfPhysicalMeetings, NoOfVirtualMeetings, NoOfProspectus, NoOfFollowups, NoOfSalesDone, Reportgivenby,name,designation ,date;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public String getReportgivenby() {
         return Reportgivenby;

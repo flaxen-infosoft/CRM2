@@ -12,12 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CRM">
-        <activity android:name=".EmployeeManagement.EmployeeTrainingActivity"></activity>
+        <activity android:name=".task_empolyee"></activity>
+        <activity android:name=".tempui_2" />
+        <activity android:name=".Clientdetails" />
+        <activity android:name=".EmployeeManagement.EmployeeTrainingActivity" />
         <activity android:name=".CRMManagement.ProjectsActivty" />
-        <activity android:name=".CRMManagement.ProposalDashboardActivity"></activity>
+        <activity android:name=".CRMManagement.ProposalDashboardActivity" />
         <activity android:name=".HRManagement.ReportDetailsActivity" />
         <activity android:name=".HRManagement.ReportingActivity" />
-        <activity android:name=".CRMManagement.ProjectsActivty" />
         <activity android:name=".HRManagement.ViewTestResponseActivity" />
         <activity android:name=".EmployeeManagement.EmployeeListActivity" />
         <activity android:name=".HRManagement.TestResponsesRecorded" />

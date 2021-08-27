@@ -16,7 +16,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@color/blue_border">
+            android:background="#063A69">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -25,17 +25,9 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_backarrow"/>
+                    android:src="@drawable/menu"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Add Report"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:textColor="@color/white"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="30dp"/>
+
 
             </RelativeLayout>
 
@@ -45,20 +37,29 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_below="@id/toolbar"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="31dp"
+            android:layout_marginRight="31dp"
             android:layout_marginBottom="50dp"
             android:padding="10dp"
             android:background="@drawable/bg_stroke"
             android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name of employee"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Number of Calls"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="5dp"
                 android:layout_marginTop="30dp"
                 android:textColor="@color/black"/>
 
@@ -79,7 +80,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Number of Non Picked Up callls"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="5dp"
                 android:textColor="@color/black"
                 android:layout_marginTop="10dp"/>
 
@@ -100,7 +101,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Number of Not Interested Calls"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="5dp"
                 android:textColor="@color/black"
                 android:layout_marginTop="10dp"/>
 
@@ -122,7 +123,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Number of Switched Off"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="5dp"
                 android:textColor="@color/black"
                 android:layout_marginTop="10dp"/>
 
@@ -144,7 +145,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Requirements of Clients"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="5dp"
                 android:textColor="@color/black"
                 android:layout_marginTop="10dp"/>
 
@@ -166,7 +167,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Data Requirement"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="5dp"
                 android:textColor="@color/black"
                 android:layout_marginTop="10dp"/>
 
@@ -188,7 +189,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="App Development"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="5dp"
                 android:textColor="@color/black"
                 android:layout_marginTop="20dp"/>
 
@@ -210,7 +211,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Website Development"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="5dp"
                 android:textColor="@color/black"
                 android:layout_marginTop="10dp"/>
 
@@ -233,7 +234,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Physical Meeting"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="5dp"
                 android:textColor="@color/black"
                 android:layout_marginTop="10dp"/>
 
@@ -256,7 +257,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Virtual Meeting"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="5dp"
                 android:textColor="@color/black"
                 android:layout_marginTop="10dp"/>
 
@@ -278,7 +279,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="15dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:text="Number of Prospectus"
                 android:textColor="@color/black" />
@@ -299,7 +300,7 @@
                 android:elevation="6dp"/>
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="15dp"
+                android:layout_height="5dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:text="Number of Follow ups Taken"
@@ -324,7 +325,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Number of Sales Done"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="5dp"
                 android:textColor="@color/black"
                 android:layout_marginTop="10dp"/>
 

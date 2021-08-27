@@ -1,105 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <EditText
         android:id="@+id/search"
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="15dp"
+        android:layout_marginHorizontal="25dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/edittext_black_stroke_bg"
+        android:background="@drawable/edittextshadow"
         android:drawableRight="@drawable/ic_baseline_search_24"
-        android:hint="Search customer"
-        android:paddingLeft="7dp"
-        android:paddingTop="5dp"
-        android:paddingRight="7dp"
-        android:paddingBottom="5dp"
+        android:hint="Search task"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:elevation="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="37dp"
+        android:text="Today's task"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/search"
+        app:layout_constraintTop_toBottomOf="@id/search" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+
+        android:text="006/Jul/2021"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView5"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         app:cardCornerRadius="25dp"
         app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search">
+        app:layout_constraintTop_toBottomOf="@id/textView11">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+            android:background="@drawable/bg_gradiant"
+            android:padding="10dp"
             android:layout_height="match_parent">
-
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="Today's task"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="006/Jul/2021"
-                android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="@+id/textView10"
-                app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/materialCardView5"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="20dp"
-                app:cardBackgroundColor="#F5F5F5"
-                app:cardCornerRadius="25dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView11"
-                app:strokeColor="#969696"
-                app:strokeWidth="2dp" />
 
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:elevation="10dp"
-                android:text="Today's task"
-                android:textColor="@color/black"
+                android:layout_margin="5dp"
+                 android:elevation="10dp"
+                android:text="Task heading"
+                android:textColor="#000000"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/materialCardView5"
-                app:layout_constraintTop_toTopOf="@+id/materialCardView5" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:textStyle="normal"
+                tools:ignore="MissingConstraints" />
 
             <TextView
                 android:id="@+id/textView14"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
+                android:layout_marginHorizontal="10dp"
                 android:layout_marginTop="10dp"
+                android:textStyle="normal"
                 android:elevation="10dp"
                 android:text="bfj bebd fibiube mf dkjbkvhf vfiubdf fdueriberjhvbdf ib bjhf fvikb fbfibr bfbirwkbv eriuv rwvbriubr berlikbrjbrbuvk ribe bb eobkef efk fir kb h bvjfmb kfjbbik bkjrb bijfkbkfdjbm bifkbjk"
-                android:textColor="#646464"
+                android:textColor="#000000"
                 android:textSize="17sp"
-                app:layout_constraintEnd_toEndOf="@+id/materialCardView5"
-                app:layout_constraintStart_toStartOf="@+id/materialCardView5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@+id/textView14"
+            android:fillViewport="true">
+
+            <com.github.barteksc.pdfviewer.PDFView
+                android:id="@+id/pdfView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:background="#F5F5F5"
+                android:layout_marginBottom="10dp"/>
+
+        </ScrollView>
+
+
+
+
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

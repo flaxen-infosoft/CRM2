@@ -28,13 +28,15 @@
         android:layout_margin="20dp"
         app:cardCornerRadius="25dp"
         app:cardElevation="10dp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/projectcardback">
 
             <TextView
                 android:id="@+id/textView10"
