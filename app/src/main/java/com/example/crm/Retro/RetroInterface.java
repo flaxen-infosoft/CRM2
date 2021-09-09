@@ -21,7 +21,7 @@ import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
 public interface RetroInterface {
-    @POST("candidate_registerapi.php")
+    @POST("insert_candidate.php")
     Call<Candidate> addCandidate(@Body Candidate candidate);
 
     @GET("get_candidate.php")

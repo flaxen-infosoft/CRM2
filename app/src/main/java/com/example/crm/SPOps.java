@@ -17,6 +17,11 @@ public class SPOps {
             return gson.fromJson(employeeString, Employee.class);
         }
     }
+    public static int getid( Context context) {
+        SharedPreferences sp = context.getSharedPreferences("config", Context.MODE_PRIVATE);
+        int variable  = sp.getInt("localid", 4);
+       return variable;
+    }
 
     public static void loggedIn(Employee employee, int id, Context context) {
         SharedPreferences sp = context.getSharedPreferences("config", Context.MODE_PRIVATE);

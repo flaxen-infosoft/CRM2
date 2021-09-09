@@ -11,6 +11,6 @@ public class HRMEmployeeDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_h_r_m_employee_details);
+        setContentView(R.layout.activity_empolyee_hrm_details);
     }
 }

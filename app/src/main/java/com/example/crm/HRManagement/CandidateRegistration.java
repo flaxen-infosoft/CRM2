@@ -65,7 +65,7 @@ public class CandidateRegistration extends AppCompatActivity {
     private static final int[][] mappings = {{0}, {1}, {2, 3}, {4}, {5}, {6, 7}};
 
     TextView filename;
-    EditText name, phone, alt_phone, personal_email, official_email, source, address;
+    EditText name, phone, alt_phone, personal_email, portfolio, source, address;
     Spinner city, state, department, designation;
     Button btn_update, btn_upresume;
     List<String> stateList = new ArrayList<String>();
@@ -90,7 +90,7 @@ public class CandidateRegistration extends AppCompatActivity {
         phone = findViewById(R.id.candidate_phoneno_);
         alt_phone = findViewById(R.id.candidate_alter_phone);
         personal_email = findViewById(R.id.candidateemail);
-        official_email = findViewById(R.id.candidate_portfolio);
+        portfolio = findViewById(R.id.candidate_portfolio);
         source = findViewById(R.id.candidate_sourceof);
         address = findViewById(R.id.candidate_addressline);
         designation = findViewById(R.id.candidate_designation);
@@ -246,7 +246,7 @@ public class CandidateRegistration extends AppCompatActivity {
         String canphone = phone.getText().toString();
         String canpersonalemail = personal_email.getText().toString();
         String canaltphone = alt_phone.getText().toString();
-        String canofficialemail = official_email.getText().toString();
+        String canportfolio = portfolio.getText().toString();
         String canaddress = address.getText().toString();
         String cansource = source.getText().toString();
         String canstate = state.getSelectedItem().toString();
@@ -266,15 +266,24 @@ public class CandidateRegistration extends AppCompatActivity {
             address.requestFocus();
 
         } else if (cansource.isEmpty()) {
-            source.setError("Please Enter Your Password");
+            source.setError("Please enter a valid source");
             source.requestFocus();
 
-        } else if (!canofficialemail.contains("@")) {
-            official_email.setError("Please Enter a Valid Email Address");
-            official_email.requestFocus();
-        } else if (canaltphone.length() != 10) {
-            alt_phone.setError("Please Enter Valid Phone Number ");
-            alt_phone.requestFocus();
+        } else if(!canportfolio.isEmpty()){
+            String val = "/^(?:([A-Za-z]+):)?(\\/{0,3})([0-9.\\-A-Za-z]+)\n" +
+                    "           (?::(\\d+))?(?:\\/([^?#]*))?(?:\\?([^#]*))?(?:#(.*))?$/;";
+            if(canportfolio.contains(val)){
+                portfolio.setError("Please enter the valid link ");
+                portfolio.requestFocus();
+            }
+        }else if(!canaltphone.isEmpty()){
+            if(canaltphone.length() != 10){
+                alt_phone.setError("Please Enter Valid Phone Number ");
+                alt_phone.requestFocus();
+            }
+            // else if (canaltphone.length() != 10) {
+            //    alt_phone.setError("Please Enter Valid Phone Number ");
+            //   alt_phone.requestFocus();
         } else if (canstate.contains("Select State")) {
             Toast.makeText(this, "Please Select State", Toast.LENGTH_SHORT).show();
         } else if (cancity.contains("Select City")) {
@@ -290,14 +299,12 @@ public class CandidateRegistration extends AppCompatActivity {
             candidate.setPhone(canphone);
             candidate.setSource(cansource);
             candidate.setPid(canpersonalemail);
-            candidate.setOid(canofficialemail);
+            candidate.setOid(canportfolio);
             candidate.setResume(resumepdf);
             candidate.setDepartment(candepatment);
             candidate.setDesignation(designation.getSelectedItem().toString());
-            candidate.setAssignedBy(SPOps.getLoggedInUserName(this));
+            candidate.setAssignedBy(String.valueOf(SPOps.getLoggedInUserLocalId(this)));
             CandidateRegister(candidate);
-
-
         }
     }
 

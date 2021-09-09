@@ -55,7 +55,7 @@ public class NewCandidateActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_candidate2);
+        setContentView(R.layout.activity_candidate_ragistered);
         rv = findViewById(R.id.recyclerView);
         search = findViewById(R.id.search);
         spinner = findViewById(R.id.filter);

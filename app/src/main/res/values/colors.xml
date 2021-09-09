@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#E1E0E0</color>
     <color name="megenta">#005C90</color>
+    <color name="maincolor">#6158CB</color>
     <color name="ayushBlue">#005C90</color>
     <color name="ayushtextBlue">#476DF4</color>
     <color name="blue_border">#0057ff</color>
@@ -21,4 +22,5 @@
     <color name="red">#FF0000</color>
     <color name="light_green">#00D998</color>
     <color name="skyblue" >#64B4FD</color>
+    <color name="timerblue" >#CECCF1</color>
 </resources>

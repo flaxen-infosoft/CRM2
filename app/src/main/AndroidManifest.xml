@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CRM">
-        <activity android:name=".task_empolyee"></activity>
+        <activity android:name=".SalesManagement.new_sales_dashborad" />
+        <activity android:name=".sales_meet" />
+
         <activity android:name=".tempui_2" />
         <activity android:name=".Clientdetails" />
         <activity android:name=".EmployeeManagement.EmployeeTrainingActivity" />
@@ -84,7 +86,7 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".TrainingActivity" />
         <activity android:name=".HRManagement.PdfViewerActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".SalesManagement.sales_timingclock">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

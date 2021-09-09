@@ -48,7 +48,7 @@ public class PreferenticalActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_preferentical);
+        setContentView(R.layout.activity_candidate_preferentical);
         rv = findViewById(R.id.recyclerView);
         search = findViewById(R.id.search);
         back = findViewById(R.id.back);

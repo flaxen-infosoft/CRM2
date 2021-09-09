@@ -11,6 +11,6 @@ public class DigitalMarketingEmployeeDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_digital_marketing_employee_details);
+        setContentView(R.layout.activity_employee_digital_marketing_details);
     }
 }
