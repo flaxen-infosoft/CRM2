@@ -16,8 +16,6 @@ class alertdialong_adapter extends RecyclerView.Adapter<alertdialong_adapter.Vie
     private ArrayList<leadsname> localDataSet;
     leadsname object;
 
-
-
     /**
      * Provide a reference to the type of views that you are using
      * (custom ViewHolder).

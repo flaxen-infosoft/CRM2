@@ -6,10 +6,9 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.crm.HRManagement.CandidateMainPage;
 import com.example.crm.HRManagement.NewCandidateActivity;
 import com.example.crm.R;
-import com.example.crm.sales_meet;
+import com.example.crm.SalesMeetActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class new_sales_dashborad extends AppCompatActivity {
@@ -51,7 +50,7 @@ public class new_sales_dashborad extends AppCompatActivity {
             startActivity(intent);
         });
         meeting.setOnClickListener(v -> {
-            Intent intent = new Intent(new_sales_dashborad.this, sales_meet.class);
+            Intent intent = new Intent(new_sales_dashborad.this, SalesMeetActivity.class);
             startActivity(intent);
         });
         client.setOnClickListener(v -> {
