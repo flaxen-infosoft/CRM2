@@ -25,6 +25,23 @@
                 android:layout_height="64dp"
                 android:gravity="start"
                 android:paddingLeft="30dp"
+                android:hint="meeting titile"
+                ></EditText>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_marginRight="100dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/alertdialog_serach"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_height="50dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:gravity="start"
+                android:paddingLeft="30dp"
                 android:hint="search...."
                 ></EditText>
         </FrameLayout>
@@ -38,19 +55,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
             </ProgressBar>
+
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="261dp"
                 android:padding="10dp">
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/Countrylist"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/scrollviewback"
                     android:scrollbarThumbVertical="@drawable/scrollviewthumb"
-                    android:scrollbarTrackVertical="@drawable/scrollviewtrack"
-                    android:layout_height="wrap_content">
-                </androidx.recyclerview.widget.RecyclerView>
+                    android:scrollbarTrackVertical="@drawable/scrollviewtrack"></androidx.recyclerview.widget.RecyclerView>
             </ScrollView>
+
         </FrameLayout>
+
     </LinearLayout>
 </LinearLayout>

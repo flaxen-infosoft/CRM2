@@ -8,6 +8,7 @@ import com.example.crm.Model.QuestionPaper;
 import com.example.crm.Model.Report;
 import com.example.crm.Model.TestResponse;
 import com.example.crm.Model.UpcomingCustomer;
+import com.example.crm.leadsname;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
@@ -95,6 +96,9 @@ public interface RetroInterface {
 
     @GET("get_test_res.php")
     Call<TestResponse> getTestResponse(@Query("candidate_id") String candidateID);
+
+    @GET("getleads.php")
+    Call<ArrayList<leadsname>> getleads();
 
 
 }

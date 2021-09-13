@@ -1,12 +1,16 @@
 package com.example.crm;
 
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -15,7 +19,7 @@ class alertdialong_adapter extends RecyclerView.Adapter<alertdialong_adapter.Vie
 
     private ArrayList<leadsname> localDataSet;
     leadsname object;
-
+    AlertDialog.Builder builderSingle;
 
 
     /**
@@ -24,7 +28,9 @@ class alertdialong_adapter extends RecyclerView.Adapter<alertdialong_adapter.Vie
      */
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private final TextView textView;
-        Button buttonview1,buttonview2;
+        ImageButton buttonview2;
+        Button buttonview1;
+
 
       //  private final ImageView imageView;
 
@@ -33,22 +39,21 @@ class alertdialong_adapter extends RecyclerView.Adapter<alertdialong_adapter.Vie
 
             // Define click listener for the ViewHolder's View
           //  imageView =    view.findViewById(R.id.countryimage) ;
-            textView = (TextView) view.findViewById(R.id.leadname);
-            buttonview1 = view.findViewById(R.id.startendbutton);
-            buttonview2 = view.findViewById(R.id.recordbutton);
-
+            textView = (TextView) view.findViewById(R.id.alertleadname);
+          //  buttonview1 = view.findViewById(R.id.startendbutton);
+            //buttonview2 = view.findViewById(R.id.recordbutton);
 
         }
         int position  = ViewHolder.super.getAdapterPosition();
         public TextView getTextView() {
             return textView;
         }
-        public Button getbuttonView1() {
+       /*public Button getbuttonView1() {
             return buttonview1;
         }
-        public Button getbuttonView2() {
+        public ImageButton getbuttonView2() {
             return buttonview2;
-        }
+        }*/
 
         @Override
         public void onClick(View v) {
@@ -64,7 +69,8 @@ class alertdialong_adapter extends RecyclerView.Adapter<alertdialong_adapter.Vie
      * @param dataSet String[] containing the data to populate views to be used
      * by RecyclerView.
      */
-    public alertdialong_adapter(ArrayList<leadsname> dataSet) {
+    public alertdialong_adapter(ArrayList<leadsname> dataSet,  AlertDialog.Builder builder ) {
+        this.builderSingle=builder;
         this.localDataSet = dataSet;
     }
 
@@ -73,7 +79,7 @@ class alertdialong_adapter extends RecyclerView.Adapter<alertdialong_adapter.Vie
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         // Create a new view, which defines the UI of the list item
         View view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.cardview_ofsales_lead_meet, viewGroup, false);
+                .inflate(R.layout.alertcard, viewGroup, false);
 
         return new ViewHolder(view);
     }
@@ -83,11 +89,11 @@ class alertdialong_adapter extends RecyclerView.Adapter<alertdialong_adapter.Vie
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        object = localDataSet.get(position);
-        viewHolder.getTextView().setText(localDataSet.get(position).getLeadsname());
+        leadsname object = localDataSet.get(position);
+        viewHolder.getTextView().setText(object.getName());
        // String uri = localDataSet.get(position).getCountryflag();
-      //
-        viewHolder.getbuttonView1().setOnClickListener(new View.OnClickListener() {
+
+       /* viewHolder.getbuttonView1().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // onClickInterface.setClick(position);
@@ -98,11 +104,19 @@ class alertdialong_adapter extends RecyclerView.Adapter<alertdialong_adapter.Vie
             public void onClick(View view) {
                 // onClickInterface.setClick(position);
             }
-        });
+        });*/
+
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // onClickInterface.setClick(position);
+                System.out.println("dfbfbadsj");
+                builderSingle.setCancelable(true);
+               builderSingle.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                   @Override
+                   public void onDismiss(DialogInterface dialog) {
+                       System.out.println("dialong dismiss");
+                   }
+               });
             }
         });
     }

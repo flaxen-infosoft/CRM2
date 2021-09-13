@@ -13,7 +13,8 @@ public class Retrofi {
                 .setLenient()
                 .create();
         return new Retrofit.Builder()
-                .baseUrl("https://Creatorsdesire.in/app_api/")
+             //   .baseUrl("https://Creatorsdesire.in/app_api/")
+                .baseUrl("https://flaxeninfosoft.com/app_api/")
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .addConverterFactory(new NullOnEmptyConverterFactory())
                 .addConverterFactory(GsonConverterFactory.create(gson))
