@@ -118,7 +118,29 @@ public class SalesMeetActivity extends AppCompatActivity {
     }
 
     private void createMeeting(int selectedItemPosition) {
-        //TODO: implementation remaining
+        Meeting meeting = new Meeting();
+        meeting.setTitle(clients.get(selectedItemPosition - 1).getName());
+        meeting.setClientid(clients.get(selectedItemPosition - 1).getId());
+        //TODO change sales id of the logged in user (1 for now)
+        meeting.setSalesid("1");
+
+        Call<Meeting> call = retrofi.createMeeting(meeting);
+        call.enqueue(new Callback<Meeting>() {
+            @Override
+            public void onResponse(Call<Meeting> call, Response<Meeting> response) {
+                if (!response.isSuccessful()) {
+                    //error
+                } else {
+                    meetings.add(0, response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Meeting> call, Throwable t) {
+                //error
+            }
+        });
+
     }
 
     private void getMeetingData() {
