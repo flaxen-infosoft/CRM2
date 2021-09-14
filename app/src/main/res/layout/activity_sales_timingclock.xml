@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SalesManagement.sales_timingclock">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarreports"
         android:layout_width="0dp"
@@ -36,99 +37,136 @@
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold" />
+
             <ImageButton
                 android:id="@+id/imageButton4"
                 android:layout_width="45dp"
                 android:layout_height="wrap_content"
                 android:background="#6158CB"
-                android:src="@drawable/ic_backarrow"></ImageButton>
+                android:src="@drawable/ic_backarrow" />
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
-    app:layout_constraintTop_toBottomOf="@id/toolbarreports">
-    <LinearLayout
-        android:id="@+id/my_button1"
-        android:layout_width="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="23dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/sales_circlemeetingtimer"
-        android:clickable="true">
 
-        <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarreports">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/my_button1"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="25dp"
+            android:clickable="true"
+            app:cardBackgroundColor="@color/timerblue"
+            app:cardCornerRadius="100dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.3">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="01:45:34 hr"
+                android:textColor="@color/black"
+                android:textSize="25dp" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="01:45:34 hour"
-            android:textColor="@color/black"
-            android:textSize="40dp"></TextView>
+            app:layout_constraintBottom_toTopOf="@+id/animation_view">
 
-    </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_weight="3"
-            android:layout_marginTop="30dp"
-            android:layout_height="wrap_content">
-            <Button
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/endbutton"
-                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:text="Start"
-                android:padding="10dp"
-                android:layout_margin="20dp"
-                android:textColor="#F65F5F"
-                app:backgroundTint="#FFDDDD"
+                app:cardBackgroundColor="#FFDDDD"
+                app:cardCornerRadius="100dp"
                 app:cornerRadius="2dp"
-                />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/my_button"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="10dp"
+                    android:paddingVertical="5dp"
+                    android:text="Start"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="#F65F5F"
+                    android:textSize="18sp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/my_button"
-                android:layout_width="wrap_content"
-                android:padding="30dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/sales_recorder"
-                android:gravity="center_vertical"
-                android:clickable="true">
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:cardBackgroundColor="#9D96EF"
+                app:cardCornerRadius="50dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/timercanclebtn"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toEndOf="@+id/endbutton"
+                app:layout_constraintTop_toTopOf="parent">
+
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:adjustViewBounds="true"
+                    android:layout_gravity="center"
                     android:src="@drawable/ic_baseline_mic_24" />
-            </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            <Button
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/timercanclebtn"
-                android:layout_weight="1"
-                android:layout_margin="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:text="@string/cancel"
-                android:padding="10dp"
-                android:textColor="
-                                #AA2727"
-                app:backgroundTint="@color/white"
-                app:cornerRadius="2dp"
-                />
-        </LinearLayout>
-    <com.airbnb.lottie.LottieAnimationView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/animation_view"
-        app:lottie_rawRes="@raw/animation"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"/>
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="100dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toEndOf="@+id/my_button"
+                app:layout_constraintTop_toTopOf="parent">
 
-</LinearLayout>
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="10dp"
+                    android:paddingVertical="5dp"
+                    android:text="Cancel"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="#AA2727"
+                    android:textSize="18sp" />
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/animation" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 

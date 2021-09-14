@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -135,22 +136,19 @@
 
     </LinearLayout>
 
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
          android:id="@+id/fabbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"
-        app:backgroundTint="@color/maincolor"
+        android:backgroundTint="#6158CB"
         app:borderWidth="0dp"
-        android:layout_gravity="bottom|right"
+        android:co="@drawable/ic_baseline_add_25"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:tint="#FFFFFF"
-        android:text="lead"
-        app:icon="@drawable/ic_baseline_add_24"
-
+        app:srcCompat="@drawable/ic_baseline_add_24"
         tools:ignore="VectorDrawableCompat" />
 
 
