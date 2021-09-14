@@ -1,3 +1,4 @@
+/*
 package com.example.crm;
 
 import androidx.appcompat.app.AlertDialog;
@@ -90,12 +91,14 @@ public class sales_meet extends AppCompatActivity {
             public void onResponse(Call<ArrayList<leadsname>> call, Response<ArrayList<leadsname>> response) {
                 if (response.isSuccessful()) {
                     arrayList = new ArrayList<>();
-                    /*for(int i=0; i<response.body().size();i++){
+                    */
+/*for(int i=0; i<response.body().size();i++){
                         if(response.body().get(i).getRemark().equals("followup")){
                          leadsname add1  = response.body().get(i);
                             arrayList.add(add1);
                         }
-                    }*/
+                    }*//*
+
                     arrayList = response.body();
                     System.out.println(arrayList);
                     adapter = new alertdialong_adapter(arrayList,builderSingle);
@@ -118,4 +121,4 @@ public class sales_meet extends AppCompatActivity {
         fab= findViewById(R.id.fabbutton);
     }
 
-}
+}*/

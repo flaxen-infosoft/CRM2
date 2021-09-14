@@ -171,8 +171,6 @@ public class SalesMeetActivity extends AppCompatActivity {
     }
 
     private void initUI() {
-        //onfiledmeet = findViewById(R.id.onfiledmeet);
-        //onhousemeet = findViewById(R.id.inhousemeet);
         fab = findViewById(R.id.fabbutton);
         recyclerView = findViewById(R.id.meeting_recycler_view);
         getMeetingData();
