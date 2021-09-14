@@ -28,7 +28,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SalesMeetActivity extends AppCompatActivity {
-    CardView onfiledmeet, onhousemeet;
     FloatingActionButton fab;
     ArrayList<Meeting> meetings;
     SalesMeetingAdapter adapter;
@@ -44,7 +43,6 @@ public class SalesMeetActivity extends AppCompatActivity {
         clients = new ArrayList<>();
         clients.add(new ClientListItem("-1", "Select your client"));
         initUI();
-
     }
 
     private void onFabClick() {
@@ -173,8 +171,8 @@ public class SalesMeetActivity extends AppCompatActivity {
     }
 
     private void initUI() {
-        onfiledmeet = findViewById(R.id.onfiledmeet);
-        onhousemeet = findViewById(R.id.inhousemeet);
+        //onfiledmeet = findViewById(R.id.onfiledmeet);
+        //onhousemeet = findViewById(R.id.inhousemeet);
         fab = findViewById(R.id.fabbutton);
         recyclerView = findViewById(R.id.meeting_recycler_view);
         getMeetingData();
