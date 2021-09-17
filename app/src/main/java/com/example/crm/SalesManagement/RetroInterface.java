@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface RetroInterface {
 
@@ -18,5 +19,7 @@ public interface RetroInterface {
     Call<ArrayList<ClientListItem>> fetchClients();
 
     @POST("insertmeeting.php")
-    Call<Meeting> createMeeting(Meeting meeting);
+    Call<ArrayList<Meeting>> createMeeting(@Query("title") String title,
+                                           @Query("cilentid") String clientid,
+                                           @Query("salesid") String salesid);
 }

@@ -9,7 +9,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -122,19 +121,24 @@ public class SalesMeetActivity extends AppCompatActivity {
         //TODO change sales id of the logged in user (1 for now)
         meeting.setSalesid("1");
 
-        Call<Meeting> call = retrofi.createMeeting(meeting);
-        call.enqueue(new Callback<Meeting>() {
+        Call<ArrayList<Meeting>> call = retrofi.createMeeting(meeting.getTitle(), meeting.getClientid(), meeting.getSalesid());
+        call.enqueue(new Callback<ArrayList<Meeting>>() {
             @Override
-            public void onResponse(Call<Meeting> call, Response<Meeting> response) {
-                if (!response.isSuccessful()) {
-                    //error
+            public void onResponse(Call<ArrayList<Meeting>> call, Response<ArrayList<Meeting>> response) {
+                if (response.isSuccessful()) {
+                    if (response.body() != null && response.body().size() != 0 && !response.body().get(0).getId().equals("")) {
+                        meetings.add(0, response.body().get(0));
+                        adapter.notifyItemInserted(0);
+                    } else {
+                        Toast.makeText(SalesMeetActivity.this, "External Error: Failed to create meeting", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    meetings.add(0, response.body());
+                    Toast.makeText(SalesMeetActivity.this, "Internal Error: Failed to create meeting", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<Meeting> call, Throwable t) {
+            public void onFailure(Call<ArrayList<Meeting>> call, Throwable t) {
                 //error
             }
         });
