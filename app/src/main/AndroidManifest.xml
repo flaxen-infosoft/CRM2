@@ -12,9 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CRM">
+        <activity android:name=".SalesManagement.scalingindicator"></activity>
+        <activity android:name=".SalesManagement.Sales_rrating"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
         <activity android:name=".SalesManagement.new_sales_dashborad" />
-
-
         <activity android:name=".tempui_2" />
         <activity android:name=".Clientdetails" />
         <activity android:name=".EmployeeManagement.EmployeeTrainingActivity" />

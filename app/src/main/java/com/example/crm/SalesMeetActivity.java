@@ -1,5 +1,6 @@
 package com.example.crm;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +13,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.crm.HRManagement.NewCandidateActivity;
 import com.example.crm.Retro.RetrofiBase2;
 import com.example.crm.SalesManagement.RetroInterface;
 import com.example.crm.SalesManagement.SalesMeetingAdapter;
+import com.example.crm.SalesManagement.Sales_rrating;
 import com.example.crm.SalesManagement.model.ClientListItem;
 import com.example.crm.SalesManagement.model.Meeting;
+import com.example.crm.SalesManagement.new_sales_dashborad;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -46,7 +50,9 @@ public class SalesMeetActivity extends AppCompatActivity {
 
     private void onFabClick() {
         fab.setOnClickListener(v -> {
-            buildAlertDialog();
+            Intent intent = new Intent(SalesMeetActivity.this, Sales_rrating.class);
+            startActivity(intent);
+            //buildAlertDialog();
         });
     }
 
