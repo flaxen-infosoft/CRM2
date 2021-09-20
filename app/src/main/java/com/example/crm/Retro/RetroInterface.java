@@ -16,6 +16,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -99,6 +100,16 @@ public interface RetroInterface {
 
     @GET("getleads.php")
     Call<ArrayList<leadsname>> getleads();
+    @GET("getleads.php")
+    Call<ArrayList<Customer>> getleadsCustomer();
+
+    @PUT("updateleads.php")
+    Call<Customer> updateLeads(@Query("id")int id,@Query("remark") String remark);
+    @DELETE("deleteleads.php")
+    Call<Customer> deleteleads(@Query("id")int id);
+    @PUT("updatecallcount.php")
+    Call<Customer> updatecallcount(@Query("id")int id);
+
 
 
 }

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#A6CFFF"
+    tools:context=".EODnew">
+
+    <LinearLayout
+        android:id="@+id/linearLayout12"
+        android:layout_width="349dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout11">
+
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:fontFamily="@font/montserrat"
+            android:text="To"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="291dp"
+            android:layout_height="40dp"
+            android:elevation="10dp"
+
+            >
+
+            <ImageView
+                android:id="@+id/imageView17"
+                android:layout_width="24dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                app:srcCompat="@drawable/addiconnnn" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName"
+                android:layout_width="257dp"
+                android:layout_height="match_parent"
+                android:backgroundTint="#FFFFFF"
+                android:elevation="2dp"
+                android:ems="10" />
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarreports"
+        android:layout_width="0dp"
+        android:layout_height="78dp"
+        android:background="#063A69"
+        app:constraint_referenced_ids="toolbarreports"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/backbutton"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_backarrow" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="43dp"
+                android:layout_marginLeft="43dp"
+
+
+                android:layout_toEndOf="@+id/backbutton"
+                android:layout_toRightOf="@+id/backbutton"
+                android:fontFamily="@font/montserrat"
+                android:text="EOD"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/linearLayout11"
+        android:layout_width="361dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="28dp"
+        android:orientation="horizontal"
+        android:paddingLeft="12dp"
+        android:paddingRight="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout12"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout12"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarreports">
+
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="21dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/montserrat"
+            android:paddingRight="3dp"
+            android:text="FROM"
+            android:textColor="#000000"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="291dp"
+            android:layout_height="40dp"
+            android:elevation="10dp"
+
+            >
+
+            <ImageView
+                android:id="@+id/imageView17"
+                android:layout_width="33dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                app:srcCompat="@drawable/editbtnnn" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName"
+                android:layout_width="247dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FFFFFF"
+                android:elevation="2dp"
+                android:ems="10" />
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/search1"
+        android:layout_width="304dp"
+        android:layout_height="345dp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="17dp"
+        android:background="#FFFFFF"
+        android:elevation="15dp"
+
+
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textSize="12sp"
+        app:layout_constraintCircleRadius="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.607"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout12" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="414dp"
+        android:layout_height="57dp"
+        android:background="#0930B8"
+        android:fontFamily="@font/montserrat"
+
+
+        android:foregroundGravity="fill"
+        android:text="SEND"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#0930B8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

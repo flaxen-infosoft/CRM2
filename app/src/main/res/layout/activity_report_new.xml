@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#A6CFFF"
+    tools:context=".ReportNewhr">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarreports"
+        android:layout_width="0dp"
+        android:layout_height="78dp"
+        android:background="#063A69"
+        app:constraint_referenced_ids="toolbarreports"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/backbutton"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_backarrow" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="43dp"
+                android:layout_marginLeft="43dp"
+
+
+                android:layout_toEndOf="@+id/backbutton"
+                android:layout_toRightOf="@+id/backbutton"
+                android:fontFamily="@font/montserrat"
+                android:text="Report"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/search"
+        android:layout_width="303dp"
+        android:layout_height="36dp"
+        android:layout_marginHorizontal="25dp"
+
+        android:layout_marginTop="42dp"
+        android:background="#FFFFFF"
+        android:elevation="15dp"
+        android:hint="Report Title"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textSize="12sp"
+        app:layout_constraintCircleRadius="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarreports" />
+
+    <EditText
+        android:id="@+id/search1"
+        android:layout_width="304dp"
+        android:layout_height="345dp"
+        android:layout_marginHorizontal="25dp"
+
+        android:layout_marginTop="268dp"
+        android:background="#FFFFFF"
+        android:elevation="15dp"
+
+
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textSize="12sp"
+        app:layout_constraintCircleRadius="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.682"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="168dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="42dp"
+        android:background="#0930B8"
+        android:text="SEND"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#0930B8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search1" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

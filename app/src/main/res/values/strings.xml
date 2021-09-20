@@ -15,6 +15,13 @@
         <item>Call Discounted</item>
         <item>Demo</item>
     </array>
+    <string-array name="planets_array">
+        <item><b>Select_Type</b></item>
+        <item>Half Day</item>
+        <item>Full day</item>
+        <item>Early leaving</item>
+        <item>Late coming</item>
+    </string-array>
 
     <string-array name="Spinner_items_city">
 

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#A6CFFF"
+    tools:context=".ClientDetailsnew">
+
+    <EditText
+        android:id="@+id/search"
+        android:layout_width="303dp"
+        android:layout_height="36dp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bgcard"
+        android:backgroundTint="#FFFFFF"
+        android:drawableRight="@drawable/ic_baseline_search_24"
+        android:elevation="10dp"
+        android:hint="Search task"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarreports" />
+
+    <ScrollView
+        android:layout_width="408dp"
+        android:layout_height="562dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="30dp"
+                android:layout_marginTop="26dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+
+                app:contentPaddingBottom="5dp"
+                app:contentPaddingTop="5dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:padding="15dp">
+
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name of customer"
+                        android:textColor="#0930B8"
+                        android:textSize="20sp"
+                        tools:layout_editor_absoluteX="24dp"
+                        tools:layout_editor_absoluteY="8dp" />
+
+                    <TextView
+                        android:id="@+id/textView27"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7.73dp"
+                        android:text="Project start and Project end"
+                        android:textColor="#000000"
+                        android:textSize="12dp"
+                        app:layout_constraintTop_toBottomOf="@+id/textView17"
+                        tools:layout_editor_absoluteX="24dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7.91dp"
+                        app:layout_constraintTop_toBottomOf="@+id/textView27"
+                        app:srcCompat="@drawable/linename"
+                        tools:layout_editor_absoluteX="55dp" />
+
+                    <TextView
+                        android:id="@+id/textView28"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2.9dp"
+                        android:text="Project Title"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView21"
+                        tools:layout_editor_absoluteX="21dp" />
+
+                    <TextView
+                        android:id="@+id/textView29"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Description"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        app:layout_constraintTop_toBottomOf="@+id/textView28"
+                        tools:layout_editor_absoluteX="21dp" />
+
+                    <TextView
+                        android:id="@+id/textView30"
+                        android:layout_width="286dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="2.41dp"
+                        android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad"
+                        app:layout_constraintTop_toBottomOf="@+id/textView29"
+                        tools:layout_editor_absoluteX="21dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView23"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.494"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView30"
+                        app:srcCompat="@drawable/callic" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="30dp"
+                android:layout_marginTop="26dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+
+                app:contentPaddingBottom="5dp"
+                app:contentPaddingTop="5dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:padding="15dp">
+
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name of customer"
+                        android:textColor="#0930B8"
+                        android:textSize="20sp"
+                        tools:layout_editor_absoluteX="24dp"
+                        tools:layout_editor_absoluteY="8dp" />
+
+                    <TextView
+                        android:id="@+id/textView27"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7.73dp"
+                        android:text="Project start and Project end"
+                        android:textColor="#000000"
+                        android:textSize="12dp"
+                        app:layout_constraintTop_toBottomOf="@+id/textView17"
+                        tools:layout_editor_absoluteX="24dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7.91dp"
+                        app:layout_constraintTop_toBottomOf="@+id/textView27"
+                        app:srcCompat="@drawable/linename"
+                        tools:layout_editor_absoluteX="55dp" />
+
+                    <TextView
+                        android:id="@+id/textView28"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2.9dp"
+                        android:text="Project Title"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView21"
+                        tools:layout_editor_absoluteX="21dp" />
+
+                    <TextView
+                        android:id="@+id/textView29"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Description"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        app:layout_constraintTop_toBottomOf="@+id/textView28"
+                        tools:layout_editor_absoluteX="21dp" />
+
+                    <TextView
+                        android:id="@+id/textView30"
+                        android:layout_width="286dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="2.41dp"
+                        android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad"
+                        app:layout_constraintTop_toBottomOf="@+id/textView29"
+                        tools:layout_editor_absoluteX="21dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView23"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="@+id/textView30"
+                        app:layout_constraintHorizontal_bias="0.494"
+                        app:layout_constraintStart_toStartOf="@+id/textView30"
+                        app:layout_constraintTop_toBottomOf="@+id/textView30"
+                        app:srcCompat="@drawable/callic" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarreports"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="#063A69"
+        app:constraint_referenced_ids="toolbarreports"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_backarrow" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="162dp"
+                android:layout_marginRight="162dp"
+                android:text="Client Details"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
