@@ -17,7 +17,6 @@ import com.example.crm.HRManagement.NewCandidateActivity;
 import com.example.crm.Retro.RetrofiBase2;
 import com.example.crm.SalesManagement.RetroInterface;
 import com.example.crm.SalesManagement.SalesMeetingAdapter;
-import com.example.crm.SalesManagement.Sales_rrating;
 import com.example.crm.SalesManagement.model.ClientListItem;
 import com.example.crm.SalesManagement.model.Meeting;
 import com.example.crm.SalesManagement.new_sales_dashborad;
@@ -50,9 +49,7 @@ public class SalesMeetActivity extends AppCompatActivity {
 
     private void onFabClick() {
         fab.setOnClickListener(v -> {
-            Intent intent = new Intent(SalesMeetActivity.this, Sales_rrating.class);
-            startActivity(intent);
-            //buildAlertDialog();
+            buildAlertDialog();
         });
     }
 
