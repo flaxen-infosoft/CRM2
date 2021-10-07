@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A6CFFF"
+    android:background="@color/aayushthemepurple"
     tools:context=".LeaveApplicationNew">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarreports"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:background="#063A69"
+        android:background="@color/aayushpurple"
         app:constraint_referenced_ids="toolbarreports"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -153,53 +153,14 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardsearch"
-        android:layout_width="303dp"
-        android:layout_height="36dp"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginStart="33dp"
-        android:layout_marginLeft="33dp"
-        android:layout_marginTop="30dp"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardtype">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <EditText
-                android:id="@+id/search"
-                android:layout_width="303dp"
-                android:layout_height="36dp"
-                android:layout_marginHorizontal="25dp"
-
-                android:background="@drawable/bgblueborder"
-                android:elevation="15dp"
-                android:hint="Subject"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="10dp"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintCircleRadius="5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardView6"
         android:layout_width="285dp"
         android:layout_height="309dp"
-        android:layout_marginTop="35dp"
         android:layout_marginBottom="53dp"
         app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintStart_toStartOf="@+id/cardsearch"
-        app:layout_constraintTop_toBottomOf="@+id/cardsearch">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardtype">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -211,6 +172,8 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/bgblueborder"
                 android:ems="10"
+                android:gravity="clip_vertical"
+                android:hint="message"
                 android:inputType="textPersonName"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintCircleRadius="5dp"
@@ -225,15 +188,16 @@
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="#0930B8"
+        android:background="@color/aayushpurple"
         android:fontFamily="@font/montserrat"
-        android:text="APPLY"
+        android:text="Apply"
         android:textColor="#FFFFFF"
-        app:backgroundTint="#0930B8"
+        app:backgroundTint="@color/aayushpurple"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
     <TextView
         android:id="@+id/textView34"

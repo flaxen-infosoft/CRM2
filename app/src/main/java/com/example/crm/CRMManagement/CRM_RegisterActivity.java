@@ -128,7 +128,7 @@ public class CRM_RegisterActivity extends AppCompatActivity {
 				customer.setPackage_name(s_packagename);
 				customer.setSource(s_source);
 				customer.setMail_id(s_mailid);
-				customer.setPhone_no(s_phone);
+				customer.setPhone(s_phone);
 				customer.setState(s_state);
 				customer.setCity(s_city);
 				customer.setAddress(s_address);

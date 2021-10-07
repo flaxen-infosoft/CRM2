@@ -97,11 +97,22 @@ public interface RetroInterface {
 
     @GET("get_test_res.php")
     Call<TestResponse> getTestResponse(@Query("candidate_id") String candidateID);
-
+    @POST("insertpayment.php")
+    Call<JsonObject> insertpayment(@Query("lid") int lid,@Query("sid") int sid,@Query("amount") String amount,@Query("mode") String mode);
+@POST("insertcall.php")
+Call<JsonObject> insertcall(@Query("lid") int lid,@Query("sid") int sid,@Query("duration") String duration);
+    @POST("insertleave.php")
+    Call<JsonObject> insertleave(@Query("emp_id") int emp_id,@Query("date") String date,@Query("type") String type,@Query("message") String message);
     @GET("getleads.php")
     Call<ArrayList<leadsname>> getleads();
     @GET("getleads.php")
     Call<ArrayList<Customer>> getleadsCustomer();
+    @PUT("resetcall.php")
+    Call<Customer> updatecall(@Query("id")int id);
+@PUT("uploadproposal.php")
+Call<ResponsePOJO> uploadProposal(@Body Customer c);
+    @PUT("uploadinvoice.php")
+    Call<ResponsePOJO> uploadinvoice(@Body Customer c);
 
     @PUT("updateleads.php")
     Call<Customer> updateLeads(@Query("id")int id,@Query("remark") String remark);

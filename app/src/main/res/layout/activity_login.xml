@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ayushBlue"
+    android:background="@color/aayushpurple"
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
@@ -42,8 +42,9 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/edback"
-            android:hint="Mobile No"
-            android:inputType="number"
+            android:hint="email id"
+            android:inputType="textEmailAddress"
+
             android:padding="13dp"
             android:textColorHint="@color/black" />
 
@@ -72,7 +73,7 @@
             android:layout_marginRight="20dp"
             android:background="@drawable/edback"
             android:hint="Login"
-            android:textColorHint="@color/blue_border"
+            android:textColorHint="@color/aayushpurple"
             app:backgroundTint="@color/white" />
 
         <TextView

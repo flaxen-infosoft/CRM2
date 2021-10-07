@@ -1,12 +1,11 @@
 package com.example.crm.SalesManagement;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -54,6 +53,7 @@ public class RecyclerViewAdapterleads extends RecyclerView.Adapter<RecyclerViewA
                 public void onClick(View view) {
                     if (customer.getRemark().equals("Not Intrested"))
                     {customer.setRemark("Lead");
+
                         Call<Customer> call=Apicontrollerflaxen.getInstance().getapi().updateLeads(customer.getId(),customer.getRemark());
                         call.enqueue(new Callback<Customer>() {
                             @Override
@@ -76,7 +76,7 @@ public class RecyclerViewAdapterleads extends RecyclerView.Adapter<RecyclerViewA
                     }
                     else if(customer.getRemark().equals("Lead"))
                     {
-                        customer.setRemark("Followup");
+                        customer.setRemark("Follow up");
                         Call<Customer> call=Apicontrollerflaxen.getInstance().getapi().updateLeads(customer.getId(),customer.getRemark());
                         call.enqueue(new Callback<Customer>() {
                             @Override
@@ -92,6 +92,18 @@ public class RecyclerViewAdapterleads extends RecyclerView.Adapter<RecyclerViewA
                             @Override
                             public void onFailure(Call<Customer> call, Throwable t) {
                                 CustomToast.makeText(view.getContext(), "not updated", Toast.LENGTH_LONG, R.color.red);
+
+                            }
+                        });
+                        Call<Customer> call2=Apicontrollerflaxen.getInstance().getapi().updatecall(customer.getId());
+                        call2.enqueue(new Callback<Customer>() {
+                            @Override
+                            public void onResponse(Call<Customer> call, Response<Customer> response) {
+                                System.out.println("done");
+                            }
+
+                            @Override
+                            public void onFailure(Call<Customer> call, Throwable t) {
 
                             }
                         });
@@ -126,7 +138,7 @@ public class RecyclerViewAdapterleads extends RecyclerView.Adapter<RecyclerViewA
                 }
                    else  if(customer.getRemark().equals("Not Intrested"))
                     {
-                             customer.setRemark("history");
+                             customer.setRemark("Deleted");
                         Call<Customer> call1= Apicontrollerflaxen.getInstance().getapi().updateLeads(customer.getId(),customer.getRemark());
                         call1.enqueue(new Callback<Customer>() {
                             @Override
@@ -148,6 +160,7 @@ public class RecyclerViewAdapterleads extends RecyclerView.Adapter<RecyclerViewA
 
                 }
             });
+            holder.callcount.setText("No response: "+customer.getCallcount()+" times");
             holder.noresponse.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view)
@@ -155,8 +168,8 @@ public class RecyclerViewAdapterleads extends RecyclerView.Adapter<RecyclerViewA
                     count[0] += 1;
 
                     System.out.println(count[0]);
-                    //.setCallcount(""+count[0]);
-                    holder.callcount.setText(customer.getCallcount());
+                    //customer.setCallcount("No response:"+customer.getCallcount()+" times");
+
                     Call<Customer> call1= Apicontrollerflaxen.getInstance().getapi().updatecallcount(customer.getId());
                     call1.enqueue(new Callback<Customer>() {
                         @Override
@@ -164,7 +177,7 @@ public class RecyclerViewAdapterleads extends RecyclerView.Adapter<RecyclerViewA
                             Intent intent1 = new Intent(context, LeadsActivitynew.class);
                             intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             context.startActivity(intent1);
-
+                            //holder.callcount.setText("No response:"+customer.getCallcount()+" times");
 
 
                         }
@@ -178,6 +191,27 @@ public class RecyclerViewAdapterleads extends RecyclerView.Adapter<RecyclerViewA
 
                 }
             });
+            holder.call.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view)
+                { Intent callintent= new Intent(Intent.ACTION_DIAL,Uri.parse("tel:"+customer.getPhone_no().trim()));
+                callintent.setData(Uri.parse("tel:"+customer.getPhone_no().trim()));
+                context.startActivity(callintent);
+
+
+                }
+            });
+        holder.sms.setOnClickListener(new View.OnClickListener() {
+            @Override
+               public void onClick(View view) {
+                Uri uri = Uri.parse("smsto:" +customer.getPhone_no().trim() );
+              Intent i = new Intent(Intent.ACTION_SENDTO, uri);
+                  i.putExtra("sms_body", "hello");
+                    i.setPackage("com.whatsapp.w4b");
+                  context.startActivity(i);
+                   System.out.println(customer.getPhone_no().trim());
+              }
+          });
 
 
     }

@@ -9,7 +9,9 @@ public class Apicontrollerflaxen
     private static Apicontrollerflaxen clientObject;
     private static Retrofit retrofit;
     Apicontrollerflaxen()
-    {
+    {//OkHttpClient client = new OkHttpClient.Builder()
+           // .connectTimeout(100, TimeUnit.SECONDS)
+           // .readTimeout(100,TimeUnit.SECONDS).build();
         retrofit=new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())

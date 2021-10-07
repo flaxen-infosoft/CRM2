@@ -9,7 +9,9 @@ public class ApiController
     private static ApiController clientObject;
     private static Retrofit retrofit;
     ApiController()
-    {
+  { //OkHttpClient client = new OkHttpClient.Builder()
+//            .connectTimeout(100, TimeUnit.SECONDS)
+//            .readTimeout(100,TimeUnit.SECONDS).build();
         retrofit=new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())

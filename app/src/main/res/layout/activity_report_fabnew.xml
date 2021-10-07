@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SalesManagement.Historynew">
+    tools:context=".ReportFabnew">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarreports"
         android:layout_width="0dp"
@@ -33,7 +33,7 @@
                 android:layout_marginRight="54dp"
                 android:fontFamily="@font/montserrat"
                 android:gravity="center_horizontal"
-                android:text="HISTORY"
+                android:text="SELECT TYPE"
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -46,69 +46,69 @@
                 app:srcCompat="@drawable/ic_backarrow" />
 
 
+
         </RelativeLayout>
 
 
     </androidx.appcompat.widget.Toolbar>
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/callbuttoncard"
+        android:layout_width="197dp"
+        android:layout_height="61dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="132dp"
+        android:elevation="10dp"
+        app:cardCornerRadius="5dp"
 
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-
+        app:cardElevation="5dp"
+        app:cardForegroundColor="#8019B400"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tab1"
-        android:layout_marginTop="20dp">
+        app:layout_constraintTop_toBottomOf="@+id/toolbarreports">
 
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_gravity="center"
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rec45"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </ScrollView>
+            android:fontFamily="@font/aclonica"
+            android:gravity="center|clip_vertical|center_horizontal"
+            android:text="CALL"
+            android:textColor="#2E9E40"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tab1"
-        android:layout_width="349dp"
-        android:layout_height="64dp"
-        android:layout_marginHorizontal="25dp"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/paymentcard"
+        android:layout_width="197dp"
+        android:layout_height="61dp"
+        android:layout_gravity="center"
 
-        android:layout_marginTop="4dp"
-        android:background="@drawable/meeting_tablayout_bg"
+        android:layout_marginTop="64dp"
+        android:elevation="10dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        app:cardBackgroundColor="#A4AEE4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarreports"
-        app:tabBackground="@drawable/meeting_tab_item_selector"
-        app:tabGravity="fill"
-        app:tabIndicator="@drawable/meeting_tab_item_bg"
-        app:tabIndicatorAnimationMode="linear"
-        app:tabIndicatorColor="#9D96EF"
-        app:tabIndicatorGravity="stretch"
-        app:tabMaxWidth="0dp"
-        app:tabMode="fixed"
-        app:tabRippleColor="@android:color/transparent"
-        app:tabSelectedTextColor="@color/white"
-        app:tabUnboundedRipple="false">
+        app:layout_constraintTop_toBottomOf="@+id/callbuttoncard">
 
-        <com.google.android.material.tabs.TabItem
+        <TextView
+            android:id="@+id/textView300"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Completed" />
+            android:layout_height="38dp"
+            android:layout_gravity="center"
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Withdwaw" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Deleted" />
-
-
-    </com.google.android.material.tabs.TabLayout>
+            android:fontFamily="@font/aclonica"
+            android:gravity="center|clip_vertical|center_horizontal"
+            android:text="PAYMENT"
+            android:textColor="#192EA1"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </com.google.android.material.card.MaterialCardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

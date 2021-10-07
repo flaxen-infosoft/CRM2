@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.crm">
+    package="com.example.crm" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -11,13 +11,30 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CRM">
-        <activity android:name=".SalesManagement.scalingindicator"></activity>
-        <activity android:name=".SalesManagement.Sales_rrating"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
+        android:theme="@style/Theme.CRM" >
+        <activity
+            android:name=".ReportFabnew"
+            android:exported="true" />
+        <activity
+            android:name=".Sendnvoice"
+            android:exported="true" />
+        <activity
+            android:name=".SendProposal"
+            android:exported="true" /> <!-- <activity android:name=".SalesManagement.scalingindicator"></activity> -->
+        <!-- <activity android:name=".SalesManagement.Sales_rrating" -->
+        <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" /> -->
         <activity android:name=".SalesManagement.new_sales_dashborad" />
         <activity android:name=".tempui_2" />
         <activity android:name=".Clientdetails" />
+        <activity android:name=".SalesManagement.Followupnew" />
+        <activity android:name=".SalesManagement.LeadsActivitynew" />
+        <activity android:name=".SalesManagement.Clientnew" />
+        <activity android:name=".SalesManagement.Historynew" />
+        <activity android:name=".SalesManagement.Reportnew" />
+        <activity android:name=".SalesManagement.Meetingnew" />
+        <activity android:name=".EmployeeDashboardnew" />
+        <activity android:name=".SalarySlipnew" />
+        <activity android:name=".LeaveApplicationNew" />
         <activity android:name=".EmployeeManagement.EmployeeTrainingActivity" />
         <activity android:name=".CRMManagement.ProjectsActivty" />
         <activity android:name=".CRMManagement.ProposalDashboardActivity" />
@@ -64,9 +81,10 @@
         <activity android:name=".HRManagement.CandidateRemark" />
         <activity android:name=".HRManagement.CandidateRegistration" />
         <activity android:name=".NewProposalActivity" />
+        <activity android:name=".SalesDashboardnew" />
         <activity android:name=".HRManagement.ShortlistedCandidateFullDetailsActivity" />
         <activity android:name=".HRManagement.ShortlistedCandidateDetailsActivity" />
-        <activity android:name=".HRManagement.TestPaperActivity">
+        <activity android:name=".HRManagement.TestPaperActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -88,7 +106,7 @@
         <activity android:name=".TrainingActivity" />
         <activity android:name=".HRManagement.PdfViewerActivity" />
         <activity android:name=".EmployeeManagement.ChooseTargetLocation" />
-        <activity android:name=".SalesMeetActivity">
+        <activity android:name=".LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -99,6 +117,9 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAJe6reTdRY5qFB-P6fZBzCs_exCV0Hsfc" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

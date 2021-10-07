@@ -1,21 +1,14 @@
 package com.example.crm.SalesManagement;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.graphics.Color;
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.ArrayAdapter;
-
-import com.example.crm.CRMManagement.CustomersDetails;
-import com.example.crm.CustomToast;
-import com.example.crm.LeaveManagement.RecyclerViewAdapter;
 import com.example.crm.Model.Customer;
 import com.example.crm.R;
-import com.example.crm.Retro.ApiController;
-import com.google.gson.JsonObject;
+import com.example.crm.Retro.Apicontrollerflaxen;
 
 import java.util.ArrayList;
 
@@ -27,9 +20,7 @@ public class Clientnew extends AppCompatActivity {
      public ArrayList<Customer> clients=new ArrayList<>();
    RecyclerViewAdapterclient recyclerViewAdapterclient;
     RecyclerView recyclerView;
-
-
-
+    private ArrayList<Customer> followup1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,28 +29,36 @@ public class Clientnew extends AppCompatActivity {
         recyclerView=findViewById(R.id.rec1);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        Call<ArrayList<Customer>> call = ApiController.getInstance().getapi().getAllCustomers();
+        ArrayList<Customer> follow;
+       ArrayList<Customer> followup = new ArrayList<>();
+        Call<ArrayList<Customer>> call = Apicontrollerflaxen.getInstance().getapi().getleadsCustomer();
         call.enqueue(new Callback<ArrayList<Customer>>() {
             @Override
-            public void onResponse(Call<ArrayList<Customer>> call, Response<ArrayList<Customer>> response)
-            {
-                if (response.isSuccessful()) {
-                    clients = response.body();
-                    System.out.println(clients.get(0).getName());
-                    recyclerViewAdapterclient=new RecyclerViewAdapterclient(Clientnew.this,clients);
-                    recyclerView.setAdapter(recyclerViewAdapterclient);
+            public void onResponse(Call<ArrayList<Customer>> call, Response<ArrayList<Customer>> response) {
+                followup1 = response.body();
+                //ArrayList<Customer> leads1=new ArrayList<>();
+                for (int i = 0; i < followup1.size(); i++) {
+                    if (followup1.get(i).getRemark().toString().equals("Client")) {
+                        followup.add(followup1.get(i));
+                       //  System.out.println(followup.get(i).getInvoice());
+                    }
+                    //  System.out.println(followup.get(i).getName());
 
-                } else {
-                    CustomToast.makeText(Clientnew.this,"Failed: " + response.message(), 0, Color.RED);
                 }
+
+
+               recyclerViewAdapterclient=new RecyclerViewAdapterclient(Clientnew.this,followup);
+                recyclerView.setAdapter(recyclerViewAdapterclient);
 
             }
 
             @Override
-            public void onFailure(Call<ArrayList<Customer>> call, Throwable t) {
-                Log.d("hellomyname","failed to fetch");
+            public void onFailure(Call<ArrayList<Customer>> call, Throwable t)
+            {
+
             }
         });
+
         //System.out.println("hello"+clients.get(0).getName());
 
 

@@ -58,14 +58,15 @@
 
     <string-array name="LoginAs">
         <item>Select Department</item>
-        <item>Android APP Development</item>
-        <item>Website Development</item>
-        <item>Sales</item>
-        <item>Digital Marketing</item>
-        <item>UI UX Designer</item>
-        <item>Graphic Designer</item>
         <item>Admin</item>
+        <item>Operation</item>
+        <item>Production</item>
+        <item>HR</item>
+        <item>Sales</item>
+
+
     </string-array>
+
     <string-array name="Designation">
         <item>Select Designation</item>
         <item>Android APP Development</item>

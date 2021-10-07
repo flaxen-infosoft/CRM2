@@ -22,8 +22,14 @@ public class PdfViewerActivity extends AppCompatActivity {
 	String url;
 	ProgressDialog loading;
 
+
+//	public PdfViewerActivity(String url) {
+//		this.url = url;
+//	}
+
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState)
+	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pdf_viewer);
 
@@ -35,11 +41,12 @@ public class PdfViewerActivity extends AppCompatActivity {
 		new PdfDownload().execute(url);
 	}
 
-	private class PdfDownload extends AsyncTask<String, Void, InputStream> {
+	private class PdfDownload extends AsyncTask<String, Void, InputStream>
+	{
 
 		@Override
 		protected InputStream doInBackground(String... strings) {
-			InputStream inputStream = null;
+			InputStream inputStream = null   ;
 			try {
 				URL url = new URL(strings[0]);
 				HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
@@ -56,7 +63,8 @@ public class PdfViewerActivity extends AppCompatActivity {
 		}
 
 		@Override
-		protected void onPostExecute(InputStream inputStream) {
+		protected void onPostExecute(InputStream inputStream)
+		{
 			pdfView.fromStream(inputStream).load();
 			loading.dismiss();
 		}

@@ -1,7 +1,5 @@
 package com.example.crm;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,14 +9,17 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.crm.SalesManagement.Clientnew;
 import com.example.crm.SalesManagement.Followupnew;
 import com.example.crm.SalesManagement.Historynew;
 import com.example.crm.SalesManagement.LeadsActivitynew;
 import com.example.crm.SalesManagement.Meetingnew;
-//import com.example.crm.SalesManagement.Reportnew;
 import com.example.crm.SalesManagement.Reportnew;
 import com.google.android.material.card.MaterialCardView;
+
+//import com.example.crm.SalesManagement.Reportnew;
 
 public class SalesDashboardnew extends AppCompatActivity {
 MaterialCardView leads;
@@ -37,6 +38,7 @@ MaterialCardView leads;
     public void leadsclick(View view)
     {
         Intent intent=new Intent(SalesDashboardnew.this, LeadsActivitynew.class);
+        intent.putExtra("empid",getIntent().getIntExtra("empid",0));
         startActivity(intent);
 
     }
@@ -44,28 +46,33 @@ MaterialCardView leads;
     public void followupclick(View view)
     {
         Intent intent=new Intent(SalesDashboardnew.this, Followupnew.class);
+        intent.putExtra("empid",getIntent().getIntExtra("empid",0));
         startActivity(intent);
 
     }
 
     public void clientsclick(View view) {
         Intent intent=new Intent(SalesDashboardnew.this, Clientnew.class );
+        intent.putExtra("empid",getIntent().getIntExtra("empid",0));
         startActivity(intent);
 
     }
     public void meetingclick(View view) {
         Intent intent=new Intent(SalesDashboardnew.this, Meetingnew.class );
+        intent.putExtra("empid",getIntent().getIntExtra("empid",0));
         startActivity(intent);
 
     }
 
     public void leaveclick(View view)
     { Intent intent=new Intent(SalesDashboardnew.this, LeaveApplicationNew.class);
+        intent.putExtra("empid",getIntent().getIntExtra("empid",0));
         startActivity(intent);
 
     }
     public void reportingclick(View view)
     { Intent intent=new Intent(SalesDashboardnew.this, Reportnew.class);
+        intent.putExtra("empid",getIntent().getIntExtra("empid",0));
         startActivity(intent);
 
     }

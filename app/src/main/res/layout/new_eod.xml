@@ -50,7 +50,7 @@
         app:layout_constraintTop_toTopOf="@+id/materialCardView6" />
 
     <TextView
-        android:id="@+id/textView37"
+        android:id="@+id/clientstext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"

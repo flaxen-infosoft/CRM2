@@ -1,21 +1,16 @@
 package com.example.crm.SalesManagement;
 
+import android.os.Build;
+import android.os.Bundle;
+import android.view.View;
+
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.graphics.Color;
-import android.os.Build;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-
-import com.example.crm.CustomToast;
 import com.example.crm.Model.Customer;
 import com.example.crm.R;
-import com.example.crm.Retro.ApiController;
 import com.example.crm.Retro.Apicontrollerflaxen;
 import com.google.android.material.card.MaterialCardView;
 
@@ -79,6 +74,7 @@ public class LeadsActivitynew extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<ArrayList<Customer>> call1, Response<ArrayList<Customer>> response)
                     {leads=response.body();
+
                         ArrayList<Customer> leads1=new ArrayList<>();
                         for(int i=0;i<leads.size();i++)
                         {

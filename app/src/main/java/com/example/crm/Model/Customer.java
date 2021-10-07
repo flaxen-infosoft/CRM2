@@ -5,8 +5,38 @@ import java.io.Serializable;
 public class Customer implements Serializable {
 
     int id;
-    String name, domain, sub_domain, package_name, package_value, source, mail_id, phone_no, gender, state, city, address, priority, status, remark;
-    String callcount;
+    String name, domain, sub_domain, package_name, package_value, source, mail_id, phone, gender, state, city, address, priority, status, remark;
+    String callcount;    String proposal, invoice;
+
+    public String getPhone() {
+        return phone;
+    }
+
+//    public String getEndodedpdf() {
+
+    public String getInvoice() {
+        return invoice;
+    }
+
+    public void setInvoice(String invoice) {
+        this.invoice = invoice;
+    }
+//        return endodedpdf;
+//    }
+//
+//    public void setEndodedpdf(String endodedpdf) {
+//        this.endodedpdf = endodedpdf;
+//    }
+
+    public String getProposal() {
+        return proposal;
+    }
+
+    public void setProposal(String proposal) {
+        this.proposal = proposal;
+    }
+
+
 
     public String getCallcount() {
         return callcount;
@@ -81,11 +111,11 @@ public class Customer implements Serializable {
     }
 
     public String getPhone_no() {
-        return phone_no;
+        return phone;
     }
 
-    public void setPhone_no(String phone_no) {
-        this.phone_no = phone_no;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getGender() {
