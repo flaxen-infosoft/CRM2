@@ -58,7 +58,7 @@ public class SalesMeetingAdapter extends RecyclerView.Adapter<SalesMeetingAdapte
             super(view);
             title = (TextView) view.findViewById(R.id.leadname);
             startEndButton = view.findViewById(R.id.startendbutton);
-            recordButton = view.findViewById(R.id.recordbutton);
+//            recordButton = view.findViewById(R.id.recordbutton);
         }
     }
 }

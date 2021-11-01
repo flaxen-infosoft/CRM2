@@ -23,7 +23,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ReportFabnew extends AppCompatActivity
-{ArrayList<Customer> leads;
+{
+    ArrayList<Customer> leads;
+    ArrayList<Customer> followup1;
+    ArrayList<Customer> cc;
 MaterialCardView callbutton,paymentbutton;
 EditText amount,mode,duration;
 
@@ -34,8 +37,11 @@ EditText amount,mode,duration;
         callbutton=findViewById(R.id.callbuttoncard);
         paymentbutton=findViewById(R.id.paymentcard);
 
+cc=new ArrayList<>();
+        callbutton.setOnClickListener(new View.OnClickListener()
+        {
+            ArrayList<String> leads1;
 
-        callbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             { AlertDialog.Builder builder=new AlertDialog.Builder(ReportFabnew.this);
@@ -43,17 +49,46 @@ EditText amount,mode,duration;
                 builder.setTitle("Fill info");
                 duration=view1.findViewById(R.id.editTextTextPersonName0);
                 Spinner spinner=view1.findViewById(R.id.spinner56);
-                Call<ArrayList<Customer>> call= Apicontrollerflaxen.getInstance().getapi().getleadsCustomer();
+                Call<ArrayList<Customer>> call= Apicontrollerflaxen.getInstance().getapi().getleads();
                 call.enqueue(new Callback<ArrayList<Customer>>() {
                     @Override
                     public void onResponse(Call<ArrayList<Customer>> call, Response<ArrayList<Customer>> response)
                     {leads=response.body();
-                        ArrayList<String> leads1=new ArrayList<>();
+
+                          leads1=new ArrayList<>();
                         for(int i=0;i<leads.size();i++)
-                        {
+                        { cc.add(leads.get(i));
 
                             leads1.add(leads.get(i).getName());
                             System.out.println(leads1.get(i));
+
+                        }
+
+
+
+
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<ArrayList<Customer>> call, Throwable t) {
+
+                    }
+
+
+                });
+                Call<ArrayList<Customer>> call4 = Apicontrollerflaxen.getInstance().getapi().getleadsCustomer();
+                call4.enqueue(new Callback<ArrayList<Customer>>()
+                {
+                    @Override
+                    public void onResponse(Call<ArrayList<Customer>> call4, Response<ArrayList<Customer>> response) {
+                        followup1 = response.body();
+
+                        //ArrayList<Customer> leads1=new ArrayList<>();
+                        for (int i = 0; i < followup1.size(); i++) {
+                               cc.add(followup1.get(i));
+                                leads1.add(followup1.get(i).getName());
+
 
                         }
 
@@ -81,12 +116,12 @@ EditText amount,mode,duration;
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i)
                     {
-                        Call<JsonObject> call5=Apicontrollerflaxen.getInstance().getapi().insertcall(100,getIntent().getIntExtra("empid",0),duration.getText().toString());
+                        Call<JsonObject> call5 = Apicontrollerflaxen.getInstance().getapi().insertcall(cc.get(spinner.getSelectedItemPosition()).getId(), getIntent().getIntExtra("empid", 1), duration.getText().toString());
+
                         call5.enqueue(new Callback<JsonObject>() {
                             @Override
-                            public void onResponse(Call<JsonObject> call, Response<JsonObject> response)
-                            {
-                                Toast.makeText(ReportFabnew.this,"success",Toast.LENGTH_SHORT).show();
+                            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                                Toast.makeText(ReportFabnew.this, "success", Toast.LENGTH_SHORT).show();
 
                             }
 
@@ -95,6 +130,9 @@ EditText amount,mode,duration;
 
                             }
                         });
+
+
+
 
                     }
                 });
@@ -115,7 +153,7 @@ EditText amount,mode,duration;
 
                 builder.setTitle("Fill info");
                 Spinner spinner=view1.findViewById(R.id.spinner5);
-                Call<ArrayList<Customer>> call= Apicontrollerflaxen.getInstance().getapi().getleadsCustomer();
+                Call<ArrayList<Customer>> call= Apicontrollerflaxen.getInstance().getapi().getleads();
                 call.enqueue(new Callback<ArrayList<Customer>>() {
                     @Override
                     public void onResponse(Call<ArrayList<Customer>> call, Response<ArrayList<Customer>> response)
@@ -155,7 +193,7 @@ EditText amount,mode,duration;
                     public void onClick(DialogInterface dialogInterface, int i)
                     {
                         System.out.println(amount.getText());
-                        Call<JsonObject> call3=Apicontrollerflaxen.getInstance().getapi().insertpayment(2,5,amount.getText().toString(),mode.getText().toString());
+                        Call<JsonObject> call3=Apicontrollerflaxen.getInstance().getapi().insertpayment(leads.get(spinner.getSelectedItemPosition()).getId(),1,amount.getText().toString(),mode.getText().toString());
                     call3.enqueue(new Callback<JsonObject>() {
                         @Override
                         public void onResponse(Call<JsonObject> call, Response<JsonObject> response)

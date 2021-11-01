@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.crm" >
+    package="com.example.crm">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 
     <application
         android:allowBackup="true"
@@ -11,7 +12,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CRM" >
+        android:theme="@style/Theme.CRM">
+        <activity
+            android:name=".SalesManagement.StartSalesMeetingNew"
+            android:exported="true" />
+        <activity
+            android:name=".ReportDetailnew"
+            android:exported="true" />
         <activity
             android:name=".ReportFabnew"
             android:exported="true" />
@@ -20,7 +27,8 @@
             android:exported="true" />
         <activity
             android:name=".SendProposal"
-            android:exported="true" /> <!-- <activity android:name=".SalesManagement.scalingindicator"></activity> -->
+            android:exported="true" />
+        <activity android:name=".SalesMeetActivity" /> <!-- <activity android:name=".SalesManagement.scalingindicator"></activity> -->
         <!-- <activity android:name=".SalesManagement.Sales_rrating" -->
         <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" /> -->
         <activity android:name=".SalesManagement.new_sales_dashborad" />
@@ -81,10 +89,9 @@
         <activity android:name=".HRManagement.CandidateRemark" />
         <activity android:name=".HRManagement.CandidateRegistration" />
         <activity android:name=".NewProposalActivity" />
-        <activity android:name=".SalesDashboardnew" />
         <activity android:name=".HRManagement.ShortlistedCandidateFullDetailsActivity" />
         <activity android:name=".HRManagement.ShortlistedCandidateDetailsActivity" />
-        <activity android:name=".HRManagement.TestPaperActivity" >
+        <activity android:name=".HRManagement.TestPaperActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -106,7 +113,7 @@
         <activity android:name=".TrainingActivity" />
         <activity android:name=".HRManagement.PdfViewerActivity" />
         <activity android:name=".EmployeeManagement.ChooseTargetLocation" />
-        <activity android:name=".LoginActivity" >
+        <activity android:name=".SalesDashboardnew">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

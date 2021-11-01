@@ -244,12 +244,12 @@ public class RecyclerViewAdapterFollowup extends RecyclerView.Adapter<RecyclerVi
           //  infuture = itemView.findViewById(R.id.nicard);
             sendpr = itemView.findViewById(R.id.intrcard);
             noresponse = itemView.findViewById(R.id.nores);
-            call.setOnClickListener(this);
+//            call.setOnClickListener(this);
             callcount=itemView.findViewById(R.id.callcount);
 //            infuture.setOnClickListener(this);
-            sms.setOnClickListener(this);
-            sendpr.setOnClickListener(this);
-            noresponse.setOnClickListener(this);
+//            sms.setOnClickListener(this);
+//            sendpr.setOnClickListener(this);
+//            noresponse.setOnClickListener(this);
 
 
         }

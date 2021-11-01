@@ -15,7 +15,6 @@ import com.example.crm.SalesManagement.Clientnew;
 import com.example.crm.SalesManagement.Followupnew;
 import com.example.crm.SalesManagement.Historynew;
 import com.example.crm.SalesManagement.LeadsActivitynew;
-import com.example.crm.SalesManagement.Meetingnew;
 import com.example.crm.SalesManagement.Reportnew;
 import com.google.android.material.card.MaterialCardView;
 
@@ -58,7 +57,7 @@ MaterialCardView leads;
 
     }
     public void meetingclick(View view) {
-        Intent intent=new Intent(SalesDashboardnew.this, Meetingnew.class );
+        Intent intent=new Intent(SalesDashboardnew.this, SalesMeetActivity.class );
         intent.putExtra("empid",getIntent().getIntExtra("empid",0));
         startActivity(intent);
 
@@ -72,7 +71,7 @@ MaterialCardView leads;
     }
     public void reportingclick(View view)
     { Intent intent=new Intent(SalesDashboardnew.this, Reportnew.class);
-        intent.putExtra("empid",getIntent().getIntExtra("empid",0));
+        intent.putExtra("empid",getIntent().getIntExtra("empid",1));
         startActivity(intent);
 
     }

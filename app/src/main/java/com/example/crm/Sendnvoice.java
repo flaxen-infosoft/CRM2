@@ -2,16 +2,19 @@ package com.example.crm;
 
 import static com.example.crm.R.drawable.pdficonnnn;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.crm.HRManagement.PdfViewerActivity;
@@ -141,5 +144,45 @@ public class Sendnvoice extends AppCompatActivity
             intent.putExtra("pdfurl", c.getInvoice());
             startActivity(intent);
         }
+    }
+
+    public void fabclick22(View view)
+    {
+        Customer c = (Customer) getIntent().getSerializableExtra("id");
+        AlertDialog.Builder builder=new AlertDialog.Builder(Sendnvoice.this);
+        View view1=getLayoutInflater().inflate(R.layout.totalpaymentsend,null);
+        builder.setTitle("Fill Total Amount");
+       EditText totalamount= view1.findViewById(R.id.totalamountentry);
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i)
+            { dialogInterface.dismiss();
+
+            }
+        });
+        builder.setPositiveButton("SUBMIT", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i)
+            {
+              Call<Customer> call=Apicontrollerflaxen.getInstance().getapi().updateamount(c.getId(),totalamount.getText().toString());
+              call.enqueue(new Callback<Customer>() {
+                  @Override
+                  public void onResponse(Call<Customer> call, Response<Customer> response) {
+                      Toast.makeText(Sendnvoice.this,"success",Toast.LENGTH_SHORT).show();
+                  }
+
+                  @Override
+                  public void onFailure(Call<Customer> call, Throwable t) {
+
+                  }
+              });
+
+            }
+        });
+        builder.setView(view1);
+        AlertDialog alertDialog=builder.create();
+        alertDialog.show();
+
+
     }
 }//written by AAYUSH MALVIYA

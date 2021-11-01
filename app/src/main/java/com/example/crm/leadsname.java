@@ -1,7 +1,7 @@
 package com.example.crm;
 
 public class leadsname {
-    String id ;
+    int id ;
     String name;
     String phone;
     String email;
@@ -12,11 +12,11 @@ public class leadsname {
     public leadsname() {
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

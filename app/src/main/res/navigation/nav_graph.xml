@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/recordAudioFragment">
+
+    <fragment
+        android:id="@+id/recordAudioFragment"
+        android:name="com.example.crm.RecordAudioFragment"
+        android:label="fragment_record_audio2"
+        tools:layout="@layout/fragment_record_audio2" >
+        <action
+            android:id="@+id/action_recordAudioFragment_to_recordAudioListFragment"
+            app:destination="@id/recordAudioListFragment" />
+        <action
+            android:id="@+id/action_recordAudioFragment_to_recordAudioListFragment2"
+            app:destination="@id/recordAudioListFragment"
+            app:exitAnim="@anim/fade_out"
+            app:enterAnim="@anim/slide_out"/>
+    </fragment>
+    <fragment
+        android:id="@+id/recordAudioListFragment"
+        android:name="com.example.crm.RecordAudioListFragment"
+        android:label="fragment_record_audio_list"
+        tools:layout="@layout/fragment_record_audio_list" />
+</navigation>

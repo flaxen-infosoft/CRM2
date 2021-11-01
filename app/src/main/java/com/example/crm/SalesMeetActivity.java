@@ -2,10 +2,8 @@ package com.example.crm;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -13,16 +11,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.crm.HRManagement.NewCandidateActivity;
-import com.example.crm.Retro.RetrofiBase2;
+import com.example.crm.Model.Customer;
+import com.example.crm.Retro.Apicontrollerflaxen;
+import com.example.crm.SalesManagement.RecyclerViewAdaptermeetingnew;
 import com.example.crm.SalesManagement.RetroInterface;
 import com.example.crm.SalesManagement.SalesMeetingAdapter;
-import com.example.crm.SalesManagement.Sales_rrating;
 import com.example.crm.SalesManagement.model.ClientListItem;
 import com.example.crm.SalesManagement.model.Meeting;
-import com.example.crm.SalesManagement.new_sales_dashborad;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.gson.JsonArray;
+import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
 
 import java.util.ArrayList;
 
@@ -37,158 +36,152 @@ public class SalesMeetActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RetroInterface retrofi;
     ArrayList<ClientListItem> clients;
+    ArrayList<Customer> leads;
+    ArrayList<Customer> followup1;
+    ArrayList<Customer> cc;
+    ArrayList<String> leads1;
+    RecyclerViewAdaptermeetingnew recyclerViewAdaptermeetingnew;
+    ArrayList<Customer> customers;
+    ArrayList<Customer> arr;
+ArrayList<Customer> clients1;
+    ArrayList<Customer> meetingarray;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sales_meet);
-        retrofi = RetrofiBase2.initretro().create(RetroInterface.class);
-        clients = new ArrayList<>();
-        clients.add(new ClientListItem("-1", "Select your client"));
-        initUI();
-    }
-
-    private void onFabClick() {
-        fab.setOnClickListener(v -> {
-            Intent intent = new Intent(SalesMeetActivity.this, Sales_rrating.class);
-            startActivity(intent);
-            //buildAlertDialog();
-        });
-    }
-
-    private void getClients(Call<ArrayList<ClientListItem>> call, FetchingClientsCallbacks fetchingClientsCallbacks) {
-        call.enqueue(new Callback<ArrayList<ClientListItem>>() {
-            @Override
-            public void onResponse(Call<ArrayList<ClientListItem>> call, Response<ArrayList<ClientListItem>> response) {
-                if (response.isSuccessful()) {
-                    clients = new ArrayList<>();
-                    clients.add(new ClientListItem("-1", "Select your client"));
-                    clients.addAll(response.body());
-                    fetchingClientsCallbacks.onComplete(clients);
-                } else {
-                    //error
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ArrayList<ClientListItem>> call, Throwable t) {
-                //error
-            }
-        });
-    }
+        fab=findViewById(R.id.fabbutton);
+        cc=new ArrayList<>();
+        leads1=new ArrayList<>();
+        arr=new ArrayList<>();
+        clients1=new ArrayList<>();
+        customers=new ArrayList<>();
+        meetingarray=new ArrayList<>();
 
 
-    private void buildAlertDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        AlertDialog dialog = builder.create();
-        Call<ArrayList<ClientListItem>> call = retrofi.fetchClients();
-        View content = LayoutInflater.from(this).inflate(R.layout.add_meeting_dialog, null);
-        MaterialCardView schedule = content.findViewById(R.id.schedule);
-        MaterialCardView cancel = content.findViewById(R.id.cancel);
-        Spinner spinner = content.findViewById(R.id.spinner);
-
-        schedule.setOnClickListener(v -> {
-            if (spinner.getSelectedItemPosition() == 0) {
-                Toast.makeText(SalesMeetActivity.this, "Please select client", Toast.LENGTH_SHORT).show();
-            } else {
-                createMeeting(spinner.getSelectedItemPosition());
-                call.cancel();
-                dialog.dismiss();
-            }
-        });
-        cancel.setOnClickListener(v -> {
-            call.cancel();
-            dialog.dismiss();
-        });
-
-        FetchingClientsCallbacks fetchingClientsCallbacks = clients -> {
-            ArrayList<String> names = new ArrayList<>();
-            for (ClientListItem clientListItem : clients) {
-                names.add(clientListItem.getName());
-            }
-            String[] stringArray = names.toArray(new String[0]);
-            ArrayAdapter adapter = new ArrayAdapter(SalesMeetActivity.this, android.R.layout.simple_spinner_item, stringArray);
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            spinner.setAdapter(adapter);
-        };
-        if (clients != null && clients.size() == 1) {
-            getClients(call, fetchingClientsCallbacks);
-        } else fetchingClientsCallbacks.onComplete(clients);
-
-        dialog.setTitle("Select your client");
-        dialog.setView(content);
-        dialog.show();
-    }
-
-    private void createMeeting(int selectedItemPosition) {
-        Meeting meeting = new Meeting();
-        meeting.setTitle(clients.get(selectedItemPosition - 1).getName());
-        meeting.setClientid(clients.get(selectedItemPosition - 1).getId());
-        //TODO change sales id of the logged in user (1 for now)
-        meeting.setSalesid("1");
-
-        Call<ArrayList<Meeting>> call = retrofi.createMeeting(meeting.getTitle(), meeting.getClientid(), meeting.getSalesid());
-        call.enqueue(new Callback<ArrayList<Meeting>>() {
-            @Override
-            public void onResponse(Call<ArrayList<Meeting>> call, Response<ArrayList<Meeting>> response) {
-                if (response.isSuccessful()) {
-                    if (response.body() != null && response.body().size() != 0 && !response.body().get(0).getId().equals("")) {
-                        meetings.add(0, response.body().get(0));
-                        adapter.notifyItemInserted(0);
-                    } else {
-                        Toast.makeText(SalesMeetActivity.this, "External Error: Failed to create meeting", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(SalesMeetActivity.this, "Internal Error: Failed to create meeting", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ArrayList<Meeting>> call, Throwable t) {
-                //error
-            }
-        });
-
-    }
-
-    private void getMeetingData() {
-
-        Call<ArrayList<Meeting>> call = retrofi.fetchMeetings();
-        call.enqueue(new Callback<ArrayList<Meeting>>() {
-            @Override
-            public void onResponse(Call<ArrayList<Meeting>> call, Response<ArrayList<Meeting>> response) {
-                if (response.isSuccessful()) {
-                    meetings = response.body();
-                    initRecyclerView();
-                } else {
-                    //error
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ArrayList<Meeting>> call, Throwable t) {
-                //error
-            }
-        });
-
-    }
-
-    private void initRecyclerView() {
-
-        adapter = new SalesMeetingAdapter(meetings, this);
-        recyclerView.setAdapter(adapter);
+        recyclerView=findViewById(R.id.meeting_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        Call<ArrayList<Customer>> call7=Apicontrollerflaxen.getInstance().getapi().getmeeting();
+        call7.enqueue(new Callback<ArrayList<Customer>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Customer>> call, Response<ArrayList<Customer>> response)
+            {
+               // System.out.println(response.body().get(0).getName());
+                recyclerViewAdaptermeetingnew=new RecyclerViewAdaptermeetingnew(SalesMeetActivity.this,response.body());
+              recyclerView.setAdapter(recyclerViewAdaptermeetingnew);
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Customer>> call, Throwable t) {
+
+            }
+        });
+
+
+
     }
 
-    private void initUI() {
-        fab = findViewById(R.id.fabbutton);
-        recyclerView = findViewById(R.id.meeting_recycler_view);
-        getMeetingData();
-        onFabClick();
-    }
+    public void fabclickmeeting(View view)
+    {
+        fab=findViewById(R.id.fabbutton);
+        cc=new ArrayList<>();
 
-    public interface FetchingClientsCallbacks {
-        void onComplete(ArrayList<ClientListItem> clients);
-    }
+        leads1=new ArrayList<>();
 
+                AlertDialog.Builder builder=new AlertDialog.Builder(SalesMeetActivity.this);
+                builder.setTitle("SELECT YOUR CLIENT");
+                View v= getLayoutInflater().inflate(R.layout.meetingclientcardnew,null);
+                builder.setView(v);
+                AlertDialog alertDialog=builder.create();
+                alertDialog.show();
+                SearchableSpinner searchableSpinner=v.findViewById(R.id.searchablespinner);
+                MaterialCardView schedule=v.findViewById(R.id.schedulecard);
+                //called apis
+                Call<ArrayList<Customer>> call= Apicontrollerflaxen.getInstance().getapi().getleads();
+                call.enqueue(new Callback<ArrayList<Customer>>() {
+                    @Override
+                    public void onResponse(Call<ArrayList<Customer>> call, Response<ArrayList<Customer>> response)
+                    {leads=response.body();
+
+                        leads1=new ArrayList<>();
+                        for(int i=0;i<leads.size();i++)
+                        { cc.add(leads.get(i));
+
+                            leads1.add(leads.get(i).getName());
+                            //System.out.println(leads1.get(i));
+
+                        }
+
+
+
+
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<ArrayList<Customer>> call, Throwable t) {
+
+                    }
+
+
+                });
+                Call<ArrayList<Customer>> call4 = Apicontrollerflaxen.getInstance().getapi().getleadsCustomer();
+                call4.enqueue(new Callback<ArrayList<Customer>>()
+                {
+                    @Override
+                    public void onResponse(Call<ArrayList<Customer>> call4, Response<ArrayList<Customer>> response) {
+                        followup1 = response.body();
+
+                        for (int i = 0; i < followup1.size(); i++) {
+                            cc.add(followup1.get(i));
+                            leads1.add(followup1.get(i).getName());
+
+
+                        }
+
+                        ArrayAdapter<String> adapter = new ArrayAdapter<String>(SalesMeetActivity.this, android.R.layout.simple_spinner_item, leads1);
+                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        searchableSpinner.setAdapter(adapter);
+
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<ArrayList<Customer>> call, Throwable t)
+                    {
+
+                    }
+                });
+                schedule.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view)
+                    {Call<JsonArray> call4=Apicontrollerflaxen.getInstance().getapi().insertmeeting(1,cc.get(searchableSpinner.getSelectedItemPosition()).getId(),cc.get(searchableSpinner.getSelectedItemPosition()).getName().toString(),"hello sparsh bhaiyya");
+                        call4.enqueue(new Callback<JsonArray>() {
+                            @Override
+                            public void onResponse(Call<JsonArray> call, Response<JsonArray> response) {
+                                Toast.makeText(SalesMeetActivity.this, "success", Toast.LENGTH_SHORT).show();
+                                Intent intent1 = new Intent(SalesMeetActivity.this, SalesMeetActivity.class);
+                                intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent1);
+                                alertDialog.dismiss();
+                            }
+
+                            @Override
+                            public void onFailure(Call<JsonArray> call, Throwable t)
+                            {
+                                System.out.println(t);
+
+                            }
+                        });
+                    }
+                });
+
+
+
+
+
+
+    }
 }
+

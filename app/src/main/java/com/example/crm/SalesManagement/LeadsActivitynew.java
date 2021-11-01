@@ -26,7 +26,7 @@ public class LeadsActivitynew extends AppCompatActivity {
    private RecyclerView recyclerView;
    private ArrayList<Customer> leads;
    RecyclerViewAdapterleads recyclerViewAdapterclient;
-
+    ArrayList<Customer> leads1;
 @RequiresApi(api = Build.VERSION_CODES.M)
 @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +41,15 @@ public class LeadsActivitynew extends AppCompatActivity {
             @Override
             public void onResponse(Call<ArrayList<Customer>> call, Response<ArrayList<Customer>> response)
             {leads=response.body();
-            ArrayList<Customer> leads1=new ArrayList<>();
+  leads1=new ArrayList<>();
             for(int i=0;i<leads.size();i++)
             {
-                if(leads.get(i).getRemark().toString().equals("Lead"))
+                System.out.println(response.body().get(i).getRemark());
+                if(leads.get(i).getRemark().equals("Lead"))
                 {
                     leads1.add(leads.get(i));
+                    System.out.println(leads.get(i).getName());
+
                 }
 
             }

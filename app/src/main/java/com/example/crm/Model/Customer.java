@@ -6,12 +6,59 @@ public class Customer implements Serializable {
 
     int id;
     String name, domain, sub_domain, package_name, package_value, source, mail_id, phone, gender, state, city, address, priority, status, remark;
-    String callcount;    String proposal, invoice;
+    String callcount;
+    String date;
+    String time;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    String amount_paid;
+
+
+    public String getAmount_paid() {
+        return amount_paid;
+    }
+
+    public void setAmount_paid(String amount_paid) {
+        this.amount_paid = amount_paid;
+    }
+
+    public String getTotal_amount()
+    {
+        return total_amount;
+    }
+
+    public void setTotal_amount(String total_amount) {
+        this.total_amount = total_amount;
+    }
+
+    String total_amount;    String proposal, invoice,duration;
 
     public String getPhone() {
         return phone;
     }
 
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
 //    public String getEndodedpdf() {
 
     public String getInvoice() {

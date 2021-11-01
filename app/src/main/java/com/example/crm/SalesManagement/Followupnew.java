@@ -43,7 +43,7 @@ public class Followupnew extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_followupnew);
-        tab = findViewById(R.id.tab);
+        tab = findViewById(R.id.tab22);
         recyclerView = findViewById(R.id.recycler69);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         ArrayList<Customer> follow;
@@ -74,86 +74,99 @@ public class Followupnew extends AppCompatActivity {
 
             }
         });
-        ItemTouchHelper.SimpleCallback simplecallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT|ItemTouchHelper.LEFT)
-        {
-            @Override
-            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-                return false;
-            }
+        RecyclerViewAdapterFollowup.ViewHolder viewHolder3 = new RecyclerViewAdapterFollowup.ViewHolder(recyclerView);
+        if(followup.size()==0||followup.get(viewHolder3.getAdapterPosition()+1).getRemark().equals("Follow up")) {
 
-            @Override
-            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder1, int direction)
-            {
-                RecyclerViewAdapterFollowup.ViewHolder viewHolder = new RecyclerViewAdapterFollowup.ViewHolder(recyclerView);
-                if (followup.get(viewHolder.getAdapterPosition()+1).getRemark().equals("Follow up")) {
-                    Customer customer1 = followup.get(viewHolder.getAdapterPosition() + 1);
+            ItemTouchHelper.SimpleCallback simplecallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
+                @Override
+                public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                    return false;
+                }
+
+                @Override
+                public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder1, int direction) {
+                    RecyclerViewAdapterFollowup.ViewHolder viewHolder = new RecyclerViewAdapterFollowup.ViewHolder(recyclerView);
+                    if (followup.size()!=0&&followup.get(viewHolder.getAdapterPosition() + 1).getRemark().equals("Follow up")) {
+                        Customer customer1 = followup.get(viewHolder.getAdapterPosition() + 1);
 //            Customer customer=followup3.get(viewHolder.getAdapterPosition()+1);
-                    if (direction == ItemTouchHelper.RIGHT) {
-                        if (customer1.getRemark().equals("Follow up")) {
-                            customer1.setRemark("Client");
-                            Call<Customer> call = Apicontrollerflaxen.getInstance().getapi().updateLeads(customer1.getId(), customer1.getRemark());
-                            call.enqueue(new Callback<Customer>() {
-                                @Override
-                                public void onResponse(Call<Customer> call, Response<Customer> response) {
-                                    Intent intent = new Intent(Followupnew.this, Followupnew.class);
-                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                    startActivity(intent);
-                                    // recyclerViewAdapterfollowup.notifyItemRemoved(customer1.getId());
-                                    // recyclerView.notify();
-
-
-                                    CustomToast.makeText(Followupnew.this, " Added to clients", Toast.LENGTH_SHORT, R.color.red);
-
-                                }
-
-                                @Override
-                                public void onFailure(Call<Customer> call, Throwable t) {
-                                    CustomToast.makeText(Followupnew.this, "not updated", Toast.LENGTH_LONG, R.color.red);
-
-                                }
-                            });
-
-
-                        }
-
-
-                    }
-                    else
-                    {
+                        if (direction == ItemTouchHelper.RIGHT) {
                             if (customer1.getRemark().equals("Follow up")) {
-                            customer1.setRemark("In future");
-                            Call<Customer> call = Apicontrollerflaxen.getInstance().getapi().updateLeads(customer1.getId(), customer1.getRemark());
-                            call.enqueue(new Callback<Customer>() {
-                                @Override
-                                public void onResponse(Call<Customer> call, Response<Customer> response) {
-                                    Intent intent = new Intent(Followupnew.this, Followupnew.class);
-                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                    startActivity(intent);
-                                    // recyclerViewAdapterfollowup.notifyItemRemoved(customer1.getId());
-                                    // recyclerView.notify();
+                                customer1.setRemark("Client");
+                                Call<Customer> call = Apicontrollerflaxen.getInstance().getapi().updateLeads(customer1.getId(), customer1.getRemark());
+                                call.enqueue(new Callback<Customer>() {
+                                    @Override
+                                    public void onResponse(Call<Customer> call, Response<Customer> response) {
+                                        Intent intent = new Intent(Followupnew.this, Followupnew.class);
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        startActivity(intent);
+                                        // recyclerViewAdapterfollowup.notifyItemRemoved(customer1.getId());
+                                        // recyclerView.notify();
 
 
-                                    CustomToast.makeText(Followupnew.this, " updated", Toast.LENGTH_SHORT, R.color.red);
+                                        CustomToast.makeText(Followupnew.this, " Added to clients", Toast.LENGTH_SHORT, R.color.red);
 
-                                }
+                                    }
 
-                                @Override
-                                public void onFailure(Call<Customer> call, Throwable t) {
-                                    CustomToast.makeText(Followupnew.this, "not updated", Toast.LENGTH_LONG, R.color.red);
+                                    @Override
+                                    public void onFailure(Call<Customer> call, Throwable t) {
+                                        CustomToast.makeText(Followupnew.this, "not updated", Toast.LENGTH_LONG, R.color.red);
 
-                                }
-                            });
+                                    }
+                                });
+
+                                Call<Customer> call7 = Apicontrollerflaxen.getInstance().getapi().insertclient(customer1.getId());
+                                call7.enqueue(new Callback<Customer>() {
+                                    @Override
+                                    public void onResponse(Call<Customer> call, Response<Customer> response) {
+                                        Toast.makeText(Followupnew.this, "success", Toast.LENGTH_SHORT).show();
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<Customer> call, Throwable t) {
+
+                                    }
+                                });
+
+                            }
+
+
+                        } else {
+                            if (customer1.getRemark().equals("Follow up")) {
+                                customer1.setRemark("In future");
+                                Call<Customer> call = Apicontrollerflaxen.getInstance().getapi().updateLeads(customer1.getId(), customer1.getRemark());
+                                call.enqueue(new Callback<Customer>() {
+                                    @Override
+                                    public void onResponse(Call<Customer> call, Response<Customer> response) {
+                                        Intent intent = new Intent(Followupnew.this, Followupnew.class);
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        startActivity(intent);
+                                        // recyclerViewAdapterfollowup.notifyItemRemoved(customer1.getId());
+                                        // recyclerView.notify();
+
+
+                                        CustomToast.makeText(Followupnew.this, "updated", Toast.LENGTH_SHORT, R.color.red);
+
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<Customer> call, Throwable t) {
+                                        CustomToast.makeText(Followupnew.this, "not updated", Toast.LENGTH_LONG, R.color.red);
+
+                                    }
+                                });
+
+
+                            }
 
 
                         }
-
-
                     }
                 }
-            }
-        };
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simplecallback);
-        itemTouchHelper.attachToRecyclerView(recyclerView);
+            };
+            ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simplecallback);
+            itemTouchHelper.attachToRecyclerView(recyclerView);
+        }
+
 
         recyclerViewAdapterfollowup = new RecyclerViewAdapterFollowup(Followupnew.this, followup);
         recyclerView.setAdapter(recyclerViewAdapterfollowup);
@@ -179,9 +192,6 @@ public class Followupnew extends AppCompatActivity {
 
 
                             System.out.println("test");
-//                            ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simplecallback);
-//                            itemTouchHelper.attachToRecyclerView(recyclerView);
-
 
                         recyclerViewAdapterleads = new RecyclerViewAdapterFollowup2(Followupnew.this, followup3);
                             recyclerView.setAdapter(recyclerViewAdapterleads);

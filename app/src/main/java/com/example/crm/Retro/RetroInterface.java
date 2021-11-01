@@ -8,7 +8,8 @@ import com.example.crm.Model.QuestionPaper;
 import com.example.crm.Model.Report;
 import com.example.crm.Model.TestResponse;
 import com.example.crm.Model.UpcomingCustomer;
-import com.example.crm.leadsname;
+import com.example.crm.SalesManagement.Callsinfo;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
@@ -101,18 +102,35 @@ public interface RetroInterface {
     Call<JsonObject> insertpayment(@Query("lid") int lid,@Query("sid") int sid,@Query("amount") String amount,@Query("mode") String mode);
 @POST("insertcall.php")
 Call<JsonObject> insertcall(@Query("lid") int lid,@Query("sid") int sid,@Query("duration") String duration);
+@GET("getreport.php")
+Call<ArrayList<Callsinfo>> getReport(@Query("sid") int sid);
+@GET("getcallbydate.php")
+Call<ArrayList<Customer>> getcallbydate(@Query("sid") int sid,@Query("date") String date);
+@GET("getclientcallbydate.php")
+Call<ArrayList<Customer>> getclientcallbydate(@Query("sid") int sid,@Query("date") String date);
+@GET("getpaymentbydate.php")
+Call<ArrayList<Customer>> getpaymentbydate(@Query("date") String date);
+@POST("insertmeeting.php")
+Call<JsonArray> insertmeeting(@Query("Sid") int Sid, @Query("Lid") int Lid,@Query("name") String name, @Query("title") String title);
+
     @POST("insertleave.php")
     Call<JsonObject> insertleave(@Query("emp_id") int emp_id,@Query("date") String date,@Query("type") String type,@Query("message") String message);
-    @GET("getleads.php")
-    Call<ArrayList<leadsname>> getleads();
+    @GET("getclient.php")
+    Call<ArrayList<Customer>> getleads();
     @GET("getleads.php")
     Call<ArrayList<Customer>> getleadsCustomer();
+    @GET("getmeeting.php")
+    Call<ArrayList<Customer>> getmeeting();
     @PUT("resetcall.php")
     Call<Customer> updatecall(@Query("id")int id);
 @PUT("uploadproposal.php")
 Call<ResponsePOJO> uploadProposal(@Body Customer c);
     @PUT("uploadinvoice.php")
     Call<ResponsePOJO> uploadinvoice(@Body Customer c);
+    @PUT("updateamount.php")
+    Call<Customer> updateamount(@Query("lid") int id,@Query("amount") String amount);
+    @POST("insertclient.php")
+    Call<Customer> insertclient(@Query("lid") int id);
 
     @PUT("updateleads.php")
     Call<Customer> updateLeads(@Query("id")int id,@Query("remark") String remark);

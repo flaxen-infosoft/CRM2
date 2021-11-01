@@ -7,26 +7,42 @@
         <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/activity_eodnew.xml" value="0.16197916666666667" />
         <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/activity_followupnew.xml" value="0.12777777777777777" />
         <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/activity_historynew.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/activity_leads_activitynew.xml" value="0.16197916666666667" />
+        <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/activity_leads_activitynew.xml" value="0.22" />
         <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/activity_leave_application_new.xml" value="0.16197916666666667" />
         <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/activity_pdf_viewer.xml" value="0.16197916666666667" />
+        <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/activity_report_detailnew.xml" value="0.12" />
         <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/activity_report_fabnew.xml" value="0.14791666666666667" />
         <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/activity_reportnew.xml" value="0.16197916666666667" />
         <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/activity_sales_meet.xml" value="0.16197916666666667" />
+        <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/activity_salesdashboardnew.xml" value="0.16197916666666667" />
         <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/activity_send_proposal.xml" value="0.22" />
-        <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/activity_sendnvoice.xml" value="0.1" />
+        <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/activity_sendnvoice.xml" value="0.22" />
+        <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/activity_start_sales_meeting_new.xml" value="0.16197916666666667" />
+        <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/activity_your_tasknew.xml" value="0.16197916666666667" />
         <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/callformnew.xml" value="0.1" />
+        <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/cardview_ofsales_lead_meet.xml" value="0.16197916666666667" />
         <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/clientscardnew.xml" value="0.16197916666666667" />
         <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/customalertdialog.xml" value="0.16197916666666667" />
         <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/followupcardnew.xml" value="0.22" />
+        <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/fragment_aptitude_test.xml" value="0.16197916666666667" />
+        <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/fragment_record.xml" value="0.16197916666666667" />
+        <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/fragment_record_audio.xml" value="0.16197916666666667" />
+        <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/fragment_record_audio2.xml" value="0.12" />
+        <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/fragment_record_audio_list.xml" value="0.13333333333333333" />
         <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/historycardnew.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/leadscardnew.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/meetingclientcardnew.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/new_eod.xml" value="0.16197916666666667" />
         <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/paymentalertdialog.xml" value="0.16197916666666667" />
-        <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/reportcardnew.xml" value="0.16197916666666667" />
+        <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/paymentemptycard.xml" value="0.16197916666666667" />
+        <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/recordlistcard.xml" value="0.22" />
+        <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/reportcardnew.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/reportdetailnewcard.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/sendproposaldialog.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/totalpaymentsend.xml" value="0.16197916666666667" />
         <entry key="..\:/Users/aayus/AndroidStudioProjects/CRM2/app/src/main/res/layout/webmail.xml" value="0.1" />
+        <entry key="..\:/Users/aayus/AppData/Local/Android/Sdk/platforms/android-30/data/res/layout/simple_spinner_item.xml" value="0.16197916666666667" />
       </map>
     </option>
   </component>

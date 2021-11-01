@@ -31,17 +31,18 @@ public class Clientnew extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         ArrayList<Customer> follow;
        ArrayList<Customer> followup = new ArrayList<>();
-        Call<ArrayList<Customer>> call = Apicontrollerflaxen.getInstance().getapi().getleadsCustomer();
+        Call<ArrayList<Customer>> call = Apicontrollerflaxen.getInstance().getapi().getleads();
         call.enqueue(new Callback<ArrayList<Customer>>() {
             @Override
             public void onResponse(Call<ArrayList<Customer>> call, Response<ArrayList<Customer>> response) {
                 followup1 = response.body();
                 //ArrayList<Customer> leads1=new ArrayList<>();
                 for (int i = 0; i < followup1.size(); i++) {
-                    if (followup1.get(i).getRemark().toString().equals("Client")) {
+
                         followup.add(followup1.get(i));
+
                        //  System.out.println(followup.get(i).getInvoice());
-                    }
+                    
                     //  System.out.println(followup.get(i).getName());
 
                 }
